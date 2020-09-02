@@ -1,0 +1,28 @@
+// ブレイクポイント
+$breakpoints: (
+  'sp': 'screen and (max-width: 768px)',
+  'tab': 'screen and (max-width: 1200px)',
+) !default;
+
+// メディアクエリ呼び出し
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+//色
+$red: #FF7763;
+$blue: #3FBFFF;
+$green: #4FDF4B;
+$gray: #b8b8b8;
+$gold: #cdb47b;
+$light_gold: rgba(205,180,123,0.5);
+$dark_gold: #b09558;
+
+//フォントサイズ
+$fontXS: 14px;
+$fontS: 16px;
+$fontM: 18px;
+$fontL: 20px;
+$fontXL: 28px;

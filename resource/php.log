@@ -1,0 +1,172 @@
+[31-Aug-2020 13:28:43 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:28:43 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:28:43 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:28:43 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:28:43 Europe/Berlin] debug：「　ログインページ 「
+[31-Aug-2020 13:28:43 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:28:43 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:28:43 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:28:43 Europe/Berlin] debug：現在日時タイムスタンプ：1598873323
+[31-Aug-2020 13:28:43 Europe/Berlin] debug：Array
+(
+)
+
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：「　ログインページ 「
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：現在日時タイムスタンプ：1598873357
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：Array
+(
+)
+
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：POST送信があります。
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：post内容:Array
+(
+    [email] => test@test
+    [password] => test12
+)
+
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：バリデーションOK
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Notice:  Undefined index: host in C:\xampp3\htdocs\resource\db_connect.php on line 7
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Notice:  Undefined index: user in C:\xampp3\htdocs\resource\db_connect.php on line 8
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Notice:  Undefined index: pass in C:\xampp3\htdocs\resource\db_connect.php on line 9
+[31-Aug-2020 13:29:17 Europe/Berlin] エラー発生:SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：ログイン失敗
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：Array
+(
+    [type] => flash_error
+    [message] => エラーが発生しました。しばらく経ってからやり直してください。
+)
+
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：/resource/login_form.php
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:17 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:17 Europe/Berlin] debug：「　ログインページ 「
+[31-Aug-2020 13:29:18 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:18 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:29:18 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:29:18 Europe/Berlin] debug：現在日時タイムスタンプ：1598873358
+[31-Aug-2020 13:29:18 Europe/Berlin] debug：Array
+(
+)
+
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：「　ログインページ 「
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：現在日時タイムスタンプ：1598873368
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：Array
+(
+)
+
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：POST送信があります。
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：post内容:Array
+(
+    [email] => test@test
+    [password] => test12
+)
+
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：バリデーションOK
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Notice:  Undefined index: host in C:\xampp3\htdocs\resource\db_connect.php on line 7
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Notice:  Undefined index: user in C:\xampp3\htdocs\resource\db_connect.php on line 8
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Notice:  Undefined index: pass in C:\xampp3\htdocs\resource\db_connect.php on line 9
+[31-Aug-2020 13:29:28 Europe/Berlin] エラー発生:SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：ログイン失敗
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：Array
+(
+    [type] => flash_error
+    [message] => エラーが発生しました。しばらく経ってからやり直してください。
+)
+
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：/resource/login_form.php
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:29:28 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：「　ログインページ 「
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：現在日時タイムスタンプ：1598873368
+[31-Aug-2020 13:29:28 Europe/Berlin] debug：Array
+(
+)
+
+[31-Aug-2020 13:31:12 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:31:12 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:31:12 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:31:12 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:31:12 Europe/Berlin] debug：「　ログインページ 「
+[31-Aug-2020 13:31:12 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:31:12 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:31:12 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:31:12 Europe/Berlin] debug：現在日時タイムスタンプ：1598873472
+[31-Aug-2020 13:31:12 Europe/Berlin] debug：Array
+(
+)
+
+[31-Aug-2020 13:31:18 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:31:18 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:31:18 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:31:18 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:31:18 Europe/Berlin] debug：「　新規登録ページ 「
+[31-Aug-2020 13:31:18 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:31:18 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:31:18 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:31:18 Europe/Berlin] debug：現在日時タイムスタンプ：1598873478
+[31-Aug-2020 13:31:35 Europe/Berlin] PHP Warning:  session_start(): open(C:/var/tmp\sess_bq05v2um07td099ohla753o0of, O_RDWR) failed: No such file or directory (2) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:31:35 Europe/Berlin] PHP Warning:  session_start(): Failed to read session data: files (path: C:/var/tmp) in C:\xampp3\htdocs\resource\config.php on line 44
+[31-Aug-2020 13:31:35 Europe/Berlin] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - session is not active in C:\xampp3\htdocs\resource\config.php on line 46
+[31-Aug-2020 13:31:35 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:31:35 Europe/Berlin] debug：「　新規登録ページ 「
+[31-Aug-2020 13:31:35 Europe/Berlin] debug：「「「「「「「「「「「
+[31-Aug-2020 13:31:35 Europe/Berlin] debug：セッションID：
+[31-Aug-2020 13:31:35 Europe/Berlin] debug：セッション変数の中身：Array
+(
+)
+
+[31-Aug-2020 13:31:35 Europe/Berlin] debug：現在日時タイムスタンプ：1598873495
+[31-Aug-2020 13:31:35 Europe/Berlin] debug：POST送信があります。
+[31-Aug-2020 13:31:35 Europe/Berlin] PHP Notice:  Undefined index: host in C:\xampp3\htdocs\resource\db_connect.php on line 7
+[31-Aug-2020 13:31:35 Europe/Berlin] PHP Notice:  Undefined index: user in C:\xampp3\htdocs\resource\db_connect.php on line 8
+[31-Aug-2020 13:31:35 Europe/Berlin] PHP Notice:  Undefined index: pass in C:\xampp3\htdocs\resource\db_connect.php on line 9
+[31-Aug-2020 13:31:35 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected in C:\xampp3\htdocs\resource\functions.php:12
+Stack trace:
+#0 C:\xampp3\htdocs\resource\functions.php(12): PDOStatement->execute(Array)
+#1 C:\xampp3\htdocs\resource\functions.php(50): check_email_duplicate('karirin@karirin')
+#2 C:\xampp3\htdocs\resource\signup_process.php(8): valid_email('karirin@karirin')
+#3 C:\xampp3\htdocs\resource\signup_form.php(20): require_once('C:\\xampp3\\htdoc...')
+#4 {main}
+  thrown in C:\xampp3\htdocs\resource\functions.php on line 12
