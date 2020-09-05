@@ -8,7 +8,7 @@
 require_once('db_connect.php');
 require_once('functions.php');
 
-error_reporting(E_ALL); //E_STRICTレベル以外のエラーを報告する
+error_reporting(E_ALL); //すべてのエラーを表示する
 ini_set('display_errors','On'); //画面にエラーを表示させるか
 
 //================================
@@ -50,7 +50,7 @@ session_regenerate_id();
 //================================
 function debugLogStart(){
   debug('セッションID：'.session_id());
-  debug('セッション変数の中身：'.print_r($_SESSION,true));
+  debug('セッション変数の中身：'.print_r($_SESSION,true));  
   debug('現在日時タイムスタンプ：'.time());
   if(!empty($_SESSION['login_date']) && !empty($_SESSION['login_limit'])){
     debug( 'ログイン期限日時タイムスタンプ：'.( $_SESSION['login_date'] + $_SESSION['login_limit'] ) );

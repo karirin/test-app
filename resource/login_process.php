@@ -2,6 +2,7 @@
 $email = $_POST['email'];
 $password = $_POST['password'];
 $pass_save = (isset($_POST['pass_save'])) ? true : false;
+//pass_saveに値が入っていれば、$pass_saveにtureを返す
 
 // メールのバリデーション
 if( empty($email) ){

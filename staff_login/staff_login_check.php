@@ -31,6 +31,30 @@ $dbh=null; //??
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 //fetchメソッドは引数にデータの取り出し方のオプションを決める
 
+ function set_flash($type,$message){
+	$_SESSION['flash']['type'] = "flash_${type}";
+	$_SESSION['flash']['message'] = $message;
+}
+
+if(empty($staff_code)){
+	$error_messages = "コードを入力してください";
+  }
+ //　コードのバリデーション
+
+if (empty($staff_pass)) {
+	$error_messages = "パスワードを入力してください";
+  }
+ // パスワードのバリデーション
+
+set_flash('error',$error_messages);
+
+if( isset($_SESSION['flash']) ){
+	$flash_messages = $_SESSION['flash']['message'];
+	$flash_type = $_SESSION['flash']['type'];
+  }
+  unset($_SESSION['flash']);
+
+
 if($rec==false) //??
 {
 	print 'スタッフコードかパスワードが間違っています。<br />';
@@ -42,10 +66,10 @@ else
 	$_SESSION['login']=1;//??
 	$_SESSION['staff_code']=$staff_code;
 	$_SESSION['staff_name']=$rec['name'];//??
-	header('Location:staff_top.php');
+	header('Location:staff_login.php');
 	//headerとは指定のパスへ飛ぶ命令ができる
 	exit();
-}
+ }
 
 }
 catch(Exception $e)

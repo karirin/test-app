@@ -36,6 +36,7 @@ require_once('head.php');
     <div class="form_inner">
       <span class="flash_cursor">｝</span>
       <form action="#" method="post">
+      <!--#はlogin_form.phpを指す-->
         <input id="email" type="email" name="email" placeholder="メールアドレス">
         <input id="password" type="password" name="password" placeholder="パスワード"><br>
         <label id="pass_save" for="checkbox">
