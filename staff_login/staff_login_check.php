@@ -8,25 +8,26 @@ $staff_pass=$_POST['pass'];
 $staff_code=htmlspecialchars($staff_code,ENT_QUOTES,'UTF-8');
 $staff_pass=htmlspecialchars($staff_pass,ENT_QUOTES,'UTF-8');
 
+$error_messages = array();
+
+if(empty($staff_code)){
+	$error_messages['code'] = "コードを入力してください";
+  }
+//　コードのバリデーション
+
+if(empty($staff_pass)) {
+	$error_messages['pass'] = "パスワードを入力してください";
+  }
+// パスワードのバリデーション
+
 $staff_pass=md5($staff_pass);
+//md5でハッシュ化すると空でもemptyにならないので注意
 
 if( isset($_SESSION['flash']) ){
 	$flash_messages = $_SESSION['flash']['message'];
 	$flash_type = $_SESSION['flash']['type'];
   }
   unset($_SESSION['flash']);
-
-$error_messages = array();
-
-if(empty($staff_code)){
-	$error_messages['code'] = "コードを入力してください";
-  }
- //　コードのバリデーション
-
-if(empty($staff_pass)) {
-	$error_messages['pass'] = "パスワードを入力してください";
-  }
- // パスワードのバリデーション
 
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -53,7 +54,7 @@ $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 	$_SESSION['flash']['message'] = $message;
 }
 
-if($rec==false)
+if($rec==false && empty($error_messages['code']))
 {
 
 	$error_messages[] = 'スタッフコードかパスワードが間違っています。';
@@ -76,5 +77,8 @@ catch(Exception $e)
 }
 
 set_flash('error',$error_messages);
+
+ var_dump($error_messages);
+//  exit();
 
 ?>

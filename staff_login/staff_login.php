@@ -5,7 +5,6 @@ session_regenerate_id(true);
 if(!empty($_POST)){
   require_once('staff_login_check.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html>
