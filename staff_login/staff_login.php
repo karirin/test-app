@@ -1,3 +1,12 @@
+<?php
+session_start();
+session_regenerate_id(true);
+
+if(!empty($_POST)){
+  require_once('staff_login_check.php');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,21 +15,12 @@
 </head>
 <body>
 スタッフログイン<br />
- 
-<?php
-  if(!empty($_POST)){
-  require_once('staff_login_check.php');
-}
-?>
-
 <?php if (isset($flash_messages)): ?>
       <?php foreach ((array)$flash_messages as $message): ?>
         <p class ="flash_message <?= $flash_type ?>"><?= $message?></p>
       <?php endforeach ?>
 <?php endif ?>
-
 <br />
-
 <form method="post"action="#">
 スタッフコード<br />
 <input type="text" name="code"><br />

@@ -15,8 +15,7 @@ print'ようこそ、coffeeaappへ';
 }
 else
 {
-require_once("../staff/staff_disp.php");
-//require_onceだとマイページを指定して表示できない、ほかの方法がないか模索中
+require_once("../staff/staff_mypage.php");
 }
 ?>
 </body>
