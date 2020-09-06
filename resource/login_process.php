@@ -54,6 +54,7 @@ if(empty($error_messages)){
   }
 }
 set_flash('error',$error_messages);
+//$error_messagesの値をもとにset_flashの内容を決定する
 
 debug('ログイン失敗');
 debug(print_r($_SESSION['flash'],true));

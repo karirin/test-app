@@ -54,9 +54,8 @@ $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 	$_SESSION['flash']['message'] = $message;
 }
 
-if($rec==false && empty($error_messages['code']))
+if($rec==false && !empty($staff_code) && !empty($staff_pass))
 {
-
 	$error_messages[] = 'スタッフコードかパスワードが間違っています。';
 }
 else

@@ -19,6 +19,8 @@ if(isset($_POST)){
     echo json_encode($return);
    exit();
   }
+ //$error_messages['name']がtrueであればflash_typeにflash_errorを返す
+
   // バリデーション
   if(valid_length($comment_data,100)){
     $return = array('flash_type' => 'flash_error',
