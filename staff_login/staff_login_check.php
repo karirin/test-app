@@ -51,7 +51,7 @@ else
 	$_SESSION['login']=1;//??
 	$_SESSION['staff_code']=$staff_code;
 	$_SESSION['staff_name']=$rec['name'];
-//	set_flash('sucsess','ログインしました');
+	set_flash('sucsess','ログインしました');
 	header('Location:staff_top.php');
 	//headerとは指定のパスへ飛ぶ命令ができる
 	exit();

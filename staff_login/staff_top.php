@@ -8,6 +8,7 @@ require_once('../header.php');
 <title>coffeeapp</title>
 </head>
 <body>
+<?php require_once('../config.php');?>
 <?php
 if(isset($_SESSION['login'])==false)
 {
