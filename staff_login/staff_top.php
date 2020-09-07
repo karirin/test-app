@@ -15,7 +15,6 @@ print'ようこそ、coffeeaappへ';
 }
 else
 {
-    var_dump($rec['name']);
 require_once("../staff/staff_mypage.php");
 }
 ?>

@@ -13,6 +13,7 @@ if(!empty($_POST)){
 <title>新規登録</title>
 </head>
 <body>
+<?php require_once('../config.php'); ?>
 スタッフログイン<br />
 <?php if (isset($flash_messages)): ?>
       <?php foreach ((array)$flash_messages as $message): ?>

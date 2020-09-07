@@ -1,4 +1,5 @@
 <?php
+require_once('../function.php');
 try
 {
 
@@ -7,8 +8,6 @@ $staff_pass=$_POST['pass'];
 
 $staff_code=htmlspecialchars($staff_code,ENT_QUOTES,'UTF-8');
 $staff_pass=htmlspecialchars($staff_pass,ENT_QUOTES,'UTF-8');
-
-$error_messages = array();
 
 if(empty($staff_code)){
 	$error_messages['code'] = "コードを入力してください";
@@ -22,12 +21,6 @@ if(empty($staff_pass)) {
 
 $staff_pass=md5($staff_pass);
 //md5でハッシュ化すると空でもemptyにならないので注意
-
-if( isset($_SESSION['flash']) ){
-	$flash_messages = $_SESSION['flash']['message'];
-	$flash_type = $_SESSION['flash']['type'];
-  }
-  unset($_SESSION['flash']);
 
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -49,20 +42,16 @@ $dbh=null; //??
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 //fetchメソッドは引数にデータの取り出し方のオプションを決める
 
- function set_flash($type,$message){
-	$_SESSION['flash']['type'] = "flash_${type}";
-	$_SESSION['flash']['message'] = $message;
-}
-
-if($rec==false && !empty($staff_code) && !empty($staff_pass))
+if($rec==false)
 {
-	$error_messages[] = 'スタッフコードかパスワードが間違っています。';
+	$error_messages[] = '';
 }
 else
 {
 	$_SESSION['login']=1;//??
 	$_SESSION['staff_code']=$staff_code;
 	$_SESSION['staff_name']=$rec['name'];
+//	set_flash('sucsess','ログインしました');
 	header('Location:staff_top.php');
 	//headerとは指定のパスへ飛ぶ命令ができる
 	exit();
@@ -76,8 +65,5 @@ catch(Exception $e)
 }
 
 set_flash('error',$error_messages);
-
- var_dump($error_messages);
-//  exit();
 
 ?>
