@@ -1,22 +1,12 @@
 <?php
 session_start();
+require_once('../config.php');
 $_SESSION=array();
 if(isset($_COOKIE[session_name()])==true)
 {
     setcookie(session_name(),'',time()-42000,'/');
 }
 session_destroy();
+set_flash('danger','ログアウトしました');
+header('Location:staff_top.php');
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ろくまる農園</title>
-</head>
-<body>
-ログアウトしました。<br />
-<br />
-<a href="../staff_login/staff_top.php">トップ画面へ</a>
-
-</body>
-</html>

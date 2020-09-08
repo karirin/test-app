@@ -240,6 +240,7 @@ function get_post_favorite_count($post_id){
 }
 
 // ユーザーの投稿を取得する
+//お気に入り登録とフォロー機能を実装してから実装
 function get_posts($page_id,$type,$offset_count=0){
   debug(($offset_count + 1).'~'.($offset_count + 10).'件目のユーザー投稿を取得します');
   global $current_user;

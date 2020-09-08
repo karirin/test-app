@@ -316,6 +316,8 @@ $(function(){
         $profile_count = $('.profile_count + .favorite > a > .count_num'),
         page_id = get_param('page_id'),
         post_id = $this.prev().val();
+        //prev()は$thisの直前にあるhtml要素を取得する
+        //val()は取得したいhtml要素のval値を取得する
 
     $.ajax({
         type: 'POST',

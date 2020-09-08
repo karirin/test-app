@@ -52,7 +52,7 @@ else
 	$_SESSION['staff_code']=$staff_code;
 	$_SESSION['staff_name']=$rec['name'];
 	set_flash('sucsess','ログインしました');
-	header('Location:staff_top.php');
+	header('Location:staff_top.php?staff_code='.$staff_code.'');
 	//headerとは指定のパスへ飛ぶ命令ができる
 	exit();
  }
