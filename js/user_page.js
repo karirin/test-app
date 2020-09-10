@@ -5,8 +5,8 @@ $(document).on('click','.favorite_btn',function(e){
         page_id = get_param('page_id'),
         post_id = $this.prev().val();
         //prev()は$thisの直前にあるhtml要素を取得する
-        //val()は取得したいhtml要素のval値を取得する
-
+        //val()は取得したいhtml要素のvalue値を取得する
+        //page_idはユーザーのID
     $.ajax({
         type: 'POST',
         url: 'ajax_post_favorite_process.php',

@@ -3,9 +3,6 @@ require_once('config.php');
 require_once('auth.php');
 
 if(isset($_POST)){
-  debugLogStart();
-  debug('POST送信があります');
-  debug('POST内容:'.print_r($_POST,true));
 
   $current_user = get_user($_SESSION['user_id']);
 
@@ -41,7 +38,6 @@ if(isset($_POST)){
       echo json_encode($return);
 
     } catch (\Exception $e) {
-      debug("フォロー${action}失敗");
       error_log('エラー発生:' . $e->getMessage());
       set_flash('error',ERR_MSG1);
       echo json_encode("error");
