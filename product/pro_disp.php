@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ろくまる農園</title>
+<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
+<script src="../js/user_page.js"></script>
 </head>
 <body>
 
@@ -73,7 +75,7 @@ catch(Exception $e)
 <?php print '<a href="../product/pro_delete.php?procode='.$pro_code.'">削除</a><br />';?>
       <!-- お気に入りボタン ahaxで処理-->
       <form class="favorite_count" action="#" method="post">
-        <input type="hidden" name="post_id" value="<?= $post['id']?>">
+        <input type="hidden" name="post_id" value="<?= $pro_code ?>">
         <button type="button" name="favorite" class="favorite_btn">お気に入り</button>
 </form>
 <br />

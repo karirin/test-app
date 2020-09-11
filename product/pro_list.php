@@ -1,3 +1,6 @@
+<?php 
+require_once('../header.php'); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +36,9 @@ while(true)
 	{
 		break;
 	}
-	print '<a href="../product/pro_disp.php?procode='.$rec['code'].'"> '.$rec['name'].' </a><br />';
+	print '<a href="../product/pro_disp.php?procode='.$rec['code'].'&page_id='.$_SESSION['staff_code'].'"> '.$rec['name'].' </a><br />';
+	//どうにかしてユーザーIDを取り出す
+	var_dump($_SESSION['staff_code']);
 	print '<br />';
 
 

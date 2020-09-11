@@ -7,6 +7,8 @@ if(isset($_POST)){
 
   $current_user = get_user($_SESSION['code']);
   $page_id = $_POST['page_id'];
+  //page_idはユーザーID
+  
   $post_id = $_POST['post_id'];
 
   $profile_user_id = $_POST['page_id'] ?: $current_user['id'];
