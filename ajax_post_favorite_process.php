@@ -1,14 +1,18 @@
+<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
+<script src="../js/user_page.js"></script>
 <?php
+session_start();
+session_regenerate_id(true);
 require_once('config.php');
-require_once('auth.php');
+//require_once('auth.php');
 
+// $data['debug']=var_export($POST,true);
+// print json_encode($data);
 
 if(isset($_POST)){
 
-  $current_user = get_user($_SESSION['code']);
+  $current_user = get_user($_SESSION['staff_code']);
   $page_id = $_POST['page_id'];
-  //page_idはユーザーID
-  
   $post_id = $_POST['post_id'];
 
   $profile_user_id = $_POST['page_id'] ?: $current_user['id'];
@@ -25,13 +29,12 @@ if(isset($_POST)){
             VALUES(:user_id,:post_id)";
   }
   try{
-    $dbh = dbConnect();
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $current_user['id'] , ':post_id' => $post_id));
-
-    $return = array('profile_count' => current(get_user_count('favorite',$profile_user_id)),
-                    'post_count' => current(get_post_favorite_count($post_id)));
-    echo json_encode($return);
 
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
@@ -39,4 +42,3 @@ if(isset($_POST)){
     echo json_encode("error");
   }
 }
-debug('------------------------------');

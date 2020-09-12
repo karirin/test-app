@@ -6,7 +6,10 @@ function set_flash($type,$message){
 
 function get_user($user_id){
     try {
-      $dbh = dbConnect();
+      $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+      $user='root';
+      $password='';
+      $dbh=new PDO($dsn,$user,$password);
       $sql = "SELECT code,name,password
               FROM mst_staff
               WHERE code = :code AND delete_flg = 0 ";
@@ -21,7 +24,10 @@ function get_user($user_id){
 
 //お気に入りの重複チェック
 function check_favolite_duplicate($user_id,$post_id){
-    $dbh = dbConnect();
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM favorite
             WHERE user_id = :user_id AND post_id = :post_id";

@@ -26,7 +26,7 @@ $stmt->execute();
 
 $dbh=null;
 
-print '投稿一覧<br/><br/>';
+print '<br />投稿一覧<br/><br/>';
 
 print '<form method="post" action="pro_branch.php">';
 while(true)
@@ -37,8 +37,6 @@ while(true)
 		break;
 	}
 	print '<a href="../product/pro_disp.php?procode='.$rec['code'].'&page_id='.$_SESSION['staff_code'].'"> '.$rec['name'].' </a><br />';
-	//どうにかしてユーザーIDを取り出す
-	var_dump($_SESSION['staff_code']);
 	print '<br />';
 
 
