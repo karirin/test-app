@@ -9,16 +9,31 @@ require_once('config.php');
 // $data['debug']=var_export($POST,true);
 // print json_encode($data);
 
+function _debug( $data, $clear_log = false ) {
+	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+	if( $clear_log ){
+	  file_put_contents($uri_debug_file, print_r($data, true));
+	}
+	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+  }
+
+  _debug('', true);
+
+
 if(isset($_POST)){
 
   $current_user = get_user($_SESSION['staff_code']);
   $page_id = $_POST['page_id'];
   $post_id = $_POST['post_id'];
 
+
   $profile_user_id = $_POST['page_id'] ?: $current_user['id'];
 
+  
+
+
   //既に登録されているか確認
-  if(check_favolite_duplicate($current_user['id'],$post_id)){
+  if(check_favolite_duplicate($current_user['code'],$post_id)){
     $action = '解除';
     $sql = "DELETE
             FROM favorite
@@ -34,7 +49,7 @@ if(isset($_POST)){
     $password='';
     $dbh=new PDO($dsn,$user,$password);
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $current_user['id'] , ':post_id' => $post_id));
+    $stmt->execute(array(':user_id' => $current_user['code'] , ':post_id' => $post_id));
 
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
@@ -42,3 +57,5 @@ if(isset($_POST)){
     echo json_encode("error");
   }
 }
+
+_debug($stmt);

@@ -76,7 +76,7 @@ catch(Exception $e)
       <!-- お気に入りボタン ahaxで処理-->
       <form class="favorite_count" action="#" method="post">
         <input type="hidden" name="post_id" value="<?= $pro_code ?>">
-        <input type="radio" name="favorite" class="favorite_btn">お気に入り
+        <button type="button" name="favorite" class="favorite_btn">お気に入り</button>
 </form>
 <br />
 <br />

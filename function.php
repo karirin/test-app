@@ -37,4 +37,5 @@ function check_favolite_duplicate($user_id,$post_id){
     $favorite = $stmt->fetch();
     return $favorite;
 }
+
 ?>
