@@ -9,15 +9,15 @@ require_once('config.php');
 // $data['debug']=var_export($POST,true);
 // print json_encode($data);
 
-function _debug( $data, $clear_log = false ) {
-	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-	if( $clear_log ){
-	  file_put_contents($uri_debug_file, print_r($data, true));
-	}
-	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
-  }
+  // _debug('', true);
 
-  _debug('', true);
+  function _debug( $data, $clear_log = false ) {
+    $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+    if( $clear_log ){
+      file_put_contents($uri_debug_file, print_r($data, true));
+    }
+    file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+    }
 
 
 if(isset($_POST)){
@@ -26,11 +26,7 @@ if(isset($_POST)){
   $page_id = $_POST['page_id'];
   $post_id = $_POST['post_id'];
 
-
   $profile_user_id = $_POST['page_id'] ?: $current_user['id'];
-
-  
-
 
   //既に登録されているか確認
   if(check_favolite_duplicate($current_user['code'],$post_id)){
@@ -43,6 +39,7 @@ if(isset($_POST)){
     $sql = "INSERT INTO favorite(user_id,post_id)
             VALUES(:user_id,:post_id)";
   }
+  _debug($action);
   try{
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';
@@ -58,4 +55,3 @@ if(isset($_POST)){
   }
 }
 
-_debug($stmt);

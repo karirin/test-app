@@ -1,11 +1,19 @@
+<?php
+session_start();
+session_regenerate_id(true);
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ろくまる農園</title>
+<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
+<script src="../js/user_page.js"></script>
 </head>
 <body>
 <?php
+require_once('../function.php');
+$current_user = get_user($_SESSION['staff_code']);
 
 try
 {
@@ -33,6 +41,9 @@ catch(Exception $e)
     print'ただいま障害により大変ご迷惑をおかけしております。';
     exit();
 }
+
+$follow_id = $_SESSION['staff_code']
+
 ?>
 
 スタッフ情報参照<br />
@@ -45,6 +56,18 @@ catch(Exception $e)
 <?php print $staff_name;?>
 <br />
 <br />
+<form action="#" method="post">
+          <input type="hidden" class="profile_user_id">
+          <input type="hidden" name="follow_user_id">
+          <!-- フォロー中か確認してボタンを変える -->
+          <button class="follow_btn">
+          <?php if (check_follow($current_user['code'],$staff_code)): ?>
+            フォロー中
+          <?php else: ?>
+            フォロー
+          <?php endif; ?>
+          </button>
+        </form>
 <form>
 <input type="button" onclick="history.back()"value="戻る">
 </form>

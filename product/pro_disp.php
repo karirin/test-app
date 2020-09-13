@@ -80,7 +80,7 @@ catch(Exception $e)
 <?php print '<a href="../product/pro_delete.php?procode='.$pro_code.'">削除</a><br />';?>
       <!-- お気に入りボタン ahaxで処理-->
       <form class="favorite_count" action="#" method="post">
-        <input type="hidden" name="post_id" value="<?= $pro_code ?>">
+        <input type="hidden" name="post_id">
         <button type="button" name="favorite" class="favorite_btn">
         <!-- 登録済みか判定してアイコンを変える -->
         <?php if (!check_favolite_duplicate($_SESSION['staff_code'],$pro_code)): ?>

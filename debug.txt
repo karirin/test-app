@@ -1,5 +1,0 @@
-PDOStatement Object
-(
-    [queryString] => INSERT INTO favorite(user_id,post_id)
-            VALUES(:user_id,:post_id)
-)
