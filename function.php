@@ -22,6 +22,25 @@ function get_user($user_id){
     }
   }
 
+  function get_user_count($object,$user_id){
+      $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+      $user='root';
+      $password='';
+      $dbh=new PDO($dsn,$user,$password);
+  
+    switch ($object) {
+
+      case 'favorite':
+      $sql ="SELECT COUNT(post_id)
+            FROM favorite
+            WHERE user_id = :id AND delete_flg = 0";
+    }
+  
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $user_id));
+    return $stmt->fetch();
+  }
+
 //お気に入りの重複チェック
 function check_favolite_duplicate($user_id,$post_id){
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
