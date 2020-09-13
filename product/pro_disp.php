@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_regenerate_id(true);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +13,7 @@
 <body>
 
 <?php
+require_once('../config.php');
 
 try
 {
@@ -76,7 +81,16 @@ catch(Exception $e)
       <!-- お気に入りボタン ahaxで処理-->
       <form class="favorite_count" action="#" method="post">
         <input type="hidden" name="post_id" value="<?= $pro_code ?>">
-        <button type="button" name="favorite" class="favorite_btn">お気に入り</button>
+        <button type="button" name="favorite" class="favorite_btn">
+        <!-- 登録済みか判定してアイコンを変える -->
+        <?php if (!check_favolite_duplicate($_SESSION['staff_code'],$pro_code)): ?>
+          いいね
+        <?php else: ?>
+          いいね解除
+        <?php endif; ?>
+        </button>
+        <span class="post_count"><?= current(get_post_favorite_count($pro_code)) ?></span>
+        <!-- currentは引数に入っている配列の現在の値を渡す -->
 </form>
 <br />
 <br />

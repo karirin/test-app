@@ -1,6 +1,5 @@
 PDOStatement Object
 (
-    [queryString] => DELETE
-            FROM favorite
-            WHERE :user_id = user_id AND :post_id = post_id
+    [queryString] => INSERT INTO favorite(user_id,post_id)
+            VALUES(:user_id,:post_id)
 )

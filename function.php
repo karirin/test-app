@@ -38,4 +38,16 @@ function check_favolite_duplicate($user_id,$post_id){
     return $favorite;
 }
 
+function get_post_favorite_count($post_id){
+  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+  $user='root';
+  $password='';
+  $dbh=new PDO($dsn,$user,$password);
+  $sql = "SELECT COUNT(user_id)
+          FROM favorite
+          WHERE post_id = :post_id";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':post_id' => $post_id));
+  return $stmt->fetch();
+}
 ?>
