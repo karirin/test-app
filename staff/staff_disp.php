@@ -13,8 +13,8 @@ session_regenerate_id(true);
 <body>
 <?php
 require_once('../function.php');
-$current_user = get_user($_SESSION['staff_code']);
-
+$current_user = $_SESSION['staff_code'];
+var_dump($current_user);
 try
 {
 
@@ -42,8 +42,6 @@ catch(Exception $e)
     exit();
 }
 
-$follow_id = $_SESSION['staff_code']
-
 ?>
 
 スタッフ情報参照<br />
@@ -54,14 +52,17 @@ $follow_id = $_SESSION['staff_code']
 <br />
 スタッフ名<br />
 <?php print $staff_name;?>
+<?php var_dump($_SESSION['staff_code']);?>
 <br />
 <br />
 <form action="#" method="post">
           <input type="hidden" class="profile_user_id">
-          <input type="hidden" name="follow_user_id">
+          <input type="hidden" name="follow_user_id" value="<?= $_SESSION['staff_code'] ?>">
           <!-- フォロー中か確認してボタンを変える -->
+
           <button class="follow_btn">
-          <?php if (check_follow($current_user['code'],$staff_code)): ?>
+          <?php if (check_follow($_SESSION['staff_code'],$staff_code)): ?>
+
             フォロー中
           <?php else: ?>
             フォロー

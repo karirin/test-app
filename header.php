@@ -1,6 +1,11 @@
 <?php
 session_start();
 session_regenerate_id(true);
+if (isset($_SESSION['code'])) {
+    $current_user = get_user($_SESSION['code']);
+  }else{
+    $current_user = 'guest';
+  } 
 if(isset($_SESSION['login'])==false)
 {
     print'<a href="../staff_login/staff_login.php">ログイン</a>';

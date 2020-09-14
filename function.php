@@ -36,23 +36,17 @@ function get_user($user_id){
             WHERE user_id = :id AND delete_flg = 0";
       break;
 
-      case 'follows':
-      $sql = "SELECT follower_id
-              FROM relation
-              WHERE :follow_id = follow_id AND delete_flg = 0
-              LIMIT 20 offset :offset_count";
-      $stmt = $dbh->prepare($sql);
-      $stmt->bindValue(':follow_id', $query);
-      break;
-
-      case 'followers':
-      $sql = "SELECT follow_id
-              FROM relation
-              WHERE :follower_id = follower_id AND delete_flg = 0
-              LIMIT 20 offset :offset_count";
-      $stmt = $dbh->prepare($sql);
-      $stmt->bindValue(':follower_id', $query);
-      break;
+      case 'follow':
+      $sql ="SELECT COUNT(follower_id)
+            FROM relation
+            WHERE follow_id = :id AND delete_flg = 0";
+        break;
+  
+      case 'follower':
+      $sql ="SELECT COUNT(follow_id)
+            FROM relation
+            WHERE follower_id = :id AND delete_flg = 0";
+        break;
     }
   
     $stmt = $dbh->prepare($sql);

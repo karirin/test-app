@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_regenerate_id(true);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +11,7 @@
 <body>
 
 <?php
-
+var_dump($_SESSION['staff_code']);
 try
 {
 

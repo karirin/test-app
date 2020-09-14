@@ -44,8 +44,9 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.follow_btn',function(e){
     e.stopPropagation();
     var $this = $(this),
-    　　followed_id = get_param('staffcode'),
-    　　follow_id = $_SESSION['staff_code'];
+      followed_id = get_param('staffcode'),
+      follow_id = $this.prev().val();
+      //prev()は指定した$thisの直前にあるHTML要素を取得する
 
     $.ajax({
         type: 'POST',

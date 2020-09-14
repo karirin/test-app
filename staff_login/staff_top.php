@@ -15,6 +15,13 @@ require_once('../header.php');
       <?php endforeach ?>
 <?php endif ?>
 <?php
+
+if (isset($_SESSION['code'])) {
+  $current_user = get_user($_SESSION['code']);
+}else{
+  $current_user = 'guest';
+}
+
 if(isset($_SESSION['login'])==false)
 {
 print '<br />';
