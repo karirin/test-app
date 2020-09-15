@@ -15,6 +15,7 @@ else
 {
     print'<a href="../staff/staff_list.php">ユーザー一覧</a>';
     print'<a href="../product/pro_list.php">投稿一覧</a>';
+    print'<a href="../product/pro_add.php">投稿</a>';
     print'<a href="../staff_login/staff_logout.php">ログアウト</a>';
 }
 ?>

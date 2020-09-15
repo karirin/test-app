@@ -98,4 +98,46 @@ function check_follow($follow_user,$follower_user){
   return  $stmt->fetch();
 }
 
+// ユーザーの投稿を取得する
+function get_posts($page_id,$type){
+  try {
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    // ページに合わせてSQLを変える
+    switch ($type) {
+      //自分の投稿を取得する
+      case 'my_post':
+      $sql = "SELECT u.name,u.user_icon,p.id,p.user_id,p.post_content,p.created_at
+              FROM users u INNER JOIN posts p ON u.id = p.user_id
+              WHERE p.user_id = :id AND p.delete_flg = 0
+              ORDER BY p.created_at DESC
+              LIMIT 10 OFFSET :offset_count";
+              //inner join ～ on でテーブル同士をくっつけている
+              //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
+              //on xxx ではxxxに結合するためのカラムの共通の値を指定する
+      break;
+
+      //お気に入り登録した投稿を取得する
+      case 'favorite':
+      $sql = "SELECT u.name,u.user_icon,p.id,p.user_id,p.post_content,p.created_at
+              FROM posts p INNER JOIN favorite f ON p.id = f.post_id
+              INNER JOIN users u ON u.id = p.user_id
+              WHERE f.user_id = :id AND p.delete_flg = 0
+              ORDER BY f.id DESC
+              LIMIT 10 OFFSET :offset_count";
+      break;
+    }
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':id', $page_id);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 ?>
