@@ -4,6 +4,14 @@ function set_flash($type,$message){
 	$_SESSION['flash']['message'] = $message;
 }
 
+function _debug( $data, $clear_log = false ) {
+	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+	if( $clear_log ){
+	  file_put_contents($uri_debug_file, print_r($data, true));
+	}
+	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+  }
+
 function get_user($user_id){
     try {
       $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -116,13 +124,12 @@ function get_posts($page_id,$type){
               //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
               //on xxx ではxxxに結合するためのカラムの共通の値を指定する
       break;
-
       //お気に入り登録した投稿を取得する
       case 'favorite':
       $sql = "SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
-              FROM mst_product INNER JOIN favorite ON mst_staff.code = mst_product.code
+              FROM mst_product INNER JOIN favorite ON mst_product.code = favorite.post_id
               INNER JOIN mst_staff ON mst_staff.code = mst_product.user_id
-              WHERE user_id = :id";
+              WHERE user_id = :id AND delete_flg = 0";
       break;
 
       // switch ($type) {
@@ -148,11 +155,11 @@ function get_posts($page_id,$type){
       //           LIMIT 10 OFFSET :offset_count";
       //     break;
     }
-
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':id', $page_id);
     $stmt->execute();
     return $stmt->fetchAll();
+    _debug($stmt);
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
     set_flash('error',ERR_MSG1);

@@ -54,7 +54,11 @@ $(document).on('click','.favorite_btn',function(e){
         dataType: 'json',
         data: { followed_id: followed_id,
                 follow_id: follow_id}
-    }).done(function(data){
+    }).beforeSend(function(xhr) {
+      xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+    // 追加 END
+    })
+    .done(function(data){
       // php側の処理に合わせてボタンを更新する
       // php側でエラーが発生したらリロードしてエラーメッセージを表示させる
       if(data === "error"){
