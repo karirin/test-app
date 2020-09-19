@@ -4,21 +4,13 @@ function set_flash($type,$message){
 	$_SESSION['flash']['message'] = $message;
 }
 
-function _debug( $data, $clear_log = false ) {
-	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-	if( $clear_log ){
-	  file_put_contents($uri_debug_file, print_r($data, true));
-	}
-	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
-  }
-
 function get_user($user_id){
     try {
       $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
       $user='root';
       $password='';
       $dbh=new PDO($dsn,$user,$password);
-      $sql = "SELECT code,name,password
+      $sql = "SELECT code,name,password,profile
               FROM mst_staff
               WHERE code = :code AND delete_flg = 0 ";
       $stmt = $dbh->prepare($sql);
@@ -159,7 +151,6 @@ function get_posts($page_id,$type){
     $stmt->bindValue(':id', $page_id);
     $stmt->execute();
     return $stmt->fetchAll();
-    _debug($stmt);
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
     set_flash('error',ERR_MSG1);

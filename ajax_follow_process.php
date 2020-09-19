@@ -20,6 +20,7 @@ if(isset($_POST)){
 
   $follow_id = $_POST['follow_id'];
   $followed_id = $_POST['followed_id'] ?? $follow_id;
+  _debug('test');
 
     // すでに登録されているか確認して登録、削除のSQL切り替え
     if(check_follow($_SESSION['staff_code'],$follow_id)){

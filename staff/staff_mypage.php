@@ -3,8 +3,9 @@
 <?php require_once('../function.php'); ?>
 <?php
 $page_type = $_GET['type'];
-print'<a href="staff_top.php?type=main">自分の投稿</a>';
-print'<a href="staff_top.php?type=favorites">いいねした投稿</a>';
+
+print'<a href="staff_top.php?staff_code='.$_SESSION['staff_code'].'&type=main">自分の投稿</a>';
+print'<a href="staff_top.php?staff_code='.$_SESSION['staff_code'].'&type=favorites">いいねした投稿</a>';
 
 $current_user=get_user($_SESSION['staff_code']);
 
@@ -30,6 +31,9 @@ switch ($page_type) {
 
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 
-<p class="profile_comment"><></p>
-
+<p class="profile_comment"></p>
+<div class="btn_flex" style="display: none;">
+<button class="btn profile_save" type="button">編集完了</button>
 </div>
+</div>
+<?php print'<br />'.$current_user['profile'].'';?>

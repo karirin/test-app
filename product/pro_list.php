@@ -55,7 +55,10 @@ catch (Exception $e)
 ?>
 
 <br />
-<a href="../staff_login/staff_top.php?type=main">トップメニューへ</a><br />
+
+<?php
+print'<a href="../staff_login/staff_top.php?staff_code='.$_SESSION['staff_code'].'&type=main">トップメニューへ</a><br />';
+?>
 
 </body>
 </html>

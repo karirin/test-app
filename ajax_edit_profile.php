@@ -1,8 +1,17 @@
+<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
+<script src="../js/user_page.js"></script>
 <?php
+session_start();
+session_regenerate_id(true);
 require_once('config.php');
-
-  $comment_data = $_POST['comment_data'];
-
+function _debug( $data, $clear_log = false ) {
+  $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+  if( $clear_log ){
+    file_put_contents($uri_debug_file, print_r($data, true));
+  }
+  file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+  }
+  _debug('test');
   // バリデーションOKならDB更新処理
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -18,7 +27,6 @@ require_once('config.php');
     set_flash('sucsess','プロフィールを更新しました');
     echo json_encode('sucsess');
   } catch (\Exception $e) {
-    debug('プロフィール更新失敗');
     set_flash('error',ERR_MSG1);
   }
 }
