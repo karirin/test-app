@@ -126,10 +126,10 @@ function get_posts($page_id,$type){
       break;
       //お気に入り登録した投稿を取得する
       case 'favorite':
-      $sql = "SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+      $sql = "SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id,favorite.post_id,favorite.user_id
               FROM mst_product INNER JOIN favorite ON mst_product.code = favorite.post_id
               INNER JOIN mst_staff ON mst_staff.code = mst_product.user_id
-              WHERE user_id = :id AND delete_flg = 0";
+              WHERE favorite.user_id = :id AND delete_flg = 0";
       break;
 
       // switch ($type) {

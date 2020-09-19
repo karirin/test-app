@@ -1,5 +1,6 @@
+<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
+<script src="../js/user_page.js"></script>
 <?php require_once('../function.php'); ?>
-
 <?php
 $page_type = $_GET['type'];
 print'<a href="staff_top.php?type=main">自分の投稿</a>';
@@ -24,3 +25,11 @@ switch ($page_type) {
 <?php if($page_type === 'main' || $page_type === 'favorites' ) require_once('../post_list.php') ?>
 
 <?php print'<br />'.$current_user['name'].'';?>
+
+<div class="comment">
+
+<button class="edit_btn" type="button" name="follow">プロフィール編集</button>
+
+<p class="profile_comment"><></p>
+
+</div>

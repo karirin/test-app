@@ -78,3 +78,33 @@ $(document).on('click','.favorite_btn',function(e){
       location.reload();
     });
   });
+
+  $(document).on('click','.comment .edit_btn',function(){
+    $('.comment .profile_comment').replaceWith('<textarea class="edit_comment border_white" type="text">');
+  });
+
+  $('.profile_save').on('click',function(e){
+    e.stopPropagation();
+    var name_data = $('.profile .edit_name').val() || $('.slide_prof .edit_name').val() || '',
+        comment_data = $('.profile .edit_comment').val() || $('.slide_prof .edit_comment').val() || '',
+        icon_data = $('.profile_icon > img').attr('src'),
+        user_id = $(this).data('user_id');
+
+    $.ajax({
+      type: 'POST',
+      url: 'ajax_edit_profile.php',
+      dataType: 'json',
+      data: {comment_data: comment_data,
+             user_id: user_id}
+    })
+    .done(function(data){
+      // エラーメッセージがあれば表示
+      if(data['flash_message']){
+        show_slide_message(data['flash_type'],data['flash_message']);
+      }else{
+        location.reload();
+      }
+    }).fail(function(){
+      location.reload();
+    });
+  });
