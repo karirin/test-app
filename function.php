@@ -4,6 +4,14 @@ function set_flash($type,$message){
 	$_SESSION['flash']['message'] = $message;
 }
 
+function _debug( $data, $clear_log = false ) {
+	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+	if( $clear_log ){
+	  file_put_contents($uri_debug_file, print_r($data, true));
+	}
+	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+  }
+
 function get_user($user_id){
     try {
       $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -118,38 +126,17 @@ function get_posts($page_id,$type){
       break;
       //お気に入り登録した投稿を取得する
       case 'favorite':
-      $sql = "SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id,favorite.post_id,favorite.user_id
+      $sql = "SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
               FROM mst_product INNER JOIN favorite ON mst_product.code = favorite.post_id
               INNER JOIN mst_staff ON mst_staff.code = mst_product.user_id
-              WHERE favorite.user_id = :id AND delete_flg = 0";
+              WHERE favorite.user_id = :id";
       break;
 
-      // switch ($type) {
-      //   //自分の投稿を取得する
-      //   case 'my_post':
-      //   $sql = "SELECT u.name,u.user_icon,p.id,p.user_id,p.post_content,p.created_at
-      //           FROM users u INNER JOIN posts p ON u.id = p.user_id
-      //           WHERE p.user_id = :id AND p.delete_flg = 0
-      //           ORDER BY p.created_at DESC
-      //           LIMIT 10 OFFSET :offset_count";
-      //           //inner join ～ on でテーブル同士をくっつけている
-      //           //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
-      //           //on xxx ではxxxに結合するためのカラムの共通の値を指定する
-      //   break;
-  
-      //   //お気に入り登録した投稿を取得する
-      //   case 'favorite':
-      //   $sql = "SELECT u.name,u.user_icon,p.id,p.user_id,p.post_content,p.created_at
-      //           FROM posts p INNER JOIN favorite f ON p.id = f.post_id
-      //           INNER JOIN users u ON u.id = p.user_id
-      //           WHERE f.user_id = :id AND p.delete_flg = 0
-      //           ORDER BY f.id DESC
-      //           LIMIT 10 OFFSET :offset_count";
-      //     break;
     }
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':id', $page_id);
     $stmt->execute();
+    _debug($stmt);
     return $stmt->fetchAll();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());

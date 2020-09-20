@@ -17,13 +17,13 @@ function _debug( $data, $clear_log = false ) {
 
 if(isset($_POST)){
 
-
+  $current_user = get_user($_SESSION['staff_code']);
   $follow_id = $_POST['follow_id'];
   $followed_id = $_POST['followed_id'] ?? $follow_id;
   _debug('test');
 
     // すでに登録されているか確認して登録、削除のSQL切り替え
-    if(check_follow($_SESSION['staff_code'],$follow_id)){
+    if(check_follow($current_user['code'],$follow_id)){
       $action = '解除';
       $flash_type = 'error';
       $sql ="DELETE

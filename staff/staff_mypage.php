@@ -16,14 +16,12 @@ switch ($page_type) {
 
   case 'favorites':
     $posts = get_posts($current_user['code'],'favorite',0);
-    break;
+  break;
 }
 
-
-//お気に入りの投稿が見れない
 ?>
 
-<?php if($page_type === 'main' || $page_type === 'favorites' ) require_once('../post_list.php') ?>
+<?php  require_once('../post_list.php') ?>
 
 <?php print'<br />'.$current_user['name'].'';?>
 
@@ -32,9 +30,6 @@ switch ($page_type) {
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 <br />
 <br />
-<br /><br />
-
-
 <p class="profile_comment"></p>
 <br />
 <br />

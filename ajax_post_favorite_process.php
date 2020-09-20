@@ -5,20 +5,6 @@ session_start();
 session_regenerate_id(true);
 require_once('config.php');
 
-//require_once('auth.php');
-
-// $data['debug']=var_export($POST,true);
-// print json_encode($data);
-
-  // _debug('', true);
-  function _debug( $data, $clear_log = false ) {
-    $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-    if( $clear_log ){
-      file_put_contents($uri_debug_file, print_r($data, true));
-    }
-    file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
-    }
-    _debug('test');
 if(isset($_POST)){
 
   $current_user = get_user($_SESSION['staff_code']);

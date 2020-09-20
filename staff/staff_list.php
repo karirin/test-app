@@ -9,9 +9,9 @@ session_regenerate_id(true);
 <title> ろくまる農園</title>
 </head>
 <body>
-
+<?php require_once('../function.php'); ?>
 <?php
-var_dump($_SESSION['staff_code']);
+
 try
 {
 
