@@ -6,12 +6,7 @@ if(!empty($_POST)){
   require_once('staff_login_check.php');
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>新規登録</title>
-</head>
+<?php require_once('../head.php'); ?>
 <body>
 <?php require_once('../config.php'); ?>
 スタッフログイン<br />

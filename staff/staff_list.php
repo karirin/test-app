@@ -2,12 +2,7 @@
 session_start();
 session_regenerate_id(true);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title> ろくまる農園</title>
-</head>
+<?php require_once('../head.php'); ?>
 <body>
 <?php require_once('../function.php'); ?>
 <?php

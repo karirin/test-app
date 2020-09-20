@@ -2,12 +2,7 @@
 require_once('../header.php'); 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>coffeeapp</title>
-</head>
+<?php require_once('../head.php'); ?>
 <body>
 
 <?php

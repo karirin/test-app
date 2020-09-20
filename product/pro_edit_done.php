@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ろくまる農園</title>
-</head>
+<?php require_once('../head.php'); ?>
 <body>
 
 <?php

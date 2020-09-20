@@ -2,14 +2,9 @@
 session_start();
 session_regenerate_id(true);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ろくまる農園</title>
+<?php require_once('../head.php'); ?>
 <script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
 <script src="../js/user_page.js"></script>
-</head>
 <body>
 <?php
 require_once('../function.php');

@@ -37,22 +37,14 @@ PDOStatement Object
 PDOStatement Object
 (
     [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
-              FROM mst_product INNER JOIN favorite ON mst_product.code = favorite.post_id
-              INNER JOIN mst_staff ON mst_staff.code = mst_product.user_id
-              WHERE favorite.user_id = :id
-)
-PDOStatement Object
-(
-    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
               FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
               WHERE user_id = :id AND delete_flg = 0
 )
 PDOStatement Object
 (
     [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
-              FROM mst_product INNER JOIN favorite ON mst_product.code = favorite.post_id
-              INNER JOIN mst_staff ON mst_staff.code = mst_product.user_id
-              WHERE favorite.user_id = :id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
 )
 PDOStatement Object
 (
@@ -93,9 +85,416 @@ PDOStatement Object
 PDOStatement Object
 (
     [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
-              FROM mst_product INNER JOIN favorite ON mst_product.code = favorite.post_id
-              INNER JOIN mst_staff ON mst_staff.code = mst_product.user_id
-              WHERE favorite.user_id = :id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
+              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+              WHERE user_id = :id AND delete_flg = 0
 )
 PDOStatement Object
 (

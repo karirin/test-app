@@ -1,0 +1,13 @@
+nav.navbar.navbar-dark.bg-dark {
+    display: block;
+    text-align: right;
+    width:auto;
+}
+
+nav.navbar.navbar-dark.bg-dark a{
+    text-align: right;
+    padding: 0 50px;
+}
+
+
+

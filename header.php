@@ -5,7 +5,11 @@ if (isset($_SESSION['code'])) {
     $current_user = get_user($_SESSION['code']);
   }else{
     $current_user = 'guest';
-  } 
+  }
+?>
+<link rel="stylesheet" href="css/style.css">
+<nav class="navbar navbar-dark bg-dark"> 
+<?php
 if(isset($_SESSION['login'])==false)
 {
     print'<a href="../staff_login/staff_login.php">ログイン</a>';
@@ -19,3 +23,4 @@ else
     print'<a href="../staff_login/staff_logout.php">ログアウト</a>';
 }
 ?>
+</nav>
