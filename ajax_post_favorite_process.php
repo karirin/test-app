@@ -46,7 +46,7 @@ if(isset($_POST)){
     $dbh=new PDO($dsn,$user,$password);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $current_user['code'] , ':post_id' => $post_id));
-
+    _debug($stmt);
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
     set_flash('error',ERR_MSG1);

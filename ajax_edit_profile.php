@@ -1,3 +1,4 @@
+
 <script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
 <script src="../js/user_page.js"></script>
 <?php
@@ -11,16 +12,20 @@ function _debug( $data, $clear_log = false ) {
   }
   file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
   }
-  _debug('test');
-  // バリデーションOKならDB更新処理
+  
+  if(isset($_POST)){
+  
+  $comment_data = $_POST['comment_data'];
+  $user_id = $_POST['user_id'];
+
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
     $sql = "UPDATE mst_staff
-            SET   profile = :comment_data,
-            WHERE id = :user_id";
+            SET profile = :comment_data
+            WHERE code = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':comment_data' => $comment_data,
                          ':user_id' => $user_id));
@@ -29,4 +34,4 @@ function _debug( $data, $clear_log = false ) {
   } catch (\Exception $e) {
     set_flash('error',ERR_MSG1);
   }
-}
+  }

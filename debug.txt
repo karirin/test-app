@@ -1,0 +1,108 @@
+gufgcgcgPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE id = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => INSERT INTO favorite(user_id,post_id)
+            VALUES(:user_id,:post_id)
+)
+asdfasdfPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7asdfsadfPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7sdfasfdasfdPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testtestPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testtestPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testtestPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testtestPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testtestPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7testPDOStatement Object
+(
+    [queryString] => UPDATE mst_staff
+            SET profile = :comment_data
+            WHERE code = :user_id
+)
+7test

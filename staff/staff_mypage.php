@@ -30,10 +30,19 @@ switch ($page_type) {
 <div class="comment">
 
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
+<br />
+<br />
+<br /><br />
+
 
 <p class="profile_comment"></p>
+<br />
+<br />
 <div class="btn_flex" style="display: none;">
 <button class="btn profile_save" type="button">編集完了</button>
 </div>
+
 </div>
 <?php print'<br />'.$current_user['profile'].'';?>
+
+<div class = "result"></div>

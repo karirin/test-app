@@ -29,13 +29,7 @@ $(document).on('click','.favorite_btn',function(e){
         data: { page_id: page_id,
                 post_id: post_id}
     }).done(function(data){
-      // php側でエラーが発生したらリロードしてエラーメッセージを表示させる
-      if(data ==="error"){
-        location.reload();
-      }else{
-        // アイコンを切り替える
-        
-      }
+
     }).fail(function() {
       location.reload();
     });
@@ -91,29 +85,13 @@ $(document).on('click','.favorite_btn',function(e){
     $.ajax({
       type: 'POST',
       url: '../ajax_edit_profile.php',
-      dataType: 'json',
+      dataType: 'text',
       data: {comment_data: comment_data,
              user_id: user_id}
     })
-    .done(function(data){
-      // エラーメッセージがあれば表示
-
-    }).fail(function(){
+    .done(function(){
       location.reload();
+    }).fail(function(){
+
     });
   });
-  $('.profile_save').on('click',function(e){
-    e.stopPropagation();
-    var name_data = $('.profile .edit_name').val() || $('.slide_prof .edit_name').val() || '',
-        comment_data = $('.profile .edit_comment').val() || $('.slide_prof .edit_comment').val() || '',
-        icon_data = $('.profile_icon > img').attr('src'),
-        user_id = $(this).data('user_id');
-
-    $.ajax({
-      type: 'POST',
-      url: 'ajax_edit_profile.php',
-      dataType: 'json',
-      data: {name_data: name_data,
-             comment_data: comment_data,
-             icon_data: icon_data,
-             user_id: user_id}
