@@ -40,6 +40,7 @@ switch ($page_type) {
 <br />
 <div class="btn_flex" style="display: none;">
 <button class="btn profile_save" type="button">編集完了</button>
+<button class="btn modal_close" type="button">キャンセル</button>
 </div>
 
 </div>

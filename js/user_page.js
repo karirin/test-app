@@ -95,3 +95,10 @@ $(document).on('click','.favorite_btn',function(e){
 
     });
   });
+
+  user_comment = $('.profile_comment').text();
+
+  $(document).on('click',".modal_close",function(){
+    $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
+    $('.btn_flex').css('display','none');
+  });
