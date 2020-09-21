@@ -7,7 +7,7 @@ function set_flash($type,$message){
 function _debug( $data, $clear_log = false ) {
 	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
 	if( $clear_log ){
-	  file_put_contents($uri_debug_file, print_r($data, true));
+	file_put_contents($uri_debug_file, print_r($data, true));
 	}
 	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
   }
@@ -28,6 +28,30 @@ function get_user($user_id){
       error_log('エラー発生:' . $e->getMessage());
       set_flash('error',ERR_MSG1);
     }
+  }
+
+  function get_users($type){
+    try {
+      $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+      $user='root';
+      $password='';
+      $dbh=new PDO($dsn,$user,$password);
+  
+      switch ($type) {
+        case 'all':
+        $sql = "SELECT code,name,password,profile
+                FROM mst_staff
+                WHERE delete_flg = 0";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+        break;
+      }
+    } catch (\Exception $e) {
+      error_log('エラー発生:' . $e->getMessage());
+      set_flash('error',ERR_MSG1);
+    }
+    _debug($stmt);
   }
 
   function get_user_count($object,$user_id){
@@ -140,6 +164,27 @@ function get_posts($page_id,$type){
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
     set_flash('error',ERR_MSG1);
+  }
+}
+
+function change_delete_flg($user_id,$flg){
+  try {
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $dbh->beginTransaction();
+    $sql = 'UPDATE mst_staff SET delete_flg = :flg WHERE code = :id';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':flg' => $flg , ':id' => $user_id));
+    
+    _debug($user_id);
+    $dbh->commit();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+    $dbh->rollback();
+    reload();
   }
 }
 

@@ -22,7 +22,7 @@ switch ($page_type) {
 ?>
 
 <?php  require_once('../post_list.php') ?>
-
+<br /><br />
 <?php print'<br />'.$current_user['name'].'';?>
 
 <div class="comment">
