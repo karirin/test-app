@@ -9,7 +9,7 @@ session_regenerate_id(true);
 <?php
 require_once('../function.php');
 $current_user = get_user($_SESSION['staff_code']);
-var_dump($current_user['code']);
+
 try
 {
 
@@ -57,7 +57,6 @@ catch(Exception $e)
 
           <button class="follow_btn">
           <?php if (check_follow($current_user['code'],$staff_code)): ?>
-
             フォロー中
           <?php else: ?>
             フォロー

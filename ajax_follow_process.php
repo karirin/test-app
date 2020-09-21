@@ -1,10 +1,11 @@
-<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
-<script src="../js/user_page.js"></script>
 <?php
 session_start();
 session_regenerate_id(true);
+?>
+<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
+<script src="../js/user_page.js"></script>
+<?php
 require_once('config.php');
-//require_once('auth.php');
 
 function _debug( $data, $clear_log = false ) {
 	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
@@ -13,14 +14,13 @@ function _debug( $data, $clear_log = false ) {
 	}
 	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
   }
-
+  _debug('test');
 
 if(isset($_POST)){
 
   $current_user = get_user($_SESSION['staff_code']);
   $follow_id = $_POST['follow_id'];
   $followed_id = $_POST['followed_id'] ?? $follow_id;
-  _debug('test');
 
     // すでに登録されているか確認して登録、削除のSQL切り替え
     if(check_follow($current_user['code'],$follow_id)){
@@ -41,8 +41,7 @@ if(isset($_POST)){
       $password='';
       $dbh=new PDO($dsn,$user,$password);
       $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(':follow_id' => $followed_id , ':follower_id' => $follow_id));
-                      
+      $stmt->execute(array(':follow_id' => $followed_id , ':follower_id' => $follow_id));       
     }    
 
     catch (\Exception $e) {
@@ -52,5 +51,4 @@ if(isset($_POST)){
 
     }
   }
-
-
+?>

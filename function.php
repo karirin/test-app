@@ -136,7 +136,6 @@ function get_posts($page_id,$type){
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':id', $page_id);
     $stmt->execute();
-    _debug($stmt);
     return $stmt->fetchAll();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());

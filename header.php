@@ -21,6 +21,7 @@ else
     print'<a href="../product/pro_list.php">投稿一覧</a>';
     print'<a href="../product/pro_add.php">投稿</a>';
     print'<a href="../staff_login/staff_logout.php">ログアウト</a>';
+    print'<a href="/withdraw.php">退会</a>';
 }
 ?>
 </nav>

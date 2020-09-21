@@ -41,35 +41,19 @@ $(document).on('click','.favorite_btn',function(e){
       followed_id = get_param('staffcode'),
       follow_id = $this.prev().val();
       //prev()は指定した$thisの直前にあるHTML要素を取得する
-
     $.ajax({
         type: 'POST',
         url: '../ajax_follow_process.php',
         dataType: 'json',
         data: { followed_id: followed_id,
                 follow_id: follow_id}
-    }).beforeSend(function(xhr) {
-      xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-    // 追加 END
     })
-    .done(function(data){
-      // php側の処理に合わせてボタンを更新する
-      // php側でエラーが発生したらリロードしてエラーメッセージを表示させる
-      if(data === "error"){
-        location.reload();
-      }else if(data['action'] ==="登録"){
-        $this.toggleClass('following')
-        $this.text('フォロー中');
-      }else if(data['action'] ==="解除"){
-        $this.removeClass('following');
-        $this.removeClass('unfollow')
-        $this.text('フォロー');
-      }
-      // プロフィール内のカウントを更新する
-      $follow_count.text(data['follow_count']);
-      $follower_count.text(data['follower_count']);
-    }).fail(function() {
-      location.reload();
+    .done(function(resp){
+      console.log(resp);
+    }).fail(function(jqXHR,textStatus,errorThrown){
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
     });
   });
 

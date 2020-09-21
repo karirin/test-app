@@ -32,7 +32,7 @@ while(true)
 	{
 		break;
 	}
-	print '<a href="../staff/staff_disp.php?staffcode='.$rec['code'].'"> '.$rec['name'].' </a><br />';
+	print '<a href="../staff/staff_disp1.php?staffcode='.$rec['code'].'"> '.$rec['name'].' </a><br />';
 	print '<br />';
 
 
