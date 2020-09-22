@@ -1,8 +1,0 @@
-
-PDOStatement Object
-(
-    [queryString] => SELECT code,name,password,profile
-                FROM mst_staff
-                WHERE delete_flg = 0
-)
-8
