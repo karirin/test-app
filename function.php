@@ -18,11 +18,11 @@ function get_user($user_id){
       $user='root';
       $password='';
       $dbh=new PDO($dsn,$user,$password);
-      $sql = "SELECT code,name,password,profile
-              FROM mst_staff
-              WHERE code = :code AND delete_flg = 0 ";
+      $sql = "SELECT id,name,password,profile
+              FROM user
+              WHERE id = :id AND delete_flg = 0 ";
       $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(':code' => $user_id));
+      $stmt->execute(array(':id' => $user_id));
       return $stmt->fetch();
     } catch (\Exception $e) {
       error_log('エラー発生:' . $e->getMessage());
@@ -39,8 +39,8 @@ function get_user($user_id){
   
       switch ($type) {
         case 'all':
-        $sql = "SELECT code,name,password,profile
-                FROM mst_staff
+        $sql = "SELECT id,name,password,profile
+                FROM user
                 WHERE delete_flg = 0";
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
@@ -141,8 +141,8 @@ function get_posts($page_id,$type){
     switch ($type) {
       //自分の投稿を取得する
       case 'my_post':
-      $sql = "SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
-              FROM mst_staff INNER JOIN mst_product ON mst_staff.code = mst_product.user_id
+      $sql = "SELECT user.id,user.name,user.password,user.delete_flg,post.id,post.name,post.address,post.time_start,post.time_end,post.gazou,post.user_id
+              FROM user INNER JOIN post ON user.id = post.user_id
               WHERE user_id = :id AND delete_flg = 0";
               //inner join ～ on でテーブル同士をくっつけている
               //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
@@ -150,9 +150,9 @@ function get_posts($page_id,$type){
       break;
       //お気に入り登録した投稿を取得する
       case 'favorite':
-      $sql = "SELECT mst_staff.code,mst_staff.name,mst_staff.password,mst_staff.delete_flg,mst_product.code,mst_product.name,mst_product.address,mst_product.time_start,mst_product.time_end,mst_product.gazou,mst_product.user_id
-              FROM mst_product INNER JOIN favorite ON mst_product.code = favorite.post_id
-              INNER JOIN mst_staff ON mst_staff.code = mst_product.user_id
+      $sql = "SELECT user.id,user.name,user.password,user.delete_flg,post.id,post.name,post.address,post.time_start,post.time_end,post.gazou,post.user_id
+              FROM post INNER JOIN favorite ON post.id = favorite.post_id
+              INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id";
       break;
 
@@ -174,7 +174,7 @@ function change_delete_flg($user_id,$flg){
     $password='';
     $dbh=new PDO($dsn,$user,$password);
     $dbh->beginTransaction();
-    $sql = 'UPDATE mst_staff SET delete_flg = :flg WHERE code = :id';
+    $sql = 'UPDATE user SET delete_flg = :flg WHERE id = :id';
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':flg' => $flg , ':id' => $user_id));
     
