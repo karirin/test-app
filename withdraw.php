@@ -3,16 +3,16 @@ require_once('header.php');
 require('config.php');
 require_once('function.php');
 
-$current_user = get_user($_SESSION['user_id']);
+$current_user = get_user($_SESSION['staff_code']);
 
 // post送信されていた場合
 if(!empty($_POST['withdraw'])){
-  change_delete_flg($current_user['id'],1);
+  change_delete_flg($current_user['code'],1);
 
  //セッション削除
   session_destroy();
   $_SESSION = array();
-  header("Location:/user_login/user_top.php");
+  header("Location:/staff_login/staff_top.php");
   exit();
 }
 

@@ -65,7 +65,7 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.profile_save',function(e){
     e.stopPropagation();
       var comment_data = $('.edit_comment').val(),
-          user_id = get_param('user_id');
+          user_id = get_param('staff_code');
     $.ajax({
       type: 'POST',
       url: '../ajax_edit_profile.php',
