@@ -16,9 +16,8 @@ function get_param(name, url) {
 
 $(document).on('click','.favorite_btn',function(e){
     e.stopPropagation();
-    var $this = $(this),
-        page_id = get_param('page_id'),
-        post_id = get_param('procode');
+    var page_id = get_param('page_id'),
+        post_id = get_param('post_id');
         //prev()は$thisの直前にあるhtml要素を取得する
         //val()は取得したいhtml要素のvalue値を取得する
         //page_idはユーザーのID
@@ -38,7 +37,7 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.follow_btn',function(e){
     e.stopPropagation();
     var $this = $(this),
-      followed_id = get_param('staffcode'),
+      followed_id = get_param('user_id'),
       follow_id = $this.prev().val();
       //prev()は指定した$thisの直前にあるHTML要素を取得する
     $.ajax({
@@ -65,7 +64,7 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.profile_save',function(e){
     e.stopPropagation();
       var comment_data = $('.edit_comment').val(),
-          user_id = get_param('staff_code');
+          user_id = get_param('user_id');
     $.ajax({
       type: 'POST',
       url: '../ajax_edit_profile.php',
@@ -73,10 +72,13 @@ $(document).on('click','.favorite_btn',function(e){
       data: {comment_data: comment_data,
              user_id: user_id}
     })
-    .done(function(){
-      location.reload();
-    }).fail(function(){
+    .beforeSend(function(xhr) {
+    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+    })
+    .done(function(data){
 
+    }).fail(function(){
+      location.reload();
     });
   });
 

@@ -4,27 +4,23 @@
 session_start();
 session_regenerate_id(true);
 require_once('config.php');
-function _debug( $data, $clear_log = false ) {
-  $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-  if( $clear_log ){
-    file_put_contents($uri_debug_file, print_r($data, true));
-  }
-  file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
-  }
-  
+
   if(isset($_POST)){
   
+  $current_user = get_user($_SESSION['user_id']);
   $comment_data = $_POST['comment_data'];
   $user_id = $_POST['user_id'];
+
+  $profile_user_id = $_POST['page_id'] ?: $current_user['id'];
 
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
-    $sql = "UPDATE mst_staff
+    $sql = "UPDATE user
             SET profile = :comment_data
-            WHERE code = :user_id";
+            WHERE id = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':comment_data' => $comment_data,
                          ':user_id' => $user_id));
