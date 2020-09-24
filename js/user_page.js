@@ -72,9 +72,9 @@ $(document).on('click','.favorite_btn',function(e){
       data: {comment_data: comment_data,
              user_id: user_id}
     })
-    .beforeSend(function(xhr) {
-    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-    })
+    // .beforeSend(function(xhr) {
+    // xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+    // })
     .done(function(data){
 
     }).fail(function(){

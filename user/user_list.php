@@ -1,4 +1,8 @@
 <?php
+if (!empty($_POST['search_user'])){
+    $hoge = $_POST['search_input'];
+    header("Location:user_list.php?type=search&query=${hoge}");
+  }
 session_start();
 session_regenerate_id(true);
 ?>
@@ -8,7 +12,23 @@ session_regenerate_id(true);
 <?php
 print 'ユーザー一覧<br/><br/>';
 
-$users = get_users('all');
+print'<form method="post" action="#" class="search_container">';
+print'<input type="text" name="search_input" placeholder="ユーザー検索">';
+print'<input type="submit" name="search_user" value="&#xf002;">';
+print'</form>';
+
+$page_type = $_GET['type'];
+
+switch ($page_type) {
+    case 'all';
+    $users = get_users('all','');
+    break;
+
+    case 'search':
+      $users = get_users('search',$_GET['query']);
+    break;
+  }
+  
 
 
 foreach((array)$users as $user): 

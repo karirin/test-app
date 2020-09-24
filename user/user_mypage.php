@@ -18,7 +18,6 @@ switch ($page_type) {
     $posts = get_posts($current_user['id'],'favorite',0);
   break;
 }
-var_dump($_SESSION['login']);
 ?>
 
 <?php require_once('../post_list.php') ?>

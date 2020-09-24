@@ -8,7 +8,6 @@ if (isset($_SESSION['id'])) {
     $current_user = 'guest';
   }
 
-print'<link rel="stylesheet" href="css/style.css">';
 print'<nav class="navbar navbar-dark bg-dark"> ';
 
 if(isset($_SESSION['login'])==false)
@@ -18,7 +17,7 @@ if(isset($_SESSION['login'])==false)
 }
 else
 {
-    print'<a href="../user/user_list.php">ユーザー一覧</a>';
+    print'<a href="../user/user_list.php?type=all">ユーザー一覧</a>';
     print'<a href="../post/post_list.php">投稿一覧</a>';
     print'<a href="../post/post_add.php">投稿</a>';
     print'<a href="../user_login/user_logout.php">ログアウト</a>';

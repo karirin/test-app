@@ -30,7 +30,7 @@ function get_user($user_id){
     }
   }
 
-  function get_users($type){
+  function get_users($type,$query){
     try {
       $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
       $user='root';
@@ -45,6 +45,14 @@ function get_user($user_id){
         $stmt = $dbh->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
+        break;
+
+        case 'search':
+          $sql = "SELECT id,name,password,profile
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0";
+          $stmt = $dbh->prepare($sql);
+          $stmt->bindValue(':input', $query);
         break;
       }
     } catch (\Exception $e) {

@@ -16,7 +16,7 @@ require_once('../config.php');
 if (isset($_SESSION['id'])) {
   $current_user = get_user($_SESSION['id']);
 }else{
-sajlkasjjfalskj
+  $current_user = 'guest';
 }
 
 if(isset($_SESSION['login'])==false)
