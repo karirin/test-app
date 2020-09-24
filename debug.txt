@@ -1,0 +1,48 @@
+PDOStatement Object
+(
+    [queryString] => SELECT id,name,password,profile
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT id,name,password,profile
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT id
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT id
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT id
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT id
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT id
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)
+PDOStatement Object
+(
+    [queryString] => SELECT id
+                  FROM user
+                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+)

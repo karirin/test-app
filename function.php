@@ -53,6 +53,8 @@ function get_user($user_id){
                   WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0";
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':input', $query);
+          $stmt->execute();
+          return $stmt->fetchAll();
         break;
       }
     } catch (\Exception $e) {

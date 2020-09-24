@@ -10,7 +10,7 @@ session_regenerate_id(true);
 <body>
 <?php require_once('../function.php'); ?>
 <?php
-print 'ユーザー一覧<br/><br/>';
+print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
 
 print'<form method="post" action="#" class="search_container">';
 print'<input type="text" name="search_input" placeholder="ユーザー検索">';
@@ -25,10 +25,10 @@ switch ($page_type) {
     break;
 
     case 'search':
-      $users = get_users('search',$_GET['query']);
+    $users = get_users('search',$_GET['query']);
     break;
   }
-  
+ 
 
 
 foreach((array)$users as $user): 
