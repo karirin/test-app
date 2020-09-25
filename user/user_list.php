@@ -14,7 +14,7 @@ print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
 
 print'<form method="post" action="#" class="search_container">';
 print'<input type="text" name="search_input" placeholder="ユーザー検索">';
-print'<input type="submit" name="search_user" value="&#xf002;">';
+print'<input type="submit" name="search_user">';
 print'</form>';
 
 $page_type = $_GET['type'];

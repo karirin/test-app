@@ -9,5 +9,13 @@ nav.navbar.navbar-dark.bg-dark a{
     padding: 0 50px;
 }
 
+nav.navbar.navbar-light.mb-2{
+    background-color: rgb(197, 197, 197);
+    display: block;
+    text-align: right;
+    width:auto;
+}
 
-
+nav.navbar.navbar-light.mb-2 a{
+    padding: 0 50px;
+}
