@@ -1,5 +1,3 @@
-<script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
-<script src="../js/user_page.js"></script>
 <?php
 require_once('../function.php');
 $page_type = $_GET['type'];
