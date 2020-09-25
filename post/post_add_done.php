@@ -1,9 +1,6 @@
 <?php
 require_once('../config.php'); 
-require_once('../header.php');
-require_once('../head.php'); ?>
-<body>
-
+?>
 <?php
 
 try
@@ -40,7 +37,7 @@ $stmt -> execute($data);
 
 $dbh = null;
 
-print 'カフェを追加しました。<br />';
+header('Location:post_list.php');
 
 }   
 catch (Exception $e)
@@ -52,5 +49,3 @@ exit();
 ?>
 
 <a href="post_list.php">戻る</a>
-</body>
-</html>
