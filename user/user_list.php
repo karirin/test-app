@@ -3,12 +3,14 @@ if (!empty($_POST['search_user'])){
     $hoge = $_POST['search_input'];
     header("Location:user_list.php?type=search&query=${hoge}");
   }
-session_start();
-session_regenerate_id(true);
 ?>
-<?php require_once('../head.php'); ?>
+<?php 
+require_once('../config.php');
+require_once('../head.php');
+require_once('../header.php');
+require_once('../function.php');
+?>
 <body>
-<?php require_once('../function.php'); ?>
 <?php
 print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
 

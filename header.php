@@ -1,13 +1,4 @@
 <?php
-session_start();
-session_regenerate_id(true);
-
-if (isset($_SESSION['id'])) {
-    $current_user = get_user($_SESSION['id']);
-  }else{
-    $current_user = 'guest';
-  }
-
 print'<nav class="navbar navbar-dark bg-dark"> ';
 
 if(isset($_SESSION['login'])==false)

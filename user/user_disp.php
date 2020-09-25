@@ -1,13 +1,14 @@
-<?php
-session_start();
-session_regenerate_id(true);
+<?php 
+require_once('../config.php');
+require_once('../head.php');
+require_once('../header.php');
+require_once('../function.php');
 ?>
-<?php require_once('../head.php'); ?>
 <script src=" https://id.jquery.com/jquery-3.4.1.min.js "></script>
 <script src="../js/user_page.js"></script>
 <body>
 <?php
-require_once('../function.php');
+
 $current_user = get_user($_SESSION['user_id']);
 
 try

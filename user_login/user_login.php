@@ -1,14 +1,12 @@
 <?php
-session_start();
-session_regenerate_id(true);
-
+require_once('../config.php');
 if(!empty($_POST)){
   require_once('user_login_check.php');
 }
+require_once('../head.php');
+require_once('../header.php');
 ?>
-<?php require_once('../head.php'); ?>
 <body>
-<?php require_once('../config.php'); ?>
 スタッフログイン<br />
 <?php if (isset($flash_messages)): ?>
       <?php foreach ((array)$flash_messages as $message): ?>

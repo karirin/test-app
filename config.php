@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_regenerate_id(true);
 require_once('function.php');
 
 if( isset($_SESSION['flash']) ){

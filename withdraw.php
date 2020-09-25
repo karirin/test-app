@@ -1,6 +1,6 @@
 <?php
-require_once('header.php');
 require('config.php');
+require_once('header.php');
 require_once('function.php');
 
 $current_user = get_user($_SESSION['user_id']);

@@ -4,9 +4,6 @@
 require_once('../function.php');
 $page_type = $_GET['type'];
 
-print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=main">自分の投稿</a>';
-print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=favorites">いいねした投稿</a>';
-
 $current_user=get_user($_SESSION['user_id']);
 
 switch ($page_type) {

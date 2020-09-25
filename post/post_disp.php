@@ -1,14 +1,14 @@
 <?php
-session_start();
-session_regenerate_id(true);
+require_once('../config.php');
+require_once('../head.php');
+require_once('../header.php');
 ?>
-<?php require_once('../head.php'); ?>
 <script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>
 <script src="../js/user_page.js"></script>
 <body>
 
 <?php
-require_once('../config.php');
+
 
 try
 {

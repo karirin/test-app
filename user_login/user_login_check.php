@@ -2,7 +2,6 @@
 require_once('../function.php');
 try
 {
-
 $user_id=$_POST['id'];
 $user_pass=$_POST['pass'];
 
