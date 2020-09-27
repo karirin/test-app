@@ -37,7 +37,7 @@ $stmt -> execute($data);
 
 $dbh = null;
 
-header('Location:post_list.php');
+header('Location:post_index.php');
 
 }   
 catch (Exception $e)
@@ -48,4 +48,4 @@ exit();
 
 ?>
 
-<a href="post_list.php">戻る</a>
+<a href="post_index.php">戻る</a>

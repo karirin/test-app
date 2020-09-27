@@ -1,7 +1,6 @@
 <?php
 require_once('../function.php');
 $page_type = $_GET['type'];
-
 $current_user=get_user($_SESSION['user_id']);
 
 switch ($page_type) {
@@ -15,7 +14,7 @@ switch ($page_type) {
 }
 ?>
 
-<?php require_once('../post_list.php') ?>
+<?php require_once('../post/post_index.php') ?>
 
 <?php print'<br />'.$current_user['name'].'';?>
 

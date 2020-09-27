@@ -2,22 +2,13 @@
 require_once('config.php');
 require_once('head.php');
 
-function _debug( $data, $clear_log = false ) {
-	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-	if( $clear_log ){
-	  file_put_contents($uri_debug_file, print_r($data, true));
-	}
-	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
-  }
-
 if(isset($_POST)){
 
-  $current_user = get_user($_SESSION['user_id']);
-  $follow_id = $_POST['follow_id'];
+  $follow_id = $_POST['follow_id']; 
   $followed_id = $_POST['followed_id'] ?? $follow_id;
 
     // すでに登録されているか確認して登録、削除のSQL切り替え
-    if(check_follow($current_user['id'],$follow_id)){
+    if(check_follow($follow_id,$followed_id)){
       $action = '解除';
       $flash_type = 'error';
       $sql ="DELETE

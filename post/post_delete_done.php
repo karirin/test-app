@@ -38,6 +38,6 @@ exit();
 
 削除しました。<br />
 <br />
-<a href="post_list.php">戻る</a>
+<a href="post_index.php">戻る</a>
 </body>
 </html>

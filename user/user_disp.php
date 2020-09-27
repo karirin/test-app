@@ -2,12 +2,11 @@
 require_once('../config.php');
 require_once('../head.php');
 require_once('../header.php');
-require_once('../function.php');
 ?>
 <body>
 <?php
 
-$current_user = get_user($_SESSION['user_id']);
+// $current_user = get_user($_SESSION['user_id']);
 
 try
 {
@@ -51,15 +50,13 @@ catch(Exception $e)
 <br />
 <form action="#" method="post">
           <input type="hidden" class="profile_user_id">
-          <input type="hidden" name="follow_user_id" value="<?= $current_user['id'] ?>">
+          <input type="hidden" name="follow_user_id" value="follow_user_id">
           <!-- フォロー中か確認してボタンを変える -->
 
           <button class="follow_btn">
-          <?php if (check_follow($current_user['id'],$user_id)): ?>
-            フォロー中
-          <?php else: ?>
+
             フォロー
-          <?php endif; ?>
+
           </button>
         </form>
 <form>

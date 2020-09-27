@@ -5,12 +5,12 @@ function set_flash($type,$message){
 }
 
 function _debug( $data, $clear_log = false ) {
-	$uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-	if( $clear_log ){
-	file_put_contents($uri_debug_file, print_r($data, true));
-	}
-	file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+  $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+  if( $clear_log ){
+    file_put_contents($uri_debug_file, print_r('', true));
   }
+  file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+}
 
 function get_user($user_id){
     try {
@@ -132,7 +132,7 @@ function check_follow($follow_user,$follower_user){
   $dbh=new PDO($dsn,$user,$password);
   $sql = "SELECT follow_id,follower_id
           FROM relation
-          WHERE :follow_id =follow_id AND :follower_id = follower_id";
+          WHERE :follower_id =follow_id AND :follow_id = follower_id";
   $stmt = $dbh->prepare($sql);
   $stmt->execute(array(':follow_id' => $follow_user,
                        ':follower_id' => $follower_user));

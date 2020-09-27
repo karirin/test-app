@@ -2,6 +2,14 @@
 require_once('config.php');
 require_once('head.php');
 
+function _debug( $data, $clear_log = false ) {
+  $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/data/log/debug.txt';
+  if( $clear_log ){
+    file_put_contents($uri_debug_file, print_r('', true));
+  }
+  file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+}
+
 if(isset($_POST)){
 
   $current_user = get_user($_SESSION['user_id']);
@@ -19,7 +27,7 @@ if(isset($_POST)){
     $sql = "INSERT INTO favorite(user_id,post_id)
             VALUES(:user_id,:post_id)";
   }
-
+_debug($action);
   try{
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';

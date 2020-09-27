@@ -8,8 +8,6 @@ require_once('head.php');
   $comment_data = $_POST['comment_data'];
   $user_id = $_POST['user_id'];
 
-  $profile_user_id = $_POST['page_id'] ?: $current_user['id'];
-
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';

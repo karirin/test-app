@@ -36,7 +36,7 @@ switch ($page_type) {
 foreach((array)$users as $user): 
 
  print'<br />';
- print '<a href="../user/user_disp.php?user_id='.$user['id'].'">'.$user['name'].'</a>'; 
+ print '<a href="../user/user_disp.php?user_id='.$user['id'].'&page_id='.$_SESSION['user_id'].'">'.$user['name'].'</a>'; 
 
 endforeach
 ?>

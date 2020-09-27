@@ -49,6 +49,6 @@ catch (Exception $e)
 
 ?>
 
-<a href="post_list.php">戻る</a>
+<a href="post_index.php">戻る</a>
 </body>
 </html>

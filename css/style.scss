@@ -1,0 +1,42 @@
+a{
+    text-decoration-line: none;
+}
+
+ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    list-style: none;
+    width: 100%;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.5rem 0;
+    li {
+        padding: 100px;
+    }
+}
+
+ul li {
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    a { 
+    color: #fff;
+    }
+}
+
+ul li:nth-of-type(2) {
+    margin-left: auto;
+}
+
+nav.navbar.navbar-light.mb-2 {
+    background-color: rgb(197, 197, 197);
+    display: block;
+    text-align: right;
+    width: auto;
+    a {
+        padding: 0 50px;        
+    }
+}
+

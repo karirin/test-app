@@ -37,8 +37,8 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.follow_btn',function(e){
     e.stopPropagation();
     var $this = $(this),
-      followed_id = get_param('user_id'),
-      follow_id = $this.prev().val();
+      followed_id = get_param('user_id'), //2
+      follow_id = get_param('page_id'); //7
       //prev()は指定した$thisの直前にあるHTML要素を取得する
     $.ajax({
         type: 'POST',
@@ -46,14 +46,23 @@ $(document).on('click','.favorite_btn',function(e){
         dataType: 'json',
         data: { followed_id: followed_id,
                 follow_id: follow_id}
-    })
-    .done(function(resp){
-      console.log(resp);
+    // }).beforeSend(function(xhr) {
+    //   xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+    //$.ajax(...).beforeSendが未定義で関数をよびだすことができない（関数は(...)のこと→beforeSend(...)）
+    }).done(function(data){
+      console.log(data);
     }).fail(function(jqXHR,textStatus,errorThrown){
       console.log(jqXHR);
       console.log(textStatus);
       console.log(errorThrown);
     });
+  });
+
+  user_comment = $('.profile_comment').text();
+
+  $(document).on('click',".modal_close",function(){
+    $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
+    $('.btn_flex').css('display','none');
   });
 
   $(document).on('click','.edit_btn',function(){
@@ -71,20 +80,9 @@ $(document).on('click','.favorite_btn',function(e){
       dataType: 'text',
       data: {comment_data: comment_data,
              user_id: user_id}
-    })
-    // .beforeSend(function(xhr) {
-    // xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-    // })
-    .done(function(data){
-
+    }).done(function(){
+      location.reload();
     }).fail(function(){
       location.reload();
     });
-  });
-
-  user_comment = $('.profile_comment').text();
-
-  $(document).on('click',".modal_close",function(){
-    $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
-    $('.btn_flex').css('display','none');
   });
