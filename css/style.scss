@@ -1,4 +1,12 @@
-a{
+* {
+    font-family: Palatino Linotype;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+a:hover {
     text-decoration-line: none;
 }
 
@@ -9,25 +17,30 @@ ul {
     justify-content: flex-start;
     list-style: none;
     width: 100%;
-    font-weight: bold;
     margin: 0;
     padding: 0.5rem 0;
-    li {
-        padding: 100px;
-    }
 }
 
 ul li {
     padding: 0 2rem;
     font-size: 1.2rem;
-    font-weight: bold;
-    a { 
+}
+
+ul li:hover {
+    opacity: 0.5;
     color: #fff;
-    }
 }
 
 ul li:nth-of-type(2) {
     margin-left: auto;
+}
+
+ul li a {
+    color: #fff;
+}
+
+ul li a:hover {
+    color: #fff;
 }
 
 nav.navbar.navbar-light.mb-2 {
@@ -35,8 +48,16 @@ nav.navbar.navbar-light.mb-2 {
     display: block;
     text-align: right;
     width: auto;
-    a {
-        padding: 0 50px;        
-    }
 }
 
+.btn_flex {
+    display: none;
+}
+
+.edit_btn{
+    margin: 20px 0;
+}
+
+.edit_comment.border_white{
+    display: block;
+}

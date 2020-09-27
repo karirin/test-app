@@ -20,9 +20,11 @@ else
     print'</ul>';
     if(basename($_SERVER['PHP_SELF']) === 'user_top.php')
     {
+      print'</nav>';
       print'<nav class="navbar navbar-light mb-2"> ';
       print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=main">自分の投稿</a>';
       print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=favorites">いいねした投稿</a>';
+      print'</nav>';
     }
 
 }

@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-4">
 <?php
 require_once('../function.php');
 $page_type = $_GET['type'];
@@ -14,20 +16,14 @@ switch ($page_type) {
 }
 ?>
 
-<?php require_once('../post/post_index.php') ?>
-
 <?php print'<br />'.$current_user['name'].'';?>
 
 
 <div class="comment">
 
-<button class="edit_btn" type="button" name="follow">プロフィール編集</button>
-<br />
-<br />
+<button class="edit_btn" type="button" name="follow">プロフィール編集</button>  
 <p class="profile_comment"></p>
-<br />
-<br />
-<div class="btn_flex" style="display: none;">
+<div class="btn_flex">
 
 <button class="btn profile_save" type="button">編集完了</button>
 <button class="btn modal_close" type="button">キャンセル</button>
@@ -35,8 +31,10 @@ switch ($page_type) {
 
 </div>
 <?php print'<br />'.$current_user['profile'].'';
-
-
 ?>
+</div>
 
-<div class = "result"></div>
+<div class="col-8">
+<?php require_once('../post/post_index.php') ?>
+</div>
+</div>
