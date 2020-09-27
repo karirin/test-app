@@ -52,7 +52,11 @@ catch (Exception $e)
 <br />
 
 <?php
+if(basename($_SERVER['PHP_SELF']) === 'user_top.php'){
+
+}else{
 print'<a href="../user_login/user_top.php?user_id='.$_SESSION['user_id'].'&type=main">トップメニューへ</a><br />';
+}
 ?>
 
 </body>

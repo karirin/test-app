@@ -18,7 +18,7 @@ function get_user($user_id){
       $user='root';
       $password='';
       $dbh=new PDO($dsn,$user,$password);
-      $sql = "SELECT id,name,password,profile
+      $sql = "SELECT id,name,password,profile,image
               FROM user
               WHERE id = :id AND delete_flg = 0 ";
       $stmt = $dbh->prepare($sql);

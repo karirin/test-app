@@ -51,7 +51,10 @@ if($rec['delete_flg']){
 	set_flash('sucsess','登録されていたユーザーを復元しました');
 }
 {
-	$_SESSION['login']=1;//??
+	if(isset($rec['image'])){
+		$_SESSION['user_image']=$rec['image'];
+	}
+	$_SESSION['login']=1;
 	$_SESSION['user_id']=$user_id;
 	$_SESSION['user_name']=$rec['name'];
 	set_flash('sucsess','ログインしました');

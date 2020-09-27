@@ -24,7 +24,6 @@ $user = 'root';
 $password = '';
 $dbh = new PDO($dsn,$user,$password);
 $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 $sql = 'INSERT INTO post(name,address,time_start,time_end,gazou,user_id) VALUES (?,?,?,?,?,?)';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_name;

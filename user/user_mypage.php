@@ -15,8 +15,9 @@ switch ($page_type) {
   break;
 }
 ?>
-
-<?php print'<br />'.$current_user['name'].'';?>
+<?php print '<img src="./image/'.$current_user['image'].'" style="width:200px">';?><br />
+<img src=<?= $current_user['image'] ?> alt="">
+<?php var_dump($current_user['image']);?>
 
 
 <div class="comment">
