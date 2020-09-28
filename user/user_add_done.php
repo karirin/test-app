@@ -39,6 +39,6 @@ exit();
 
 ?>
 
-<a href="user_top.php">戻る</a>
+<a href="../user_login/user_top.php">戻る</a>
 </body>
 </html>
