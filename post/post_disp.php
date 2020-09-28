@@ -62,7 +62,6 @@ catch(Exception $e)
 <br />
 画像<br />
 <?php print '<img src="./gazou/'.$post_gazou_name.'" style="width:200px">';?><br />
-<?php var_dump($post_gazou_name);?>
 営業時間<br />
 <?php print $post_time_start;?>時
 ~

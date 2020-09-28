@@ -10,6 +10,19 @@ a:hover {
     text-decoration-line: none;
 }
 
+.col-4 {
+    text-align: center;
+}
+
+.col-4 p {
+    font-size: 30px;
+}
+
+img.mypage {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+}
+
 ul {
     display: -webkit-flex;
     display: flex;

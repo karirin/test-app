@@ -77,6 +77,12 @@ function get_user($user_id){
             WHERE user_id = :id AND delete_flg = 0";
       break;
 
+      case 'post':
+        $sql ="SELECT COUNT(id)
+              FROM post
+              WHERE user_id = :id";
+      break;
+
       case 'follow':
       $sql ="SELECT COUNT(follower_id)
             FROM relation

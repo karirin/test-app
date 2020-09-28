@@ -15,8 +15,12 @@ switch ($page_type) {
   break;
 }
 ?>
-<img src="/user/image/<?php echo $current_user['image'] ;?>" width="300" height="300"><br />
-<?php var_dump($current_user['image']);?>
+
+<?php
+print'<img src="/user/image/'.$current_user['image'].'" class="mypage" width="350" height="250">';
+print '<p>'.$current_user['name'].'</p>';
+print'<p>投稿数：'.current(get_user_count('post',$current_user['id'])).'</p>';
+?>
 
 <div class="comment">
 
