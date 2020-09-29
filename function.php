@@ -154,6 +154,10 @@ function get_posts($page_id,$type){
     $dbh=new PDO($dsn,$user,$password);
     // ページに合わせてSQLを変える
     switch ($type) {
+      case 'all':
+      $sql = "SELECT *
+              FROM post";
+      break;
       //自分の投稿を取得する
       case 'my_post':
       $sql = "SELECT user.id,user.name,user.password,user.delete_flg,post.id,post.name,post.address,post.time_start,post.time_end,post.gazou,post.user_id

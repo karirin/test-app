@@ -6,6 +6,10 @@ $page_type = $_GET['type'];
 $current_user=get_user($_SESSION['user_id']);
 
 switch ($page_type) {
+  case 'all':
+    $posts = get_posts($current_user['id'],'all',0);
+  break;
+
   case 'main':
     $posts = get_posts($current_user['id'],'my_post',0);
   break;
@@ -19,8 +23,8 @@ switch ($page_type) {
 <?php
 print'<img src="/user/image/'.$current_user['image'].'" class="mypage" width="350" height="250">';
 print '<p>'.$current_user['name'].'</p>';
-print'<p>投稿数：'.current(get_user_count('post',$current_user['id'])).'</p>';
-print'<p>いいね数：'.current(get_user_count('favorite',$current_user['id'])).'</p>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main"><p>投稿数：'.current(get_user_count('post',$current_user['id'])).'</p></a>';
+print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=favorites"><p>いいね数：'.current(get_user_count('favorite',$current_user['id'])).'</p></a>';
 ?>
 
 <div class="comment">
@@ -39,6 +43,6 @@ print'<p>いいね数：'.current(get_user_count('favorite',$current_user['id'])
 </div>
 
 <div class="col-8">
-<?php require_once('../post/post_index.php') ?>
+<?php require_once('../post_list.php') ?>
 </div>
 </div>
