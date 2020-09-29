@@ -28,7 +28,7 @@ $(document).on('click','.favorite_btn',function(e){
         data: { page_id: page_id,
                 post_id: post_id}
     }).done(function(data){
-
+      location.reload();
     }).fail(function() {
       location.reload();
     });
