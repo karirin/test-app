@@ -24,4 +24,5 @@ require_once('../header.php');
 <input type="submit" value="ログイン">
 </form>
 </body>
+<?php require_once('../footer.php'); ?>
 </html>

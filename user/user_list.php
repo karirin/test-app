@@ -46,3 +46,4 @@ endforeach
 print'<a href="../user_login/user_top.php?user_id='.$_SESSION['user_id'].'&type=main">トップメニューへ</a><br />';
 ?>
 </body>
+<?php require_once('../footer.php'); ?>

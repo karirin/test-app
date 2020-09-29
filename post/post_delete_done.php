@@ -40,4 +40,5 @@ exit();
 <br />
 <a href="post_index.php">戻る</a>
 </body>
+<?php require_once('../footer.php'); ?>
 </html>

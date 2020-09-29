@@ -25,3 +25,4 @@ require('head.php');
       </form>
 
 </body>
+<?php require_once('footer.php'); ?>

@@ -21,25 +21,26 @@ switch ($page_type) {
 ?>
 
 <?php
-print'<img src="/user/image/'.$current_user['image'].'" class="mypage" width="350" height="250">';
+print'<img src="/user/image/'.$current_user['image'].'" class="mypage">';
 print '<p>'.$current_user['name'].'</p>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main"><p>投稿数：'.current(get_user_count('post',$current_user['id'])).'</p></a>';
-print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=favorites"><p>いいね数：'.current(get_user_count('favorite',$current_user['id'])).'</p></a>';
+print '<div>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main">投稿数：'.current(get_user_count('post',$current_user['id'])).'</a>';
+print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=favorites">お気に入り投稿：'.current(get_user_count('favorite',$current_user['id'])).'</a>';
+print '</div>';
 ?>
 
-<div class="comment">
 
-<button class="edit_btn" type="button" name="follow">プロフィール編集</button>  
+
+<button class="edit_btn" type="button" name="follow">プロフィール編集</button>
+<div class="comment">
 <p class="profile_comment"></p>
 <div class="btn_flex">
-
 <button class="btn profile_save" type="button">編集完了</button>
 <button class="btn modal_close" type="button">キャンセル</button>
 </div>
 
 </div>
-<?php print'<br />'.$current_user['profile'].'';
-?>
+<?php print'<br />'.$current_user['profile'].'';?>
 </div>
 
 <div class="col-8">

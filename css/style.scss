@@ -12,15 +12,23 @@ a:hover {
 
 .col-4 {
     text-align: center;
+    padding-top: 2rem;
 }
 
 .col-4 p {
-    font-size: 30px;
+    font-size: 2rem;
 }
 
-img.mypage {
+.col-4 a {
+    font-size: 1.3rem;
+    margin: 0 0.8rem;
+}
+
+img {
     border-radius: 10rem;
     border: solid 0.3rem;
+    width: 15rem;
+    height: 15rem;
 }
 
 ul {
@@ -73,4 +81,9 @@ nav.navbar.navbar-light.mb-2 {
 
 .edit_comment.border_white{
     display: block;
+}
+
+.comment{
+    width: 100%;
+    display: inline-block;
 }

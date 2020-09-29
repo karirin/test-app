@@ -88,7 +88,7 @@ else
 	print '<input type="submit" value="ＯＫ">';
 	print '</form>';
 }
-
+require_once('../footer.php');
 ?>
 </body>
 </html>

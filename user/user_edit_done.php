@@ -41,4 +41,5 @@ exit();
 <br />
 <a href="user_list.php">戻る</a>
 </body>
+<?php require_once('../footer.php'); ?>
 </html>

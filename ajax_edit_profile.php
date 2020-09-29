@@ -25,3 +25,4 @@ require_once('head.php');
     set_flash('error',ERR_MSG1);
   }
   }
+  require_once('footer.php');

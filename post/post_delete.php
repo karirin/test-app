@@ -60,4 +60,5 @@ catch(Exception $e)
 <input type="submit" value="OK">
 </form>
 </body>
+<?php require_once('../footer.php'); ?>
 </html>

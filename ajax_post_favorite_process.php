@@ -33,4 +33,4 @@ _debug($action);
     echo json_encode("error");
   }
 }
-
+require_once('footer.php');

@@ -36,4 +36,5 @@ if(isset($_POST)){
 
     }
   }
+  require_once('footer.php');
 ?>

@@ -60,4 +60,5 @@ print'<a href="../user_login/user_top.php?user_id='.$_SESSION['user_id'].'&type=
 ?>
 
 </body>
+<?php require_once('../footer.php'); ?>
 </html>

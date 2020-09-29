@@ -63,4 +63,5 @@ catch(Exception $e)
 <input type="button" onclick="history.back()"value="戻る">
 </form>
 </body>
+<?php require_once('../footer.php'); ?>
 </html>
