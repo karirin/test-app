@@ -20,6 +20,7 @@ switch ($page_type) {
 print'<img src="/user/image/'.$current_user['image'].'" class="mypage" width="350" height="250">';
 print '<p>'.$current_user['name'].'</p>';
 print'<p>投稿数：'.current(get_user_count('post',$current_user['id'])).'</p>';
+print'<p>いいね数：'.current(get_user_count('favorite',$current_user['id'])).'</p>';
 ?>
 
 <div class="comment">
