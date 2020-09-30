@@ -10,7 +10,7 @@ require_once('../header.php');
 スタッフログイン<br />
 <?php if (isset($flash_messages)): ?>
       <?php foreach ((array)$flash_messages as $message): ?>
-        <p class ="flash_message <?= $flash_type ?>"><?= $message?></p>
+        <p class ="flash_message"><?= $message?></p>
       <?php endforeach ?>
 <?php endif ?>
 <br />

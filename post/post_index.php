@@ -17,7 +17,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT id,name,address,time_start,time_end,gazou FROM post WHERE 1';
+$sql='SELECT id,text,gazou FROM post WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -32,7 +32,10 @@ while(true)
 	{
 		break;
 	}
-	print '<a href="../post/post_disp.php?post_id='.$rec['id'].'&page_id='.$_SESSION['user_id'].'"> '.$rec['name'].' </a><br />';
+	print '<a href="../post/post_disp.php?post_id='.$rec['id'].'&page_id='.$_SESSION['user_id'].'">
+	'.$rec['text'].'
+	<img src="/post/gazou/'.$rec['gazou'].'">
+	</a><br />';
 	print '<br />';
 
 

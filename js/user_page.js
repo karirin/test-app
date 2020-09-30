@@ -86,3 +86,13 @@ $(document).on('click','.favorite_btn',function(e){
       location.reload();
     });
   });
+
+  function show_slide_message(flash_type,flash_message){
+    $message = ('.flash_message');
+
+    // 渡されたメッセージを表示させる
+    $($message).text(flash_message);
+    //$($message)内のフラッシュメッセージを取得する
+    $($message).slideToggle('slow');
+    setTimeout(function(){ $($message).slideToggle('slow'); }, 2000);
+  }
