@@ -16,8 +16,7 @@ function get_param(name, url) {
 
 $(document).on('click','.favorite_btn',function(e){
     e.stopPropagation();
-    var page_id = get_param('page_id'),
-        post_id = get_param('post_id');
+    var post_id = get_param('post_id');
         //prev()は$thisの直前にあるhtml要素を取得する
         //val()は取得したいhtml要素のvalue値を取得する
         //page_idはユーザーのID
@@ -25,8 +24,8 @@ $(document).on('click','.favorite_btn',function(e){
         type: 'POST',
         url: '../ajax_post_favorite_process.php',
         dataType: 'json',
-        data: { page_id: page_id,
-                post_id: post_id}
+        data: {
+        post_id: post_id}
     }).done(function(data){
       location.reload();
     }).fail(function() {

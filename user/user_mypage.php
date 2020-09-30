@@ -18,9 +18,7 @@ switch ($page_type) {
     $posts = get_posts($current_user['id'],'favorite',0);
   break;
 }
-?>
 
-<?php
 print'<img src="/user/image/'.$current_user['image'].'" class="mypage">';
 print '<p>'.$current_user['name'].'</p>';
 print '<div>';
@@ -28,8 +26,6 @@ print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main">投稿数
 print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=favorites">お気に入り投稿：'.current(get_user_count('favorite',$current_user['id'])).'</a>';
 print '</div>';
 ?>
-
-
 
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 <div class="comment">

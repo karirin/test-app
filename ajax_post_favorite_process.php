@@ -5,7 +5,6 @@ require_once('head.php');
 if(isset($_POST)){
 
   $current_user = get_user($_SESSION['user_id']);
-  $page_id = $_POST['page_id'];
   $post_id = $_POST['post_id'];
 
   //既に登録されているか確認

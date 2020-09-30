@@ -17,16 +17,13 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name,address,time_start,time_end,gazou FROM post WHERE id=?';
+$sql='SELECT text,gazou FROM post WHERE id=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$post_id;
 $stmt->execute($data);
 
 $rec = $stmt -> fetch(PDO::FETCH_ASSOC);
-$post_name = $rec['name'];
-$post_address = $rec['address'];
-$post_time_start = $rec['time_start'];
-$post_time_end = $rec['time_end'];
+
 $post_gazou_name =$rec['gazou'];
 
 $dbh = null;
@@ -52,21 +49,11 @@ catch(Exception $e)
 <br />
 投稿番号<br />
 <?php print $post_id; ?>
-<br />
-<br />
-店名<br />
-<?php print $post_name;?>
-<br />
-住所<br />
-<?php print $post_address;?>
+
 <br />
 画像<br />
 <?php print '<img src="./gazou/'.$post_gazou_name.'" style="width:200px">';?><br />
-営業時間<br />
-<?php print $post_time_start;?>時
-~
-<?php print $post_time_end;?>時
-<br />
+
 <?php print '<a href="../post/post_edit.php?post_id='.$post_id.'">編集</a><br />';?>
 <?php print '<a href="../post/post_delete.php?post_id='.$post_id.'">削除</a><br />';?>
       <!-- お気に入りボタン ahaxで処理-->
