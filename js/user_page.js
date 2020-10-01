@@ -16,7 +16,7 @@ function get_param(name, url) {
 
 $(document).on('click','.favorite_btn',function(e){
     e.stopPropagation();
-    var post_id = get_param('post_id');
+    var post_id = $('.favorite_btn').val();
         //prev()は$thisの直前にあるhtml要素を取得する
         //val()は取得したいhtml要素のvalue値を取得する
         //page_idはユーザーのID

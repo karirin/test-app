@@ -59,7 +59,7 @@ catch(Exception $e)
       <!-- お気に入りボタン ahaxで処理-->
       <form class="favorite_count" action="#" method="post">
         <input type="hidden" name="post_id">
-        <button type="button" name="favorite" class="favorite_btn">
+        <button type="button" name="favorite" class="favorite_btn" value="<?= $post_id?>">
         <!-- 登録済みか判定してアイコンを変える -->
         <?php if (!check_favolite_duplicate($_SESSION['user_id'],$post_id)): ?>
           いいね

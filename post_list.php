@@ -3,7 +3,7 @@
 
 <form class="favorite_count" action="#" method="post">
         <input type="hidden" name="post_id">
-        <button type="button" name="favorite" class="favorite_btn">
+        <button type="button" name="favorite" class="favorite_btn" value="<?= $post['id'] ?>">
         <?php if (!check_favolite_duplicate($_SESSION['user_id'],$post['id'])): ?>
           いいね
         <?php else: ?>
