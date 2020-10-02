@@ -58,8 +58,8 @@ catch(Exception $e)
 <?php print '<a href="../post/post_delete.php?post_id='.$post_id.'">削除</a><br />';?>
       <!-- お気に入りボタン ahaxで処理-->
       <form class="favorite_count" action="#" method="post">
-        <input type="hidden" name="post_id">
-        <button type="button" name="favorite" class="favorite_btn" value="<?= $post_id?>">
+        <input type="hidden" name="post_id" class="favorite_input" value="<?= $post_id?>">
+        <button type="button" name="favorite" class="favorite_btn">
         <!-- 登録済みか判定してアイコンを変える -->
         <?php if (!check_favolite_duplicate($_SESSION['user_id'],$post_id)): ?>
           いいね
