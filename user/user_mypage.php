@@ -23,7 +23,9 @@ print'<img src="/user/image/'.$current_user['image'].'" class="mypage">';
 print '<p>'.$current_user['name'].'</p>';
 print '<div>';
 print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main">投稿数：'.current(get_user_count('post',$current_user['id'])).'</a>';
-print'<a href="user_top.php?user_id='.$_SESSION['user_id'].'&type=favorites">お気に入り投稿：'.current(get_user_count('favorite',$current_user['id'])).'</a>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=favorites">お気に入り投稿：'.current(get_user_count('favorite',$current_user['id'])).'</a>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follow">フォロー数：'.current(get_user_count('follow',$current_user['id'])).'</a>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follower">フォロワー数：'.current(get_user_count('follower',$current_user['id'])).'</a>';
 print '</div>';
 ?>
 
