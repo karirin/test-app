@@ -37,7 +37,7 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.follow_btn',function(e){
     e.stopPropagation();
     var $this = $(this),
-    profile_user_id = $('.profile_user_id').val(),
+    profile_user_id = $('.profile_user_id').val();
     user_id = $this.prev().val();
       //prev()は指定した$thisの直前にあるHTML要素を取得する
     $.ajax({

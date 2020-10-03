@@ -13,7 +13,6 @@ try
 
 $disp_user = get_user($_GET['user_id']);
 $profile_user = get_user($_GET['page_id']);
-var_dump($profile_user['id']);
 $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
 $password='';
@@ -51,8 +50,7 @@ catch(Exception $e)
 <br />
 <br />
 <form action="#" method="post">
-          <input type="hidden" class="profile_user_id"　value="<?= $profile_user['id'] ?>">
-          <?php var_dump($profile_user['id'] ); ?>
+          <input type="hidden" class="profile_user_id" value="<?= $profile_user['id'] ?>">
           <input type="hidden" name="follow_user_id" value="<?= $user_id ?>">
           <!-- フォロー中か確認してボタンを変える -->
           

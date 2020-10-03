@@ -12,5 +12,4 @@
         </button>
         <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
-<?php var_dump($post['id']); ?>
 <?php endforeach ?>
