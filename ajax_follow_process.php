@@ -4,11 +4,13 @@ require_once('head.php');
 
 if(isset($_POST)){
 
-  $follow_id = $_POST['follow_id']; 
-  $followed_id = $_POST['followed_id'] ?? $follow_id;
+  $current_user = get_user($_SESSION['user_id']);
+
+  $user_id = $_POST['user_id'];
+  $profile_user_id = $_POST['profile_user_id'] ?? $user_id;
 
     // すでに登録されているか確認して登録、削除のSQL切り替え
-    if(check_follow($follow_id,$followed_id)){
+    if(check_follow($current_user['id'],$user_id)){
       $action = '解除';
       $flash_type = 'error';
       $sql ="DELETE
@@ -26,7 +28,11 @@ if(isset($_POST)){
       $password='';
       $dbh=new PDO($dsn,$user,$password);
       $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(':follow_id' => $followed_id , ':follower_id' => $follow_id));       
+      $stmt->execute(array(':follow_id' => $followed_id , ':follower_id' => $follow_id));
+      $return = array('action' => $action,
+      'follow_count' => current(get_user_count('follow',$profile_user_id)),
+      'follower_count' => current(get_user_count('follower',$profile_user_id)));
+      echo json_encode($return);       
     }    
 
     catch (\Exception $e) {

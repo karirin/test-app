@@ -11,21 +11,23 @@ require_once('../header.php');
 try
 {
 
-$user_id=$_GET['user_id'];
-
+$disp_user = get_user($_GET['user_id']);
+$profile_user = get_user($_GET['page_id']);
+var_dump($profile_user['id']);
 $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name FROM user WHERE id=?';
+$sql='SELECT name,id FROM user WHERE id=?';
 $stmt=$dbh->prepare($sql);
-$data[]=$user_id;
+$data[]=$disp_user['id']; 
 $stmt->execute($data);
 
 $rec = $stmt -> fetch(PDO::FETCH_ASSOC);
 $user_name = $rec['name'];
+$user_id = $rec['id'];
 
 $dbh = null;
 }
@@ -49,13 +51,16 @@ catch(Exception $e)
 <br />
 <br />
 <form action="#" method="post">
-          <input type="hidden" class="profile_user_id">
-          <input type="hidden" name="follow_user_id" value="follow_user_id">
+          <input type="hidden" class="profile_user_id"　value="<?= $profile_user['id'] ?>">
+          <?php var_dump($profile_user['id'] ); ?>
+          <input type="hidden" name="follow_user_id" value="<?= $user_id ?>">
           <!-- フォロー中か確認してボタンを変える -->
-
-          <button class="follow_btn">
-
-            フォロー
+          
+          <?php if (check_follow($profile_user['id'],$user_id)): ?>
+          <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
+          <?php else: ?>
+            <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>
+          <?php endif; ?>
 
           </button>
         </form>

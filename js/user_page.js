@@ -37,24 +37,22 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.follow_btn',function(e){
     e.stopPropagation();
     var $this = $(this),
-      followed_id = get_param('user_id'), //2
-      follow_id = get_param('page_id'); //7
+    profile_user_id = $('.profile_user_id').val(),
+    user_id = $this.prev().val();
       //prev()は指定した$thisの直前にあるHTML要素を取得する
     $.ajax({
         type: 'POST',
         url: '../ajax_follow_process.php',
         dataType: 'json',
-        data: { followed_id: followed_id,
-                follow_id: follow_id}
+        data: { profile_user_id: profile_user_id,
+                user_id: user_id}
     // }).beforeSend(function(xhr) {
     //   xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
     //$.ajax(...).beforeSendが未定義で関数をよびだすことができない（関数は(...)のこと→beforeSend(...)）
     }).done(function(data){
-      console.log(data);
+      location.reload();
     }).fail(function(jqXHR,textStatus,errorThrown){
-      console.log(jqXHR);
-      console.log(textStatus);
-      console.log(errorThrown);
+      location.reload();
     });
   });
 

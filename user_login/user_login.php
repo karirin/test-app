@@ -15,8 +15,8 @@ require_once('../header.php');
 <?php endif ?>
 <br />
 <form method="post"action="#">
-ユーザーコード<br />
-<input type="text" name="id"><br />
+ユーザー名<br />
+<input type="text" name="name"><br />
 パスワード<br />
 <input type="password" name="pass"><br />
 <br />
