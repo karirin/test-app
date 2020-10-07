@@ -32,7 +32,7 @@ while(true)
 	{
 		break;
 	}
-	print '<a href="../post/post_disp.php?post_id='.$rec['id'].'&page_id='.$_SESSION['user_id'].'">
+	print '<a href="../post/post_disp.php?post_id='.$rec['id'].'">
 	'.$rec['text'].'
 	<img src="/post/gazou/'.$rec['gazou'].'">
 	</a><br />';

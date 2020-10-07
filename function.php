@@ -30,76 +30,90 @@ function get_user($user_id){
     }
   }
 
-  function get_users($type,$query){
-    try {
-      $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-      $user='root';
-      $password='';
-      $dbh=new PDO($dsn,$user,$password);
-  
-      switch ($type) {
-        case 'all':
+function get_users($type,$query){
+  try {
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+
+    switch ($type) {
+      case 'all':
+      $sql = "SELECT id,name,password,profile
+              FROM user
+              WHERE delete_flg = 0";
+      $stmt = $dbh->prepare($sql);
+      break;
+
+      case 'search':
         $sql = "SELECT id,name,password,profile
                 FROM user
-                WHERE delete_flg = 0";
+                WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0";
         $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll();
-        break;
-
-        case 'search':
-          $sql = "SELECT id,name,password,profile
-                  FROM user
-                  WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0";
-          $stmt = $dbh->prepare($sql);
-          $stmt->bindValue(':input', $query);
-          $stmt->execute();
-          return $stmt->fetchAll();
-        break;
-      }
-    } catch (\Exception $e) {
-      error_log('エラー発生:' . $e->getMessage());
-      set_flash('error',ERR_MSG1);
-    }
-  }
-
-  function get_user_count($object,$user_id){
-      $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
-      $user='root';
-      $password='';
-      $dbh=new PDO($dsn,$user,$password);
-  
-    switch ($object) {
-
-      case 'favorite':
-      $sql ="SELECT COUNT(post_id)
-            FROM favorite
-            WHERE user_id = :id AND delete_flg = 0";
+        $stmt->bindValue(':input', $query);
       break;
 
-      case 'post':
-        $sql ="SELECT COUNT(id)
-              FROM post
-              WHERE user_id = :id";
-      break;
-
-      case 'follow':
-      $sql ="SELECT COUNT(follower_id)
-            FROM relation
-            WHERE follow_id = :id AND delete_flg = 0";
+      case 'follows':
+        $sql = "SELECT follower_id
+                FROM relation
+                WHERE :follow_id = follow_id AND delete_flg = 0";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':follow_id', $query);
         break;
   
-      case 'follower':
-      $sql ="SELECT COUNT(follow_id)
-            FROM relation
-            WHERE follower_id = :id AND delete_flg = 0";
+        case 'followers':
+        $sql = "SELECT follow_id
+                FROM relation
+                WHERE :follower_id = follower_id AND delete_flg = 0";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindValue(':follower_id', $query);
         break;
     }
-  
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':id' => $user_id));
-    return $stmt->fetch();
+    $stmt->execute();
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
   }
+}
+
+function get_user_count($object,$user_id){
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+
+  switch ($object) {
+
+    case 'favorite':
+    $sql ="SELECT COUNT(post_id)
+          FROM favorite
+          WHERE user_id = :id AND delete_flg = 0";
+    break;
+
+    case 'post':
+      $sql ="SELECT COUNT(id)
+            FROM post
+            WHERE user_id = :id";
+    break;
+
+    case 'follow':
+    $sql ="SELECT COUNT(follower_id)
+          FROM relation
+          WHERE follow_id = :id AND delete_flg = 0";
+      break;
+
+    case 'follower':
+    $sql ="SELECT COUNT(follow_id)
+          FROM relation
+          WHERE follower_id = :id AND delete_flg = 0";
+      break;
+  }
+
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':id' => $user_id));
+  return $stmt->fetch();
+}
 
 //お気に入りの重複チェック
 function check_favolite_duplicate($user_id,$post_id){
@@ -129,7 +143,7 @@ function get_post_favorite_count($post_id){
   $stmt->execute(array(':post_id' => $post_id));
   return $stmt->fetch();
 }
-
+_debug('',true);
 //フォロー中かどうか確認している処理
 function check_follow($follow_user,$follower_user){
   $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -138,15 +152,16 @@ function check_follow($follow_user,$follower_user){
   $dbh=new PDO($dsn,$user,$password);
   $sql = "SELECT follow_id,follower_id
           FROM relation
-          WHERE :follower_id =follow_id AND :follow_id = follower_id";
+          WHERE :follower_id =follower_id AND :follow_id = follow_id";
   $stmt = $dbh->prepare($sql);
   $stmt->execute(array(':follow_id' => $follow_user,
                        ':follower_id' => $follower_user));
+                         _debug($stmt);
   return  $stmt->fetch();
 }
 
 // ユーザーの投稿を取得する
-function get_posts($page_id,$type){
+function get_posts($user_id,$type){
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';
@@ -174,10 +189,9 @@ function get_posts($page_id,$type){
               INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id";
       break;
-
     }
     $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':id', $page_id);
+    $stmt->bindValue(':id', $user_id);
     $stmt->execute();
     return $stmt->fetchAll();
   } catch (\Exception $e) {
@@ -197,7 +211,6 @@ function change_delete_flg($id,$flg){
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':flg' => $flg , ':id' => $id));
     
-    _debug($id);
     $dbh->commit();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());

@@ -17,6 +17,14 @@ switch ($page_type) {
   case 'favorites':
     $posts = get_posts($current_user['id'],'favorite',0);
   break;
+
+  case 'follow':
+    $users = get_users($current_user['id'],'follows',0);
+  break;
+
+  case 'follower':
+    $users = get_users($current_user['id'],'followers',0);
+  break;
 }
 
 print'<img src="/user/image/'.$current_user['image'].'" class="mypage">';
@@ -42,6 +50,12 @@ print '</div>';
 </div>
 
 <div class="col-8">
-<?php require_once('../post_list.php') ?>
+<?php 
+if(isset($posts)){
+require_once('../post_list.php');
+}else{
+require_once('user_list.php');
+}
+?>
 </div>
 </div>

@@ -20,7 +20,6 @@ $(document).on('click','.favorite_btn',function(e){
         post_id = $this.prev().val();
         //prev()は$thisの直前にあるhtml要素を取得する
         //val()は取得したいhtml要素のvalue値を取得する
-        //page_idはユーザーのID
     $.ajax({
         type: 'POST',
         url: '../ajax_post_favorite_process.php',
@@ -37,15 +36,15 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.follow_btn',function(e){
     e.stopPropagation();
     var $this = $(this),
-    profile_user_id = $('.profile_user_id').val();
+    current_user_id = $('.current_user_id').val();
     user_id = $this.prev().val();
       //prev()は指定した$thisの直前にあるHTML要素を取得する
     $.ajax({
         type: 'POST',
         url: '../ajax_follow_process.php',
         dataType: 'json',
-        data: { profile_user_id: profile_user_id,
-                user_id: user_id}
+        data: { current_user_id: current_user_id,
+                user_id: user_id }
     // }).beforeSend(function(xhr) {
     //   xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
     //$.ajax(...).beforeSendが未定義で関数をよびだすことができない（関数は(...)のこと→beforeSend(...)）

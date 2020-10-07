@@ -9,7 +9,7 @@ if(isset($_POST)){
   $current_user = get_user($_SESSION['user_id']);
 
   $user_id = $_POST['user_id'];
-  $profile_user_id = $_POST['profile_user_id'] ?? $user_id;
+  $current_user_id = $_POST['current_user_id'] ?? $user_id;
 
     // すでに登録されているか確認して登録、削除のSQL切り替え
     if(check_follow($current_user['id'],$user_id)){
@@ -30,11 +30,10 @@ if(isset($_POST)){
       $password='';
       $dbh=new PDO($dsn,$user,$password);
       $stmt = $dbh->prepare($sql);
-      $stmt->execute(array(':follow_id' => $user_id , ':follower_id' => $profile_user_id));
-      _debug($followed_id);
+      $stmt->execute(array(':follow_id' => $current_user_id , ':follower_id' => $user_id));
       $return = array('action' => $action,
-      'follow_count' => current(get_user_count('follow',$profile_user_id)),
-      'follower_count' => current(get_user_count('follower',$profile_user_id)));
+      'follow_count' => current(get_user_count('follow',$current_user_id)),
+      'follower_count' => current(get_user_count('follower',$current_user_id)));
       echo json_encode($return);       
     }    
     catch (\Exception $e) {

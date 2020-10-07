@@ -3,8 +3,6 @@ if (!empty($_POST['search_user'])){
     $hoge = $_POST['search_input'];
     header("Location:user_list.php?type=search&query=${hoge}");
   }
-?>
-<?php 
 require_once('../config.php');
 require_once('../head.php');
 require_once('../header.php');
@@ -20,6 +18,7 @@ print'<input type="submit" name="search_user">';
 print'</form>';
 
 $page_type = $_GET['type'];
+$current_user = get_user($_SESSION['user_id']);
 
 switch ($page_type) {
     case 'all';
@@ -36,7 +35,7 @@ switch ($page_type) {
 foreach((array)$users as $user): 
 
  print'<br />';
- print '<a href="../user/user_disp.php?user_id='.$user['id'].'&page_id='.$_SESSION['user_id'].'">'.$user['name'].'</a>'; 
+ print '<a href="../user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$user['id'].'">'.$user['name'].'</a>'; 
 
 endforeach
 ?>
