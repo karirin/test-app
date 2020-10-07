@@ -1,10 +1,11 @@
 <?php
 require_once('../config.php'); 
-?>
-<?php
 
 try
 {
+
+$date = new DateTime();
+$date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
     
 $post_text=$_POST['text'];
 $post_gazou_name=$_POST['gazou_name'];
@@ -18,11 +19,12 @@ $user = 'root';
 $password = '';
 $dbh = new PDO($dsn,$user,$password);
 $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = 'INSERT INTO post(text,gazou,user_id) VALUES (?,?,?)';
+$sql = 'INSERT INTO post(text,gazou,user_id,created_at) VALUES (?,?,?,?)';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_text;
 $data[] = $post_gazou_name;
 $data[] = $user_id;
+$data[] = $date->format('Y-m-d H:i:s');
 
 $stmt -> execute($data);
 
