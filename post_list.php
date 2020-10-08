@@ -1,4 +1,4 @@
-<?php foreach($posts as $post): 
+<?php foreach($posts as $post):
 $post_user = get_user($post['user_id']); 
 print'<img src="/user/image/'.$post_user['image'].'" style="width:200px">'; 
 print''.$post_user['name'].'';

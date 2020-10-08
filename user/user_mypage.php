@@ -50,7 +50,18 @@ print '</div>';
 </div>
 
 <div class="col-8">
-<?php 
+
+<?php if($page_type === 'main'): ?>
+  <h2><?= $current_user['name'] ?>さんの投稿</h2>
+<?php elseif ($page_type === 'favorites'): ?>
+  <h2>お気に入りの投稿</h2>
+<?php elseif ($page_type === 'follow'): ?>
+  <h2>フォローした人</h2>
+<?php elseif ($page_type === 'follower'): ?>
+  <h2>フォロワー</h2>
+<?php endif; ?>
+
+<?php
 if(isset($posts)){
 require_once('../post_list.php');
 }else{

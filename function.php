@@ -31,6 +31,7 @@ function get_user($user_id){
   }
 
 function get_users($type,$query){
+  _debug($type);
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';
@@ -143,7 +144,7 @@ function get_post_favorite_count($post_id){
   $stmt->execute(array(':post_id' => $post_id));
   return $stmt->fetch();
 }
-_debug('',true);
+
 //フォロー中かどうか確認している処理
 function check_follow($follow_user,$follower_user){
   $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -156,7 +157,6 @@ function check_follow($follow_user,$follower_user){
   $stmt = $dbh->prepare($sql);
   $stmt->execute(array(':follow_id' => $follow_user,
                        ':follower_id' => $follower_user));
-                         _debug($stmt);
   return  $stmt->fetch();
 }
 
