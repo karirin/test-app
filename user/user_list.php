@@ -30,10 +30,9 @@ switch ($page_type) {
     break;
   }
  
+foreach((array)$users as $user):
 
-
-foreach((array)$users as $user): 
-
+$user = get_user($user);
  print'<br />';
  print '<a href="../user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$user['id'].'">'.$user['name'].'</a>'; 
 

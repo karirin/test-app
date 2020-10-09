@@ -18,7 +18,6 @@ if(isset($_POST)){
     $sql = "INSERT INTO favorite(user_id,post_id)
             VALUES(:user_id,:post_id)";
   }
-_debug($action);
   try{
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';

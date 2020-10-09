@@ -31,7 +31,6 @@ function get_user($user_id){
   }
 
 function get_users($type,$query){
-  _debug($type);
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';
@@ -60,15 +59,15 @@ function get_users($type,$query){
                 WHERE :follow_id = follow_id AND delete_flg = 0";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':follow_id', $query);
-        break;
+      break;
   
-        case 'followers':
+      case 'followers':
         $sql = "SELECT follow_id
                 FROM relation
                 WHERE :follower_id = follower_id AND delete_flg = 0";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':follower_id', $query);
-        break;
+      break;
     }
     $stmt->execute();
     return $stmt->fetchAll();
