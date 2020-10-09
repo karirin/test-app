@@ -1,8 +1,15 @@
 <?php foreach($posts as $post):
+
 $post_user = get_user($post['user_id']); 
-print'<img src="/user/image/'.$post_user['image'].'" style="width:200px">'; 
+
+print'<div class="post">';
+print'<div class="post_text">';
+print''.$post['text'].'';
+print'</div>';
+print'<div class="post_user">';
+print'<img src="/user/image/'.$post_user['image'].'">'; 
 print''.$post_user['name'].'';
-print'<textarea>'.$post['text'].'</textarea>';
+print'</div>';
 ?>
 <form class="favorite_count" action="#" method="post">
         <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
@@ -15,4 +22,5 @@ print'<textarea>'.$post['text'].'</textarea>';
         </button>
         <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
+<?php print'</div>'; ?>
 <?php endforeach ?>

@@ -75,15 +75,40 @@ nav.navbar.navbar-light.mb-2 {
     display: none;
 }
 
-.edit_btn{
+.edit_btn {
     margin: 20px 0;
 }
 
-.edit_comment.border_white{
+.edit_comment.border_white {
     display: block;
 }
 
-.comment{
+.comment {
     width: 100%;
     display: inline-block;
+}
+
+.post {
+    margin: 2rem 0;
+}
+
+.post img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.post .post_text {
+    border: 1px solid rgb(59, 59, 59);
+    width: 30%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+.post .post_user {
+    display: inline-block;
+}
+
+.post .favorite_count {
+    display: inline;
 }
