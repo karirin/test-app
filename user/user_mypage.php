@@ -19,11 +19,11 @@ switch ($page_type) {
   break;
 
   case 'follow':
-    $users = current(current(get_users('follows',$current_user['id'])));
+    $users = get_users('follows',$current_user['id']);
   break;
 
   case 'follower':
-    $users = current(current(get_users('followers',$current_user['id'])));
+    $users = get_users('followers',$current_user['id']);
     
   break;
 }

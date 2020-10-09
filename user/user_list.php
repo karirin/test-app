@@ -10,8 +10,10 @@ require_once('../function.php');
 ?>
 <body>
 <?php
-print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
 
+if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
+print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
+}
 print'<form method="post" action="#" class="search_container">';
 print'<input type="text" name="search_input" placeholder="ユーザー検索">';
 print'<input type="submit" name="search_user">';
@@ -29,9 +31,9 @@ switch ($page_type) {
     $users = get_users('search',$_GET['query']);
     break;
   }
- 
-foreach((array)$users as $user):
 
+foreach((array)$users as $user):
+$user = current($user);
 $user = get_user($user);
  print'<br />';
  print '<a href="../user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$user['id'].'">'.$user['name'].'</a>'; 

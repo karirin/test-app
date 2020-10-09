@@ -39,14 +39,14 @@ function get_users($type,$query){
 
     switch ($type) {
       case 'all':
-      $sql = "SELECT id,name,password,profile
+      $sql = "SELECT id
               FROM user
               WHERE delete_flg = 0";
       $stmt = $dbh->prepare($sql);
       break;
 
       case 'search':
-        $sql = "SELECT id,name,password,profile
+        $sql = "SELECT id
                 FROM user
                 WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0";
         $stmt = $dbh->prepare($sql);
@@ -174,7 +174,7 @@ function get_posts($user_id,$type){
       break;
       //自分の投稿を取得する
       case 'my_post':
-      $sql = "SELECT user.id,user.name,user.password,user.delete_flg,post.id,post.name,post.address,post.time_start,post.time_end,post.gazou,post.user_id
+      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id
               FROM user INNER JOIN post ON user.id = post.user_id
               WHERE user_id = :id AND delete_flg = 0";
               //inner join ～ on でテーブル同士をくっつけている
@@ -183,7 +183,7 @@ function get_posts($user_id,$type){
       break;
       //お気に入り登録した投稿を取得する
       case 'favorite':
-      $sql = "SELECT user.id,user.name,user.password,user.delete_flg,post.id,post.name,post.address,post.time_start,post.time_end,post.gazou,post.user_id
+      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id
               FROM post INNER JOIN favorite ON post.id = favorite.post_id
               INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id";
