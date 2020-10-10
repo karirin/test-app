@@ -22,5 +22,7 @@ print'</div>';
         </button>
         <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
+<a href="/post/post_delete.php/post_delete.php?post_id=<?=$post['id']?>">削除</a>
+<?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
 <?php print'</div>'; ?>
 <?php endforeach ?>

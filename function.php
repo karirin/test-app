@@ -174,7 +174,7 @@ function get_posts($user_id,$type){
       break;
       //自分の投稿を取得する
       case 'my_post':
-      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id
+      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id,post.created_at
               FROM user INNER JOIN post ON user.id = post.user_id
               WHERE user_id = :id AND delete_flg = 0";
               //inner join ～ on でテーブル同士をくっつけている
@@ -183,7 +183,7 @@ function get_posts($user_id,$type){
       break;
       //お気に入り登録した投稿を取得する
       case 'favorite':
-      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id
+      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id,post.created_at
               FROM post INNER JOIN favorite ON post.id = favorite.post_id
               INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id";
@@ -219,4 +219,39 @@ function change_delete_flg($id,$flg){
   }
 }
 
+function convert_to_fuzzy_time($time_db){
+  ini_set("date.timezone", "Asia/Tokyo");
+  $unix = strtotime($time_db);
+  $now = strtotime('now');
+  $diff_sec   = $now - $unix;
+
+  if($diff_sec < 60){
+      $time   = $diff_sec;
+      $unit   = "秒前";
+  }
+  elseif($diff_sec < 3600){
+      $time   = $diff_sec/60;
+      $unit   = "分前";
+  }
+  elseif($diff_sec < 86400){
+      $time   = $diff_sec/3600;
+      $unit   = "時間前";
+  }
+  elseif($diff_sec < 2764800){
+      $time   = $diff_sec/86400;
+      $unit   = "日前";
+  }
+  else{
+      if(date("Y") != date("Y", $unix)){
+          $time   = date("Y年n月j日", $unix);
+      }
+      else{
+          $time   = date("n月j日", $unix);
+      }
+
+      return $time;
+  }
+
+  return (int)$time .$unit;
+}
 ?>

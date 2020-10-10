@@ -5,7 +5,6 @@
 try
 {
 
-
 $post_id=$_GET['post_id'];
 
 $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
@@ -14,13 +13,13 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name,gazou FROM post WHERE code=?';
+$sql='SELECT text,gazou,user_id,created_at FROM post WHERE id=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$post_id;
 $stmt->execute($data);
 
 $rec = $stmt -> fetch(PDO::FETCH_ASSOC);
-$post_name = $rec['name'];
+$post_text = $rec['text'];
 $post_gazou_name = $rec['gazou'];
 
 $dbh = null;
@@ -46,16 +45,16 @@ catch(Exception $e)
 投稿コード<br />
 <?php print $post_id; ?>
 <br />
-店名<br />
-<?php print $post_name;?>
+投稿内容<br />
+<?php print $post_text;?>
 <br />
-<?php print $post_gazou;?>
+<?php print $post_gazou_name;?>
 <br />
 この投稿を削除してもよろしいでしょうか？<br />
 <br />
 <form method="post" action="post_delete_done.php">
-<input type="hidden" name="code" value="<?php print $post_id; ?>">
-<input type="hidden" name="gazou_name" value="<?php print $post_gazou_name; ?>">
+<input type="hidden" name="id" value="<?= $post_id; ?>">
+<input type="hidden" name="gazou_name" value="<?= $post_gazou_name; ?>">
 <input type="button" onclick="history.back()"value="戻る">
 <input type="submit" value="OK">
 </form>
