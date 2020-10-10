@@ -3,6 +3,7 @@
 $post_user = get_user($post['user_id']); 
 
 print'<div class="post">';
+print'<div class="post_list">';
 print'<div class="post_text">';
 print''.$post['text'].'';
 print'</div>';
@@ -24,5 +25,6 @@ print'</div>';
 </form>
 <a href="/post/post_delete.php/post_delete.php?post_id=<?=$post['id']?>">削除</a>
 <?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
+<?php print'</div>'; ?>
 <?php print'</div>'; ?>
 <?php endforeach ?>

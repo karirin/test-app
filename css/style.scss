@@ -89,7 +89,17 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .post {
-    margin: 2rem 0;
+    display: block;
+    text-align: center;
+}
+
+.post_list {
+    display: inline-block;
+    border: 2px solid rgb(59, 59, 59);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    width: 50%;
 }
 
 .post img {
@@ -99,10 +109,11 @@ nav.navbar.navbar-light.mb-2 {
 
 .post .post_text {
     border: 1px solid rgb(59, 59, 59);
-    width: 30%;
+    width: 80%;
     padding: 0.5rem;
     margin-bottom: 1rem;
     border-radius: 0.5rem;
+    display: inline-block;
 }
 
 .post .post_user {
