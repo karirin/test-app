@@ -10,7 +10,7 @@ require_once('../function.php');
 ?>
 <body>
 <?php
-
+print'<div class="col-8 offset-2">';
 if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
 print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
 }
@@ -35,15 +35,28 @@ switch ($page_type) {
 foreach((array)$users as $user):
 $user = current($user);
 $user = get_user($user);
- print'<br />';
- print '<a href="../user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$user['id'].'">'.$user['name'].'</a>'; 
+print'<div class="user">';
+print'<div class="user_info">';
+if(!empty($user['image'])):
+print'<img src="/user/image/'.$user['image'].'">';
+endif;
+print'<div class="user_name">';
+print''.$user['name'].'';
+print'</div>';
+print'</div>';
+print'<div class="user_profile">';
+print''.$user['profile'].'';
+print'</div>';
 
+print'</div>';
 endforeach
 ?>
 
 <br />
 <?php
 print'<a href="../user_login/user_top.php?user_id='.$_SESSION['user_id'].'&type=main">トップメニューへ</a><br />';
+print'</div>';
 ?>
+
 </body>
 <?php require_once('../footer.php'); ?>

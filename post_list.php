@@ -11,7 +11,10 @@ print'</div>';
 print'<div class="post_text">';
 print''.$post['text'].'';
 print'</div>';
+
+if (!empty($post['gazou'])):
 print'<img src="/post/gazou/'.$post['gazou'].'" class="post_img" >';
+endif;
 ?>
 <div class="post_info">
 <div class="post_favorite">

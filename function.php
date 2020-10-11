@@ -41,14 +41,16 @@ function get_users($type,$query){
       case 'all':
       $sql = "SELECT id
               FROM user
-              WHERE delete_flg = 0";
+              WHERE delete_flg = 0
+              ORDER BY id DESC";
       $stmt = $dbh->prepare($sql);
       break;
 
       case 'search':
         $sql = "SELECT id
                 FROM user
-                WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0";
+                WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+                ORDER BY id DESC";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':input', $query);
       break;
@@ -56,7 +58,8 @@ function get_users($type,$query){
       case 'follows':
         $sql = "SELECT follower_id
                 FROM relation
-                WHERE :follow_id = follow_id AND delete_flg = 0";
+                WHERE :follow_id = follow_id AND delete_flg = 0
+                ORDER BY id DESC";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':follow_id', $query);
       break;
@@ -64,7 +67,8 @@ function get_users($type,$query){
       case 'followers':
         $sql = "SELECT follow_id
                 FROM relation
-                WHERE :follower_id = follower_id AND delete_flg = 0";
+                WHERE :follower_id = follower_id AND delete_flg = 0
+                ORDER BY id DESC";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':follower_id', $query);
       break;
@@ -170,13 +174,15 @@ function get_posts($user_id,$type){
     switch ($type) {
       case 'all':
       $sql = "SELECT *
-              FROM post";
+              FROM post
+              ORDER BY created_at DESC";
       break;
       //自分の投稿を取得する
       case 'my_post':
       $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id,post.created_at
               FROM user INNER JOIN post ON user.id = post.user_id
-              WHERE user_id = :id AND delete_flg = 0";
+              WHERE user_id = :id AND delete_flg = 0
+              ORDER BY created_at DESC";
               //inner join ～ on でテーブル同士をくっつけている
               //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
               //on xxx ではxxxに結合するためのカラムの共通の値を指定する
@@ -186,7 +192,8 @@ function get_posts($user_id,$type){
       $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id,post.created_at
               FROM post INNER JOIN favorite ON post.id = favorite.post_id
               INNER JOIN user ON user.id = post.user_id
-              WHERE favorite.user_id = :id";
+              WHERE favorite.user_id = :id
+              ORDER BY created_at DESC";
       break;
     }
     $stmt = $dbh->prepare($sql);
