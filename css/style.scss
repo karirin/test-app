@@ -102,6 +102,11 @@ nav.navbar.navbar-light.mb-2 {
     width: 50%;
 }
 
+.post .post_list .comment {
+    border: 0.1rem solid rgb(163, 163, 163);
+    border-radius: 0.5rem;
+}
+
 .post .post_list .post_img {
     width: 10rem;
     height: 10rem;

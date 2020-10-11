@@ -45,8 +45,12 @@ endif;
 <a href="../comment/comment_add.php?post_id=<?= $post['id']?>">コメント</a>
 <?php
 $comments = get_comments($post_id);
-foreach($comments as $comment):      
+foreach($comments as $comment):
+$comment_user = get_user($comment['user_id']);
+print'<div class="comment">';
+print'<img src="/user/image/'.$comment_user['image'].'">';
 print''.$comment['text'].'';
+print'</div>';
 endforeach
 ?>
 </div>
