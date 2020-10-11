@@ -142,6 +142,15 @@ nav.navbar.navbar-light.mb-2 {
     display: inline;
 }
 
+.post_link {
+    color: rgb(0, 0, 0);
+}
+
+.post_link:hover {
+    color: rgb(0, 0, 0);
+    opacity: 0.7;
+}
+
 .user {
     border-radius: 8rem;
     border: solid 0.1rem;

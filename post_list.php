@@ -1,8 +1,9 @@
-<?php foreach($posts as $post):
-
+<?php 
+foreach($posts as $post):
 $post_user = get_user($post['user_id']); 
 
 print'<div class="post">';
+print'<a href="/post/post_disp.php?post_id='.$post['id'].'" class="post_link">';
 print'<div class="post_list">';
 print'<div class="post_user">';
 print'<img src="/user/image/'.$post_user['image'].'">'; 
@@ -29,10 +30,12 @@ endif;
         </button>
         <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
-<a href="/post/post_delete.php/post_delete.php?post_id=<?=$post['id']?>">削除</a>
+<object><a href="/post/post_delete.php/post_delete.php?post_id=<?=$post['id']?>">削除</a></object>
 </div>
 <?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
 </div>
 </div>
+</a>
 </div>
+
 <?php endforeach ?>

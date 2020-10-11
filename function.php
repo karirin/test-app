@@ -163,6 +163,24 @@ function check_follow($follow_user,$follower_user){
   return  $stmt->fetch();
 }
 
+function get_post($post_id){
+  try {
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM post
+            WHERE id = :id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $post_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 // ユーザーの投稿を取得する
 function get_posts($user_id,$type){
   try {
@@ -199,6 +217,24 @@ function get_posts($user_id,$type){
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue(':id', $user_id);
     $stmt->execute();
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+function get_comments($post_id){
+  try {
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM comment
+            WHERE post_id = :id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $post_id));
     return $stmt->fetchAll();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());

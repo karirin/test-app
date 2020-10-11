@@ -5,14 +5,12 @@ require_once('../header.php');
 ?>
 
 <body>
-
 <?php
 
 $post_text=$_POST['text'];
 $post_gazou=$_FILES['gazou'];
 
 $post_text=htmlspecialchars($post_text,ENT_QUOTES,'UTF-8');
-
 if($post_text=='')
 {
 	print '投稿内容が入力されていません。<br />';
