@@ -52,7 +52,7 @@ catch(Exception $e)
 <br />
 この投稿を削除してもよろしいでしょうか？<br />
 <br />
-<form method="post" action="post_delete_done.php">
+<form method="post" action="post_delete_done.php?post_id=<?= $post_id ?>">
 <input type="hidden" name="id" value="<?= $post_id; ?>">
 <input type="hidden" name="gazou_name" value="<?= $post_gazou_name; ?>">
 <input type="button" onclick="history.back()"value="戻る">

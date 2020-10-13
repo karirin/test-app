@@ -1,7 +1,7 @@
 <?php require_once('../head.php'); ?>
 <body>
 <?php
-
+var_dump('test');
 try
 {
 
@@ -34,7 +34,6 @@ exit();
 }
 
 ?>
-
 削除しました。<br />
 <br />
 <a href="post_index.php">戻る</a>

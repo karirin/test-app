@@ -19,7 +19,7 @@ endif;
 ?>
 <div class="post_info">
 <div class="post_favorite">
-<object><a href="/post/post_delete.php/post_delete.php?post_id=<?=$post['id']?>">削除</a></object>
+<object><a href="/post/post_delete.php?post_id=<?=$post['id']?>">削除</a></object>
 </div>
 <?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
 </div>
