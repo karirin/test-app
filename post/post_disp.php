@@ -10,6 +10,7 @@ $post_id=$_GET['post_id'];
 
 $post = get_post($post_id);
 $post_user = get_user($post['user_id']); 
+$current_user = get_user($_SESSION['user_id']);
 
 print'<div class="post">';
 print'<div class="post_list">';
@@ -48,10 +49,15 @@ $comments = get_comments($post_id);
 foreach($comments as $comment):
 $comment_user = get_user($comment['user_id']);
 print'<div class="comment">';
+print'<div class="user_info">';
 print'<img src="/user/image/'.$comment_user['image'].'">';
+print''.$comment_user['name'].'';
+print'</div>';
 print''.$comment['text'].'';
 print'</div>';
+print'<a href="/comment/comment_delete.php?comment_id='.$comment['id'].'&user_id='.$current_user['id'].'&post_id='.$post['id'].'">削除</a>';
 endforeach
 ?>
 </div>
 </div>
+<?php require_once('../footer.php');?>

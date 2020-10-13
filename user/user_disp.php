@@ -54,16 +54,12 @@ catch(Exception $e)
           <input type="hidden" class="current_user_id" value="<?= $current_user['id'] ?>">
           <input type="hidden" name="follow_user_id" value="<?= $user_id ?>">
           <!-- フォロー中か確認してボタンを変える -->
-          
           <?php if (check_follow($current_user['id'],$user_id)): ?>
           <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
           <?php else: ?>
             <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>
           <?php endif; ?>
-
-          </button>
-        </form>
-<form>
+</form>
 <input type="button" onclick="history.back()"value="戻る">
 </form>
 </body>

@@ -224,6 +224,24 @@ function get_posts($user_id,$type){
   }
 }
 
+function get_comment($comment_id){
+  try {
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM comment
+            WHERE id = :id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $comment_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 function get_comments($post_id){
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';

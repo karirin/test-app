@@ -11,7 +11,7 @@ if(isset($_SESSION['login'])==false)
 else
 {
     print'<ul>';
-    print'<li><a href="../user_login/user_top.php?user_id='.$_SESSION['user_id'].'&type=all">coffeeapp</a></li>';
+    print'<li><a href="../user_login/user_top.php?type=main">coffeeapp</a></li>';
     print'<li><a href="../user/user_list.php?type=all">ユーザー一覧</a></li>';
     print'<li><a href="../post/post_index.php">投稿一覧</a></li>';
     print'<li><a href="../post/post_add.php">投稿</a></li>';
