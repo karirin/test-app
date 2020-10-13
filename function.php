@@ -163,6 +163,20 @@ function check_follow($follow_user,$follower_user){
   return  $stmt->fetch();
 }
 
+function check_user($user_name,$user_pass){
+  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+  $user='root';
+  $password='';
+  $dbh=new PDO($dsn,$user,$password);
+  $sql = "SELECT name,password
+          FROM user
+          WHERE :name = name AND :password = password";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':name' => $user_name,
+                       ':password' => $user_pass));
+  return  $stmt->fetch();
+}
+
 function get_post($post_id){
   try {
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';

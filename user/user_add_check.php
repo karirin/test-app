@@ -1,4 +1,7 @@
-<?php require_once('../head.php'); ?>
+<?php 
+require_once('../config.php');
+require_once('../head.php');
+?>
 <body>
 
 <?php
@@ -18,9 +21,12 @@ if($user_name=='')
 }
 else
 {
+    if(basename($_SERVER['PHP_SELF']) === 'user_add_check.php')
+    {
     print'スタッフ名：';
     print $user_name;
     print'<br />';
+    }
 }
 if($user_pass=='')
 {
@@ -52,6 +58,9 @@ if($user_name==''||$user_pass==''||$user_pass!=$user_pass2)
 else
 {
     $user_pass=md5($user_pass);
+    if(check_user($user_name,$user_pass)){
+        require_once('../user_login/user_top.php');
+    }else{
     print'<form method="post" action="user_add_done.php">';
     print'<input type="hidden" name="name" value="'.$user_name.'">';
     print'<input type="hidden" name="pass" value="'.$user_pass.'">';
@@ -60,6 +69,7 @@ else
     print'<input type="button" onclick="history.back()" value="戻る">';
     print'<input type="submit" value="OK">';
     print'</form>';
+    }
 }
 
 ?>
