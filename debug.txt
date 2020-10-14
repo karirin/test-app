@@ -1,4 +1,0 @@
-PDOStatement Object
-(
-    [queryString] => DELETE FROM comment WHERE id=?
-)

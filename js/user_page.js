@@ -84,12 +84,9 @@ $(document).on('click','.favorite_btn',function(e){
     });
   });
 
-  function show_slide_message(flash_type,flash_message){
+  $(function (){
     $message = ('.flash_message');
-
     // 渡されたメッセージを表示させる
-    $($message).text(flash_message);
-    //$($message)内のフラッシュメッセージを取得する
-    $($message).slideToggle('slow');
-    setTimeout(function(){ $($message).slideToggle('slow'); }, 2000);
-  }
+    setTimeout(function(){ $($message).slideToggle('slow');} , 2000);
+  });
+  
