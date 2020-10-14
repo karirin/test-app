@@ -6,6 +6,5 @@ if(isset($_COOKIE[session_name()])==true)
     setcookie(session_name(),'',time()-42000,'/');
 }
 session_destroy();
-set_flash('danger','ログアウトしました');
 header('Location:user_top.php');
 ?>

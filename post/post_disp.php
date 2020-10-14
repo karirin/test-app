@@ -54,8 +54,9 @@ print'<img src="/user/image/'.$comment_user['image'].'">';
 print''.$comment_user['name'].'';
 print'</div>';
 print''.$comment['text'].'';
+print'<p><a href="/comment/comment_delete.php?comment_id='.$comment['id'].'&user_id='.$current_user['id'].'&post_id='.$post['id'].'">削除</a>';
+print''.convert_to_fuzzy_time($comment['created_at']).'</p>';
 print'</div>';
-print'<a href="/comment/comment_delete.php?comment_id='.$comment['id'].'&user_id='.$current_user['id'].'&post_id='.$post['id'].'">削除</a>';
 endforeach
 ?>
 </div>

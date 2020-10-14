@@ -109,6 +109,12 @@ nav.navbar.navbar-light.mb-2 {
     padding: 1rem;
 }
 
+.post .post_list .comment p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
 .post .post_list .comment .user_info {
     text-align: left;
 }
