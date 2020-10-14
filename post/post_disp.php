@@ -12,6 +12,12 @@ $post = get_post($post_id);
 $post_user = get_user($post['user_id']); 
 $current_user = get_user($_SESSION['user_id']);
 
+if (isset($flash_messages)):
+foreach ((array)$flash_messages as $message):
+print'<p class ="flash_message">'.$message.'</p>';
+endforeach;
+endif;
+
 print'<div class="post">';
 print'<div class="post_list">';
 print'<div class="post_user">';

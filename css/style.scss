@@ -147,6 +147,11 @@ nav.navbar.navbar-light.mb-2 {
     display: inline-block;
     text-align: left;
     width: 100%;
+    color: rgb(0, 0, 0);
+}
+
+.post .post_user:hover {
+    color: #0056b3;
 }
 
 .post .post_user img {

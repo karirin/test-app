@@ -6,8 +6,6 @@ require_once('../header.php');
 <body>
 <?php
 
-// $current_user = get_user($_SESSION['user_id']);
-
 try
 {
 

@@ -1,4 +1,7 @@
-<?php require_once('../head.php'); ?>
+<?php
+require_once('../config.php'); 
+require_once('../head.php');
+?>
 <body>
 <?php
 
@@ -35,11 +38,11 @@ print'ただいま障害により大変ご迷惑をお掛けしております�
 exit();
 }
 
+set_flash('sucsess','コメントを削除しました');
+header('Location:../post/post_disp.php?post_id='.$post_id.'');
+
 ?>
 
-削除しました。<br />
-<br />
-<a href="/post/post_disp.php?user_id=<?= $user_id; ?>&post_id=<?= $post_id; ?>">戻る</a>
 </body>
 <?php require_once('../footer.php'); ?>
 </html>

@@ -31,6 +31,7 @@ $data[] = $post_id;
 $stmt -> execute($data);
 $dbh = null;
 
+set_flash('sucsess','コメントを追加しました');
 header('Location:../post/post_disp.php?post_id='.$post_id.'');
 
 }   

@@ -1,7 +1,10 @@
-<?php require_once('../head.php'); ?>
+<?php 
+header('Location:../user_login/user_top.php?type=main');
+require_once('../config.php');
+require_once('../head.php');
+?>
 <body>
 <?php
-var_dump('test');
 try
 {
 
@@ -34,8 +37,7 @@ exit();
 }
 
 ?>
-削除しました。<br />
-<br />
+
 <a href="post_index.php">戻る</a>
 </body>
 <?php require_once('../footer.php'); ?>
