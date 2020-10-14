@@ -30,6 +30,7 @@ $stmt -> execute($data);
 
 $dbh = null;
 
+set_flash('sucsess','投稿しました');
 header('Location:post_index.php');
 
 }   

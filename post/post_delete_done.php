@@ -1,6 +1,7 @@
 <?php 
-header('Location:../user_login/user_top.php?type=main');
 require_once('../config.php');
+set_flash('sucsess','投稿を削除しました');
+header('Location:../user_login/user_top.php?type=main');
 require_once('../head.php');
 ?>
 <body>
@@ -38,7 +39,6 @@ exit();
 
 ?>
 
-<a href="post_index.php">戻る</a>
 </body>
 <?php require_once('../footer.php'); ?>
 </html>

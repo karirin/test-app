@@ -21,4 +21,10 @@ else
 }
 
 print'</nav>';
+
+if (isset($flash_messages)):
+foreach ((array)$flash_messages as $message):
+print'<p class ="flash_message">'.$message.'</p>';
+endforeach;
+endif;
 ?>
