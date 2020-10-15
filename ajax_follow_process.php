@@ -6,13 +6,11 @@ require_once('head.php');
 
 if(isset($_POST)){
 
-  $current_user = get_user($_SESSION['user_id']);
-
   $user_id = $_POST['user_id'];
-  $current_user_id = $_POST['current_user_id'] ?? $user_id;
+  $current_user_id = $_POST['current_user_id'];
 
     // すでに登録されているか確認して登録、削除のSQL切り替え
-    if(check_follow($current_user['id'],$user_id)){
+    if(check_follow($current_user_id,$user_id)){
       $action = '解除';
       $flash_type = 'error';
       $sql ="DELETE
