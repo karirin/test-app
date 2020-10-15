@@ -135,6 +135,14 @@ nav.navbar.navbar-light.mb-2 {
     justify-content: space-between;
 }
 
+.post .post_list a i {
+    color: rgb(0, 0, 0);
+}
+
+.post .post_list a i:hover {
+    opacity: 0.5;
+}
+
 .post img {
     width: 2.5rem;
     height: 2.5rem;
