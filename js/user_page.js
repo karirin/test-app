@@ -58,6 +58,9 @@ $(document).on('click','.favorite_btn',function(e){
   user_comment = $('.profile_comment').text();
 
   $(document).on('click',".modal_close",function(){
+    $('body').removeClass('fixed').css({'top': 0});
+    $('.modal').fadeOut();
+    $('.delete_confirmation').fadeOut();
     $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
     $('.btn_flex').css('display','none');
   });
@@ -91,9 +94,11 @@ $(document).on('click','.favorite_btn',function(e){
   });
 
   $(document).on('click','.delete_btn',function(){
+    var $target_modal = $(this).data("target")
         //背景をスクロールできないように　&　スクロール場所を維持
         scroll_position = $(window).scrollTop();
         $('body').addClass('fixed').css({'top': -scroll_position});
         // モーダルウィンドウを開く
+        $($target_modal).fadeIn();
         $('.modal').fadeIn();
   });

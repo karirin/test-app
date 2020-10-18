@@ -3,7 +3,7 @@ foreach($posts as $post):
 $post_user = get_user($post['user_id']); 
 
 print'<div class="post">';
-//print'<a href="/post/post_disp.php?post_id='.$post['id'].'&user_id='.$current_user['id'].'" class="post_link">';
+print'<a href="/post/post_disp.php?post_id='.$post['id'].'&user_id='.$current_user['id'].'" class="post_link">';
 print'<div class="post_list">';
 print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$post_user['id'].'">';
 print'<div class="post_user">';
@@ -14,6 +14,7 @@ print'</a></object>';
 print'<div class="post_text">';
 print''.$post['text'].'';
 print'</div>';
+print'</a>';
 
 if (!empty($post['gazou'])):
 print'<img src="/post/gazou/'.$post['gazou'].'" class="post_img" >';
@@ -21,20 +22,21 @@ endif;
 ?>
 <div class="post_info">
 <div class="post_favorite">
-<button class="delete_btn" type="button">削除</button>
-<div class="modal" id="modal<?= $post['id'] ?>" style="display:none;">
+<button class="btn delete_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+<div class="delete_confirmation" id="modal<?= $post['id'] ?>">
             <p class="modal_title" >こちらの投稿を削除しますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form action="post_delete_done.php" method="post">
               <input type="hidden" name="id" value="<?= $post['id']?>">
               <input type="hidden" name="gazou_name" value="<?= $post['gazou']?>">
-              <button class="btn red" type="submit" name="delete" value="delete">削除</button>
-              <button class="btn blue modal_close" type="button">キャンセル</button>
+              <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
+              <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
 </div>
 </div>
 <?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
 </div>
+</a>
 </div>
 </div>
 
