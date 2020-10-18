@@ -89,4 +89,11 @@ $(document).on('click','.favorite_btn',function(e){
     // 渡されたメッセージを表示させる
     setTimeout(function(){ $($message).slideToggle('slow');} , 2000);
   });
-  
+
+  $(document).on('click','.delete_btn',function(){
+        //背景をスクロールできないように　&　スクロール場所を維持
+        scroll_position = $(window).scrollTop();
+        $('body').addClass('fixed').css({'top': -scroll_position});
+        // モーダルウィンドウを開く
+        $('.modal').fadeIn();
+  });

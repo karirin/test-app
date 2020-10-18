@@ -156,7 +156,7 @@ function check_follow($follow_user,$follower_user){
   $dbh=new PDO($dsn,$user,$password);
   $sql = "SELECT follow_id,follower_id
           FROM relation
-          WHERE :follower_id =follower_id AND :follow_id = follow_id";
+          WHERE :follower_id = follower_id AND :follow_id = follow_id";
   $stmt = $dbh->prepare($sql);
   $stmt->execute(array(':follow_id' => $follow_user,
                        ':follower_id' => $follower_user));
