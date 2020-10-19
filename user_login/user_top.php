@@ -4,6 +4,7 @@ require_once('../head.php');
 require_once('../header.php');
 ?>
 <body>
+<div class="modal modal_close"></div>
 <?php
 
 if (isset($_SESSION['id'])) {

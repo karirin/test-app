@@ -12,6 +12,7 @@ $post = get_post($post_id);
 $post_user = get_user($post['user_id']); 
 $current_user = get_user($_SESSION['user_id']);
 
+print'<div class="modal modal_close"></div>';
 print'<div class="post">';
 print'<div class="post_list">';
 print'<div class="post_user">';
@@ -41,7 +42,17 @@ endif;
 </form>
 <a href="../comment/comment_add.php?post_id=<?= $post['id']?>"><i class="fas fa-comment-dots"></i></a>
 </div>
-<a href="/post/post_delete.php/post_delete.php?post_id=<?=$post['id']?>">削除</a>
+<button class="btn delete_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+<div class="delete_confirmation" id="modal<?= $post['id'] ?>">
+            <p class="modal_title" >こちらの投稿を削除しますか？</p>
+            <p class="post_content"><?= nl2br($post['text']) ?></p>
+            <form action="post_delete_done.php" method="post">
+              <input type="hidden" name="id" value="<?= $post['id']?>">
+              <input type="hidden" name="gazou_name" value="<?= $post['gazou']?>">
+              <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
+              <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+            </form>
+</div>
 <?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
 </div>
 <?php
@@ -54,7 +65,19 @@ print'<img src="/user/image/'.$comment_user['image'].'">';
 print''.$comment_user['name'].'';
 print'</div>';
 print''.$comment['text'].'';
-print'<p><a href="/comment/comment_delete.php?comment_id='.$comment['id'].'&user_id='.$current_user['id'].'&post_id='.$post['id'].'">削除</a>';
+print'<button class="btn delete_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
+print'<div class="delete_confirmation" id="modal'.$comment['id'].'">';
+print'<span class="modal_title">こちらのコメントを削除しますか？</span>';
+print''.nl2br($comment['text']).'';
+print'<form action="../comment/comment_delete_done.php" method="post">';
+print'<input type="hidden" name="id" value="'.$comment['id'].'">';
+print'<input type="hidden" name="image_name" value="'.$comment['image'].'">';
+print'<input type="hidden" name="user_id" value="'.$post_user['id'].'">';
+print'<input type="hidden" name="post_id" value="'.$post['id'].'">';
+print'<button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>';
+print'<button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>';
+print'</form>';
+print'</div>';
 print''.convert_to_fuzzy_time($comment['created_at']).'</p>';
 print'</div>';
 endforeach

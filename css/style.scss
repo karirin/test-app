@@ -246,6 +246,15 @@ nav.navbar.navbar-light.mb-2 {
             transform: translate(-50%, -10%);
     color: #fff;
     font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.delete_confirmation .modal_title {
+    display: block;
+}
+
+.delete_confirmation button{
+    margin: 0 0.5rem;
 }
 
 .modal {
