@@ -249,12 +249,18 @@ nav.navbar.navbar-light.mb-2 {
     border: 0.3rem solid #fff;
 }
 
-.delete_confirmation .modal_title {
+.delete_confirmation form {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.delete_confirmation span {
+    margin-bottom: 1rem;
     display: block;
 }
 
-.delete_confirmation button{
-    margin: 0 0.5rem;
+.delete_confirmation .btn-outline-danger{
+    margin-left: 1rem;
 }
 
 .modal {

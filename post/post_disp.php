@@ -68,7 +68,7 @@ print''.$comment['text'].'';
 print'<button class="btn delete_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
 print'<div class="delete_confirmation" id="modal'.$comment['id'].'">';
 print'<span class="modal_title">こちらのコメントを削除しますか？</span>';
-print''.nl2br($comment['text']).'';
+print'<span class="post_content">'.nl2br($comment['text']).'</span>';
 print'<form action="../comment/comment_delete_done.php" method="post">';
 print'<input type="hidden" name="id" value="'.$comment['id'].'">';
 print'<input type="hidden" name="image_name" value="'.$comment['image'].'">';
@@ -78,7 +78,7 @@ print'<button class="btn btn-outline-danger" type="submit" name="delete" value="
 print'<button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>';
 print'</form>';
 print'</div>';
-print''.convert_to_fuzzy_time($comment['created_at']).'</p>';
+print''.convert_to_fuzzy_time($comment['created_at']).'</span>';
 print'</div>';
 endforeach
 ?>
