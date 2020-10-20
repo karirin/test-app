@@ -329,4 +329,9 @@ function convert_to_fuzzy_time($time_db){
 
   return (int)$time .$unit;
 }
+
+function reload(){
+  header('Location:'.$_SERVER['HTTP_REFERER']);
+  exit();
+}
 ?>

@@ -12,6 +12,28 @@ $comment_image_name=$_POST['image_name'];
 $user_id=$_SESSION['user_id'];
 $post_id=$_POST['id'];
 
+_debug($comment_text);
+_debug('$comment_text');
+
+if($comment_text=='')
+{
+    set_flash('danger','コメントが空です');
+    reload();
+} 
+
+if($comment_image['size']>0)
+{
+    if($comment_image['size']>1000000)
+    {
+        set_flash('danger','画像が大きすぎます');
+        reload();
+    }
+    else
+    {
+        move_uploaded_file($comment_image['tmp_name'],'./image/'.$comment_image['name']);
+    }
+}
+
 $comment_text=htmlspecialchars($comment_text,ENT_QUOTES,'UTF-8');
 $user_id=htmlspecialchars($user_id,ENT_QUOTES,'UTF-8');
 
