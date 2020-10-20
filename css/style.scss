@@ -100,6 +100,11 @@ nav.navbar.navbar-light.mb-2 {
     margin: 0.5rem 0;
 }
 
+.comment .comment_text {
+    text-align: center;
+    display: block;
+}
+
 .post {
     display: block;
     text-align: center;
@@ -114,6 +119,10 @@ nav.navbar.navbar-light.mb-2 {
     width: 50%;
 }
 
+.post .post_list .post_created_at {
+    text-align: right;
+}
+
 .post .post_list .comment {
     border: 0.1rem solid rgb(163, 163, 163);
     border-radius: 0.5rem;
@@ -124,6 +133,11 @@ nav.navbar.navbar-light.mb-2 {
     display: flex;
     justify-content: space-between;
     margin: 0;
+}
+
+.post .post_list .comment_created_at {
+    text-align: right;
+    display: block;
 }
 
 .post .post_list .comment .user_info {
@@ -143,7 +157,12 @@ nav.navbar.navbar-light.mb-2 {
 
 .post .post_list .post_info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    vertical-align: top;
+}
+
+.post .post_list .post_info .delete_btn {
+    padding: 0;
 }
 
 .post .post_list a i {
@@ -187,6 +206,11 @@ nav.navbar.navbar-light.mb-2 {
 
 .post .favorite_count {
     display: inline;
+}
+
+.post .favorite_count .favorite_btn {
+    padding: 0;
+    margin-top: -0.3rem;
 }
 
 .post_link {
@@ -261,6 +285,23 @@ nav.navbar.navbar-light.mb-2 {
 
 .delete_confirmation .btn-outline-danger{
     margin-left: 1rem;
+}
+
+.comment_confirmation {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+            transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
 }
 
 .modal {

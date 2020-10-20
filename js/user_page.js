@@ -102,3 +102,13 @@ $(document).on('click','.favorite_btn',function(e){
         $($target_modal).fadeIn();
         $('.modal').fadeIn();
   });
+
+  $(document).on('click','.comment_btn',function(){
+    var $target_modal = $(this).data("target")
+        //背景をスクロールできないように　&　スクロール場所を維持
+        scroll_position = $(window).scrollTop();
+        $('body').addClass('fixed').css({'top': -scroll_position});
+        // モーダルウィンドウを開く
+        $($target_modal).fadeIn();
+        $('.modal').fadeIn();
+  });

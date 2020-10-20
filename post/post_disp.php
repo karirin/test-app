@@ -28,19 +28,30 @@ print'<img src="/post/gazou/'.$post['gazou'].'" class="post_img" >';
 endif;
 ?>
 <div class="post_info">
-<div class="post_favorite">
 <form class="favorite_count" action="#" method="post">
         <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
-        <button type="button" name="favorite" class="favorite_btn" >
+        <button type="button" name="favorite" class="btn favorite_btn" >
         <?php if (!check_favolite_duplicate($_SESSION['user_id'],$post['id'])): ?>
-          いいね
+          <i class="far fa-star"></i>
         <?php else: ?>
-          いいね解除
+          <i class="fas fa-star"></i>
         <?php endif; ?>
         </button>
         <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
-<a href="../comment/comment_add.php?post_id=<?= $post['id']?>"><i class="fas fa-comment-dots"></i></a>
+<button class="btn comment_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="fas fa-comment-dots"></i></button>
+<div class="comment_confirmation" id="modal<?= $post['id'] ?>">
+            <p class="modal_title" >この投稿にコメントしますか？</p>
+            <p class="post_content"><?= nl2br($post['text']) ?></p>
+            <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
+              <p>コメント内容を入力ください。</p>
+              <input type="text" name="text">
+              <p>画像を選んでください。</p>
+              <input type="file" name="image">
+              <input type="hidden" name="id" value="<?= $post_id ?>">
+              <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
+              <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+            </form>
 </div>
 <button class="btn delete_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
 <div class="delete_confirmation" id="modal<?= $post['id'] ?>">
@@ -53,8 +64,8 @@ endif;
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
 </div>
-<?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
 </div>
+<p class="post_created_at"><?php print''.convert_to_fuzzy_time($post['created_at']).''; ?></p>
 <?php
 $comments = get_comments($post_id);
 foreach($comments as $comment):
@@ -64,7 +75,7 @@ print'<div class="user_info">';
 print'<img src="/user/image/'.$comment_user['image'].'">';
 print''.$comment_user['name'].'';
 print'</div>';
-print''.$comment['text'].'';
+print'<span class="comment_text">'.$comment['text'].'</span>';
 print'<button class="btn delete_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
 print'<div class="delete_confirmation" id="modal'.$comment['id'].'">';
 print'<span class="modal_title">こちらのコメントを削除しますか？</span>';
@@ -78,7 +89,7 @@ print'<button class="btn btn-outline-danger" type="submit" name="delete" value="
 print'<button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>';
 print'</form>';
 print'</div>';
-print''.convert_to_fuzzy_time($comment['created_at']).'</span>';
+print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created_at']).'</span>';
 print'</div>';
 endforeach
 ?>
