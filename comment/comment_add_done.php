@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php'); 
+require_once('../config.php');
 
 try
 {
@@ -8,12 +8,12 @@ $date = new DateTime();
 $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
     
 $comment_text=$_POST['text'];
-$comment_image_name=$_POST['image_name'];
+$comment_image_name=$_FILES['image_name'];
+//$comment_image=$_POST['image_name'];
 $user_id=$_SESSION['user_id'];
 $post_id=$_POST['id'];
 
-_debug($comment_text);
-_debug('$comment_text');
+_debug($comment_image_name);
 
 if($comment_text=='')
 {
@@ -21,16 +21,17 @@ if($comment_text=='')
     reload();
 } 
 
-if($comment_image['size']>0)
+if($comment_image_name['size']>0)
 {
-    if($comment_image['size']>1000000)
+    if($comment_image_name['size']>1000000)
     {
         set_flash('danger','画像が大きすぎます');
         reload();
     }
     else
     {
-        move_uploaded_file($comment_image['tmp_name'],'./image/'.$comment_image['name']);
+        move_uploaded_file($comment_image_name['tmp_name'],'./image/'.$comment_image_name['name']);
+
     }
 }
 
@@ -45,7 +46,7 @@ $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $sql = 'INSERT INTO comment(text,image,user_id,created_at,post_id) VALUES (?,?,?,?,?)';
 $stmt = $dbh -> prepare($sql);
 $data[] = $comment_text;
-$data[] = $comment_image_name;
+$data[] = $comment_image_name['name'];
 $data[] = $user_id;
 $data[] = $date->format('Y-m-d H:i:s');
 $data[] = $post_id;

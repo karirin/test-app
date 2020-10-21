@@ -47,7 +47,7 @@ endif;
               <p>コメント内容を入力ください。</p>
               <input type="text" name="text">
               <p>画像を選んでください。</p>
-              <input type="file" name="image">
+              <input type="file" name="image_name">
               <input type="hidden" name="id" value="<?= $post_id ?>">
               <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
@@ -76,6 +76,9 @@ print'<img src="/user/image/'.$comment_user['image'].'">';
 print''.$comment_user['name'].'';
 print'</div>';
 print'<span class="comment_text">'.$comment['text'].'</span>';
+if(isset($comment['image'])){
+print'<span class="comment_image"><img src="../comment/image/'.$comment['image'].'"></span>';
+}
 print'<button class="btn delete_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
 print'<div class="delete_confirmation" id="modal'.$comment['id'].'">';
 print'<span class="modal_title">こちらのコメントを削除しますか？</span>';

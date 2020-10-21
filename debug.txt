@@ -1,1 +1,24 @@
-$comment_textxxxxxxssss$comment_textxxxxxxssss$comment_textxxxxxxssss$comment_textxxxxxxssss$comment_textxxxxxxssss$comment_textxxxxxxssss$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text$comment_text
+Array
+(
+    [name] => figure_standing.png
+    [type] => image/png
+    [tmp_name] => C:\xampp3\tmp\php51F4.tmp
+    [error] => 0
+    [size] => 10351
+)
+Array
+(
+    [name] => figure_standing.png
+    [type] => image/png
+    [tmp_name] => C:\xampp3\tmp\php14F3.tmp
+    [error] => 0
+    [size] => 10351
+)
+Array
+(
+    [name] => figure_standing.png
+    [type] => image/png
+    [tmp_name] => C:\xampp3\tmp\php7153.tmp
+    [error] => 0
+    [size] => 10351
+)
