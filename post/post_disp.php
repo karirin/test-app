@@ -76,8 +76,8 @@ print'<img src="/user/image/'.$comment_user['image'].'">';
 print''.$comment_user['name'].'';
 print'</div>';
 print'<span class="comment_text">'.$comment['text'].'</span>';
-if(isset($comment['image'])){
-print'<span class="comment_image"><img src="../comment/image/'.$comment['image'].'"></span>';
+if(!empty($comment['image'])){
+print'<p class="comment_image"><img src="../comment/image/'.$comment['image'].'"></p>';
 }
 print'<button class="btn delete_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
 print'<div class="delete_confirmation" id="modal'.$comment['id'].'">';
