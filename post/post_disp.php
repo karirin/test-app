@@ -16,8 +16,10 @@ print'<div class="modal modal_close"></div>';
 print'<div class="post">';
 print'<div class="post_list">';
 print'<div class="post_user">';
+print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$post_user['id'].'">';
 print'<img src="/user/image/'.$post_user['image'].'">'; 
 print''.$post_user['name'].'';
+print'</a></object>';
 print'</div>';
 print'<div class="post_text">';
 print''.$post['text'].'';
@@ -56,8 +58,8 @@ endif;
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
 </div>
-<button class="btn delete_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
-<div class="delete_confirmation" id="modal<?= $post['id'] ?>">
+<button class="btn delete_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+<div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>">
             <p class="modal_title" >こちらの投稿を削除しますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form action="post_delete_done.php" method="post">
@@ -74,10 +76,12 @@ $comments = get_comments($post_id);
 foreach($comments as $comment):
 $comment_user = get_user($comment['user_id']);
 print'<div class="comment">';
+print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$comment_user['id'].'">';
 print'<div class="user_info">';
 print'<img src="/user/image/'.$comment_user['image'].'">';
 print''.$comment_user['name'].'';
 print'</div>';
+print'</object></a>';
 print'<span class="comment_text">'.$comment['text'].'</span>';
 if(!empty($comment['image'])){
 print'<p class="comment_image"><img src="../comment/image/'.$comment['image'].'"></p>';

@@ -148,6 +148,11 @@ nav.navbar.navbar-light.mb-2 {
 
 .post .post_list .comment .user_info {
     text-align: left;
+    color: rgb(0, 0, 0);
+}
+
+.post .post_list .comment .user_info:hover {
+    color: #0056b3;
 }
 
 .post .post_list .comment .user_info img {

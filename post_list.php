@@ -24,6 +24,7 @@ endif;
 <div class="post_favorite">
 <button class="btn comment_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="fas fa-comment-dots"></i></button>
 <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
+</div>
 <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
             <p class="modal_title" >この投稿にコメントしますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
@@ -37,8 +38,8 @@ endif;
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
 </div>
-<button class="btn delete_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
-<div class="delete_confirmation" id="modal<?= $post['id'] ?>">
+<button class="btn delete_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+<div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>">
             <p class="modal_title" >こちらの投稿を削除しますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form action="post_delete_done.php" method="post">
@@ -47,7 +48,6 @@ endif;
               <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
-</div>
 </div>
 </div>
 <p class="post_created_at"><?php print''.convert_to_fuzzy_time($post['created_at']).''; ?></p>

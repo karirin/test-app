@@ -59,6 +59,7 @@ $(document).on('click','.favorite_btn',function(e){
 
   $(document).on('click',".modal_close",function(){
     $('body').removeClass('fixed').css({'top': 0});
+    window.scrollTo( 0 , scroll_position );
     $('.modal').fadeOut();
     $('.delete_confirmation').fadeOut();
     $('.comment_confirmation').fadeOut();
