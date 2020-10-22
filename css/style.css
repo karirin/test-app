@@ -171,6 +171,10 @@ nav.navbar.navbar-light.mb-2 {
     vertical-align: top;
 }
 
+.post .post_list .post_info .comment_btn {
+    padding: 0;
+}
+
 .post .post_list .post_info .delete_btn {
     padding: 0;
 }

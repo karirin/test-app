@@ -9,7 +9,6 @@ $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
     
 $comment_text=$_POST['text'];
 $comment_image_name=$_FILES['image_name'];
-//$comment_image=$_POST['image_name'];
 $user_id=$_SESSION['user_id'];
 $post_id=$_POST['id'];
 
@@ -65,5 +64,3 @@ exit();
 }
 
 ?>
-
-<a href="post_index.php">戻る</a>

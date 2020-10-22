@@ -148,6 +148,19 @@ function get_post_favorite_count($post_id){
   return $stmt->fetch();
 }
 
+function get_post_comment_count($post_id){
+  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+  $user='root';
+  $password='';
+  $dbh=new PDO($dsn,$user,$password);
+  $sql = "SELECT COUNT(id)
+          FROM comment
+          WHERE post_id = :post_id";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':post_id' => $post_id));
+  return $stmt->fetch();
+}
+
 //フォロー中かどうか確認している処理
 function check_follow($follow_user,$follower_user){
   $dsn='mysql:dbname=shop;host=localhost;charset=utf8';

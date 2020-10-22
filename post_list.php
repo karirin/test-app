@@ -22,6 +22,21 @@ endif;
 </a>
 <div class="post_info">
 <div class="post_favorite">
+<button class="btn comment_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="fas fa-comment-dots"></i></button>
+<span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
+<div class="comment_confirmation" id="modal<?= $post['id'] ?>">
+            <p class="modal_title" >この投稿にコメントしますか？</p>
+            <p class="post_content"><?= nl2br($post['text']) ?></p>
+            <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
+              <p>コメント内容を入力ください。</p>
+              <input type="text" name="text">
+              <p>画像を選んでください。</p>
+              <input type="file" name="image_name">
+              <input type="hidden" name="id" value="<?= $post['id'] ?>">
+              <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
+              <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+            </form>
+</div>
 <button class="btn delete_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
 <div class="delete_confirmation" id="modal<?= $post['id'] ?>">
             <p class="modal_title" >こちらの投稿を削除しますか？</p>
@@ -34,8 +49,8 @@ endif;
             </form>
 </div>
 </div>
-<?php print''.convert_to_fuzzy_time($post['created_at']).''; ?>
 </div>
+<p class="post_created_at"><?php print''.convert_to_fuzzy_time($post['created_at']).''; ?></p>
 </div>
 </div>
 

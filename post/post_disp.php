@@ -39,7 +39,10 @@ endif;
         </button>
         <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
+<div class="post_comment_count">
 <button class="btn comment_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="fas fa-comment-dots"></i></button>
+<span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
+</div>
 <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
             <p class="modal_title" >この投稿にコメントしますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>

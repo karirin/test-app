@@ -1,26 +1,10 @@
 Array
 (
-    [name] => figure_standing.png
-    [type] => image/png
-    [tmp_name] => C:\xampp3\tmp\php51F4.tmp
-    [error] => 0
-    [size] => 10351
-)
-Array
-(
-    [name] => figure_standing.png
-    [type] => image/png
-    [tmp_name] => C:\xampp3\tmp\php14F3.tmp
-    [error] => 0
-    [size] => 10351
-)
-Array
-(
-    [name] => figure_standing.png
-    [type] => image/png
-    [tmp_name] => C:\xampp3\tmp\php7153.tmp
-    [error] => 0
-    [size] => 10351
+    [name] => 
+    [type] => 
+    [tmp_name] => 
+    [error] => 4
+    [size] => 0
 )
 Array
 (
