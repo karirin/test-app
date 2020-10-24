@@ -16,7 +16,7 @@ if($post_text=='')
 {
     set_flash('danger','投稿内容が空です');
     reload();
-} 
+}
 
 if($post_gazou_name['size']>0)
 {

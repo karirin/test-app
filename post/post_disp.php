@@ -2,6 +2,7 @@
 require_once('../config.php');
 require_once('../head.php');
 require_once('../header.php');
+require_once('../post_process.php');
 ?>
 <body>
 <?php
@@ -12,7 +13,6 @@ $post = get_post($post_id);
 $post_user = get_user($post['user_id']); 
 $current_user = get_user($_SESSION['user_id']);
 
-print'<div class="modal modal_close"></div>';
 print'<div class="post">';
 print'<div class="post_list">';
 print'<div class="post_user">';
