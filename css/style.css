@@ -75,6 +75,7 @@ ul li a:hover {
     color: #fff;
 }
 
+
 nav.navbar.navbar-light.mb-2 {
     background-color: rgb(197, 197, 197);
     display: block;
@@ -310,6 +311,23 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .comment_confirmation {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+            transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.post_edit {
     display: none;
     position: fixed;
     z-index: 15;

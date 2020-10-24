@@ -63,6 +63,7 @@ $(document).on('click','.favorite_btn',function(e){
     $('.modal').fadeOut();
     $('.delete_confirmation').fadeOut();
     $('.post_process').fadeOut();
+    $('.post_edit').fadeOut();
     $('.comment_confirmation').fadeOut();
     $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
     $('.btn_flex').css('display','none');
@@ -96,17 +97,7 @@ $(document).on('click','.favorite_btn',function(e){
     setTimeout(function(){ $($message).slideToggle('slow');} , 2000);
   });
 
-  $(document).on('click','.delete_btn',function(){
-    var $target_modal = $(this).data("target")
-        //背景をスクロールできないように　&　スクロール場所を維持
-        scroll_position = $(window).scrollTop();
-        $('body').addClass('fixed').css({'top': -scroll_position});
-        // モーダルウィンドウを開く
-        $($target_modal).fadeIn();
-        $('.modal').fadeIn();
-  });
-
-  $(document).on('click','.comment_btn',function(){
+  $(document).on('click','.modal_btn',function(){
     var $target_modal = $(this).data("target")
         //背景をスクロールできないように　&　スクロール場所を維持
         scroll_position = $(window).scrollTop();

@@ -5,7 +5,6 @@
 try
 {
 
-
 $post_id=$_GET['post_id'];
 
 $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
@@ -67,7 +66,6 @@ catch(Exception $e)
 営業時間
 <input type="time" name="time_start" style="width:70px" value="<?php print $post_time_start;?>">～
 <input type="time" name="time_end" style="width:70px" value="<?php print $post_time_end;?>"><br />
-//値が保持されない
 <br />
 <input type="button" onclick="history.back()"value="戻る">
 <input type="submit" value="OK">

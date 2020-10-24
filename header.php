@@ -14,7 +14,7 @@ else
     print'<li><a href="../user_login/user_top.php?type=main">coffeeapp</a></li>';
     print'<li><a href="../user/user_list.php?type=all">ユーザー一覧</a></li>';
     print'<li><a href="../post/post_index.php">投稿一覧</a></li>';
-    print'<li><a class="post_window">投稿</a></li>';
+    print'<li><a class="post_window" href="#">投稿</a></li>';
     print'<li><a href="../user_login/user_logout.php">ログアウト</a></li>';
     print'<li><a href="/withdraw.php">退会</a></li>';
     print'</ul>';

@@ -14,7 +14,7 @@ $user_id=$_SESSION['user_id'];
 
 if($post_text=='')
 {
-    set_flash('danger','投稿内容が空です');
+    set_flash('danger','投稿内容が未記入です');
     reload();
 }
 

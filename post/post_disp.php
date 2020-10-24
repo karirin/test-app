@@ -42,7 +42,7 @@ endif;
         <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
 <div class="post_comment_count">
-<button class="btn comment_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="fas fa-comment-dots"></i></button>
+<button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="fas fa-comment-dots"></i></button>
 <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
 </div>
 <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
@@ -58,7 +58,26 @@ endif;
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
 </div>
-<button class="btn delete_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+<button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>" type="button"><i class="fas fa-edit"></i></button>
+<div class="post_edit" id="edit_modal<?= $post['id'] ?>">
+投稿内容更新
+<form method="post" action="../post/post_edit_done.php" enctype="multipart/form-data">
+投稿内容を編集する
+<input type="text" name="text" value="<?php print $post['text']; ?>">
+<?php
+if(!empty($disp)){
+print $disp_gazou;
+}
+?>
+画像を選んでください<br />
+<input type="file" name="gazou_name" style="width:400px">
+<input type="hidden" name="id" value="<?php print $post['id']; ?>">
+<input type="hidden" name="gazou_name_old" value="<?php print $post['gazou']; ?>">
+<button class="btn btn-outline-danger" type="submit" name="edit" value="edit">削除</button>
+<button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+</form>
+</div>
+<button class="btn modal_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
 <div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>">
             <p class="modal_title" >こちらの投稿を削除しますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
@@ -86,7 +105,7 @@ print'<span class="comment_text">'.$comment['text'].'</span>';
 if(!empty($comment['image'])){
 print'<p class="comment_image"><img src="../comment/image/'.$comment['image'].'"></p>';
 }
-print'<button class="btn delete_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
+print'<button class="btn modal_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
 print'<div class="delete_confirmation" id="modal'.$comment['id'].'">';
 print'<span class="modal_title">こちらのコメントを削除しますか？</span>';
 print'<span class="post_content">'.nl2br($comment['text']).'</span>';
