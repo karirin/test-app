@@ -12,8 +12,6 @@ $comment_image_name=$_FILES['image_name'];
 $user_id=$_SESSION['user_id'];
 $post_id=$_POST['id'];
 
-_debug($comment_image_name);
-
 if($comment_text=='')
 {
     set_flash('danger','コメントが空です');

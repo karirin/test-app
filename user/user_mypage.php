@@ -50,7 +50,7 @@ print '</div>';
 <?php print'<br />'.$current_user['profile'].'';?>
 </div>
 
-<div class="col-8">
+<div class="col-4">
 
 <?php if($page_type === 'main'): ?>
   <h2><?= $current_user['name'] ?>さんの投稿</h2>
@@ -69,5 +69,17 @@ require_once('../post_list.php');
 require_once('user_list.php');
 }
 ?>
+</div>
+<div class="col-4">
+  <h2>投稿する</h2>
+  <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
+　投稿内容を入力ください。<br />
+  <input type="text" name="text" style="width:200px"><br />
+  画像を選んでください。<br />
+  <input type="file" name="gazou_name" style="width:200px"><br />
+  <br />
+  <input type="button" onclick="history.back()" value="戻る">
+  <input type="submit" value="OK">
+  </form>
 </div>
 </div>

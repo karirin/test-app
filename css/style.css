@@ -117,12 +117,13 @@ nav.navbar.navbar-light.mb-2 {
     border-radius: 0.5rem;
     padding: 1rem;
     margin: 1rem 0;
-    width: 50%;
+    width: 100%;
 }
 
 .post .post_list .post_created_at {
     text-align: right;
     margin: 0;
+    font-size: 1rem;
 }
 
 .post .post_list .comment {
