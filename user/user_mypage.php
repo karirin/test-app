@@ -29,13 +29,27 @@ switch ($page_type) {
 }
 
 print'<img src="/user/image/'.$current_user['image'].'" class="mypage">';
-print '<p>'.$current_user['name'].'</p>';
-print '<div>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main">投稿数：'.current(get_user_count('post',$current_user['id'])).'</a>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=favorites">お気に入り投稿：'.current(get_user_count('favorite',$current_user['id'])).'</a>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follow">フォロー数：'.current(get_user_count('follow',$current_user['id'])).'</a>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follower">フォロワー数：'.current(get_user_count('follower',$current_user['id'])).'</a>';
-print '</div>';
+print '<h2>'.$current_user['name'].'</h2>';
+print '<table>';
+print '<tbody>';
+print '<tr>';
+print '<td>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main">投稿数<p>'.current(get_user_count('post',$current_user['id'])).'</p></a>';
+print '</td>';
+print '<td>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=favorites">お気に入り投稿<p>'.current(get_user_count('favorite',$current_user['id'])).'</p></a>';
+print '</td>';
+print '</tr>';
+print '<tr>';
+print '<td>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follow">フォロー数<p>'.current(get_user_count('follow',$current_user['id'])).'</p></a>';
+print '</td>';
+print '<td>';
+print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follower">フォロワー数<p>'.current(get_user_count('follower',$current_user['id'])).'</p></a>';
+print '</td>';
+print '</tr>';
+print '</tbody>';
+print '</table>';
 ?>
 
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>

@@ -53,7 +53,7 @@ print $disp_gazou;
 <input type="file" name="gazou_name" style="width:400px">
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="gazou_name_old" value="<?php print $post['gazou']; ?>">
-<button class="btn btn-outline-danger" type="submit" name="edit" value="edit">削除</button>
+<button class="btn btn-outline-danger" type="submit" name="edit" value="edit">更新</button>
 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
 </form>
 </div>

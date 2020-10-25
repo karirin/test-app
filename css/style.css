@@ -22,13 +22,25 @@ body.fixed {
     padding-top: 2rem;
 }
 
-.col-4 p {
-    font-size: 2rem;
-}
-
 .col-4 a {
     font-size: 1.3rem;
     margin: 0 0.8rem;
+}
+
+.col-4 table {
+    text-align: center;
+    display: inline-block;
+    border-collapse: separate;
+    border-spacing: 0rem;
+    table-layout: auto;
+}
+
+.col-4 table p{
+    margin: 0;
+}
+
+.col-4 table td{
+    height: 10px;
 }
 
 .fa-trash-alt:hover {
@@ -370,4 +382,8 @@ nav.navbar.navbar-light.mb-2 {
     width: 100%;
     height: 100%;
     z-index: 10;
+}
+
+.modal_btn {
+    padding: 0;
 }

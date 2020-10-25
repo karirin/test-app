@@ -9,6 +9,7 @@ $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
     
 $comment_text=$_POST['text'];
 $comment_image_name=$_FILES['image_name'];
+$comment_id=$_POST['comment_id'];
 $user_id=$_SESSION['user_id'];
 $post_id=$_POST['id'];
 
