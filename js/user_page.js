@@ -65,6 +65,7 @@ $(document).on('click','.favorite_btn',function(e){
     $('.post_process').fadeOut();
     $('.post_edit').fadeOut();
     $('.comment_confirmation').fadeOut();
+    $('.reply_comment_confirmation').fadeOut();
     $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
     $('.btn_flex').css('display','none');
   });

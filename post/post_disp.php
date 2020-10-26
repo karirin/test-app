@@ -13,6 +13,7 @@ $post = get_post($post_id);
 $post_user = get_user($post['user_id']); 
 $current_user = get_user($_SESSION['user_id']);
 
+print'<div class="col-8 offset-2">';
 print'<div class="post">';
 print'<div class="post_list">';
 print'<div class="post_user">';
@@ -130,7 +131,7 @@ print'<p>コメント内容を入力ください。</p>';
 print'<input type="text" name="text">';
 print'<p>画像を選んでください。</p>';
 print'<input type="file" name="image_name">';
-print'<input type="hidden" name="id" value="'.$post_id.'">';
+print'<input type="hidden" name="id" value="'.$post['id'].'">';
 print'<input type="hidden" name="comment_id" value="'.$comment['id'].'">';
 print'<button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>';
 print'<button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>';
@@ -138,18 +139,12 @@ print'</form>';
 print'</div>';
 print'</div>';
 print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created_at']).'</span>';
-print'<div class="reply">';
-$reply_comments = get_reply_comments($post['id'],$comment['id']);
-foreach($reply_comments as $reply_comment):
-if($reply_comment['comment_id']==$comment['id']){
-print''.$reply_comment['text'].'';
-}
-endforeach;
-print'</div>';
+print'<a href="../comment/comment_disp.php?post_id='.$post['id'].'&comment_id='.$comment['id'].'">このスレッドを表示する</a>';
 print'</div>';
 }
 endforeach
 ?>
+</div>
 </div>
 </div>
 <?php require_once('../footer.php');?>
