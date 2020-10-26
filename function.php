@@ -288,7 +288,9 @@ function get_comments($post_id){
 }
 
 function get_reply_comments($post_id,$comment_id){
+
   try {
+    _debug('$stmt');
     $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
     $user='root';
     $password='';
@@ -296,9 +298,12 @@ function get_reply_comments($post_id,$comment_id){
     $sql = "SELECT *
             FROM comment
             WHERE post_id = :id AND comment_id = :comment_id";
+                _debug($sql);
     $stmt = $dbh->prepare($sql);
+    _debug($stmt);
     $stmt->execute(array(':id' => $post_id , ':comment_id' => $comment_id));
     return $stmt->fetchAll();
+
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
     set_flash('error',ERR_MSG1);

@@ -54,7 +54,6 @@ endif;
               <p>画像を選んでください。</p>
               <input type="file" name="image_name">
               <input type="hidden" name="id" value="<?= $post_id ?>">
-              <input type="hidden" name="comment_id" value="<?= $comment_id ?>">
               <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
@@ -94,6 +93,7 @@ print $disp_gazou;
 <?php
 $comments = get_comments($post['id']);
 foreach($comments as $comment):
+if(empty($comment['comment_id'])){
 $comment_user = get_user($comment['user_id']);
 print'<div class="comment">';
 print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$comment_user['id'].'">';
@@ -107,8 +107,8 @@ if(!empty($comment['image'])){
 print'<p class="comment_image"><img src="../comment/image/'.$comment['image'].'"></p>';
 }
 print'<div class="comment_info">';
-print'<button class="btn modal_btn" data-target="#modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
-print'<div class="delete_confirmation" id="modal'.$comment['id'].'">';
+print'<button class="btn modal_btn" data-target="#delete_modal'.$comment['id'].'" type="button"><i class="far fa-trash-alt"></i></button>';
+print'<div class="delete_confirmation" id="delete_modal'.$comment['id'].'">';
 print'<span class="modal_title">こちらのコメントを削除しますか？</span>';
 print'<span class="post_content">'.nl2br($comment['text']).'</span>';
 print'<form action="../comment/comment_delete_done.php" method="post">';
@@ -120,18 +120,18 @@ print'<button class="btn btn-outline-danger" type="submit" name="delete" value="
 print'<button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>';
 print'</form>';
 print'</div>';
-print'<button class="btn modal_btn" data-target="#modal'.$post['id'].'" type="button"><i class="fas fa-reply"></i></button>';
-print'<span class="post_comment_count">'.current(get_post_comment_count($post['id'])).'</span>';
-print'<div class="comment_confirmation" id="modal'.$post['id'].'';
-print'<p class="modal_title" >このコメントに返信しますか？</p>';
-print'<p class="post_content">'.nl2br($post['text']).'</p>';
+print'<button class="btn modal_btn" data-target="#reply_modal'.$comment['id'].'" type="button"><i class="fas fa-reply"></i></button>';
+print'<span class="post_comment_count">'.current(get_post_comment_count($comment['id'])).'</span>';
+print'<div class="reply_comment_confirmation" id="reply_modal'.$comment['id'].'">';
+print'<p class="modal_title">このコメントに返信しますか？</p>';
+print'<p class="post_content">'.nl2br($comment['text']).'</p>';
 print'<form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">';
 print'<p>コメント内容を入力ください。</p>';
 print'<input type="text" name="text">';
 print'<p>画像を選んでください。</p>';
 print'<input type="file" name="image_name">';
 print'<input type="hidden" name="id" value="'.$post_id.'">';
-print'<input type="hidden" name="comment_id" value="'.$comment_id.'">';
+print'<input type="hidden" name="comment_id" value="'.$comment['id'].'">';
 print'<button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>';
 print'<button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>';
 print'</form>';
@@ -141,10 +141,13 @@ print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created
 print'<div class="reply">';
 $reply_comments = get_reply_comments($post['id'],$comment['id']);
 foreach($reply_comments as $reply_comment):
+if($reply_comment['comment_id']==$comment['id']){
 print''.$reply_comment['text'].'';
+}
 endforeach;
 print'</div>';
 print'</div>';
+}
 endforeach
 ?>
 </div>
