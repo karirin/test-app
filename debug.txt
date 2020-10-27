@@ -598,3 +598,435 @@ $stmtSELECT *
             FROM comment
             WHERE post_id = :id AND comment_id = :comment_id
 )
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)
+$stmtSELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_idPDOStatement Object
+(
+    [queryString] => SELECT *
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id
+)

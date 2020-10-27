@@ -139,37 +139,37 @@ nav.navbar.navbar-light.mb-2 {
     font-size: 1rem;
 }
 
-.comment {
-    border: 0.1rem solid rgb(163, 163, 163);
-    border-radius: 0.5rem;
+.post .post_list .comment {
+    border-top: 0.1rem solid rgb(163, 163, 163);
+    border-bottom: 0.1rem solid rgb(163, 163, 163);
     padding: 1rem;
 }
 
-.comment .delete_btn {
+.post .post_list .comment .delete_btn {
     margin: 0;
     padding: 0;
 }
 
-.comment p.comment_image img{
+.post .post_list .comment p.comment_image img{
     width: 10rem;
     height: 10rem;
 }
 
-.comment_created_at {
+.post .post_list .comment_created_at {
     text-align: right;
     display: block;
 }
 
-.comment .user_info {
+.post .post_list .comment .user_info {
     text-align: left;
     color: rgb(0, 0, 0);
 }
 
-.comment .user_info:hover {
+.post .post_list .comment .user_info:hover {
     color: #0056b3;
 }
 
-.comment .user_info img {
+.post .post_list .comment .user_info img {
     border-radius: 10rem;
     border: solid 0.1rem;
     margin-right: 0.5rem;
@@ -190,7 +190,7 @@ nav.navbar.navbar-light.mb-2 {
     vertical-align: top;
 }
 
-.comment_btn {
+.post .post_list .post_info .comment_btn {
     padding: 0;
 }
 
@@ -219,6 +219,26 @@ nav.navbar.navbar-light.mb-2 {
     text-align: left;
 }
 
+.post .post_user {
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+}
+
+.post .post_user a {
+    color: rgb(0, 0, 0);
+}
+
+.post .post_user a:hover {
+    color: #0056b3;
+}
+
+.post .post_user img {
+    border-radius: 10rem;
+    border: solid 0.1rem;
+    margin-right: 0.5rem;
+}
+
 .post .favorite_count {
     display: inline;
 }
@@ -226,26 +246,6 @@ nav.navbar.navbar-light.mb-2 {
 .post .favorite_count .favorite_btn {
     padding: 0;
     margin-top: -0.3rem;
-}
-
-.post_user {
-    display: inline-block;
-    text-align: left;
-    width: 100%;
-}
-
-.post_user a {
-    color: rgb(0, 0, 0);
-}
-
-.post_user a:hover {
-    color: #0056b3;
-}
-
-.post_user img {
-    border-radius: 10rem;
-    border: solid 0.1rem;
-    margin-right: 0.5rem;
 }
 
 .post_link {
@@ -276,22 +276,17 @@ nav.navbar.navbar-light.mb-2 {
     height: 8rem;
 }
 
-.user_info {
+.user .user_info {
     display: inline-block;
     text-align: center;
     margin: 0 2rem;
 }
 
-.user_info img{
-    width: 2.5rem;
-    height: 2.5rem;
-}
-
-.user_name {
+.user .user_name {
     font-size: 1.5rem;
 }
 
-.user_profile {
+.user .user_profile {
     display: inline-block;
     vertical-align: top;
 }
