@@ -108,6 +108,11 @@ $(document).on('click','.favorite_btn',function(e){
         $('.modal').fadeIn();
   });
 
+  $(document).on('click','.thread_btn',function(){
+    // モーダルウィンドウを開く
+    $('.reply').fadeIn();
+});
+
   $(document).on('click','.post_window',function(){
         //背景をスクロールできないように　&　スクロール場所を維持
         scroll_position = $(window).scrollTop();

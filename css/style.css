@@ -404,3 +404,7 @@ nav.navbar.navbar-light.mb-2 {
 .modal_btn {
     padding: 0;
 }
+
+.reply {
+    display: none;
+}
