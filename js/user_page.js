@@ -111,6 +111,7 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.thread_btn',function(){
     // モーダルウィンドウを開く
     $('.reply').fadeIn();
+    $('.thread_btn').remove()
 });
 
   $(document).on('click','.post_window',function(){

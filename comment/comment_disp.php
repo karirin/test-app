@@ -11,7 +11,6 @@ $post = get_post($post_id);
 $post_user = get_user($post['user_id']); 
 $current_user = get_user($_SESSION['user_id']);
 
-print'<div class="reply">';
 print'<div class="col-8 offset-2">';
 print'<div class="post">';
 print'<div class="post_list">';
@@ -96,7 +95,7 @@ $reply_comments = get_reply_comments($post_id,$comment_id);
 foreach($reply_comments as $reply_comment):
 if($reply_comment['comment_id']==$comment_id){
   $reply_comment_user = get_user($reply_comment['user_id']);
-  print'<div class="comment">';
+  //print'<div class="comment">';
   print'<object><a href="/user/user_disp.php?user_id='.$reply_comment_user['id'].'&page_id='.$reply_comment_user['id'].'">';
   print'<div class="user_info">';
   print'<img src="/user/image/'.$reply_comment_user['image'].'">';
@@ -144,7 +143,6 @@ endforeach;
 print'</div>';
 print'</div>';
 ?>
-</div>
 </div>
 </div>
 <?php require_once('../footer.php');?>
