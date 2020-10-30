@@ -16,8 +16,8 @@ $current_user = get_user($_SESSION['user_id']);
     <div class="post_list">
       <div class="post_user">
         <object>
-          <a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$post_user['id'].'">
-            <img src="/user/image/'.$post_user['image'].'"> 
+          <a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>">
+            <img src="/user/image/<?= $post_user['image'] ?>"> 
             <?php print''.$post_user['name'].''; ?>
           </a>
         </object>
@@ -120,7 +120,7 @@ $current_user = get_user($_SESSION['user_id']);
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
           </div>
-          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button"><i class="fas fa-reply"></i></button>';
+          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button"><i class="fas fa-reply"></i></button>
           <span class="post_comment_count"><?= current(get_post_comment_count($comment['id'])) ?></span>
           <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
             <p class="modal_title">このコメントに返信しますか？</p>
@@ -137,95 +137,74 @@ $current_user = get_user($_SESSION['user_id']);
             </form>
           </div>
         </div>
-      <?php 
-      print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created_at']).'</span>'; 
-      $reply_comments = get_reply_comments($post['id'],$comment['id']);
-      if(!empty($reply_comments)):
-      print'<a href="#" class="thread_btn"><p>このスレッドを表示する</p></a>';
-      endif;
-      endif; 
-      ?>
-      </div>
-      <?php foreach($reply_comments as $reply_comment): ?>
-      <div class="reply">
-      <?php
-      if($reply_comment['comment_id']==$comment['id']):
-      $reply_comment_user = get_user($reply_comment['user_id']);
-      ?>
+        <?php 
+        print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created_at']).'</span>'; 
+        $reply_comments = get_reply_comments($post['id'],$comment['id']);
+        if(!empty($reply_comments)):
+        print'<a href="#" class="thread_btn"><p>このスレッドを表示する</p></a>';
+        endif;
+        endif; 
+        ?>
+        <?php foreach($reply_comments as $reply_comment): ?>
+        <div class="reply">
+          <?php
+          if($reply_comment['comment_id']==$comment['id']):
+          $reply_comment_user = get_user($reply_comment['user_id']);
+          ?>
+          <div class="reply_comment">
+            <object><a href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>">
+              <div class="user_info">
+                <img src="/user/image/<?= $reply_comment_user['image'] ?>">
+                <?php print''.$reply_comment_user['name'].''; ?>
+              </div>
+            </object></a>
+            <?php print'<span class="comment_text">'.$reply_comment['text'].'</span>';
+            if(!empty($reply_comment['image'])){
+            print'<p class="comment_image"><img src="../comment/image/'.$reply_comment['image'].'"></p>';
+            }
+            ?>
+            <div class="comment_info">
+              <button class="btn modal_btn" data-target="#delete_modal<?= $reply_comment['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+              <div class="delete_confirmation" id="delete_modal<?= $reply_comment['id'] ?>">
+                <span class="modal_title">こちらのコメントを削除しますか？</span>
+                <span class="post_content"><?= nl2br($reply_comment['text']) ?></span>
+                <form action="../comment/comment_delete_done.php" method="post">
+                  <input type="hidden" name="id" value="<?= $reply_comment['id'] ?>">
+                  <input type="hidden" name="image_name" value="<?= $reply_comment['image'] ?>">
+                  <input type="hidden" name="user_id" value="<?= $post_user['id'] ?>">
+                  <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
+                  <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
+                  <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+                </form>
+              </div>
+              <button class="btn modal_btn" data-target="#reply_modal<?= $reply_comment['id'] ?>" type="button"><i class="fas fa-reply"></i></button>
+              <span class="post_comment_count"><?= current(get_post_comment_count($reply_comment['id'])) ?></span>
+              <div class="reply_comment_confirmation" id="reply_modal<?= $reply_comment['id'] ?>">
+                <p class="modal_title">このコメントに返信しますか？</p>
+                <?php print'<p class="post_content">'.nl2br($reply_comment['text']).'</p>'; ?>
+                <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
+                  <p>コメント内容を入力ください。</p>
+                  <input type="text" name="text">
+                  <p>画像を選んでください。</p>
+                  <input type="file" name="image_name">
+                  <input type="hidden" name="id" value="<?= $post_id ?>">
+                  <input type="hidden" name="comment_id" value="<?= $reply_comment['id'] ?>">
+                  <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
+                  <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+                </form>
+              </div>
+              <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at'])?></span>
+              <?php endif; ?>
+            </div>
 
-      <div class="comment">
-      <object><a href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>">
-      <div class="user_info">
-      <img src="/user/image/<?= $reply_comment_user['image'] ?>">
-      <?php print''.$reply_comment_user['name'].''; ?>
+          </div>
+
+        </div>
+        <?php endforeach; ?>
       </div>
-      </object></a>
-      <?php print'<span class="comment_text">'.$reply_comment['text'].'</span>';
-      if(!empty($reply_comment['image'])){
-      print'<p class="comment_image"><img src="../comment/image/'.$reply_comment['image'].'"></p>';
-      }
-      ?>
-      <div class="comment_info">
-      <button class="btn modal_btn" data-target="#delete_modal<?= $reply_comment['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
-      <div class="delete_confirmation" id="delete_modal<?= $reply_comment['id'] ?>">
-      <span class="modal_title">こちらのコメントを削除しますか？</span>
-      <span class="post_content"><?= nl2br($reply_comment['text']) ?></span>
-      <form action="../comment/comment_delete_done.php" method="post">
-      <input type="hidden" name="id" value="<?= $reply_comment['id'] ?>">
-      <input type="hidden" name="image_name" value="<?= $reply_comment['image'] ?>">
-      <input type="hidden" name="user_id" value="<?= $post_user['id'] ?>">
-      <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
-      <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
-      <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
-      </form>
-      </div>
-      <button class="btn modal_btn" data-target="#reply_modal<?= $reply_comment['id'] ?>" type="button"><i class="fas fa-reply"></i></button>
-      <span class="post_comment_count"><?= current(get_post_comment_count($reply_comment['id'])) ?></span>
-      <div class="reply_comment_confirmation" id="reply_modal<?= $reply_comment['id'] ?>">
-      <p class="modal_title">このコメントに返信しますか？</p>
-      <?php print'<p class="post_content">'.nl2br($reply_comment['text']).'</p>'; ?>
-      <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
-      <p>コメント内容を入力ください。</p>
-      <input type="text" name="text">
-      <p>画像を選んでください。</p>
-      <input type="file" name="image_name">
-      <input type="hidden" name="id" value="<?= $post_id ?>">
-      <input type="hidden" name="comment_id" value="<?= $reply_comment['id'] ?>">
-      <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
-      <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
-      </form>
-      </div>
-      </div>
-      <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at'])?></span>
-      <?php endif; ?>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      <?php 
-      endforeach;
-      endforeach;
-      ?>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 </div>
+
 <?php require_once('../footer.php');?>
