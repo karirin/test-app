@@ -140,13 +140,13 @@ $current_user = get_user($_SESSION['user_id']);
         <?php 
         print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created_at']).'</span>'; 
         $reply_comments = get_reply_comments($post['id'],$comment['id']);
-        if(!empty($reply_comments)):
-        print'<a href="#" class="thread_btn"><p>このスレッドを表示する</p></a>';
         endif;
-        endif; 
+        foreach($reply_comments as $reply_comment):
+        if(!empty($reply_comments)):
+        print'<a href="#" class="thread_btn" data-target="#reply_'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
+        endif;
         ?>
-        <?php foreach($reply_comments as $reply_comment): ?>
-        <div class="reply">
+        <div class="reply" id="reply_<?= $reply_comment['id'] ?>">
           <?php
           if($reply_comment['comment_id']==$comment['id']):
           $reply_comment_user = get_user($reply_comment['user_id']);

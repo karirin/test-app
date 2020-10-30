@@ -109,10 +109,11 @@ $(document).on('click','.favorite_btn',function(e){
   });
 
   $(document).on('click','.thread_btn',function(){
+    var $target_modal = $(this).data("target");
     // モーダルウィンドウを開く
-    $('.reply').fadeIn();
-    $('.thread_btn').remove()
-});
+    $($target_modal).fadeIn();
+    $(this).remove();
+  });
 
   $(document).on('click','.post_window',function(){
         //背景をスクロールできないように　&　スクロール場所を維持
