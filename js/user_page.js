@@ -109,17 +109,25 @@ $(document).on('click','.favorite_btn',function(e){
   });
 
   $(document).on('click','.thread_btn',function(){
-    var $target_modal = $(this).data("target");
-    // モーダルウィンドウを開く
-    $($target_modal).fadeIn();
+    var $target_modal = $(this).data("target"),
+        omit_height = $(this).parent().height();
+    scroll_position = $(window).scrollTop();
     $(this).remove();
+    $($target_modal).fadeIn();
+    $(this).parent().height(omit_height);
   });
 
   $(document).on('click','.post_window',function(){
-        //背景をスクロールできないように　&　スクロール場所を維持
-        scroll_position = $(window).scrollTop();
-        $('body').addClass('fixed').css({'top': -scroll_position});
-        // モーダルウィンドウを開く
-        $('.post_process').fadeIn();
-        $('.modal').fadeIn();
+    //背景をスクロールできないように　&　スクロール場所を維持
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({'top': -scroll_position});
+    // モーダルウィンドウを開く
+    $('.post_process').fadeIn();
+    $('.modal').fadeIn();
   });
+
+  $('[data-toggle="favorite"]').tooltip();
+  $('[data-toggle="post"]').tooltip();
+  $('[data-toggle="edit"]').tooltip();
+  $('[data-toggle="delete"]').tooltip();
+  $('[data-toggle="reply"]').tooltip();

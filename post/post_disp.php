@@ -33,7 +33,7 @@ $current_user = get_user($_SESSION['user_id']);
       <div class="post_info">
         <form class="favorite_count" action="#" method="post">
           <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
-          <button type="button" name="favorite" class="btn favorite_btn" >
+          <button type="button" name="favorite" class="btn favorite_btn" data-toggle="favorite" title="いいね">
             <?php if (!check_favolite_duplicate($_SESSION['user_id'],$post['id'])): ?>
               <i class="far fa-star"></i>
             <?php else: ?>
@@ -43,7 +43,7 @@ $current_user = get_user($_SESSION['user_id']);
           <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
         </form>
         <div class="post_comment_count">
-          <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i class="fas fa-comment-dots"></i></button>
+          <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>" type="button" data-toggle="post" title="投稿"><i class="fas fa-comment-dots"></i></button>
           <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
         </div>
         <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
@@ -59,7 +59,7 @@ $current_user = get_user($_SESSION['user_id']);
             <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
           </form>
         </div>
-      　<button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>" type="button"><i class="fas fa-edit"></i></button>
+      　<button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>" type="button" data-toggle="edit" title="編集"><i class="fas fa-edit"></i></button>
         <div class="post_edit" id="edit_modal<?= $post['id'] ?>">
           投稿内容更新
           <form method="post" action="../post/post_edit_done.php" enctype="multipart/form-data">
@@ -74,7 +74,7 @@ $current_user = get_user($_SESSION['user_id']);
             <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
           </form>
         </div>
-      　<button class="btn modal_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+      　<button class="btn modal_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button" data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>
         <div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>">
           <p class="modal_title" >こちらの投稿を削除しますか？</p>
           <p class="post_content"><?= nl2br($post['text']) ?></p>
@@ -107,7 +107,7 @@ $current_user = get_user($_SESSION['user_id']);
         }
         ?>
         <div class="comment_info">
-          <button class="btn modal_btn" data-target="#delete_modal<?= $comment['id'] ?>" type="button"><i class="far fa-trash-alt"></i></button>
+          <button class="btn modal_btn" data-target="#delete_modal<?= $comment['id'] ?>" type="button" data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>
           <div class="delete_confirmation" id="delete_modal<?= $comment['id'] ?>">
             <span class="modal_title">こちらのコメントを削除しますか？</span>
             <span class="post_content"><?= nl2br($comment['text']) ?></span>
@@ -120,7 +120,7 @@ $current_user = get_user($_SESSION['user_id']);
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
           </div>
-          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button"><i class="fas fa-reply"></i></button>
+          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
           <span class="post_comment_count"><?= current(get_post_comment_count($comment['id'])) ?></span>
           <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
             <p class="modal_title">このコメントに返信しますか？</p>
