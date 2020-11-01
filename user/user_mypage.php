@@ -59,7 +59,6 @@ print '</table>';
 <button class="btn profile_save" type="button">編集完了</button>
 <button class="btn modal_close" type="button">キャンセル</button>
 </div>
-
 </div>
 <?php print'<br />'.$current_user['profile'].'';?>
 </div>
