@@ -15,45 +15,45 @@ $page_type = $_GET['type'];
 <?php
 switch ($page_type) {
   case 'all':
-    $posts = get_posts($current_user['id'],'all',0);
+    $posts = get_posts($profile_user['id'],'all',0);
   break;
 
   case 'main':
-    $posts = get_posts($current_user['id'],'my_post',0);
+    $posts = get_posts($profile_user['id'],'my_post',0);
   break;
 
   case 'favorites':
-    $posts = get_posts($current_user['id'],'favorite',0);
+    $posts = get_posts($profile_user['id'],'favorite',0);
   break;
 
   case 'follow':
-    $users = get_users('follows',$current_user['id']);
+    $users = get_users('follows',$profile_user['id']);
   break;
 
   case 'follower':
-    $users = get_users('followers',$current_user['id']);
+    $users = get_users('followers',$profile_user['id']);
     
   break;
 }
 
-print'<img src="/user/image/'.$current_user['image'].'" class="mypage">';
-print '<h2>'.$current_user['name'].'</h2>';
+print'<img src="/user/image/'.$profile_user['image'].'" class="mypage">';
+print '<h2>'.$profile_user['name'].'</h2>';
 print '<table>';
 print '<tbody>';
 print '<tr>';
 print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main">投稿数<p>'.current(get_user_count('post',$current_user['id'])).'</p></a>';
+print'<a href="user_top.php?user_id='.$profile_user['id'].'&type=main">投稿数<p>'.current(get_user_count('post',$profile_user['id'])).'</p></a>';
 print '</td>';
 print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=favorites">お気に入り投稿<p>'.current(get_user_count('favorite',$current_user['id'])).'</p></a>';
+print'<a href="user_top.php?user_id='.$profile_user['id'].'&type=favorites">お気に入り投稿<p>'.current(get_user_count('favorite',$profile_user['id'])).'</p></a>';
 print '</td>';
 print '</tr>';
 print '<tr>';
 print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follow">フォロー数<p>'.current(get_user_count('follow',$current_user['id'])).'</p></a>';
+print'<a href="user_top.php?user_id='.$profile_user['id'].'&type=follow">フォロー数<p>'.current(get_user_count('follow',$profile_user['id'])).'</p></a>';
 print '</td>';
 print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follower">フォロワー数<p>'.current(get_user_count('follower',$current_user['id'])).'</p></a>';
+print'<a href="user_top.php?user_id='.$profile_user['id'].'&type=follower">フォロワー数<p>'.current(get_user_count('follower',$profile_user['id'])).'</p></a>';
 print '</td>';
 print '</tr>';
 print '</tbody>';
@@ -61,20 +61,20 @@ print '</table>';
 ?>
 
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
-<div class="comment">
+<div class="profile">
 <p class="profile_comment"></p>
 <div class="btn_flex">
 <button class="btn profile_save" type="button">編集完了</button>
 <button class="btn modal_close" type="button">キャンセル</button>
 </div>
 </div>
-<?php print'<br />'.$current_user['profile'].'';?>
+<?php print'<br />'.$profile_user['profile'].'';?>
 </div>
 
 <div class="col-4">
 
 <?php if($page_type === 'main'): ?>
-  <h2><?= $current_user['name'] ?>さんの投稿</h2>
+  <h2><?= $profile_user['name'] ?>さんの投稿</h2>
 <?php elseif ($page_type === 'favorites'): ?>
   <h2>お気に入りの投稿</h2>
 <?php elseif ($page_type === 'follow'): ?>
@@ -110,9 +110,9 @@ require_once('user_list.php');
 
 <form action="#" method="post">
           <input type="hidden" class="current_user_id" value="<?= $current_user['id'] ?>">
-          <input type="hidden" name="follow_user_id" value="<?= $user_id ?>">
+          <input type="hidden" name="follow_user_id" value="<?= $profile_user['id'] ?>">
           <!-- フォロー中か確認してボタンを変える -->
-          <?php if (check_follow($current_user['id'],$user_id)): ?>
+          <?php if (check_follow($current_user['id'],$profile_user['id'])): ?>
             <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
           <?php else: ?>
             <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>

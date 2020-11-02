@@ -439,3 +439,9 @@ nav.navbar.navbar-light.mb-2 {
     border: solid 0.1rem;
     margin-right: 0.5rem;
 }
+
+.editing {
+    z-index: 15;
+    background-color: #000;
+    position: relative;
+  }

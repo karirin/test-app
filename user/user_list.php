@@ -36,7 +36,7 @@ switch ($page_type) {
 foreach((array)$users as $user):
 $user = current($user);
 $user = get_user($user);
-print'<a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$user['id'].'" class="user_link">';
+print'<a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$user['id'].'&type=main" class="user_link">';
 print'<div class="user">';
 print'<div class="user_info">';
 if(!empty($user['image'])):

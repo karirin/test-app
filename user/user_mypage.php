@@ -54,13 +54,12 @@ print '</table>';
 
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 <div class="comment">
-<p class="profile_comment"></p>
+<p class="profile_comment"><?= $current_user['profile'] ?></p>
 <div class="btn_flex">
 <button class="btn profile_save" type="button">編集完了</button>
 <button class="btn modal_close" type="button">キャンセル</button>
 </div>
 </div>
-<?php print'<br />'.$current_user['profile'].'';?>
 </div>
 
 <div class="col-4">

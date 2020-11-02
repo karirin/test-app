@@ -68,11 +68,16 @@ $(document).on('click','.favorite_btn',function(e){
     $('.reply_comment_confirmation').fadeOut();
     $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
     $('.btn_flex').css('display','none');
+    $('.comment').removeClass('editing');
   });
 
   $(document).on('click','.edit_btn',function(){
-    $('.profile_comment').replaceWith('<textarea class="edit_comment border_white" type="text">');
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({'top': -scroll_position});
+    $('.profile_comment').replaceWith('<textarea class="edit_comment form-control" type="text">');
     $('.btn_flex').css('display','flex');
+    $('.modal').fadeIn();
+    $('.comment').addClass('editing');
   });
 
   $(document).on('click','.profile_save',function(e){
