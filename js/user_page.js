@@ -74,10 +74,11 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.edit_btn',function(){
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({'top': -scroll_position});
-    $('.profile_comment').replaceWith('<textarea class="edit_comment form-control" type="text">');
+    $('.profile_comment').replaceWith('<textarea class="edit_comment form-control" type="text" value="">');
     $('.btn_flex').css('display','flex');
     $('.modal').fadeIn();
     $('.comment').addClass('editing');
+    $('edit_btn').fadeOut();
   });
 
   $(document).on('click','.profile_save',function(e){

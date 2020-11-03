@@ -62,7 +62,7 @@ print '</table>';
 
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 <div class="profile">
-<p class="profile_comment"></p>
+<p class="edit_comment"></p>
 <div class="btn_flex">
 <button class="btn profile_save" type="button">編集完了</button>
 <button class="btn modal_close" type="button">キャンセル</button>
