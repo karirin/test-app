@@ -74,6 +74,15 @@ $(document).on('click','.favorite_btn',function(e){
     // $(this).remove()
   });
 
+  $('.textarea').on('input',function(){
+    var count = $(this).val().length;
+    $('.show_count').text(count);
+    if (count > 300) {
+      $('.show_count').css('color','#FF7763');
+    }else{
+      $('.show_count').css('color','#FFF');
+    }
+  });
 
   user_comment = $('.profile_comment').text();
 
