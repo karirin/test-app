@@ -8,7 +8,7 @@
   </div>
   画像を選んでください。
   <input type="file" name="gazou_name" style="width:200px">
-  <button class="btn btn-outline-danger" type="submit" name="post" value="post">コメント</button>
+  <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>
   <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
   </form>
 </div>

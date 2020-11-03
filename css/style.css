@@ -258,6 +258,12 @@ nav.navbar.navbar-light.mb-2 {
     opacity: 0.7;
 }
 
+#post:disabled {
+    color: #b8b8b8;
+    border-color: #b8b8b8;
+    cursor: default;
+}
+
 .user {
     border-radius: 8rem;
     border: solid 0.1rem;

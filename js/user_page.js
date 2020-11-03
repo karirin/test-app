@@ -84,6 +84,15 @@ $(document).on('click','.favorite_btn',function(e){
     }
   });
 
+
+  $('.textarea').on('input',function(){
+    if ($(this).val().length !== 0 && $(this).val().length <= 300){
+      $('#post').prop('disabled',false);
+    }else{
+      $('#post').prop('disabled',true);
+    }
+  })
+
   user_comment = $('.profile_comment').text();
 
   $(document).on('click',".modal_close",function(){
