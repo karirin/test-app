@@ -213,7 +213,7 @@ nav.navbar.navbar-light.mb-2 {
 
 .post .post_text {
     width: 80%;
-    margin: 1rem;
+    margin: 1rem 1rem 0 1rem;
     border-radius: 0.5rem;
     text-align: left;
     white-space: pre-wrap;

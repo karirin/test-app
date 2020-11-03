@@ -55,6 +55,26 @@ $(document).on('click','.favorite_btn',function(e){
     });
   });
 
+    $(document).on('click','.show_all',function(){
+    // 省略されている投稿の高さを取得
+    // var omit_height = $(document).find('#post_text').height();
+    $(document).find('.post_text').removeClass('ellipsis');
+    $(this).remove()
+    // //投稿の省略を解除
+    // 全文表示された投稿の高さを取得
+    // var all_height = $(this).parent().height();
+    // //一度高さを戻して
+    // $(this).parent().height(omit_height);
+    // //スライドで全文表示させる
+    // $(this).parent().animate({
+    //   height: all_height
+    // },"slow","swing");
+
+    // //ボタンを消す
+    // $(this).remove()
+  });
+
+
   user_comment = $('.profile_comment').text();
 
   $(document).on('click',".modal_close",function(){

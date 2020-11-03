@@ -11,9 +11,12 @@ print'<img src="/user/image/'.$post_user['image'].'">';
 print''.$post_user['name'].'';
 print'</a></object>';
 print'</div>';
-print'<div class="post_text ellipsis">';
+print'<div class="post_text ellipsis" id="post_text">';
 print''.$post['text'].'';
 print'</div>';
+if (substr_count($post['text'],"\n") +1 > 10):
+print'<object><a href="#" class="show_all">続きを表示する</a></object>';
+endif;
 if (!empty($post['gazou'])):
   print'<img src="/post/gazou/'.$post['gazou'].'" class="post_img" >';
 endif;
