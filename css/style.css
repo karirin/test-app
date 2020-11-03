@@ -215,7 +215,6 @@ nav.navbar.navbar-light.mb-2 {
     width: 80%;
     margin: 1rem;
     border-radius: 0.5rem;
-    display: inline-block;
     text-align: left;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -446,4 +445,12 @@ nav.navbar.navbar-light.mb-2 {
     z-index: 15;
     background-color: #000;
     position: relative;
+}
+
+.ellipsis {
+    overflow: hidden;
+    padding: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }

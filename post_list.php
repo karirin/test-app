@@ -11,7 +11,7 @@ print'<img src="/user/image/'.$post_user['image'].'">';
 print''.$post_user['name'].'';
 print'</a></object>';
 print'</div>';
-print'<div class="post_text">';
+print'<div class="post_text ellipsis">';
 print''.$post['text'].'';
 print'</div>';
 if (!empty($post['gazou'])):
