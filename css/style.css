@@ -217,6 +217,8 @@ nav.navbar.navbar-light.mb-2 {
     border-radius: 0.5rem;
     display: inline-block;
     text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .post .post_user {
@@ -444,4 +446,4 @@ nav.navbar.navbar-light.mb-2 {
     z-index: 15;
     background-color: #000;
     position: relative;
-  }
+}
