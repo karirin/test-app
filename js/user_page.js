@@ -93,7 +93,9 @@ $(document).on('click','.favorite_btn',function(e){
     }
   })
 
-  user_comment = $('.profile_comment').text();
+  var user_comment = $('.comment').text(),
+      user_name = $('.profile_name').text(),
+      user_id = $('.user_id').val();
 
   $(document).on('click',".modal_close",function(){
     $('body').removeClass('fixed').css({'top': 0});
@@ -104,25 +106,27 @@ $(document).on('click','.favorite_btn',function(e){
     $('.post_edit').fadeOut();
     $('.comment_confirmation').fadeOut();
     $('.reply_comment_confirmation').fadeOut();
-    $('.edit_comment').replaceWith('<p class="profile_comment">' + user_comment + '</p>');
+    $('.edit_comment').replaceWith('<p class="comment">' + user_comment + '</p>');
+    $('.edit_name').replaceWith('<h2 class="profile_name">' + user_name + '</h2>');
     $('.btn_flex').css('display','none');
-    $('.comment').removeClass('editing');
+    $('.profile').removeClass('editing');
+    $('.edit_btn').fadeIn();
   });
 
   $(document).on('click','.edit_btn',function(){
     scroll_position = $(window).scrollTop();
+    $('.edit_btn').fadeOut();
     $('body').addClass('fixed').css({'top': -scroll_position});
-    $('.profile_comment').replaceWith('<textarea class="edit_comment form-control" type="text" value="">');
+    $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" value="">'+user_comment);
+    $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" value="'+user_name+'">');
     $('.btn_flex').css('display','flex');
     $('.modal').fadeIn();
-    $('.comment').addClass('editing');
-    $('edit_btn').fadeOut();
+    $('.profile').addClass('editing');
   });
 
   $(document).on('click','.profile_save',function(e){
     e.stopPropagation();
-      var comment_data = $('.edit_comment').val(),
-          user_id = get_param('user_id');
+      var comment_data = $('.edit_comment').val();
     $.ajax({
       type: 'POST',
       url: '../ajax_edit_profile.php',

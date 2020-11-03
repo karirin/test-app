@@ -47,6 +47,14 @@ body.fixed {
     color: hsl(0, 100%, 30%);
 }
 
+.fa-comment-dots:hover {
+    color: rgb(0, 90, 112);
+}
+
+.fa-edit:hover {
+    color: rgb(26, 126, 1);
+}
+
 img.mypage {
     border-radius: 10rem;
     border: solid 0.3rem;
@@ -97,6 +105,8 @@ nav.navbar.navbar-light.mb-2 {
 
 .btn_flex {
     display: none;
+    justify-content: space-around;
+    padding-top: 1rem;
 }
 
 .edit_btn {
@@ -459,4 +469,8 @@ nav.navbar.navbar-light.mb-2 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+}
+
+.profile {
+    padding: 1rem;
 }

@@ -27,39 +27,41 @@ switch ($page_type) {
     
   break;
 }
-
-print'<img src="/user/image/'.$current_user['image'].'" class="mypage">';
-print '<h2>'.$current_user['name'].'</h2>';
-print '<table>';
-print '<tbody>';
-print '<tr>';
-print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=main">投稿数<p>'.current(get_user_count('post',$current_user['id'])).'</p></a>';
-print '</td>';
-print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=favorites">お気に入り投稿<p>'.current(get_user_count('favorite',$current_user['id'])).'</p></a>';
-print '</td>';
-print '</tr>';
-print '<tr>';
-print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follow">フォロー数<p>'.current(get_user_count('follow',$current_user['id'])).'</p></a>';
-print '</td>';
-print '<td>';
-print'<a href="user_top.php?user_id='.$current_user['id'].'&type=follower">フォロワー数<p>'.current(get_user_count('follower',$current_user['id'])).'</p></a>';
-print '</td>';
-print '</tr>';
-print '</tbody>';
-print '</table>';
 ?>
 
-<button class="edit_btn" type="button" name="follow">プロフィール編集</button>
-<div class="comment">
-<p class="profile_comment"><?= $current_user['profile'] ?></p>
+<div class="profile">
+<img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
+<h2 class="profile_name"><?= $current_user['name'] ?></h2>
+<p class="comment"><?= $current_user['profile'] ?></p>
+<input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
 <div class="btn_flex">
-<button class="btn profile_save" type="button">編集完了</button>
-<button class="btn modal_close" type="button">キャンセル</button>
+<button class="btn btn-outline-primary profile_save" type="button">編集完了</button>
+<button class="btn btn-outline-danger modal_close" type="button">キャンセル</button>
 </div>
 </div>
+<button class="edit_btn" type="button" name="follow">プロフィール編集</button>
+
+<table>
+<tbody>
+<tr>
+<td>
+<a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=main">投稿数<p><?= current(get_user_count('post',$current_user['id'])) ?></p></a>
+</td>
+<td>
+<a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=favorites">お気に入り投稿<p><?= current(get_user_count('favorite',$current_user['id'])) ?></p></a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follow">フォロー数<p><?= current(get_user_count('follow',$current_user['id'])) ?></p></a>
+</td>
+<td>
+<a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follower">フォロワー数<p><?= current(get_user_count('follower',$current_user['id'])) ?></p></a>
+</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 
 <div class="col-4">
