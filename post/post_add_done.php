@@ -46,7 +46,7 @@ $data[] = $post_text;
 $data[] = $post_gazou_name['name'];
 $data[] = $user_id;
 $data[] = $date->format('Y-m-d H:i:s');
-
+_debug($post_text);
 $stmt -> execute($data);
 $dbh = null;
 

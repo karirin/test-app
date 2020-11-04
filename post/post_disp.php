@@ -22,9 +22,7 @@ $current_user = get_user($_SESSION['user_id']);
           </a>
         </object>
       </div>
-      <div class="post_text">
-        <?php print''.$post['text'].''; ?>
-      </div>
+      <div class="post_text"><?php print''.$post['text'].''; ?></div>
       <?php
       if (!empty($post['gazou'])):
       print'<img src="/post/gazou/'.$post['gazou'].'" class="post_img" >';

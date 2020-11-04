@@ -22,7 +22,7 @@ body.fixed {
     padding-top: 2rem;
 }
 
-.col-4 a {
+.col-4 table a {
     font-size: 1.3rem;
     margin: 0 0.8rem;
 }
@@ -208,6 +208,9 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0;
 }
 
+.post .post_list .post_info .post_content{
+    word-wrap: break-word;
+}
 .post .post_list a i {
     color: rgb(0, 0, 0);
 }
@@ -222,8 +225,7 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .post .post_text {
-    width: 80%;
-    margin: 1rem 1rem 0 1rem;
+    margin: 1rem;
     border-radius: 0.5rem;
     text-align: left;
     white-space: pre-wrap;
