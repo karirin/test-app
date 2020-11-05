@@ -4,7 +4,11 @@ $post_user = get_user($post['user_id']);
 
 print'<div class="post">';
 print'<a href="/post/post_disp.php?post_id='.$post['id'].'&user_id='.$current_user['id'].'" class="post_link">';
-print'<div class="post_list">';
+if(basename($_SERVER['PHP_SELF']) === 'user_top.php'):
+print'<div class="post_list"  style="width: 100%;">';
+else:
+print'<div class="post_list"  style="width: 80%;">';
+endif;
 print'<div class="post_user">';
 print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$post_user['id'].'">';
 print'<img src="/user/image/'.$post_user['image'].'">'; 

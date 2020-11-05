@@ -19,11 +19,11 @@ body.fixed {
 
 .col-4 {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 .col-4 table a {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: 0 0.8rem;
 }
 
@@ -43,6 +43,10 @@ body.fixed {
     height: 10px;
 }
 
+.col-4 table td:hover{
+    background-color: rgb(250, 128, 128);
+}
+
 .fa-trash-alt:hover {
     color: hsl(0, 100%, 30%);
 }
@@ -58,8 +62,8 @@ body.fixed {
 img.mypage {
     border-radius: 10rem;
     border: solid 0.3rem;
-    width: 15rem;
-    height: 15rem;
+    width: 12rem;
+    height: 12rem;
 }
 
 ul {
@@ -110,7 +114,7 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .edit_btn {
-    margin: 20px 0;
+    margin-bottom: 1rem;
 }
 
 .edit_comment.border_white {
@@ -474,5 +478,5 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .profile {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
 }

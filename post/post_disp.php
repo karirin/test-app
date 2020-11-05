@@ -139,6 +139,10 @@ $current_user = get_user($_SESSION['user_id']);
         print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created_at']).'</span>'; 
         $reply_comments = get_reply_comments($post['id'],$comment['id']);
         endif;
+        // for($i = 0; $i <= $reply_comments[$i]; $i++){
+        //   if(!empty($reply_comments)):
+        //     print'<a href="#" class="thread_btn" data-target="#reply_'.current($reply_comments[$i]).'"><p>このスレッドを表示する</p></a>';
+        //   endif;
         foreach($reply_comments as $reply_comment):
         if(!empty($reply_comments)):
         print'<a href="#" class="thread_btn" data-target="#reply_'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
@@ -194,15 +198,12 @@ $current_user = get_user($_SESSION['user_id']);
               <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at'])?></span>
               <?php endif; ?>
             </div>
-
           </div>
-
         </div>
-        <?php endforeach; ?>
+                  <?php endforeach; ?>
       </div>
       <?php endforeach; ?>
-    </div>
-  </div>
-</div>
+
+
 
 <?php require_once('../footer.php');?>

@@ -31,7 +31,7 @@ switch ($page_type) {
 
 <div class="profile">
 <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
-<h2 class="profile_name"><?= $current_user['name'] ?></h2>
+<h3 class="profile_name"><?= $current_user['name'] ?></h3>
 <p class="comment"><?= $current_user['profile'] ?></p>
 <input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
 <div class="btn_flex">
@@ -41,27 +41,14 @@ switch ($page_type) {
 </div>
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 
-<table>
-<tbody>
-<tr>
-<td>
-<a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=main">投稿数<p><?= current(get_user_count('post',$current_user['id'])) ?></p></a>
-</td>
-<td>
+<p>
+<a href="usper_top.php?user_id=<?= $current_user['id'] ?>&type=main">投稿数<p><?= current(get_user_count('post',$current_user['id'])) ?></p></a>
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=favorites">お気に入り投稿<p><?= current(get_user_count('favorite',$current_user['id'])) ?></p></a>
-</td>
-</tr>
-<tr>
-<td>
+</p>
+<p>
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follow">フォロー数<p><?= current(get_user_count('follow',$current_user['id'])) ?></p></a>
-</td>
-<td>
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follower">フォロワー数<p><?= current(get_user_count('follower',$current_user['id'])) ?></p></a>
-</td>
-</tr>
-</tbody>
-</table>
-
+</p>
 </div>
 
 <div class="col-4">
