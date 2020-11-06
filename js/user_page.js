@@ -14,6 +14,14 @@ function get_param(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+$('#myImage').on('change', function (e) {
+  var reader = new FileReader();
+  reader.onload = function (e) {
+      $("#preview").attr('src', e.target.result);
+  }
+  reader.readAsDataURL(e.target.files[0]);
+});
+
 $(document).on('click','.favorite_btn',function(e){
     e.stopPropagation();
     var $this = $(this),

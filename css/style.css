@@ -22,29 +22,27 @@ body.fixed {
     padding-top: 1rem;
 }
 
-.col-4 table a {
-    font-size: 1.2rem;
-    margin: 0 0.8rem;
+.profile_count {
+    margin-right: -3rem;
 }
 
-.col-4 table {
-    text-align: center;
-    display: inline-block;
-    border-collapse: separate;
-    border-spacing: 0rem;
-    table-layout: auto;
+.profile_count .col-4.offset-1 {
+    padding: 0;
+    margin-bottom: 1rem;
 }
 
-.col-4 table p{
+.profile_count .col-4.offset-1 a {
+    color: rgb(0, 0, 0);
+}
+
+.profile_count .col-4.offset-1 a p {
     margin: 0;
 }
 
-.col-4 table td{
-    height: 10px;
-}
-
-.col-4 table td:hover{
-    background-color: rgb(250, 128, 128);
+.profile_count .col-4.offset-1:hover {
+    background-color: rgb(172, 172, 172);
+    padding: 0;
+    border-radius: 1rem;
 }
 
 .fa-trash-alt:hover {
@@ -56,6 +54,10 @@ body.fixed {
 }
 
 .fa-edit:hover {
+    color: rgb(26, 126, 1);
+}
+
+.fa-image:hover {
     color: rgb(26, 126, 1);
 }
 
@@ -413,6 +415,19 @@ nav.navbar.navbar-light.mb-2 {
     border: 0.3rem solid #fff;
 }
 
+.post_process .post_title {
+    text-align: center;
+}
+
+.post_process .counter {
+    text-align: center;
+}
+
+.post_process .post_btn {
+    justify-content: space-evenly;
+    display: flex;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -479,4 +494,12 @@ nav.navbar.navbar-light.mb-2 {
 
 .profile {
     padding: 0 1rem 1rem 1rem;
+}
+
+#myImage {
+    display: none;
+}
+
+.post_img {
+    margin-left: 1rem;
 }

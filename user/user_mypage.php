@@ -41,14 +41,21 @@ switch ($page_type) {
 </div>
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 
-<p>
+
+<div class="row profile_count">
+<div class="col-4 offset-1">
 <a href="usper_top.php?user_id=<?= $current_user['id'] ?>&type=main">投稿数<p><?= current(get_user_count('post',$current_user['id'])) ?></p></a>
+</div>
+<div class="col-4 offset-1">
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=favorites">お気に入り投稿<p><?= current(get_user_count('favorite',$current_user['id'])) ?></p></a>
-</p>
-<p>
+</div>
+<div class="col-4 offset-1">
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follow">フォロー数<p><?= current(get_user_count('follow',$current_user['id'])) ?></p></a>
+</div>
+<div class="col-4 offset-1">
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follower">フォロワー数<p><?= current(get_user_count('follower',$current_user['id'])) ?></p></a>
-</p>
+</div>
+</div>
 </div>
 
 <div class="col-4">
