@@ -11,7 +11,7 @@
   <i class="far fa-image"></i>
   <input type="file" name="gazou_name" id="myImage" accept="image/*" multiple>
   </label>
-  <img id="preview">
+  <p><img id="preview"></p>
   </div>
   <div class="post_btn">
   <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>

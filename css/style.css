@@ -68,6 +68,26 @@ img.mypage {
     height: 12rem;
 }
 
+.edit_profile_img {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+    display: none;
+}
+
+.edit_profile_img .far.fa-image{
+    position: absolute;
+    top: 25%;
+    right: 48%;
+    z-index: 10;
+}
+
+.edit_profile_img .far.fa-image:hover {
+    background-color: #fff;
+    padding: 2rem;
+}
+
 ul {
     display: -webkit-flex;
     display: flex;
@@ -423,7 +443,7 @@ nav.navbar.navbar-light.mb-2 {
     text-align: center;
 }
 
-.post_process .post_btn {
+.post_btn {
     justify-content: space-evenly;
     display: flex;
 }
@@ -496,10 +516,45 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0 1rem 1rem 1rem;
 }
 
+.profile .profile_img {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+    display: inline-block;
+}
+
+.profile .edit_profile_img {
+    width: 12rem;
+    height: 12rem;
+    display: none;
+}
+
+.profile .editing_profile_img {
+    border-radius: 10rem;
+    opacity: 0.8;
+    width: 11rem;
+    height: 11rem;
+}
+
 #myImage {
     display: none;
 }
 
 .post_img {
     margin-left: 1rem;
+}
+
+#preview {
+    display: none;
+    width: 10rem;
+}
+
+.comment_img {
+    text-align: left;
+    margin-left: 1rem;
+}
+
+#edit_profile_img {
+    display: none;
 }

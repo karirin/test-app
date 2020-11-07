@@ -16,6 +16,7 @@ function get_param(name, url) {
 
 $('#myImage').on('change', function (e) {
   var reader = new FileReader();
+  $("#preview").fadeIn();
   reader.onload = function (e) {
       $("#preview").attr('src', e.target.result);
   }
@@ -116,6 +117,8 @@ $(document).on('click','.favorite_btn',function(e){
     $('.reply_comment_confirmation').fadeOut();
     $('.edit_comment').replaceWith('<p class="comment">' + user_comment + '</p>');
     $('.edit_name').replaceWith('<h2 class="profile_name">' + user_name + '</h2>');
+    $('.mypage').css('display','inline');
+    $('.edit_profile_img').css('display','none');    
     $('.btn_flex').css('display','none');
     $('.profile').removeClass('editing');
     $('.edit_btn').fadeIn();
@@ -127,6 +130,8 @@ $(document).on('click','.favorite_btn',function(e){
     $('body').addClass('fixed').css({'top': -scroll_position});
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" value="">'+user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" value="'+user_name+'">');
+    $('.mypage').css('display','none');
+    $('.edit_profile_img').css('display','inline-block');
     $('.btn_flex').css('display','flex');
     $('.modal').fadeIn();
     $('.profile').addClass('editing');
@@ -134,12 +139,14 @@ $(document).on('click','.favorite_btn',function(e){
 
   $(document).on('click','.profile_save',function(e){
     e.stopPropagation();
-      var comment_data = $('.edit_comment').val();
+      var comment_data = $('.edit_comment').val(),
+          name = $('.edit_name').val();
     $.ajax({
       type: 'POST',
       url: '../ajax_edit_profile.php',
       dataType: 'text',
       data: {comment_data: comment_data,
+             name: name,
              user_id: user_id}
     }).done(function(){
       location.reload();
