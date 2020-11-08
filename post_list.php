@@ -43,9 +43,9 @@ endif;
             <div class="comment_img">
             <label>
             <i class="far fa-image"></i>
-            <input type="file" name="image_name" id="myImage" accept="image/*" multiple>
+            <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
             </label>
-            <p><img id="preview"></p>
+            <p><img class="preview"></p>
             </div>
               <input type="hidden" name="id" value="<?= $post['id'] ?>">
               <div class="post_btn">
@@ -56,21 +56,22 @@ endif;
 </div>
 <button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>" type="button" data-toggle="edit" title="編集"><i class="fas fa-edit"></i></button>
 <div class="post_edit" id="edit_modal<?= $post['id'] ?>">
-投稿内容更新
+<p>投稿内容更新</p>
 <form method="post" action="../post/post_edit_done.php" enctype="multipart/form-data">
-投稿内容を編集する
-<input type="text" name="text" value="<?php print $post['text']; ?>">
-<?php
-if(!empty($disp)){
-print $disp_gazou;
-}
-?>
-画像を選んでください<br />
-<input type="file" name="gazou_name" style="width:400px">
+<textarea class="textarea form-control" placeholder="投稿内容を編集してください" name="text"><?php print $post['text']; ?></textarea>
+<div class="post_image">
+<label>
+<i class="far fa-image"></i>
+<input type="file" name="gazou_name" class="myImage" accept="image/*" multiple>
+</label>
+<p><img class="preview"></p>
+</div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="gazou_name_old" value="<?php print $post['gazou']; ?>">
+<div class="post_btn">
 <button class="btn btn-outline-danger" type="submit" name="edit" value="edit">更新</button>
 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+</div>
 </form>
 </div>
 <button class="btn modal_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button" data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>

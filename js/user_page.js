@@ -14,11 +14,11 @@ function get_param(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-$('#myImage').on('change', function (e) {
+$('.myImage').on('change', function (e) {
   var reader = new FileReader();
-  $("#preview").fadeIn();
+  $(".preview").fadeIn();
   reader.onload = function (e) {
-      $("#preview").attr('src', e.target.result);
+      $(".preview").attr('src', e.target.result);
   }
   reader.readAsDataURL(e.target.files[0]);
 });
@@ -57,9 +57,9 @@ $(document).on('click','.favorite_btn',function(e){
     // }).beforeSend(function(xhr) {
     //   xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
     //$.ajax(...).beforeSendが未定義で関数をよびだすことができない（関数は(...)のこと→beforeSend(...)）
-    }).done(function(data){
+    }).done(function(){
       location.reload();
-    }).fail(function(jqXHR,textStatus,errorThrown){
+    }).fail(function(){
       location.reload();
     });
   });
@@ -127,7 +127,7 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.edit_btn',function(){
     scroll_position = $(window).scrollTop();
     $('.edit_btn').fadeOut();
-    $('body').addClass('fixed').css({'top': -scroll_position});
+    //$('body').addClass('fixed').css({'top': -scroll_position});
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" value="">'+user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" value="'+user_name+'">');
     $('.mypage').css('display','none');
@@ -137,16 +137,30 @@ $(document).on('click','.favorite_btn',function(e){
     $('.profile').addClass('editing');
   });
 
+  $('#edit_profile_img').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        profile = $("#edit_profile_img").attr('src');
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  });
+
   $(document).on('click','.profile_save',function(e){
     e.stopPropagation();
       var comment_data = $('.edit_comment').val(),
-          name = $('.edit_name').val();
+          name = $('.edit_name').val(),
+          // profile_image = $('#edit_profile_img').files[0];
+          // profile_image_name = profile_image.name,
+          // profile_image_size = profile_image.size,
+          profile_image_src = $('#edit_profile_img').attr("src");
+
     $.ajax({
       type: 'POST',
       url: '../ajax_edit_profile.php',
       dataType: 'text',
       data: {comment_data: comment_data,
              name: name,
+            //  profile_image: profile_image,
              user_id: user_id}
     }).done(function(){
       location.reload();
@@ -174,7 +188,7 @@ $(document).on('click','.favorite_btn',function(e){
   $(document).on('click','.thread_btn',function(){
     var $target_modal = $(this).data("target"),
         omit_height = $(this).parent().height();
-    scroll_position = $(window).scrollTop();
+        scroll_position = $(window).scrollTop();
     $(this).remove();
     $($target_modal).fadeIn();
     $(this).parent().height(omit_height);

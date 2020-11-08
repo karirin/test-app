@@ -57,10 +57,6 @@ body.fixed {
     color: rgb(26, 126, 1);
 }
 
-.fa-image:hover {
-    color: rgb(26, 126, 1);
-}
-
 img.mypage {
     border-radius: 10rem;
     border: solid 0.3rem;
@@ -78,14 +74,22 @@ img.mypage {
 
 .edit_profile_img .far.fa-image{
     position: absolute;
-    top: 25%;
-    right: 48%;
+    top: 34%;
+    right: 33%;
     z-index: 10;
 }
 
-.edit_profile_img .far.fa-image:hover {
-    background-color: #fff;
-    padding: 2rem;
+.edit_profile_img .fa-image_range{
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: 20%;
+    right: 44%;
+    border-radius: 1rem;
+}
+
+.edit_profile_img .fa-image_range:hover{
+    background-color: rgba(256,256,256,0.5);
 }
 
 ul {
@@ -443,6 +447,10 @@ nav.navbar.navbar-light.mb-2 {
     text-align: center;
 }
 
+.post_process .fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
 .post_btn {
     justify-content: space-evenly;
     display: flex;
@@ -498,6 +506,10 @@ nav.navbar.navbar-light.mb-2 {
     margin-right: 0.5rem;
 }
 
+.post .post_list .post_info .fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
 .editing {
     z-index: 15;
     background-color: #000;
@@ -537,15 +549,15 @@ nav.navbar.navbar-light.mb-2 {
     height: 11rem;
 }
 
-#myImage {
+.myImage {
     display: none;
 }
 
-.post_img {
+.post_image {
     margin-left: 1rem;
 }
 
-#preview {
+.preview {
     display: none;
     width: 10rem;
 }

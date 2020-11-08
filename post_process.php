@@ -6,12 +6,12 @@
   <div class="counter">
                 <span class="show_count">0</span><span>/300</span>
   </div>
-  <div class="post_img">
+  <div class="post_image">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="gazou_name" id="myImage" accept="image/*" multiple>
+  <input type="file" name="gazou_name" class="myImage" accept="image/*" multiple>
   </label>
-  <p><img id="preview"></p>
+  <p><img class="preview"></p>
   </div>
   <div class="post_btn">
   <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>

@@ -32,10 +32,12 @@ switch ($page_type) {
 <div class="profile">
 <div class="edit_profile_img">
 <label>
+<div class="fa-image_range">
 <i class="far fa-image"></i>
+</div>
 <input type="file" name="gazou_name" id="edit_profile_img">
-<img src="/user/image/<?= $current_user['image'] ?>" class="editing_profile_img">
 </label>
+<img src="/user/image/<?= $current_user['image'] ?>" name="profile_image" class="editing_profile_img">
 </div>
 <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
 <h3 class="profile_name"><?= $current_user['name'] ?></h3>
