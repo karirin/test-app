@@ -45,18 +45,27 @@ $current_user = get_user($_SESSION['user_id']);
           <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
         </div>
         <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
-          <p class="modal_title" >この投稿にコメントしますか？</p>
-          <p class="post_content"><?= nl2br($post['text']) ?></p>
-          <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
-            <p>コメント内容を入力ください。</p>
-            <input type="text" name="text">
-            <p>画像を選んでください。</p>
-            <input type="file" name="image_name">
-            <input type="hidden" name="id" value="<?= $post_id ?>">
-            <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
-            <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
-          </form>
-        </div>
+            <p class="modal_title" >この投稿にコメントしますか？</p>
+            <p class="post_content"><?= nl2br($post['text']) ?></p>
+            <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
+            <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
+            <div class="counter">
+                <span class="show_count">0</span><span>/300</span>
+            </div>
+            <div class="comment_img">
+            <label>
+            <i class="far fa-image"></i>
+            <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
+            </label>
+            <p><img class="preview"></p>
+            </div>
+              <input type="hidden" name="id" value="<?= $post['id'] ?>">
+              <div class="post_btn">
+              <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
+              <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+              </div>
+            </form>
+</div>
       　<button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>" type="button" data-toggle="edit" title="編集"><i class="fas fa-edit"></i></button>
         <div class="post_edit" id="edit_modal<?= $post['id'] ?>">
           投稿内容更新
