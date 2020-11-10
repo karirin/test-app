@@ -88,14 +88,16 @@ require_once('user_list.php');
 ?>
 </div>
 <div class="col-4">
-  <h2>投稿する</h2>
+  <h2>投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
   <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
-  画像を選んでください。<br />
-  <input type="file" name="gazou_name" style="width:200px"><br />
-  <br />
-  <input type="button" onclick="history.back()" value="戻る">
-  <input type="submit" value="OK">
+  <div class="post_btn margin_top">
+  <label>
+  <i class="far fa-image"></i>
+  <input type="file" name="gazou_name" class="myImage" accept="image/*" multiple>
+  </label>
+  <input type="submit" class="btn btn-outline-dark" value="OK">
+  </div>
   </form>
 </div>
 </div>

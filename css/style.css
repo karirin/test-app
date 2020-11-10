@@ -570,3 +570,7 @@ nav.navbar.navbar-light.mb-2 {
 #edit_profile_img {
     display: none;
 }
+
+.margin_top {
+    margin-top: 1rem;
+}
