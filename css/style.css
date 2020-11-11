@@ -456,6 +456,14 @@ nav.navbar.navbar-light.mb-2 {
     display: flex;
 }
 
+.post_btn .far.fa-image{
+    margin-top: 0.7rem;
+}
+
+.post_btn .far.fa-image:hover{
+    color: rgb(26, 126, 1);
+}
+
 .modal {
     display: none;
     position: fixed;
