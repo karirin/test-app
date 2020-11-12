@@ -70,13 +70,13 @@ switch ($page_type) {
 <div class="col-4">
 
 <?php if($page_type === 'main'): ?>
-  <h2><?= $current_user['name'] ?>さんの投稿</h2>
+  <h2 class="left"><?= $current_user['name'] ?>さんの投稿</h2>
 <?php elseif ($page_type === 'favorites'): ?>
-  <h2>お気に入りの投稿</h2>
+  <h2 class="left">お気に入りの投稿</h2>
 <?php elseif ($page_type === 'follow'): ?>
-  <h2>フォローした人</h2>
+  <h2 class="left">フォローした人</h2>
 <?php elseif ($page_type === 'follower'): ?>
-  <h2>フォロワー</h2>
+  <h2 class="left">フォロワー</h2>
 <?php endif; ?>
 
 <?php
@@ -88,7 +88,7 @@ require_once('user_list.php');
 ?>
 </div>
 <div class="col-4">
-  <h2>投稿</h2>
+  <h2 class="left">投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
   <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
   <div class="post_btn margin_top">
