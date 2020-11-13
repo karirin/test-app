@@ -287,6 +287,24 @@ function get_comments($post_id){
   }
 }
 
+function get_messages($message_id){
+  try {
+    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM message
+            WHERE user_id = :id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $message_id));
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 function get_reply_comments($post_id,$comment_id){
 
   try {
