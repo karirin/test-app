@@ -5,8 +5,8 @@ try
 {
 $post_id = $_POST['id'];
 $post_text = $_POST['text'];
-$post_gazou_name_old = $_POST['gazou_name_old'];
-$post_gazou_name = $_FILES['gazou_name'];
+$post_image_name_old = $_POST['image_name_old'];
+$post_image_name = $_FILES['image_name'];
 
 if($post_text=='')
 {
@@ -14,16 +14,16 @@ if($post_text=='')
     reload();
 }
 
-if($post_gazou_name['size']>0)
+if($post_image_name['size']>0)
 {
-    if($post_gazou_name['size']>1000000)
+    if($post_image_name['size']>1000000)
     {
         set_flash('danger','画像が大きすぎます');
         reload();
     }
     else
     {
-        move_uploaded_file($post_gazou_name['tmp_name'],'./gazou/'.$post_gazou_name['name']);
+        move_uploaded_file($post_image_name['tmp_name'],'./image/'.$post_image_name['name']);
 
     }
 }
@@ -31,24 +31,24 @@ if($post_gazou_name['size']>0)
 $post_text=htmlspecialchars($post_text,ENT_QUOTES,'UTF-8');
 $post_id=htmlspecialchars($post_id,ENT_QUOTES,'UTF-8');
 
-$dsn = 'mysql:dbname=shop;host=localhost';
+$dsn = 'mysql:dbname=db;host=localhost';
 $user = 'root';
 $password = '';
 $dbh = new PDO($dsn,$user,$password);
 $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = 'UPDATE post SET text=?,gazou=? WHERE id=?';
+$sql = 'UPDATE post SET text=?,image=? WHERE id=?';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_text;
-$data[] = $post_gazou_name['name'];
+$data[] = $post_image_name['name'];
 $data[] = $post_id;
 $stmt -> execute($data);
 
 $dbh = null;
 
-if($post_gazou_name_old!='' && $post_gazou_name_old!=$post_gazou_name['name'])
+if($post_image_name_old!='' && $post_image_name_old!=$post_image_name['name'])
 {
-    unlink('./gazou/'.$post_gazou_name_old);
+    unlink('./image/'.$post_image_name_old);
 }
 }
 catch (Exception $e)

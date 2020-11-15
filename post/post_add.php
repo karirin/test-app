@@ -10,7 +10,7 @@ require_once('../header.php');
 <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="content"></textarea>
 <input type="text" name="text" style="width:200px"><br />
 画像を選んでください。<br />
-<input type="file" name="gazou_name" style="width:200px"><br />
+<input type="file" name="image_name" style="width:200px"><br />
 <br />
 <input type="button" onclick="history.back()" value="戻る">
 <input type="submit" value="OK">

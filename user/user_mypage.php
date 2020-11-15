@@ -35,7 +35,7 @@ switch ($page_type) {
 <div class="fa-image_range">
 <i class="far fa-image"></i>
 </div>
-<input type="file" name="gazou_name" id="edit_profile_img">
+<input type="file" name="image_name" id="edit_profile_img">
 </label>
 <img src="/user/image/<?= $current_user['image'] ?>" name="profile_image" class="editing_profile_img">
 </div>
@@ -50,6 +50,12 @@ switch ($page_type) {
 </div>
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 
+<?php
+$post_count = get_user_count('post',$current_user['id']);
+$favorite_count = get_user_count('favorite',$current_user['id']);
+$follow_count = get_user_count('follow',$current_user['id']);
+$follower_count = get_user_count('follower',$current_user['id']);
+?>
 
 <div class="row profile_count">
 <div class="col-4 offset-1">
@@ -94,7 +100,7 @@ require_once('user_list.php');
   <div class="post_btn margin_top">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="gazou_name" class="myImage" accept="image/*" multiple>
+  <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
   </label>
   <input type="submit" class="btn btn-outline-dark" value="OK">
   </div>

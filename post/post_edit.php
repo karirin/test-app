@@ -7,13 +7,13 @@ try
 
 $post_id=$_GET['post_id'];
 
-$dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
+$dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name,address,time_start,time_end,gazou FROM post WHERE id=?';
+$sql='SELECT name,address,time_start,time_end,image FROM post WHERE id=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$post_id;
 $stmt->execute($data);
@@ -23,17 +23,17 @@ $post_name = $rec['name'];
 $post_address = $rec['address'];
 $post_time_start = $rec['time_start'];
 $post_time_end = $rec['time_end'];
-$post_gazou_name_old =$rec['gazou'];
+$post_image_name_old =$rec['image'];
 
 $dbh = null;
 
-if($post_gazou_name_old=='')
+if($post_image_name_old=='')
 {
-    $disp_gazou='';
+    $disp_image='';
 }
 else
 {
-    $disp_gazou='<img src="./gazou/'.$post_gazou_name_old.'" style="width:200px">';
+    $disp_image='<img src="./image/'.$post_image_name_old.'" style="width:200px">';
 }
 
 }
@@ -52,16 +52,16 @@ catch(Exception $e)
 <br />
 <form method="post" action="post_edit_check.php" enctype="multipart/form-data">
 <input type="hidden" name="id" value="<?php print $post_id; ?>">
-<input type="hidden" name="gazou_name_old" value="<?php print $post_gazou_name_old; ?>">
+<input type="hidden" name="image_name_old" value="<?php print $post_image_name_old; ?>">
 店名<br />
 <input type="text" name="name" style="width:200px" value="<?php print $post_name;?>"><br />
 住所<br />
 <input type="text" name="price" style="width:50px" value="<?php print $post_address;?>"><br />
 <br />
-<?php print $disp_gazou; ?>
+<?php print $disp_image; ?>
 <br />
 画像を選んでください<br />
-<input type="file" name="gazou" style="width:400px"><br />
+<input type="file" name="image" style="width:400px"><br />
 <br />
 営業時間
 <input type="time" name="time_start" style="width:70px" value="<?php print $post_time_start;?>">～

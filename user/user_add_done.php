@@ -12,7 +12,7 @@ $user_image = $_POST['image_name'];
 $user_name=htmlspecialchars($user_name,ENT_QUOTES,'UTF-8');
 $user_pass=htmlspecialchars($user_pass,ENT_QUOTES,'UTF-8');
 
-$dsn = 'mysql:dbname=shop;host=localhost';
+$dsn = 'mysql:dbname=db;host=localhost';
 $user = 'root';
 $password = '';
 $dbh = new PDO($dsn,$user,$password);

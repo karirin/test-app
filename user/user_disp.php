@@ -46,7 +46,7 @@ switch ($page_type) {
 <div class="fa-image_range">
 <i class="far fa-image"></i>
 </div>
-<input type="file" name="gazou_name" id="edit_profile_img">
+<input type="file" name="image_name" id="edit_profile_img">
 </label>
 <img src="/user/image/<?= $current_user['image'] ?>" name="profile_image" class="editing_profile_img">
 </div>
@@ -105,7 +105,7 @@ require_once('user_list.php');
   <div class="post_btn margin_top">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="gazou_name" class="myImage" accept="image/*" multiple>
+  <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
   </label>
   <input type="submit" class="btn btn-outline-dark" value="OK">
   </div>

@@ -14,7 +14,7 @@ function _debug( $data, $clear_log = false ) {
 
 function get_user($user_id){
     try {
-      $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+      $dsn='mysql:dbname=db;host=localhost;charset=utf8';
       $user='root';
       $password='';
       $dbh=new PDO($dsn,$user,$password);
@@ -32,7 +32,7 @@ function get_user($user_id){
 
 function get_users($type,$query){
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -82,7 +82,7 @@ function get_users($type,$query){
 }
 
 function get_user_count($object,$user_id){
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -104,13 +104,13 @@ function get_user_count($object,$user_id){
     case 'follow':
     $sql ="SELECT COUNT(follower_id)
           FROM relation
-          WHERE follow_id = :id AND delete_flg = 0";
+          WHERE follow_id = :id";
       break;
 
     case 'follower':
     $sql ="SELECT COUNT(follow_id)
           FROM relation
-          WHERE follower_id = :id AND delete_flg = 0";
+          WHERE follower_id = :id";
       break;
   }
 
@@ -121,7 +121,7 @@ function get_user_count($object,$user_id){
 
 //お気に入りの重複チェック
 function check_favolite_duplicate($user_id,$post_id){
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -136,7 +136,7 @@ function check_favolite_duplicate($user_id,$post_id){
 }
 
 function get_post_favorite_count($post_id){
-  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+  $dsn='mysql:dbname=db;host=localhost;charset=utf8';
   $user='root';
   $password='';
   $dbh=new PDO($dsn,$user,$password);
@@ -149,7 +149,7 @@ function get_post_favorite_count($post_id){
 }
 
 function get_post_comment_count($post_id){
-  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+  $dsn='mysql:dbname=db;host=localhost;charset=utf8';
   $user='root';
   $password='';
   $dbh=new PDO($dsn,$user,$password);
@@ -163,7 +163,7 @@ function get_post_comment_count($post_id){
 
 //フォロー中かどうか確認している処理
 function check_follow($follow_user,$follower_user){
-  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+  $dsn='mysql:dbname=db;host=localhost;charset=utf8';
   $user='root';
   $password='';
   $dbh=new PDO($dsn,$user,$password);
@@ -177,7 +177,7 @@ function check_follow($follow_user,$follower_user){
 }
 
 function check_user($user_name,$user_pass){
-  $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+  $dsn='mysql:dbname=db;host=localhost;charset=utf8';
   $user='root';
   $password='';
   $dbh=new PDO($dsn,$user,$password);
@@ -192,7 +192,7 @@ function check_user($user_name,$user_pass){
 
 function get_post($post_id){
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -211,7 +211,7 @@ function get_post($post_id){
 // ユーザーの投稿を取得する
 function get_posts($user_id,$type){
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -224,7 +224,7 @@ function get_posts($user_id,$type){
       break;
       //自分の投稿を取得する
       case 'my_post':
-      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id,post.created_at
+      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.image,post.text,post.user_id,post.created_at
               FROM user INNER JOIN post ON user.id = post.user_id
               WHERE user_id = :id AND delete_flg = 0
               ORDER BY created_at DESC";
@@ -234,7 +234,7 @@ function get_posts($user_id,$type){
       break;
       //お気に入り登録した投稿を取得する
       case 'favorite':
-      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.gazou,post.text,post.user_id,post.created_at
+      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.image,post.text,post.user_id,post.created_at
               FROM post INNER JOIN favorite ON post.id = favorite.post_id
               INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id
@@ -253,7 +253,7 @@ function get_posts($user_id,$type){
 
 function get_comment($comment_id){
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -271,7 +271,7 @@ function get_comment($comment_id){
 
 function get_comments($post_id){
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -287,17 +287,39 @@ function get_comments($post_id){
   }
 }
 
-function get_messages($message_id){
+function insert_message($user_id,$destination_id){
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "INSERT INTO
+            message_relation(user_id,destination_id)
+            VALUES (?,?)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $user_id,
+                         ':destination_id' => $destination_id));
+                         _debug($stmt);
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+function get_messages($user_id,$destination_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM message
-            WHERE user_id = :id";
+            WHERE user_id = :id or user_id = :destination_id
+            ORDER BY created_at ASC";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':id' => $message_id));
+    $stmt->execute(array(':id' => $user_id,
+                         ':destination_id' => $destination_id));
     return $stmt->fetchAll();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
@@ -308,7 +330,7 @@ function get_messages($message_id){
 function get_reply_comments($post_id,$comment_id){
 
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
@@ -327,7 +349,7 @@ function get_reply_comments($post_id,$comment_id){
 
 function change_delete_flg($id,$flg){
   try {
-    $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);

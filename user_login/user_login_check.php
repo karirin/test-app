@@ -20,7 +20,7 @@ if(empty($user_pass)) {
 
 $user_pass=md5($user_pass);
 //md5でハッシュ化すると空でもemptyにならないので注意
-$dsn='mysql:dbname=shop;host=localhost;charset=utf8';
+$dsn='mysql:dbname=db;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password); //データベースに接続

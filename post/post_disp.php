@@ -24,8 +24,8 @@ $current_user = get_user($_SESSION['user_id']);
       </div>
       <div class="post_text"><?php print''.$post['text'].''; ?></div>
       <?php
-      if (!empty($post['gazou'])):
-      print'<img src="/post/gazou/'.$post['gazou'].'" class="post_img" >';
+      if (!empty($post['image'])):
+      print'<img src="/post/image/'.$post['image'].'" class="post_img" >';
       endif;
       ?>
       <div class="post_info">
@@ -72,11 +72,11 @@ $current_user = get_user($_SESSION['user_id']);
           <form method="post" action="../post/post_edit_done.php" enctype="multipart/form-data">
             投稿内容を編集する
             <input type="text" name="text" value="<?php print $post['text']; ?>">
-              <?php if(!empty($disp)) { print $disp_gazou; } ?>
+              <?php if(!empty($disp)) { print $disp_image; } ?>
             画像を選んでください<br />
-            <input type="file" name="gazou_name" style="width:400px">
+            <input type="file" name="image_name" style="width:400px">
             <input type="hidden" name="id" value="<?php print $post['id']; ?>">
-            <input type="hidden" name="gazou_name_old" value="<?php print $post['gazou']; ?>">
+            <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
             <button class="btn btn-outline-danger" type="submit" name="edit" value="edit">更新</button>
             <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
           </form>
@@ -87,7 +87,7 @@ $current_user = get_user($_SESSION['user_id']);
           <p class="post_content"><?= nl2br($post['text']) ?></p>
           <form action="post_delete_done.php" method="post">
             <input type="hidden" name="id" value="<?= $post['id']?>">
-            <input type="hidden" name="gazou_name" value="<?= $post['gazou']?>">
+            <input type="hidden" name="image_name" value="<?= $post['image']?>">
             <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
             <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
           </form>

@@ -586,3 +586,36 @@ nav.navbar.navbar-light.mb-2 {
 .left {
     text-align: left;
 }
+
+.right {
+    text-align: right;
+}
+
+.message_process .message_title {
+    text-align: center;
+}
+
+.message_process .counter {
+    text-align: center;
+}
+
+.message_process .fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
+.message_btn {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.message_image {
+    margin-left: 1rem;
+}
+
+.message_user_img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 10rem;
+    border: solid 0.1rem;
+    margin-right: 0.5rem;
+}

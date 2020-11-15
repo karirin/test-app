@@ -13,7 +13,7 @@ $comment_image_name = $_POST['image_name'];
 $user_id = $_POST['user_id'];
 $post_id = $_POST['post_id'];
 
-$dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
+$dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
 $user = 'root';
 $password = '';
 $dbh = new PDO($dsn,$user,$password);

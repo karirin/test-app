@@ -49,6 +49,9 @@ print'</div>';
 print'<div class="user_profile">';
 print''.$user['profile'].'';
 print'</div>';
+print'<div class="direct_message">';
+print'<a href="../message/message.php?user_id='.$user['id'].'">DM</a>';
+print'</div>';
 print'</div>';
 print'</a>';
 endforeach

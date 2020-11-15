@@ -21,8 +21,8 @@ print'</div>';
 if (substr_count($post['text'],"\n") +1 > 10):
 print'<object><a href="#" class="show_all">続きを表示する</a></object>';
 endif;
-if (!empty($post['gazou'])):
-  print'<img src="/post/gazou/'.$post['gazou'].'" class="post_img" >';
+if (!empty($post['image'])):
+  print'<img src="/post/image/'.$post['image'].'" class="post_img" >';
 endif;
 
 ?>
@@ -62,12 +62,12 @@ endif;
 <div class="post_image">
 <label>
 <i class="far fa-image"></i>
-<input type="file" name="gazou_name" class="myImage" accept="image/*" multiple>
+<input type="file" name="image_name" class="myImage" accept="image/*" multiple>
 </label>
 <p><img class="preview"></p>
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
-<input type="hidden" name="gazou_name_old" value="<?php print $post['gazou']; ?>">
+<input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
 <div class="post_btn">
 <button class="btn btn-outline-danger" type="submit" name="edit" value="edit">更新</button>
 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
@@ -80,7 +80,7 @@ endif;
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form action="post_delete_done.php" method="post">
               <input type="hidden" name="id" value="<?= $post['id']?>">
-              <input type="hidden" name="gazou_name" value="<?= $post['gazou']?>">
+              <input type="hidden" name="image_name" value="<?= $post['image']?>">
               <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>

@@ -9,7 +9,7 @@
   <div class="post_image">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="gazou_name" class="myImage" accept="image/*" multiple>
+  <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
   </label>
   <p><img class="preview"></p>
   </div>

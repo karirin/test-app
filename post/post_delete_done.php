@@ -10,9 +10,9 @@ try
 {
 
 $post_id = $_POST['id'];
-$post_gazou_name = $_POST['gazou_name'];
+$post_image_name = $_POST['image_name'];
 
-$dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
+$dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
 $user = 'root';
 $password = '';
 $dbh = new PDO($dsn,$user,$password);
@@ -25,9 +25,9 @@ $stmt -> execute($data);
 
 $dbh = null;
 
-if($post_gazou_name != '')
+if($post_image_name != '')
 {
-    unlink('./gazou/'.$post_gazou_name);
+    unlink('./image/'.$post_image_name);
 }
 
 }   

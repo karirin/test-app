@@ -1,38 +1,38 @@
 <?php
 require_once('../config.php'); 
-
+require_once('../function.php'); 
 try
 {
 
 $date = new DateTime();
 $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
     
-$post_text=$_POST['text'];
-$post_image_name=$_FILES['image_name'];
+$message_text=$_POST['text'];
+$message_image=$_FILES['image'];
 $user_id=$_SESSION['user_id'];
+$destination_id = $_POST['destination_id'];
 
-
-if($post_text=='')
+if($message_text=='')
 {
-    set_flash('danger','投稿内容が未記入です');
+    set_flash('danger','メッセージ内容が未記入です');
     reload();
 }
 
-if($post_image_name['size']>0)
+if($message_image['size']>0)
 {
-    if($post_image_name['size']>1000000)
+    if($message_image['size']>1000000)
     {
         set_flash('danger','画像が大きすぎます');
         reload();
     }
     else
     {
-        move_uploaded_file($post_image_name['tmp_name'],'./image/'.$post_image_name['name']);
+        move_uploaded_file($message_image['tmp_name'],'./image/'.$message_image['name']);
 
     }
 }
 
-$post_text=htmlspecialchars($post_text,ENT_QUOTES,'UTF-8');
+$message_text=htmlspecialchars($message_text,ENT_QUOTES,'UTF-8');
 $user_id=htmlspecialchars($user_id,ENT_QUOTES,'UTF-8');
 
 $dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
@@ -40,17 +40,18 @@ $user = 'root';
 $password = '';
 $dbh = new PDO($dsn,$user,$password);
 $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql = 'INSERT INTO post(text,image,user_id,created_at) VALUES (?,?,?,?)';
+$sql = 'INSERT INTO message(text,image,user_id,created_at) VALUES (?,?,?,?)';
 $stmt = $dbh -> prepare($sql);
-$data[] = $post_text;
-$data[] = $post_image_name['name'];
+$data[] = $message_text;
+$data[] = $message_image['name'];
 $data[] = $user_id;
 $data[] = $date->format('Y-m-d H:i:s');
 $stmt -> execute($data);
 $dbh = null;
 
-set_flash('sucsess','投稿しました');
-header('Location:../user_login/user_top.php?type=main');
+insert_message($user_id,$destination_id);
+set_flash('sucsess','メッセージを送信しました');
+header('Location:../message/message.php?user_id='.$destination_id.'');
 
 }   
 catch (Exception $e)
