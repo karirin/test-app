@@ -51,3 +51,9 @@ foreach($messages as $message):
 </div>
 </body>
 <?php require_once('../footer.php'); ?>
+<script>
+  $(window).on('load', function() {
+    $('html, body').scrollTop($(document).height());
+  });
+  </script>
+
