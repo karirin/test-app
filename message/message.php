@@ -18,9 +18,9 @@ foreach($messages as $message):
 ?>
     <div class="my_message">
       <?php if($message['user_id'] == $user_id): ?>
-        <div class="right"><?= $message['text'] ?><img src="../user/image/<?= $current_user['image'] ?>" class="message_user_img"></div>
+        <div class="mycomment right"><p><?= $message['text'] ?></p><img src="../user/image/<?= $current_user['image'] ?>" class="message_user_img"></div>
       <?php else: ?>
-        <div class="left"><img src="../user/image/<?= $destination_user['image'] ?>" class="message_user_img"><?= $message['text'] ?></div>
+        <div class="left"><img src="../user/image/<?= $destination_user['image'] ?>" class="message_user_img"><div class="says"><?= $message['text'] ?></div>
       <?php endif; ?>  
     </div>
 <?php endforeach ?>
@@ -45,10 +45,7 @@ foreach($messages as $message):
   <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
   </div>
   </form>
-</div>
-</div>
-</div>
-</div>
+      </div>
 </body>
 <?php require_once('../footer.php'); ?>
 <script>
