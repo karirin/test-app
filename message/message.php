@@ -3,17 +3,18 @@ require_once('../config.php');
 require_once('../head.php'); 
 require_once('../header.php');
 require_once('../post_process.php');
-?>
-<body>
-<div class="row">
-<div class="col-8 offset-2">
-<div class="message">
-<?php
 $user_id = $_SESSION['user_id'];
 $destination_id = $_GET['user_id'];
 $messages = get_messages($user_id,$destination_id);
 $destination_user = get_user($destination_id);
 $current_user = get_user($user_id);
+?>
+<body>
+<div class="row">
+<div class="col-8 offset-2">
+<div class="message">
+<h2 class="center"><?= $destination_user['name'] ?></h2>
+<?php
 foreach($messages as $message):
 ?>
     <div class="my_message">

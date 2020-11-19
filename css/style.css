@@ -706,3 +706,7 @@ nav.navbar.navbar-light.mb-2 {
     -webkit-transform: rotate(-35deg);
     transform: rotate(-35deg);
   }
+
+  .center{
+      text-align: center;
+  }
