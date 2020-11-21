@@ -49,7 +49,10 @@ $data[] = $date->format('Y-m-d H:i:s');
 $stmt -> execute($data);
 $dbh = null;
 
+if(!check_relation_message($user_id,$destination_id)){
+    _debug('test');
 insert_message($user_id,$destination_id);
+}
 set_flash('sucsess','メッセージを送信しました');
 header('Location:../message/message.php?user_id='.$destination_id.'');
 

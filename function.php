@@ -295,11 +295,31 @@ function insert_message($user_id,$destination_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "INSERT INTO
             message_relation(user_id,destination_id)
-            VALUES (?,?)";
+            VALUES (:user_id,:destination_id)";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':id' => $user_id,
+    $stmt->execute(array(':user_id' => $user_id,
                          ':destination_id' => $destination_id));
-                         _debug($stmt);
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+
+function check_relation_message($user_id,$destination_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT user_id,destination_id
+            FROM message_relation
+            WHERE user_id = :user_id and destination_id = :destination_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_id' => $destination_id));
+                         _debug($sql);
     return $stmt->fetch();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
