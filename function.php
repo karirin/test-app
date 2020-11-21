@@ -287,6 +287,24 @@ function get_comments($post_id){
   }
 }
 
+function get_message_relations($user_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM message_relation
+            WHERE user_id = :user_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id));
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 function insert_message($user_id,$destination_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';

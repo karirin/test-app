@@ -72,14 +72,14 @@ img.mypage {
     display: none;
 }
 
-.edit_profile_img .far.fa-image{
+.edit_profile_img .far.fa-image {
     position: absolute;
     top: 34%;
     right: 33%;
     z-index: 10;
 }
 
-.edit_profile_img .fa-image_range{
+.edit_profile_img .fa-image_range {
     position: absolute;
     width: 3rem;
     height: 3rem;
@@ -88,8 +88,8 @@ img.mypage {
     border-radius: 1rem;
 }
 
-.edit_profile_img .fa-image_range:hover{
-    background-color: rgba(256,256,256,0.5);
+.edit_profile_img .fa-image_range:hover {
+    background-color: rgba(256, 256, 256, 0.5);
 }
 
 ul {
@@ -124,7 +124,6 @@ ul li a {
 ul li a:hover {
     color: #fff;
 }
-
 
 nav.navbar.navbar-light.mb-2 {
     background-color: rgb(197, 197, 197);
@@ -190,7 +189,7 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0;
 }
 
-.post .post_list .comment p.comment_image img{
+.post .post_list .comment p.comment_image img {
     width: 10rem;
     height: 10rem;
 }
@@ -238,9 +237,10 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0;
 }
 
-.post .post_list .post_info .post_content{
+.post .post_list .post_info .post_content {
     word-wrap: break-word;
 }
+
 .post .post_list a i {
     color: rgb(0, 0, 0);
 }
@@ -351,7 +351,7 @@ nav.navbar.navbar-light.mb-2 {
     background-color: #121212;
     border-radius: 8px;
     -webkit-transform: translate(-50%, -10%);
-            transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
     color: #fff;
     font-size: 1.3rem;
     border: 0.3rem solid #fff;
@@ -367,7 +367,7 @@ nav.navbar.navbar-light.mb-2 {
     display: block;
 }
 
-.delete_confirmation .btn-outline-danger{
+.delete_confirmation .btn-outline-danger {
     margin-left: 1rem;
 }
 
@@ -382,7 +382,7 @@ nav.navbar.navbar-light.mb-2 {
     background-color: #121212;
     border-radius: 8px;
     -webkit-transform: translate(-50%, -10%);
-            transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
     color: #fff;
     font-size: 1.3rem;
     border: 0.3rem solid #fff;
@@ -399,7 +399,7 @@ nav.navbar.navbar-light.mb-2 {
     background-color: #121212;
     border-radius: 8px;
     -webkit-transform: translate(-50%, -10%);
-            transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
     color: #fff;
     font-size: 1.3rem;
     border: 0.3rem solid #fff;
@@ -416,7 +416,7 @@ nav.navbar.navbar-light.mb-2 {
     background-color: #121212;
     border-radius: 8px;
     -webkit-transform: translate(-50%, -10%);
-            transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
     color: #fff;
     font-size: 1.3rem;
     border: 0.3rem solid #fff;
@@ -433,7 +433,7 @@ nav.navbar.navbar-light.mb-2 {
     background-color: #121212;
     border-radius: 8px;
     -webkit-transform: translate(-50%, -10%);
-            transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
     color: #fff;
     font-size: 1.3rem;
     border: 0.3rem solid #fff;
@@ -456,11 +456,11 @@ nav.navbar.navbar-light.mb-2 {
     display: flex;
 }
 
-.post_btn .far.fa-image{
+.post_btn .far.fa-image {
     margin-top: 0.7rem;
 }
 
-.post_btn .far.fa-image:hover{
+.post_btn .far.fa-image:hover {
     color: rgb(26, 126, 1);
 }
 
@@ -494,7 +494,7 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0;
 }
 
-.post .post_list .reply_comment p.comment_image img{
+.post .post_list .reply_comment p.comment_image img {
     width: 10rem;
     height: 10rem;
 }
@@ -612,7 +612,7 @@ nav.navbar.navbar-light.mb-2 {
     margin-left: 1rem;
 }
 
-.message_user_img{
+.message_user_img {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 10rem;
@@ -621,9 +621,8 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 
-
-
 /*以下、①背景色など*/
+
 .line-bc {
     padding: 20px 10px;
     max-width: 450px;
@@ -631,82 +630,89 @@ nav.navbar.navbar-light.mb-2 {
     text-align: right;
     font-size: 14px;
     background: #7da4cd;
-  
-  }
-  
-  /*以下、②左側のコメント*/
-  .balloon6 {
+}
+
+
+/*以下、②左側のコメント*/
+
+.balloon6 {
     width: 100%;
     margin: 10px 0;
     overflow: hidden;
-  }
-  
-  .balloon6 .faceicon {
+}
+
+.balloon6 .faceicon {
     float: left;
     margin-right: -50px;
     width: 40px;
-  }
-  
-  .balloon6 .faceicon img{
+}
+
+.balloon6 .faceicon img {
     width: 100%;
     height: auto;
     border-radius: 50%;
-  }
-  .balloon6 .chatting {
+}
+
+.balloon6 .chatting {
     width: 100%;
     text-align: left;
-  }
-  .says {
+}
+
+.says {
     display: inline-block;
-    position: relative; 
+    position: relative;
     padding: 10px;
     max-width: 250px;
     border-radius: 12px;
     background: #edf1ee;
-  }
-  
-  .says:after {
+}
+
+.says:after {
     content: "";
     display: inline-block;
     position: absolute;
-    top: 3px; 
+    top: 3px;
     left: -19px;
     border: 8px solid transparent;
     border-right: 18px solid #edf1ee;
     -webkit-transform: rotate(35deg);
     transform: rotate(35deg);
-  }
-  .says p {
+}
+
+.says p {
     margin: 0;
     padding: 0;
-  }
-  
-  /*以下、③右側の緑コメント*/
-  .mycomment {
+}
+
+
+/*以下、③右側の緑コメント*/
+
+.mycomment {
     margin: 10px 0;
-  }
-  .mycomment p {
+}
+
+.mycomment p {
     display: inline-block;
-    position: relative; 
+    position: relative;
     margin: 0 10px 0 0;
     padding: 8px;
     max-width: 250px;
     border-radius: 12px;
     background: rgb(240, 240, 240);
     font-size: 15px:
-  }
-  
-  .mycomment p:after {
+}
+
+.mycomment p:after {
     content: "";
     position: absolute;
-    top: 3px; 
+    top: 3px;
     right: -19px;
     border: 8px solid transparent;
     border-left: 18px solid #edf1ee;
     -webkit-transform: rotate(-35deg);
     transform: rotate(-35deg);
-  }
+}
 
-  .center{
-      text-align: center;
-  }
+.center {
+    text-align: center;
+}
