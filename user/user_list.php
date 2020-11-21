@@ -34,8 +34,6 @@ switch ($page_type) {
   }
 
 foreach((array)$users as $user):
-  _debug($user);
-  _debug($users);
 $user = current($user);
 $user = get_user($user);
 print'<a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$user['id'].'&type=main" class="user_link">';

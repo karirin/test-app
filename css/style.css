@@ -618,6 +618,7 @@ nav.navbar.navbar-light.mb-2 {
     border-radius: 10rem;
     border: solid 0.1rem;
     margin-right: 0.5rem;
+    vertical-align: baseline;
 }
 
 
@@ -715,4 +716,13 @@ nav.navbar.navbar-light.mb-2 {
 
 .center {
     text-align: center;
+}
+
+.destination_user_info {
+    display: inline-block;
+}
+
+.bottom_message_time {
+    vertical-align: top;
+    float: right;
 }

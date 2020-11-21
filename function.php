@@ -295,7 +295,7 @@ function get_message_relations($user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM message_relation
-            WHERE user_id = :user_id";
+            WHERE user_id = :user_id or destination_user_id = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id));
     return $stmt->fetchAll();
@@ -305,18 +305,18 @@ function get_message_relations($user_id){
   }
 }
 
-function insert_message($user_id,$destination_id){
+function insert_message($user_id,$destination_user_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
     $sql = "INSERT INTO
-            message_relation(user_id,destination_id)
-            VALUES (:user_id,:destination_id)";
+            message_relation(user_id,destination_user_id)
+            VALUES (:user_id,:destination_user_id)";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_id' => $destination_id));
+                         ':destination_user_id' => $destination_user_id));
     return $stmt->fetch();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
@@ -325,19 +325,18 @@ function insert_message($user_id,$destination_id){
 }
 
 
-function check_relation_message($user_id,$destination_id){
+function check_relation_message($user_id,$destination_user_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
-    $sql = "SELECT user_id,destination_id
+    $sql = "SELECT user_id,destination_user_id
             FROM message_relation
-            WHERE user_id = :user_id and destination_id = :destination_id";
+            WHERE user_id = :user_id and destination_user_id = :destination_user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_id' => $destination_id));
-                         _debug($sql);
+                         ':destination_user_id' => $destination_user_id));
     return $stmt->fetch();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
@@ -345,7 +344,7 @@ function check_relation_message($user_id,$destination_id){
   }
 }
 
-function get_messages($user_id,$destination_id){
+function get_bottom_message($user_id,$destination_user_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
@@ -353,11 +352,31 @@ function get_messages($user_id,$destination_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM message
-            WHERE user_id = :id or user_id = :destination_id
+            WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)
+            ORDER BY created_at DESC";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+function get_messages($user_id,$destination_user_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM message
+            WHERE user_id = :id or user_id = :destination_user_id
             ORDER BY created_at ASC";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':id' => $user_id,
-                         ':destination_id' => $destination_id));
+                         ':destination_user_id' => $destination_user_id));
     return $stmt->fetchAll();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());

@@ -4,9 +4,9 @@ require_once('../head.php');
 require_once('../header.php');
 require_once('../post_process.php');
 $user_id = $_SESSION['user_id'];
-$destination_id = $_GET['user_id'];
-$messages = get_messages($user_id, $destination_id);
-$destination_user = get_user($destination_id);
+$destination_user_id = $_GET['user_id'];
+$messages = get_messages($user_id, $destination_user_id);
+$destination_user = get_user($destination_user_id);
 $current_user = get_user($user_id);
 ?>
 
@@ -44,7 +44,7 @@ $current_user = get_user($user_id);
                   </label>
                   <p><img class="preview"></p>
                 </div>
-                <input type="hidden" name="destination_id" value="<?= $destination_id ?>">
+                <input type="hidden" name="destination_user_id" value="<?= $destination_user_id ?>">
                 <div class="message_btn">
                   <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>
                   <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
