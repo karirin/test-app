@@ -139,7 +139,7 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .edit_btn {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .edit_comment.border_white {
@@ -524,6 +524,10 @@ nav.navbar.navbar-light.mb-2 {
     position: relative;
 }
 
+.editing .edit_name {
+    margin: 1rem 0;
+}
+
 .ellipsis {
     overflow: hidden;
     padding: 0;
@@ -533,7 +537,7 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .profile {
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem;
 }
 
 .profile .profile_img {
@@ -557,17 +561,50 @@ nav.navbar.navbar-light.mb-2 {
     height: 11rem;
 }
 
-.myImage {
+.image {
+    display: none;
+}
+
+.my_image {
+    display: none;
+}
+
+.edit_image {
+    display: none;
+}
+
+.comment_image {
     display: none;
 }
 
 .post_image {
     margin-left: 1rem;
+    text-align: left;
 }
 
-.preview {
+img.preview {
     display: none;
-    width: 10rem;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem rgb(163, 163, 163);
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.post img.edit_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
+.post img.comment_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
 }
 
 .comment_img {
@@ -618,7 +655,7 @@ nav.navbar.navbar-light.mb-2 {
     border-radius: 10rem;
     border: solid 0.1rem;
     margin-right: 0.5rem;
-    vertical-align: baseline;
+    vertical-align: sub;
 }
 
 
@@ -718,11 +755,32 @@ nav.navbar.navbar-light.mb-2 {
     text-align: center;
 }
 
-.destination_user_info {
+.destination_user_list {
+    border: solid;
+    border-radius: 3rem;
+    padding: 1rem;
+    margin: 2rem 0;
+    color: rgb(0, 0, 0);
+}
+
+.destination_user_list:hover {
+    opacity: 0.5;
+}
+
+.destination_user_list .destination_user_info {
     display: inline-block;
+}
+
+.destination_user_list .destination_user_info .destination_user_text {
+    color: rgb(168, 168, 168);
 }
 
 .bottom_message_time {
     vertical-align: top;
     float: right;
+}
+
+.preview_img {
+    text-align: left;
+    margin-left: 2rem;
 }

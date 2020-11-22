@@ -37,7 +37,7 @@ switch ($page_type) {
 </div>
 <input type="file" name="image_name" id="edit_profile_img">
 </label>
-<img src="/user/image/<?= $current_user['image'] ?>" name="profile_image" class="editing_profile_img">
+<img name="profile_image" class="editing_profile_img">
 </div>
 <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
 <h3 class="profile_name"><?= $current_user['name'] ?></h3>
@@ -48,7 +48,6 @@ switch ($page_type) {
 <button class="btn btn-outline-danger modal_close" type="button">キャンセル</button>
 </div>
 </div>
-<button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 
 <?php
 $post_count = get_user_count('post',$current_user['id']);
@@ -71,6 +70,7 @@ $follower_count = get_user_count('follower',$current_user['id']);
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follower">フォロワー数<p><?= current(get_user_count('follower',$current_user['id'])) ?></p></a>
 </div>
 </div>
+<button class="btn btn btn-outline-dark edit_btn" type="button" name="follow">プロフィール編集</button>
 </div>
 
 <div class="col-4">
@@ -94,16 +94,19 @@ require_once('user_list.php');
 ?>
 </div>
 <div class="col-4">
+<div class="col-10 offset-1">
   <h2 class="left">投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
   <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
   <div class="post_btn margin_top">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
-  </label>
+  <input type="file" name="image_name" class="my_image" accept="image/*" multiple>
+</label>
   <input type="submit" class="btn btn-outline-dark" value="OK">
   </div>
+  <p class="preview_img"><img class="preview"></p>
   </form>
+</div>
 </div>
 </div>

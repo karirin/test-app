@@ -12,8 +12,6 @@ $destination_user=get_user($message_relation['user_id']);
 $destination_user=get_user($message_relation['destination_user_id']);
 }
 $bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
-_debug($current_user['id']);
-_debug($destination_user['id']);
 ?>
 
 <body>
@@ -23,8 +21,8 @@ _debug($destination_user['id']);
     <div class="destination_user_list">
     <img src="../user/image/<?= $destination_user['image']?>" class="message_user_img">
 <div class='destination_user_info'>
-        <div><?= $destination_user['name']?></div>
-        <?= $bottom_message['text'] ?>
+        <div class="destination_user_name"><?= $destination_user['name']?></div>
+        <span class="destination_user_text"><?= $bottom_message['text'] ?></span>
         </div>
         <span class="bottom_message_time"><?= convert_to_fuzzy_time($bottom_message['created_at']); ?></span>
     </div>

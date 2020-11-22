@@ -10,7 +10,7 @@ else:
 print'<div class="post_list"  style="width: 80%;">';
 endif;
 print'<div class="post_user">';
-print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$post_user['id'].'">';
+print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$post_user['id'].'&type=all">';
 print'<img src="/user/image/'.$post_user['image'].'">'; 
 print''.$post_user['name'].'';
 print'</a></object>';
@@ -43,9 +43,9 @@ endif;
             <div class="comment_img">
             <label>
             <i class="far fa-image"></i>
-            <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
+            <input type="file" name="image_name" class="comment_image" accept="image/*" multiple>
             </label>
-            <p><img class="preview"></p>
+            <p><img class="comment_preview"></p>
             </div>
               <input type="hidden" name="id" value="<?= $post['id'] ?>">
               <div class="post_btn">
@@ -59,12 +59,15 @@ endif;
 <p>投稿内容更新</p>
 <form method="post" action="../post/post_edit_done.php" enctype="multipart/form-data">
 <textarea class="textarea form-control" placeholder="投稿内容を編集してください" name="text"><?php print $post['text']; ?></textarea>
+<div class="counter">
+                <span class="show_count">0</span><span>/300</span>
+</div>
 <div class="post_image">
 <label>
 <i class="far fa-image"></i>
-<input type="file" name="image_name" class="myImage" accept="image/*" multiple>
+<input type="file" name="image_name" class="edit_image" accept="image/*" multiple>
 </label>
-<p><img class="preview"></p>
+<p><img class="edit_preview"></p>
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">

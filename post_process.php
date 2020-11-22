@@ -1,4 +1,4 @@
-<div class="modal modal_close"></div>
+<div class="modal"></div>
 <div class="post_process">
   <h2 class="post_title">投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
@@ -9,9 +9,9 @@
   <div class="post_image">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
+  <input type="file" name="image_name" class="image" accept="image/*" multiple>
   </label>
-  <p><img class="preview"></p>
+  <p><img class="process_preview"></p>
   </div>
   <div class="post_btn">
   <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>

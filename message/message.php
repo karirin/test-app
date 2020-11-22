@@ -40,9 +40,9 @@ $current_user = get_user($user_id);
                 <div class="message_image">
                   <label>
                     <i class="far fa-image"></i>
-                    <input type="file" name="image" class="myImage" accept="image/*" multiple>
+                    <input type="file" name="image" class="my_image" accept="image/*" multiple>
                   </label>
-                  <p><img class="preview"></p>
+                  <p><img class="my_preview"></p>
                 </div>
                 <input type="hidden" name="destination_user_id" value="<?= $destination_user_id ?>">
                 <div class="message_btn">
