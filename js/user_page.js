@@ -14,15 +14,24 @@ function get_param(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+<<<<<<< HEAD
 $('.image').on('change', function(e) {
     var reader = new FileReader();
     $(".process_preview").fadeIn();
     reader.onload = function(e) {
         $(".process_preview").attr('src', e.target.result);
+=======
+$('.myImage').on('change', function(e) {
+    var reader = new FileReader();
+    $(".preview").fadeIn();
+    reader.onload = function(e) {
+        $(".preview").attr('src', e.target.result);
+>>>>>>> 18ab9c808effb364a836747eb15ac0dd8afeda20
     }
     reader.readAsDataURL(e.target.files[0]);
 });
 
+<<<<<<< HEAD
 $('.my_image').on('change', function(e) {
     var reader = new FileReader();
     $(".preview").fadeIn();
@@ -50,6 +59,8 @@ $('.comment_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
+=======
+>>>>>>> 18ab9c808effb364a836747eb15ac0dd8afeda20
 $(document).on('click', '.favorite_btn', function(e) {
     e.stopPropagation();
     var $this = $(this),
@@ -236,5 +247,9 @@ $('[data-toggle="favorite"]').tooltip();
 $('[data-toggle="post"]').tooltip();
 $('[data-toggle="edit"]').tooltip();
 $('[data-toggle="delete"]').tooltip();
+<<<<<<< HEAD
 $('[data-toggle="reply"]').tooltip();
 e
+=======
+$('[data-toggle="reply"]').tooltip();
+>>>>>>> 18ab9c808effb364a836747eb15ac0dd8afeda20
