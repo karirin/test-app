@@ -50,7 +50,7 @@ print'<div class="user_profile">';
 print''.$user['profile'].'';
 print'</div>';
 print'<div class="direct_message">';
-print'<a href="../message/message.php?user_id='.$user['id'].'">DM</a>';
+print'<a href="../message/message.php?user_id='.$user['id'].'"><i class="far fa-envelope"></i></a>';
 print'</div>';
 print'</div>';
 print'</a>';
