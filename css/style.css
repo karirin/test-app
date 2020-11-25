@@ -789,6 +789,9 @@ img.preview {
 
 .direct_message {
     display: inline;
+    border: solid;
+    border-radius: 10rem;
+    padding: 0.5rem;
 }
 
 .direct_message a {
