@@ -15,10 +15,16 @@ print'<div class="col-8 offset-2">';
 if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
 print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
 }
+
 print'<form method="post" action="#" class="search_container">';
-print'<input type="text" name="search_input" placeholder="ユーザー検索">';
-print'<input type="submit" name="search_user">';
+print'<div class="input-group mb-2">';
+print'<input type="text" name="search_input" class="form-control" placeholder="ユーザー検索">';
+print'<div class="input-group-append">';
+print'<input type="submit" name="search_user" class="btn btn-outline-secondary">';
+print'</div>';
+print'</div>';
 print'</form>';
+
 
 $page_type = $_GET['type'];
 $current_user = get_user($_SESSION['user_id']);
