@@ -157,7 +157,7 @@ $(document).on('click', ".modal_close", function() {
 $(document).on('click', '.edit_btn', function() {
     scroll_position = $(window).scrollTop();
     $('.edit_btn').fadeOut();
-    //$('body').addClass('fixed').css({'top': -scroll_position});
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" value="">' + user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" value="' + user_name + '">');
     $('.mypage').css('display', 'none');
