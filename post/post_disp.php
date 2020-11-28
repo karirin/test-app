@@ -146,7 +146,6 @@ $current_user = get_user($_SESSION['user_id']);
         </div>
         <?php 
         print'<span class="comment_created_at">'.convert_to_fuzzy_time($comment['created_at']).'</span>'; 
-        //_debug($reply_comments);
         endif;
         $reply_comments = get_reply_comments($post['id'],$comment['id']); 
         // for($i = 0; $i <= $reply_comments[$i]; $i++){
@@ -170,7 +169,8 @@ $current_user = get_user($_SESSION['user_id']);
                 <?php print''.$reply_comment_user['name'].''; ?>
               </div>
             </object></a>
-            <?php print'<span class="comment_text">'.$reply_comment['text'].'</span>';
+            <?php 
+            print'<span class="comment_text">'.$reply_comment['text'].'</span>';
             if(!empty($reply_comment['image'])){
             print'<p class="comment_image"><img src="../comment/image/'.$reply_comment['image'].'"></p>';
             }

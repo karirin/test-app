@@ -95,7 +95,6 @@ $reply_comments = get_reply_comments($post_id,$comment_id);
 foreach($reply_comments as $reply_comment):
 if($reply_comment['comment_id']==$comment_id){
   $reply_comment_user = get_user($reply_comment['user_id']);
-  //print'<div class="comment">';
   print'<object><a href="/user/user_disp.php?user_id='.$reply_comment_user['id'].'&page_id='.$reply_comment_user['id'].'">';
   print'<div class="user_info">';
   print'<img src="/user/image/'.$reply_comment_user['image'].'">';

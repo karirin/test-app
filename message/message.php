@@ -37,17 +37,16 @@ $current_user = get_user($user_id);
                 <div class="counter">
                   <span class="show_count">0</span><span>/300</span>
                 </div>
+                <input type="hidden" name="destination_user_id" value="<?= $destination_user_id ?>">
+                <div class="message_btn">
                 <div class="message_image">
                   <label>
                     <i class="far fa-image"></i>
                     <input type="file" name="image" class="my_image" accept="image/*" multiple>
                   </label>
-                  <p><img class="my_preview"></p>
+                  <div><img class="preview"></div>
                 </div>
-                <input type="hidden" name="destination_user_id" value="<?= $destination_user_id ?>">
-                <div class="message_btn">
-                  <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>
-                  <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+                  <button class="btn btn-outline-primary" type="submit" name="post" value="post" id="post">投稿</button>
                 </div>
               </form>
             </div>
