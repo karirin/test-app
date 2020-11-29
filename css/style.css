@@ -622,6 +622,10 @@ img.preview {
     margin-top: 1rem;
 }
 
+.margin_top_bottom {
+    margin: 1rem 0;
+}
+
 .left {
     text-align: left;
 }
@@ -715,6 +719,7 @@ img.preview {
     border-radius: 12px;
     background: #edf1ee;
     word-wrap: break-word;
+    margin-right: 1rem;
 }
 
 .says:after {
@@ -738,19 +743,16 @@ img.preview {
 /*以下、③右側の緑コメント*/
 
 .mycomment p {
-    text-align: left;
-}
-
-.mycomment p {
     display: inline-block;
     position: relative;
-    margin: 0 10px 0 0;
+    margin: 0 0.8rem 0 1rem;
     padding: 8px;
     max-width: 250px;
     border-radius: 12px;
     background: rgb(240, 240, 240);
     font-size: 15px;
     word-wrap: break-word;
+    text-align: left;
 }
 
 .mycomment p:after {
@@ -764,6 +766,11 @@ img.preview {
     transform: rotate(-35deg);
 }
 
+.message_created_at {
+    vertical-align: sub;
+    font-size: 0.9rem;
+}
+
 .center {
     text-align: center;
 }
@@ -772,7 +779,7 @@ img.preview {
     border: solid;
     border-radius: 3rem;
     padding: 1rem;
-    margin: 2rem 0;
+    margin: 1rem 0;
     color: rgb(0, 0, 0);
 }
 

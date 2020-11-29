@@ -129,7 +129,7 @@ $(document).on('input', '.textarea', function() {
     } else {
         $('#post').prop('disabled', true);
     }
-})
+});
 
 $('.textarea').on('input', function() {
     if ($(this).val().length !== 0 && $(this).val().length <= 300) {
@@ -137,7 +137,7 @@ $('.textarea').on('input', function() {
     } else {
         $('#post_btn').prop('disabled', true);
     }
-})
+});
 
 var user_comment = $('.comment').text(),
     user_name = $('.profile_name').text(),

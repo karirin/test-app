@@ -21,11 +21,11 @@ $current_user = get_user($user_id);
           <div class="my_message">
             <?php if ($message['user_id'] == $user_id) : ?>
               <div class="mycomment right">
-                <p><?= $message['text'] ?></p><img src="../user/image/<?= $current_user['image'] ?>" class="message_user_img">
+              <span class="message_created_at"><?=  convert_to_fuzzy_time($message['created_at']) ?></span><p><?= $message['text'] ?></p><img src="../user/image/<?= $current_user['image'] ?>" class="message_user_img">
               </div>
             <?php else : ?>
               <div class="left"><img src="../user/image/<?= $destination_user['image'] ?>" class="message_user_img">
-                <div class="says"><?= $message['text'] ?></div>
+                <div class="says"><?= $message['text'] ?></div><span class="message_created_at"><?=  convert_to_fuzzy_time($message['created_at']) ?></span>
               <?php endif; ?>
               </div>
             <?php endforeach ?>

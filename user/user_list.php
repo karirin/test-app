@@ -13,7 +13,7 @@ require_once('../post_process.php');
 <?php
 print'<div class="col-8 offset-2">';
 if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
-print '<a href="user_list.php?type=all">ユーザー一覧<br/><br/></a>';
+print '<h2 class="center margin_top_bottom">ユーザー一覧</h2>';
 }
 
 print'<form method="post" action="#" class="search_container">';
