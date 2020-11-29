@@ -662,7 +662,11 @@ img.preview {
     border-radius: 10rem;
     border: solid 0.1rem;
     margin-right: 0.5rem;
-    vertical-align: sub;
+    vertical-align: top;
+}
+
+.message .my_message {
+    margin: 1rem 0;
 }
 
 
@@ -710,13 +714,14 @@ img.preview {
     max-width: 250px;
     border-radius: 12px;
     background: #edf1ee;
+    word-wrap: break-word;
 }
 
 .says:after {
     content: "";
     display: inline-block;
     position: absolute;
-    top: 3px;
+    top: 5px;
     left: -19px;
     border: 8px solid transparent;
     border-right: 18px solid #edf1ee;
@@ -732,8 +737,8 @@ img.preview {
 
 /*以下、③右側の緑コメント*/
 
-.mycomment {
-    margin: 10px 0;
+.mycomment p {
+    text-align: left;
 }
 
 .mycomment p {
@@ -744,13 +749,14 @@ img.preview {
     max-width: 250px;
     border-radius: 12px;
     background: rgb(240, 240, 240);
-    font-size: 15px:
+    font-size: 15px;
+    word-wrap: break-word;
 }
 
 .mycomment p:after {
     content: "";
     position: absolute;
-    top: 3px;
+    top: 5px;
     right: -19px;
     border: 8px solid transparent;
     border-left: 18px solid #edf1ee;

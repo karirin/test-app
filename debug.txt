@@ -1,5 +1,13 @@
-<<<<<<< HEAD
-12121212121212121212121212121212121212
-=======
-21232123
->>>>>>> 18ab9c808effb364a836747eb15ac0dd8afeda20
+PDOStatement Object
+(
+    [queryString] => SELECT user_id,destination_user_id
+            FROM message_relation
+            WHERE user_id = :user_id or destination_user_id = :destination_user_id
+)
+PDOStatement Object
+(
+    [queryString] => SELECT user_id,destination_user_id
+            FROM message_relation
+            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
+                  or (user_id = :destination_user_id and destination_user_id = :user_id)
+)

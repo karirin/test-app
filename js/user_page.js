@@ -123,12 +123,19 @@ $('.textarea').on('input', function() {
     }
 });
 
-
-$('.textarea').on('input', function() {
+$(document).on('input', '.textarea', function() {
     if ($(this).val().length !== 0 && $(this).val().length <= 300) {
         $('#post').prop('disabled', false);
     } else {
         $('#post').prop('disabled', true);
+    }
+})
+
+$('.textarea').on('input', function() {
+    if ($(this).val().length !== 0 && $(this).val().length <= 300) {
+        $('#post_btn').prop('disabled', false);
+    } else {
+        $('#post_btn').prop('disabled', true);
     }
 })
 

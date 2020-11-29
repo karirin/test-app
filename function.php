@@ -333,8 +333,10 @@ function check_relation_message($user_id,$destination_user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT user_id,destination_user_id
             FROM message_relation
-            WHERE user_id = :user_id and destination_user_id = :destination_user_id";
+            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
+                  or (user_id = :destination_user_id and destination_user_id = :user_id)";
     $stmt = $dbh->prepare($sql);
+    _debug($stmt);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));
     return $stmt->fetch();
@@ -352,7 +354,8 @@ function get_bottom_message($user_id,$destination_user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)
+            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
+                  or (user_id = :destination_user_id and destination_user_id = :user_id)
             ORDER BY created_at DESC";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
