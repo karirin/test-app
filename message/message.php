@@ -3,11 +3,9 @@ require_once('../config.php');
 require_once('../head.php');
 require_once('../header.php');
 require_once('../post_process.php');
-$user_id = $_SESSION['user_id'];
-$destination_user_id = $_GET['user_id'];
-$messages = get_messages($user_id, $destination_user_id);
-$destination_user = get_user($destination_user_id);
-$current_user = get_user($user_id);
+$current_user = get_user($_SESSION['user_id']);
+$destination_user = get_user($_GET['user_id']);
+$messages = get_messages($current_user['id'], $destination_user['id']);
 ?>
 
 <body>
@@ -19,7 +17,7 @@ $current_user = get_user($user_id);
         foreach ($messages as $message) :
         ?>
           <div class="my_message">
-            <?php if ($message['user_id'] == $user_id) : ?>
+            <?php if ($message['user_id'] == $current_user['id']) : ?>
               <div class="mycomment right">
               <span class="message_created_at"><?=  convert_to_fuzzy_time($message['created_at']) ?></span><p><?= $message['text'] ?></p><img src="../user/image/<?= $current_user['image'] ?>" class="message_user_img">
               </div>
@@ -34,10 +32,10 @@ $current_user = get_user($user_id);
               <h2 class="message_title">メッセージ</h2>
               <form method="post" action="../message/message_add.php" enctype="multipart/form-data">
                 <textarea class="textarea form-control" placeholder="メッセージを入力ください" name="text"></textarea>
-                <div class="counter">
+                <!-- <div class="counter">
                   <span class="show_count">0</span><span>/300</span>
-                </div>
-                <input type="hidden" name="destination_user_id" value="<?= $destination_user_id ?>">
+                </div> -->
+                <input type="hidden" name="destination_user_id" value="<?= $destination_user['id'] ?>">
                 <div class="message_btn">
                 <div class="message_image">
                   <label>
@@ -50,6 +48,9 @@ $current_user = get_user($user_id);
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+      </div>
 </body>
 <?php require_once('../footer.php'); ?>
 <script>
