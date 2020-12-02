@@ -97,6 +97,7 @@ require_once('user_list.php');
 ?>
 </div>
 <div class="col-4">
+<div class="col-10 offset-1">
   <h2>投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
   <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
@@ -108,6 +109,7 @@ require_once('user_list.php');
   <input type="submit" class="btn btn-outline-dark" value="OK">
   </div>
   </form>
+  </div>
 </div>
 </div>
 <?php require_once('../footer.php'); ?>

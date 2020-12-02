@@ -584,6 +584,10 @@ nav.navbar.navbar-light.mb-2 {
     text-align: left;
 }
 
+.myImage {
+    display: none;
+}
+
 img.preview {
     display: none;
     width: 7rem;
