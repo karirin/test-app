@@ -56,7 +56,7 @@ switch ($page_type) {
 <button class="btn btn-outline-danger modal_close" type="button">キャンセル</button>
 </div>
 </div>
-<?php if($profile_user == $current_user):?>
+<?php if($current_user == $profile_user):?>
 <button class="edit_btn" type="button" name="follow">プロフィール編集</button>
 <?php endif; ?>
 
@@ -74,6 +74,17 @@ switch ($page_type) {
 <a href="user_top.php?user_id=<?= $profile_user['id'] ?>&type=follower">フォロワー数<p><?= current(get_user_count('follower',$profile_user['id'])) ?></p></a>
 </div>
 </div>
+<?php if($current_user != $profile_user): ?>
+<form action="#" method="post">
+          <input type="hidden" class="current_user_id" value="<?= $current_user['id'] ?>">
+          <input type="hidden" name="follow_user_id" value="<?= $profile_user['id'] ?>">
+          <?php if (check_follow($current_user['id'],$profile_user['id'])): ?>
+          <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
+          <?php else: ?>
+          <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>
+          <?php endif; ?>
+</form>
+<?php endif; ?>
 </div>
 
 <div class="col-4">
