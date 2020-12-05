@@ -16,10 +16,12 @@
     </ul>
 <?php endif; ?>
 </nav>
+<p class="flash">
 <?php
 if (isset($flash_messages)):
 foreach ((array)$flash_messages as $message):
-print'<p class ="flash_message">'.$message.'</p>';
+print'<span class="flash_message">'.$message.'</span>';
 endforeach;
 endif;
 ?>
+</p>

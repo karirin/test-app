@@ -19,7 +19,6 @@ body.fixed {
 
 .col-4 {
     text-align: center;
-    padding-top: 1rem;
 }
 
 .profile_count {
@@ -817,4 +816,10 @@ img.preview {
 
 .direct_message a {
     color: rgb(0, 0, 0);
+}
+
+.flash {
+    height: 0.01rem;
+    text-align: center;
+    font-weight: bold;
 }
