@@ -367,7 +367,7 @@ function get_bottom_message($user_id,$destination_user_id){
   }
 }
 
-function get_messages($user_id,$destination_user_id){
+function get_messages($user_id,$destination_user_id){ //(5,4)
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
@@ -375,7 +375,7 @@ function get_messages($user_id,$destination_user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM message
-            WHERE user_id = :id or user_id = :destination_user_id
+            WHERE (user_id = :id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :id)
             ORDER BY created_at ASC";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':id' => $user_id,
