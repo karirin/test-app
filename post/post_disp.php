@@ -128,7 +128,7 @@ $current_user = get_user($_SESSION['user_id']);
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
           </div>
-          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i>          <span class="post_comment_count"><?= current(get_post_comment_count($comment['id'])) ?></span></button>
+          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i><span class="post_comment_count"><?= current(get_post_comment_count($comment['id'])) ?></span></button>
           <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
             <p class="modal_title">このコメントに返信しますか？</p>
             <p class="post_content"><?= nl2br($comment['text']) ?></p>
@@ -163,7 +163,7 @@ $current_user = get_user($_SESSION['user_id']);
           $reply_comment_user = get_user($reply_comment['user_id']);
           ?>
           <div class="reply_comment">
-            <object><a href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>">
+            <object><a href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>&type=all">
               <div class="user_info">
                 <img src="/user/image/<?= $reply_comment_user['image'] ?>">
                 <?php print''.$reply_comment_user['name'].''; ?>

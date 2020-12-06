@@ -1,3 +1,4 @@
+// getパラメータ取得
 function get_param(name, url) {
     if (!url) url = window.location.href;
     //window.location.hrefは現在のURLを取得
@@ -14,6 +15,7 @@ function get_param(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+// 画像の選択時、表示処理
 $('.image').on('change', function(e) {
     var reader = new FileReader();
     $(".process_preview").fadeIn();
@@ -50,6 +52,15 @@ $('.comment_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
+$('#edit_profile_img').on('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        $(".editing_profile_img").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
+// いいね機能処理
 $(document).on('click', '.favorite_btn', function(e) {
     e.stopPropagation();
     var $this = $(this),
@@ -70,6 +81,7 @@ $(document).on('click', '.favorite_btn', function(e) {
     });
 });
 
+// フォロー機能処理
 $(document).on('click', '.follow_btn', function(e) {
     e.stopPropagation();
     var $this = $(this),
@@ -84,9 +96,6 @@ $(document).on('click', '.follow_btn', function(e) {
             current_user_id: current_user_id,
             user_id: user_id
         }
-        // }).beforeSend(function(xhr) {
-        //   xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-        //$.ajax(...).beforeSendが未定義で関数をよびだすことができない（関数は(...)のこと→beforeSend(...)）
     }).done(function() {
         location.reload();
     }).fail(function() {
@@ -94,25 +103,13 @@ $(document).on('click', '.follow_btn', function(e) {
     });
 });
 
+// 省略されている投稿の高さを取得
 $(document).on('click', '.show_all', function() {
-    // 省略されている投稿の高さを取得
-    // var omit_height = $(document).find('#post_text').height();
     $(document).find('.post_text').removeClass('ellipsis');
-    $(this).remove()
-        // //投稿の省略を解除
-        // 全文表示された投稿の高さを取得
-        // var all_height = $(this).parent().height();
-        // //一度高さを戻して
-        // $(this).parent().height(omit_height);
-        // //スライドで全文表示させる
-        // $(this).parent().animate({
-        //   height: all_height
-        // },"slow","swing");
-
-    // //ボタンを消す
-    // $(this).remove()
+    $(this).remove();
 });
 
+// テキストエリア内の文字数表示
 $('.textarea').on('input', function() {
     var count = $(this).val().length;
     $('.show_count').text(count);
@@ -123,6 +120,7 @@ $('.textarea').on('input', function() {
     }
 });
 
+// 文字数が0文字、300文字以上以外ボタンを活性化
 $(document).on('input', '.textarea', function() {
     if ($(this).val().length !== 0 && $(this).val().length <= 300) {
         $('#post').prop('disabled', false);
@@ -151,6 +149,7 @@ var user_comment = $('.comment').text(),
     user_name = $('.profile_name').text(),
     user_id = $('.user_id').val();
 
+// モーダル画面キャンセルボタン押下時の処理
 $(document).on('click', ".modal_close", function() {
     $('body').removeClass('fixed').css({ 'top': 0 });
     window.scrollTo(0, scroll_position);
@@ -169,6 +168,7 @@ $(document).on('click', ".modal_close", function() {
     $('.edit_btn').fadeIn();
 });
 
+// 編集ボタン押下時の処理
 $(document).on('click', '.edit_btn', function() {
     scroll_position = $(window).scrollTop();
     $('.edit_btn').fadeOut();
@@ -182,14 +182,7 @@ $(document).on('click', '.edit_btn', function() {
     $('.profile').addClass('editing');
 });
 
-$('#edit_profile_img').on('change', function(e) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        $(".editing_profile_img").attr('src', e.target.result);
-    }
-    reader.readAsDataURL(e.target.files[0]);
-});
-
+// プロフィール編集完了ボタン押下時の処理
 $(document).on('click', '.profile_save', function(e) {
     e.stopPropagation();
     var comment_data = $('.edit_comment').val(),
@@ -213,12 +206,14 @@ $(document).on('click', '.profile_save', function(e) {
     });
 });
 
+
+// フラッシュメッセージを表示させる
 $(function() {
     $message = ('.flash_message');
-    // 渡されたメッセージを表示させる
     setTimeout(function() { $($message).slideToggle('slow'); }, 2000);
 });
 
+// モーダル画面出力ボタン押下時の処理
 $(document).on('click', '.modal_btn', function() {
     var $target_modal = $(this).data("target")
         //背景をスクロールできないように　&　スクロール場所を維持
@@ -229,6 +224,7 @@ $(document).on('click', '.modal_btn', function() {
     $('.modal').fadeIn();
 });
 
+// 省略されているスレッドの表示
 $(document).on('click', '.thread_btn', function() {
     var $target_modal = $(this).data("target"),
         omit_height = $(this).parent().height();
@@ -238,6 +234,7 @@ $(document).on('click', '.thread_btn', function() {
     $(this).parent().height(omit_height);
 });
 
+// 投稿モーダル画面出力処理
 $(document).on('click', '.post_window', function() {
     //背景をスクロールできないように　&　スクロール場所を維持
     scroll_position = $(window).scrollTop();
@@ -247,6 +244,7 @@ $(document).on('click', '.post_window', function() {
     $('.modal').fadeIn();
 });
 
+// 各種ツールチップ処理
 $('[data-toggle="favorite"]').tooltip();
 $('[data-toggle="post"]').tooltip();
 $('[data-toggle="edit"]').tooltip();

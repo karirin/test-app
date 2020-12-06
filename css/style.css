@@ -792,14 +792,31 @@ img.preview {
     border-radius: 3rem;
     padding: 1rem;
     margin: 1rem 0;
-    color: rgb(0, 0, 0);
 }
 
-.destination_user_list:hover {
-    opacity: 0.5;
+.destination_user_list .col-3 {
+    display: inline;
+}
+
+.destination_user_list .col-3 .message_list_delete {
+    vertical-align: bottom;
+    float: right;
 }
 
 .destination_user_list .destination_user_info {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+}
+
+.destination_user_list .destination_user_info:hover {
+    opacity: 0.5;
+}
+
+.destination_user_list .destination_user_info .message_user_img {
+    margin-top: 0.3rem;
+}
+
+.destination_user_list .destination_user_info .destination_user_info_detail {
     display: inline-block;
 }
 

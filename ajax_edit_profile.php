@@ -24,6 +24,7 @@ require_once('head.php');
                          ':name' => $name,
                          ':profile_image' => $profile_image_src,
                          ':user_id' => $user_id));
+    _debug($profile_image_src);
     set_flash('sucsess','プロフィールを更新しました');
     echo json_encode('sucsess');
   } catch (\Exception $e) {
