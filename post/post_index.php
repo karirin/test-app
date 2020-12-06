@@ -7,6 +7,7 @@ require_once('../post_process.php');
 $current_user = get_user($_SESSION['user_id']);
 $posts = get_posts($current_user['id'],'all',0);
 print'<div class="col-8 offset-2">';
+print'<h2 class="center margin_top">投稿一覧</h2>';
 require_once('../post_list.php');
 print'</div>';
 require_once('../footer.php'); 

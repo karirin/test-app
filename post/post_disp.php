@@ -109,6 +109,7 @@ $current_user = get_user($_SESSION['user_id']);
         </a></object>
         <span class="comment_text"><?= $comment['text'] ?></span>
         <?php
+        _debug($comment['image']);
         if(!empty($comment['image'])){
         print'<p class="comment_image"><img src="../comment/image/'.$comment['image'].'"></p>';
         }
@@ -127,8 +128,7 @@ $current_user = get_user($_SESSION['user_id']);
               <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
           </div>
-          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
-          <span class="post_comment_count"><?= current(get_post_comment_count($comment['id'])) ?></span>
+          <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i>          <span class="post_comment_count"><?= current(get_post_comment_count($comment['id'])) ?></span></button>
           <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
             <p class="modal_title">このコメントに返信しますか？</p>
             <p class="post_content"><?= nl2br($comment['text']) ?></p>
@@ -193,7 +193,7 @@ $current_user = get_user($_SESSION['user_id']);
               <span class="post_comment_count"><?= current(get_post_comment_count($reply_comment['id'])) ?></span>
               <div class="reply_comment_confirmation" id="reply_modal<?= $reply_comment['id'] ?>">
                 <p class="modal_title">このコメントに返信しますか？</p>
-                <?php print'<p class="post_content">'.nl2br($reply_comment['text']).'</p>'; ?>
+                <p class="post_content"><?= nl2br($reply_comment['text']) ?></p>
                 <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
                   <p>コメント内容を入力ください。</p>
                   <input type="text" name="text">

@@ -183,9 +183,18 @@ nav.navbar.navbar-light.mb-2 {
     padding: 1rem;
 }
 
+.post .post_list .comment .comment_info {
+    display: flex;
+    justify-content: space-around;
+}
+
 .post .post_list .comment .delete_btn {
     margin: 0;
     padding: 0;
+}
+
+.post .post_list .comment p.comment_image {
+    display: block;
 }
 
 .post .post_list .comment p.comment_image img {
@@ -820,6 +829,6 @@ img.preview {
 
 .flash {
     height: 0.01rem;
-    text-align: center;
     font-weight: bold;
+    margin-left: 2rem;
 }

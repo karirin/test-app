@@ -131,12 +131,20 @@ $(document).on('input', '.textarea', function() {
     }
 });
 
-$('.textarea').on('input', function() {
+$(document).on('input', '.textarea', function() {
     if ($(this).val().length !== 0 && $(this).val().length <= 300) {
         $('#post_btn').prop('disabled', false);
     } else {
         $('#post_btn').prop('disabled', true);
     }
+});
+
+$(document).on('focus', '.textarea', function() {
+    $('#post').prop('disabled', false);
+});
+
+$(document).on('focus', '.textarea', function() {
+    $('#post_btn').prop('disabled', false);
 });
 
 var user_comment = $('.comment').text(),
