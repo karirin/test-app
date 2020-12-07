@@ -592,6 +592,14 @@ nav.navbar.navbar-light.mb-2 {
     text-align: left;
 }
 
+.post_image p .process_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
 .myImage {
     display: none;
 }
