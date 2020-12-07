@@ -7,19 +7,13 @@ require_once('../head.php');
 require_once('../header.php');
 ?>
 <body>
-スタッフログイン<br />
-<?php if (isset($flash_messages)): ?>
-      <?php foreach ((array)$flash_messages as $message): ?>
-        <p class ="flash_message"><?= $message?></p>
-      <?php endforeach ?>
-<?php endif ?>
-<br />
+<h2 class="center margin_top">ユーザーログイン</h2>
 <form method="post"action="#">
-ユーザー名<br />
-<input type="text" name="name"><br />
-パスワード<br />
-<input type="password" name="pass"><br />
-<br />
+ユーザー名
+<input type="text" name="name">
+パスワード
+<input type="password" name="pass">
+
 <input type="button" onclick="history.back()" value="戻る">
 <input type="submit" value="ログイン">
 </form>
