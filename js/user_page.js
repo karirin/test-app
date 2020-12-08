@@ -120,6 +120,16 @@ $('.textarea').on('input', function() {
     }
 });
 
+$('.textarea').on('input', function() {
+    var count = $(this).val().length;
+    $('.message_count').text(count);
+    if (count > 300) {
+        $('.message_count').css('color', '#FF7763');
+    } else {
+        $('.message_count').css('color', '#000');
+    }
+});
+
 // 文字数が0文字、300文字以上以外ボタンを活性化
 $(document).on('input', '.textarea', function() {
     if ($(this).val().length !== 0 && $(this).val().length <= 300) {
