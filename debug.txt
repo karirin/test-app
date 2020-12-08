@@ -44,3 +44,4 @@ Array
         )
 
 )
+fusen_fly_man.pngagura_kutsurogu2_man.png

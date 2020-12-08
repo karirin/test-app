@@ -81,7 +81,7 @@ endif;
 <div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>">
             <p class="modal_title" >こちらの投稿を削除しますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
-            <form action="post_delete_done.php" method="post">
+            <form action="../post/post_delete_done.php" method="post">
               <input type="hidden" name="id" value="<?= $post['id']?>">
               <input type="hidden" name="image_name" value="<?= $post['image']?>">
               <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
