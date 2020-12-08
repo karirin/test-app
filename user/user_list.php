@@ -4,9 +4,8 @@ if (!empty($_POST['search_user'])){
     header("Location:user_list.php?type=search&query=${hoge}");
   }
 require_once('../config.php');
-require_once('../head.php');
 require_once('../header.php');
-require_once('../function.php');
+require_once('../head.php');
 require_once('../post_process.php');
 ?>
 <body>

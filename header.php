@@ -8,7 +8,7 @@
     <ul>
     <li><a href="../user_login/user_top.php?type=main">coffeeapp</a></li>
     <li><a href="../user/user_list.php?type=all">ユーザー一覧</a></li>
-    <li><a href="../post/post_index.php">投稿一覧</a></li>
+    <li><a href="../post/post_index.php?type=all">投稿一覧</a></li>
     <li><a class="post_window" href="#">投稿</a></li>
     <li><a href="../message/message_top.php">メッセージ</a></li>
     <li><a href="../user_login/user_logout.php">ログアウト</a></li>

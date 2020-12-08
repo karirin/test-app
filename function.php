@@ -209,7 +209,7 @@ function get_post($post_id){
 }
 
 // ユーザーの投稿を取得する
-function get_posts($user_id,$type){
+function get_posts($user_id,$type,$query){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
@@ -221,6 +221,7 @@ function get_posts($user_id,$type){
       $sql = "SELECT *
               FROM post
               ORDER BY created_at DESC";
+              $stmt = $dbh->prepare($sql);
       break;
       //自分の投稿を取得する
       case 'my_post':
@@ -231,6 +232,8 @@ function get_posts($user_id,$type){
               //inner join ～ on でテーブル同士をくっつけている
               //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
               //on xxx ではxxxに結合するためのカラムの共通の値を指定する
+              $stmt = $dbh->prepare($sql);
+              $stmt->bindValue(':id', $user_id);
       break;
       //お気に入り登録した投稿を取得する
       case 'favorite':
@@ -239,10 +242,19 @@ function get_posts($user_id,$type){
               INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id
               ORDER BY created_at DESC";
+              $stmt = $dbh->prepare($sql);
+              $stmt->bindValue(':id', $user_id);
+      break;
+
+      case 'search':
+        $sql = "SELECT *
+                FROM post
+                WHERE text LIKE CONCAT('%',:input,'%')
+                ORDER BY id DESC";
+                $stmt = $dbh->prepare($sql);
+                $stmt->bindValue(':input', $query);
       break;
     }
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':id', $user_id);
     $stmt->execute();
     return $stmt->fetchAll();
   } catch (\Exception $e) {
@@ -323,7 +335,6 @@ function insert_message($user_id,$destination_user_id){
     set_flash('error',ERR_MSG1);
   }
 }
-
 
 function check_relation_message($user_id,$destination_user_id){
   try {
