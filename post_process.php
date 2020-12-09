@@ -2,9 +2,9 @@
 <div class="post_process">
   <h2 class="post_title">投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
-  <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
+  <textarea id="post_process_counter" class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
   <div class="counter">
-                <span class="show_count">0</span><span>/300</span>
+                <span class="post_process_count">0</span><span>/300</span>
   </div>
   <div class="post_image">
   <label>

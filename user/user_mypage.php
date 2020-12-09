@@ -97,7 +97,10 @@ require_once('user_list.php');
 <div class="col-10 offset-1">
   <h2 class="left">投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
-  <textarea class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
+  <textarea id="post_counter" class="textarea form-control" placeholder="投稿内容を入力ください" name="text"></textarea>
+  <div class="counter">
+                <span class="post_count">0</span><span>/300</span>
+  </div>
   <div class="post_btn margin_top">
   <label>
   <i class="far fa-image"></i>

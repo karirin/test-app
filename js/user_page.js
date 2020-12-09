@@ -110,17 +110,47 @@ $(document).on('click', '.show_all', function() {
 });
 
 // テキストエリア内の文字数表示
-$('.textarea').on('input', function() {
+$('#post_counter').on('input', function() {
     var count = $(this).val().length;
-    $('.show_count').text(count);
+    $('.post_count').text(count);
     if (count > 300) {
-        $('.show_count').css('color', '#FF7763');
+        $('.post_count').css('color', '#FF7763');
     } else {
-        $('.show_count').css('color', '#FFF');
+        $('.post_count').css('color', '#000');
     }
 });
 
-$('.textarea').on('input', function() {
+$('#comment_counter').on('input', function() {
+    var count = $(this).val().length;
+    $('.comment_count').text(count);
+    if (count > 300) {
+        $('comment_count').css('color', '#FF7763');
+    } else {
+        $('comment_count').css('color', '#FFF');
+    }
+});
+
+$('#edit_counter').on('input', function() {
+    var count = $(this).val().length;
+    $('.post_edit_count').text(count);
+    if (count > 300) {
+        $('.post_edit_count').css('color', '#FF7763');
+    } else {
+        $('.post_edit_count').css('color', '#FFF');
+    }
+});
+
+$('#post_process_counter').on('input', function() {
+    var count = $(this).val().length;
+    $('.post_process_count').text(count);
+    if (count > 300) {
+        $('.post_process_count').css('color', '#FF7763');
+    } else {
+        $('.post_process_count').css('color', '#FFF');
+    }
+});
+
+$('#message_counter').on('input', function() {
     var count = $(this).val().length;
     $('.message_count').text(count);
     if (count > 300) {
