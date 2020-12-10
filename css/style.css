@@ -461,6 +461,10 @@ nav.navbar.navbar-light.mb-2 {
     color: rgb(26, 126, 1);
 }
 
+.reply_comment_confirmation .fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
 .post_btn {
     justify-content: space-evenly;
     display: flex;
@@ -587,6 +591,10 @@ nav.navbar.navbar-light.mb-2 {
     display: none;
 }
 
+.reply_comment_image {
+    display: none;
+}
+
 .post_image {
     margin-left: 1rem;
     text-align: left;
@@ -622,6 +630,14 @@ img.preview {
 }
 
 .post img.comment_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
+.comment .reply_comment_preview {
     display: none;
     width: 7rem;
     height: 7rem;

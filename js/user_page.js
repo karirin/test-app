@@ -52,6 +52,15 @@ $('.comment_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
+$('.reply_comment_image').on('change', function(e) {
+    var reader = new FileReader();
+    $(".reply_comment_preview").fadeIn();
+    reader.onload = function(e) {
+        $(".reply_comment_preview").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
 $('#edit_profile_img').on('change', function(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
