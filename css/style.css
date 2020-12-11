@@ -532,6 +532,21 @@ nav.navbar.navbar-light.mb-2 {
     color: rgb(26, 126, 1);
 }
 
+.login_btn {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.user_name_input {
+    width: 30%;
+    margin-bottom: 1rem;
+}
+
+.user_pass_input {
+    width: 30%;
+    margin-bottom: 1rem;
+}
+
 .editing {
     z-index: 15;
     background-color: #000;

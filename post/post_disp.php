@@ -17,7 +17,7 @@ require_once('../post_process.php');
       <div class="post_list">
         <div class="post_user">
           <object>
-            <a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=all">
+            <a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
               <img src="/user/image/<?= $post_user['image'] ?>">
               <?php print '' . $post_user['name'] . ''; ?>
             </a>
@@ -77,19 +77,19 @@ require_once('../post_process.php');
               </div>
               <div class="post_image">
                 <label>
-                  <i class="far fa-image"></i>                 
+                  <i class="far fa-image"></i>
                   <input type="file" name="image_name" class="edit_image" accept="image/*" multiple>
                 </label>
                 <p><img class="edit_preview"></p>
-                </div>
-                <input type="hidden" name="id" value="<?php print $post['id']; ?>">
-                <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
-                <div class="post_btn">
+              </div>
+              <input type="hidden" name="id" value="<?php print $post['id']; ?>">
+              <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
+              <div class="post_btn">
                 <button class="btn btn-outline-danger" type="submit" name="edit" value="edit">更新</button>
                 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
               </div>
             </form>
-              </div>
+          </div>
           　<button class="btn modal_btn" data-target="#delete_modal<?= $post['id'] ?>" type="button" data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>
           <div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>">
             <p class="modal_title">こちらの投稿を削除しますか？</p>
@@ -110,7 +110,7 @@ require_once('../post_process.php');
             $comment_user = get_user($comment['user_id']);
         ?>
             <div class="comment">
-              <object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $comment_user['id'] ?>">
+              <object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $comment_user['id'] ?>&type=all">
                   <div class="user_info">
                     <img src="/user/image/<?= $comment_user['image'] ?>">
                     <?php print '' . $comment_user['name'] . ''; ?>
@@ -142,23 +142,23 @@ require_once('../post_process.php');
                   <p class="modal_title">このコメントに返信しますか？</p>
                   <p class="post_content"><?= nl2br($comment['text']) ?></p>
                   <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
-                  <textarea id="comment_counter" class="textarea form-control" placeholder="コメント内容を入力ください" name="text"></textarea>
-              <div class="counter">
-                <span class="comment_count">0</span><span>/300</span>
-              </div>
-              <div class="comment_img">
-                    <label>
-                          <i class="far fa-image"></i>
-                          <input type="file" name="image_name" class="reply_comment_image" accept="image/*" multiple>
-                          </label>
-                          <p><img class="reply_comment_preview"></p>
-            </div>
+                    <textarea id="comment_counter" class="textarea form-control" placeholder="コメント内容を入力ください" name="text"></textarea>
+                    <div class="counter">
+                      <span class="comment_count">0</span><span>/300</span>
+                    </div>
+                    <div class="comment_img">
+                      <label>
+                        <i class="far fa-image"></i>
+                        <input type="file" name="image_name" class="reply_comment_image" accept="image/*" multiple>
+                      </label>
+                      <p><img class="reply_comment_preview"></p>
+                    </div>
                     <input type="hidden" name="id" value="<?= $post['id'] ?>">
                     <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">
                     <div class="post_btn">
-                    <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
-                    <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
-            </div>
+                      <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
+                      <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -171,12 +171,12 @@ require_once('../post_process.php');
           //   if(!empty($reply_comments)):
           //     print'<a href="#" class="thread_btn" data-target="#reply_'.current($reply_comments[$i]).'"><p>このスレッドを表示する</p></a>';
           //   endif;
-          if (!empty($reply_comments)) :
-            print '<a href="#" class="thread_btn" data-target="#reply_comment"><p>このスレッドを表示する</p></a>';
-          endif;
-          print '<div class="reply_thread" id="reply_comment">';
+
+
           foreach ($reply_comments as $reply_comment) :
-            _debug($reply_comment);
+            // if (!empty($reply_comments)) :
+            //   print '<a href="#" class="thread_btn" data-target="#'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
+            // endif;
             ?>
               <div class="reply">
                 <?php
@@ -220,16 +220,16 @@ require_once('../post_process.php');
                           <input type="text" name="text">
                           <p>画像を選んでください。</p>
                           <label>
-                          <i class="far fa-image"></i>
-                          <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
+                            <i class="far fa-image"></i>
+                            <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
                           </label>
                           <p><img class="preview"></p>
                           <input type="hidden" name="id" value="<?= $post_id ?>">
                           <input type="hidden" name="comment_id" value="<?= $reply_comment['id'] ?>">
                           <div class="post_btn">
-                          <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
-                          <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
-                  </div>
+                            <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
+                            <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
+                          </div>
                         </form>
                       </div>
                       <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at']) ?></span>
@@ -240,7 +240,7 @@ require_once('../post_process.php');
             <?php endforeach; ?>
             </div>
           <?php endforeach; ?>
-
+          </div>
 
 
           <?php require_once('../footer.php'); ?>
