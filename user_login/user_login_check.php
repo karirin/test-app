@@ -4,21 +4,13 @@ try
 {
 $user_name=$_POST['name'];
 $user_pass=$_POST['pass'];
+$user_pass2=$_POST['pass'];
 
 $user_name=htmlspecialchars($user_name,ENT_QUOTES,'UTF-8');
 $user_pass=htmlspecialchars($user_pass,ENT_QUOTES,'UTF-8');
+$user_pass2=htmlspecialchars($user_pass2,ENT_QUOTES,'UTF-8');
 
-if(empty($user_name)){
-	$error_messages['name'] = "ユーザー名を入力してください";
-  }
-//　コードのバリデーション
-
-if(empty($user_pass)) {
-	$error_messages['pass'] = "パスワードを入力してください";
-  }
-// パスワードのバリデーション
-
-$user_pass=md5($user_pass);
+$user_pass2=md5($user_pass2);
 //md5でハッシュ化すると空でもemptyにならないので注意
 $dsn='mysql:dbname=db;host=localhost;charset=utf8';
 $user='root';
@@ -32,7 +24,7 @@ $stmt=$dbh->prepare($sql);
 //$sqlのSQL文で『?』部分をどう置き換えるかを示している
 
 $data[]=$user_name;
-$data[]=$user_pass;
+$data[]=$user_pass2;
 $stmt->execute($data);
 //prepareで準備したものexecuteで実行
 $dbh=null; //??
@@ -41,6 +33,15 @@ $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 
 if($rec==false)
 {
+	if(empty($user_name)&&empty($user_pass)){
+		$error_messages[] = "ユーザー名とパスワードを入力してください";
+	  }else if(empty($user_name)){
+		$error_messages[] = "ユーザー名を入力してください";
+	}else if(empty($user_pass)){
+		$error_messages[] = "パスワードを入力してください";		
+	}else{
+		$error_messages[] = "ユーザー名とパスワードが違います";	
+	}
 	header('Location:user_login.php');
 }
 else {

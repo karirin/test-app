@@ -137,7 +137,10 @@ require_once('../post_process.php');
                     <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                   </form>
                 </div>
-                <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i><span class="post_comment_count"><?= current(get_post_comment_count($comment['id'])) ?></span></button>
+                <div class="reply_comment_count">
+                <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
+                <span class="post_comment_count"><?= current(get_reply_comment_count($comment['id'])) ?></span>
+            </div>
                 <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
                   <p class="modal_title">このコメントに返信しますか？</p>
                   <p class="post_content"><?= nl2br($comment['text']) ?></p>
@@ -163,25 +166,23 @@ require_once('../post_process.php');
                 </div>
               </div>
             <?php
-            print '<span class="comment_created_at">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
+            print '<span class="comment_created_at margin_bottom">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
           endif;
           $reply_comments = get_reply_comments($post['id'], $comment['id']);
-          _debug($reply_comments);
+          // _debug($reply_comments);
           // for($i = 0; $i <= $reply_comments[$i]; $i++){
           //   if(!empty($reply_comments)):
           //     print'<a href="#" class="thread_btn" data-target="#reply_'.current($reply_comments[$i]).'"><p>このスレッドを表示する</p></a>';
           //   endif;
-
-
-          foreach ($reply_comments as $reply_comment) :
-            // if (!empty($reply_comments)) :
-            //   print '<a href="#" class="thread_btn" data-target="#'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
-            // endif;
             ?>
               <div class="reply">
                 <?php
+                foreach ($reply_comments as $reply_comment) :
                 if ($reply_comment['comment_id'] == $comment['id']) :
                   $reply_comment_user = get_user($reply_comment['user_id']);
+            //  if (!empty($reply_comment)) :
+            //    print '<a href="#" class="thread_btn" data-target="#'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
+            //  endif;
                 ?>
                   <div class="reply_comment">
                     <object><a href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>&type=all">
@@ -210,8 +211,10 @@ require_once('../post_process.php');
                           <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                         </form>
                       </div>
+                      <div class="reply_comment_count">
                       <button class="btn modal_btn" data-target="#reply_modal<?= $reply_comment['id'] ?>" type="button"><i class="fas fa-reply"></i></button>
-                      <span class="post_comment_count"><?= current(get_post_comment_count($reply_comment['id'])) ?></span>
+                      <span class="post_comment_count"><?= current(get_reply_comment_count($comment['id'])) ?></span>
+                  </div>
                       <div class="reply_comment_confirmation" id="reply_modal<?= $reply_comment['id'] ?>">
                         <p class="modal_title">このコメントに返信しますか？</p>
                         <p class="post_content"><?= nl2br($reply_comment['text']) ?></p>
@@ -232,12 +235,13 @@ require_once('../post_process.php');
                           </div>
                         </form>
                       </div>
-                      <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at']) ?></span>
                     <?php endif; ?>
                     </div>
+                    <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at']) ?></span>
+
                   </div>
+                  <?php endforeach; ?>
               </div>
-            <?php endforeach; ?>
             </div>
           <?php endforeach; ?>
           </div>

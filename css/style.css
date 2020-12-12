@@ -145,12 +145,6 @@ nav.navbar.navbar-light.mb-2 {
     display: block;
 }
 
-.comment {
-    width: 100%;
-    display: inline-block;
-    margin: 0.5rem 0;
-}
-
 .comment .comment_text {
     text-align: left;
     display: block;
@@ -180,12 +174,19 @@ nav.navbar.navbar-light.mb-2 {
 .post .post_list .comment {
     border-top: 0.1rem solid rgb(163, 163, 163);
     border-bottom: 0.1rem solid rgb(163, 163, 163);
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
+    width: 100%;
+    display: inline-block;
+    margin: 1rem 0;
 }
 
 .post .post_list .comment .comment_info {
     display: flex;
     justify-content: space-around;
+}
+
+.post .post_list .comment .comment_info .post_comment_count {
+    vertical-align: middle;
 }
 
 .post .post_list .comment .delete_btn {
@@ -493,14 +494,23 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0;
 }
 
-.reply {
+
+/* .post .post_list .reply_comment {
     display: none;
 }
 
+.post .post_list .comment .reply .thread_btn p:nth-child(n + 1) {
+    display: none;
+} */
+
 .post .post_list .reply_comment {
     border-top: 0.1rem solid rgb(163, 163, 163);
-    border-bottom: 0.1rem solid rgb(163, 163, 163);
     padding: 1rem;
+}
+
+.post .post_list .reply_comment:last-child {
+    border-bottom: 0.1rem solid rgb(163, 163, 163);
+    margin-bottom: 1rem;
 }
 
 .post .post_list .reply_comment .delete_btn {
@@ -671,6 +681,10 @@ img.preview {
 
 .margin_top {
     margin-top: 1rem;
+}
+
+.margin_bottom {
+    margin-bottom: 1rem;
 }
 
 .margin_top_bottom {

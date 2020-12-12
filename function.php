@@ -418,6 +418,19 @@ function get_reply_comments($post_id,$comment_id){
   }
 }
 
+function get_reply_comment_count($comment_id){
+  $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+  $user='root';
+  $password='';
+  $dbh=new PDO($dsn,$user,$password);
+  $sql = "SELECT COUNT(id)
+          FROM comment
+          WHERE comment_id = :comment_id";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':comment_id' => $comment_id));
+  return $stmt->fetch();
+}
+
 function change_delete_flg($id,$flg){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
