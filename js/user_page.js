@@ -221,7 +221,7 @@ $(document).on('click', ".modal_close", function() {
 $(document).on('click', '.edit_btn', function() {
     scroll_position = $(window).scrollTop();
     $('.edit_btn').fadeOut();
-    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    //$('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" value="">' + user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" value="' + user_name + '">');
     $('.mypage').css('display', 'none');
@@ -231,12 +231,27 @@ $(document).on('click', '.edit_btn', function() {
     $('.profile').addClass('editing');
 });
 
+function file_name(extension) {
+    var s = this.replace(/\\/g, '/');
+    s = s.substring(s.lastIndexOf('/') + 1);
+    return extension ? s.replace(/[?#].+$/, '') : s.split('.')[0];
+
+}
+
+$('#edit_profile_img').on('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        file_name = $(".editing_profile_img").attr('src', e.target.result).file_name();
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
 // プロフィール編集完了ボタン押下時の処理
 $(document).on('click', '.profile_save', function(e) {
     e.stopPropagation();
     var comment_data = $('.edit_comment').val(),
         name = $('.edit_name').val(),
-        profile_image_src = $('.editing_profile_img').attr("src");
+        profile_image_src = $('.editing_profile_img').attr("src").file_name();
 
     $.ajax({
         type: 'POST',
@@ -299,4 +314,3 @@ $('[data-toggle="post"]').tooltip();
 $('[data-toggle="edit"]').tooltip();
 $('[data-toggle="delete"]').tooltip();
 $('[data-toggle="reply"]').tooltip();
-e

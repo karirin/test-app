@@ -9,7 +9,6 @@ require_once('head.php');
   $comment_data = $_POST['comment_data'];
   $profile_image_src = $_POST['profile_image_src'];
   $user_id = $_POST['user_id'];
-  move_uploaded_file($profile_image_src);
 
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
@@ -24,7 +23,6 @@ require_once('head.php');
                          ':name' => $name,
                          ':profile_image' => $profile_image_src,
                          ':user_id' => $user_id));
-    _debug($profile_image_src);
     set_flash('sucsess','プロフィールを更新しました');
     echo json_encode('sucsess');
   } catch (\Exception $e) {

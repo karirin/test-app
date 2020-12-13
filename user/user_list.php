@@ -40,7 +40,7 @@ $user = get_user($user);
 <div class="user">
 <div class="user_info">
 <?php if(!empty($user['image'])): ?>
-<img src="/user/image/<?= $user['image']?>">
+  <img src="/user/image/<?= $user['image']?>">
 <?php endif; ?>
 <div class="user_name">
 <?= $user['name'] ?>
