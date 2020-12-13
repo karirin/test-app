@@ -9,6 +9,7 @@ $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
     
 $post_text=$_POST['text'];
 $post_image_name=$_FILES['image_name'];
+//_debug($post_image_name);
 $user_id=$_SESSION['user_id'];
 
 

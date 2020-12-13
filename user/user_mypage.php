@@ -30,12 +30,13 @@ switch ($page_type) {
 ?>
 
 <div class="profile">
+<form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
 <div class="edit_profile_img">
 <label>
 <div class="fa-image_range">
 <i class="far fa-image"></i>
 </div>
-<input type="file" name="image_name" id="edit_profile_img">
+<input type="file" name="image_name" id="edit_profile_img" accept="image/*" multiple>
 </label>
 <img name="profile_image" class="editing_profile_img">
 </div>
@@ -44,9 +45,10 @@ switch ($page_type) {
 <p class="comment"><?= $current_user['profile'] ?></p>
 <input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
 <div class="btn_flex">
-<button class="btn btn-outline-primary profile_save" type="button">編集完了</button>
+<input type="submit" class="btn btn-outline-primary" value="編集完了">
 <button class="btn btn-outline-danger modal_close" type="button">キャンセル</button>
 </div>
+</form>
 </div>
 
 <?php
