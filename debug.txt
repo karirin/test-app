@@ -1,40 +1,16 @@
 Array
 (
-    [name] => agura_kutsurogu2_man.png
-    [type] => image/png
-    [tmp_name] => C:\xampp4\tmp\php9B0B.tmp
-    [error] => 0
-    [size] => 84666
+    [name] => 
+    [type] => 
+    [tmp_name] => 
+    [error] => 4
+    [size] => 0
 )
 Array
 (
-    [name] => agura_kutsurogu2_man.png
-    [type] => image/png
-    [tmp_name] => C:\xampp4\tmp\phpF865.tmp
-    [error] => 0
-    [size] => 84666
-)
-Array
-(
-    [name] => agura_kutsurogu2_man.png
-    [type] => image/png
-    [tmp_name] => C:\xampp4\tmp\phpF865.tmp
-    [error] => 0
-    [size] => 84666
-)
-Array
-(
-    [name] => figure_standing.png
-    [type] => image/png
-    [tmp_name] => C:\xampp4\tmp\php65D5.tmp
-    [error] => 0
-    [size] => 30206
-)
-Array
-(
-    [name] => figure_standing.png
-    [type] => image/png
-    [tmp_name] => C:\xampp4\tmp\php65D5.tmp
-    [error] => 0
-    [size] => 30206
+    [name] => 
+    [type] => 
+    [tmp_name] => 
+    [error] => 4
+    [size] => 0
 )

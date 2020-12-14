@@ -7,9 +7,12 @@ require_once('head.php');
   $current_user = get_user($_SESSION['user_id']);
   $name = $_POST['user_name'];
   $comment_data = $_POST['user_comment'];
-  $image = $_FILES['image_name'];
-  _debug($image);
-
+  if(empty($_FILES['image_name'])){
+    $image = $_FILES['image'];
+  }else{
+    $image = $_FILES['image_name'];
+    _debug($image);
+  }
   $user_id = $_POST['id'];
 
 if($name=='')

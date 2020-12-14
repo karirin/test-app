@@ -94,8 +94,8 @@ $(document).on('click', '.favorite_btn', function(e) {
 $(document).on('click', '.follow_btn', function(e) {
     e.stopPropagation();
     var $this = $(this),
-        current_user_id = $('.current_user_id').val();
-    user_id = $this.prev().val();
+        current_user_id = $('.current_user_id').val(),
+        user_id = $this.prev().val();
     //prev()は指定した$thisの直前にあるHTML要素を取得する
     $.ajax({
         type: 'POST',
@@ -235,8 +235,17 @@ function file_name(extension) {
     var s = this.replace(/\\/g, '/');
     s = s.substring(s.lastIndexOf('/') + 1);
     return extension ? s.replace(/[?#].+$/, '') : s.split('.')[0];
-
 }
+
+$(document).on('change', 'input[type=file]', function() {
+    $('#clear').show();
+});
+
+$(document).on('click', '#clear', function() {
+    $('input[type=file]').val('');
+    $(this).hide();
+    $('.process_preview').hide();
+});
 
 $('#edit_profile_img').on('change', function(e) {
     var reader = new FileReader();
@@ -245,31 +254,6 @@ $('#edit_profile_img').on('change', function(e) {
     }
     reader.readAsDataURL(e.target.files[0]);
 });
-
-// プロフィール編集完了ボタン押下時の処理
-$(document).on('click', '.profile_save', function(e) {
-    e.stopPropagation();
-    var comment_data = $('.edit_comment').val(),
-        name = $('.edit_name').val(),
-        profile_image_src = $('.editing_profile_img').attr("src").file_name();
-
-    $.ajax({
-        type: 'POST',
-        url: '../ajax_edit_profile.php',
-        dataType: 'text',
-        data: {
-            comment_data: comment_data,
-            name: name,
-            profile_image_src: profile_image_src,
-            user_id: user_id
-        }
-    }).done(function() {
-        location.reload();
-    }).fail(function() {
-        location.reload();
-    });
-});
-
 
 // フラッシュメッセージを表示させる
 $(function() {

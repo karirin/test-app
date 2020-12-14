@@ -44,6 +44,7 @@ switch ($page_type) {
 <h3 class="profile_name"><?= $current_user['name'] ?></h3>
 <p class="comment"><?= $current_user['profile'] ?></p>
 <input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
+<input type="file" name="image" class="image" value="<?= $current_user['image'] ?>" style="display:none;">
 <div class="btn_flex">
 <input type="submit" class="btn btn-outline-primary" value="編集完了">
 <button class="btn btn-outline-danger modal_close" type="button">キャンセル</button>

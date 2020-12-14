@@ -50,7 +50,7 @@ $user = get_user($user);
 <?= $user['profile'] ?>
 </div>
 <div class="direct_message">
-<a href="../message/message.php?user_id=<?= $user['id'] ?>"><i class="far fa-envelope"></i></a>
+<object><a href="../message/message.php?user_id=<?= $user['id'] ?>"><i class="far fa-envelope"></i></a></object>
 </div>
 </div>
 </a>

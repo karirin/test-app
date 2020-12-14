@@ -12,6 +12,7 @@
   <input type="file" name="image_name" class="image" accept="image/*" multiple>
   </label>
   <p><img class="process_preview"></p>
+<input type="button" id="clear" value="ファイルをクリアする">
   </div>
   <div class="post_btn">
   <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>
