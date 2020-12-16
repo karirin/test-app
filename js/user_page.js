@@ -238,13 +238,39 @@ function file_name(extension) {
 }
 
 $(document).on('change', 'input[type=file]', function() {
-    $('#clear').show();
+    $('#process_clear').show();
+    $('#my_clear').show();
+    $('#profile_clear').show();
 });
 
-$(document).on('click', '#clear', function() {
-    $('input[type=file]').val('');
+$(document).on('click', '#process_clear', function() {
+    $('#process_image').val('');
     $(this).hide();
     $('.process_preview').hide();
+});
+
+$(document).on('click', '#my_clear', function() {
+    $('input[type=file]').val('');
+    $(this).hide();
+    $('.preview_img').hide();
+});
+
+$(document).on('click', '#profile_clear', function() {
+    $('input[type=file]').val('');
+    $(this).hide();
+    $('.editing_profile_img').hide();
+});
+
+$(document).on('click', '#comment_clear', function() {
+    $('#comment_image').val('');
+    $(this).hide();
+    $('.comment_preview').hide();
+});
+
+$(document).on('click', '#edit_clear', function() {
+    $('#edit_image').val('');
+    $(this).hide();
+    $('.comment_preview').hide();
 });
 
 $('#edit_profile_img').on('change', function(e) {

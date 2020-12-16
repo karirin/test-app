@@ -596,13 +596,14 @@ nav.navbar.navbar-light.mb-2 {
     height: 11rem;
 }
 
-.image {
+
+/* .image {
     display: none;
 }
 
 .my_image {
     display: none;
-}
+} */
 
 .edit_image {
     display: none;

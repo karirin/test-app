@@ -39,6 +39,7 @@ switch ($page_type) {
 <input type="file" name="image_name" id="edit_profile_img" accept="image/*" multiple>
 </label>
 <img name="profile_image" class="editing_profile_img">
+<input type="button" id="profile_clear" value="ファイルをクリアする">
 </div>
 <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
 <h3 class="profile_name"><?= $current_user['name'] ?></h3>
@@ -112,6 +113,7 @@ require_once('user_list.php');
   <input type="submit" class="btn btn-outline-dark" value="OK">
   </div>
   <p class="preview_img"><img class="preview"></p>
+  <input type="button" id="my_clear" value="ファイルをクリアする">
   </form>
 </div>
 </div>
