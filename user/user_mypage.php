@@ -38,7 +38,7 @@ switch ($page_type) {
 </div>
 <input type="file" name="image_name" id="edit_profile_img" accept="image/*" multiple>
 </label>
-<img name="profile_image" class="editing_profile_img">
+<img name="profile_image" class="editing_profile_img" src="/user/image/<?= $current_user['image'] ?>">
 <input type="button" id="profile_clear" value="ファイルをクリアする">
 </div>
 <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">

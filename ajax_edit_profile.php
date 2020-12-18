@@ -7,11 +7,10 @@ require_once('head.php');
   $current_user = get_user($_SESSION['user_id']);
   $name = $_POST['user_name'];
   $comment_data = $_POST['user_comment'];
-  if(empty($_FILES['image_name'])){
-    $image = $_FILES['image'];
+  if(empty($_FILES['image_name']['name'])){
+    $image['name'] = $current_user['image'];
   }else{
     $image = $_FILES['image_name'];
-    _debug($image);
   }
   $user_id = $_POST['id'];
 
@@ -21,6 +20,7 @@ if($name=='')
     reload();
 }
 
+if(!empty($_FILES['image_name']['name'])){
 if($image['size']>0)
 {
   if($image['size']>1000000)
@@ -33,6 +33,7 @@ if($image['size']>0)
       move_uploaded_file($image['tmp_name'],'./image/'.$image['name']);
 
   }
+}
 }
 
   try {
@@ -48,8 +49,6 @@ if($image['size']>0)
                          ':name' => $name,
                          ':image' => $image['name'],
                          ':user_id' => $user_id));
-                         
-                         _debug($image);
     set_flash('sucsess','プロフィールを更新しました');
     reload();
   } catch (\Exception $e) {
