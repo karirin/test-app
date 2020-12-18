@@ -43,7 +43,7 @@ endif;
             <div class="comment_img">
             <label>
             <i class="far fa-image"></i>
-            <input type="file" name="image_name" class="comment_image" accept="image/*" multiple>
+            <input type="file" name="image_name" id="comment_image" accept="image/*" multiple>
             </label>
             <p><img class="comment_preview"></p>
             <input type="button" id="comment_clear" value="ファイルをクリアする">

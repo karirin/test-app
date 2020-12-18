@@ -16,7 +16,7 @@ function get_param(name, url) {
 }
 
 // 画像の選択時、表示処理
-$('.image').on('change', function(e) {
+$('#image').on('change', function(e) {
     var reader = new FileReader();
     $(".process_preview").fadeIn();
     reader.onload = function(e) {
@@ -25,7 +25,7 @@ $('.image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('.my_image').on('change', function(e) {
+$('#my_image').on('change', function(e) {
     var reader = new FileReader();
     $(".preview").fadeIn();
     reader.onload = function(e) {
@@ -34,7 +34,7 @@ $('.my_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('.edit_image').on('change', function(e) {
+$('#edit_image').on('change', function(e) {
     var reader = new FileReader();
     $(".edit_preview").fadeIn();
     reader.onload = function(e) {
@@ -43,7 +43,7 @@ $('.edit_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('.comment_image').on('change', function(e) {
+$('#comment_image').on('change', function(e) {
     var reader = new FileReader();
     $(".comment_preview").fadeIn();
     reader.onload = function(e) {
@@ -65,6 +65,15 @@ $('#edit_profile_img').on('change', function(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
         $(".editing_profile_img").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+
+$('#process_image').on('change', function(e) {
+    var reader = new FileReader();
+    $(".process_preview").fadeIn();
+    reader.onload = function(e) {
+        $(".process_preview").attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
 });
@@ -237,42 +246,52 @@ function file_name(extension) {
     return extension ? s.replace(/[?#].+$/, '') : s.split('.')[0];
 }
 
-$(document).on('change', 'input[type=file]', function() {
+$(document).on('change', '#process_image', function() {
     $('#process_clear').show();
+    $(document).on('click', '#process_clear', function() {
+        $('#process_image').val('');
+        $(this).hide();
+        $('.process_preview').hide();
+        $('#process_clear').hide();
+    });
+});
+
+$(document).on('change', '#my_image', function() {
     $('#my_clear').show();
+    $(document).on('click', '#my_clear', function() {
+        $('#my_image').val('');
+        $(this).hide();
+        $('.preview_img').hide();
+        $('#my_clear').hide();
+    });
+});
+$(document).on('change', '#edit_profile_img', function() {
     $('#profile_clear').show();
+    $(document).on('click', '#profile_clear', function() {
+        $('#edit_profile_img').val('');
+        $(this).hide();
+        $('.editing_profile_img').hide();
+        $('#profile_clear').hide();
+    });
 });
-
-$(document).on('click', '#process_clear', function() {
-    $('#process_image').val('');
-    $(this).hide();
-    $('.process_preview').hide();
+$(document).on('change', '#comment_image', function() {
+    $('#process_clear').show();
+    $(document).on('click', '#comment_clear', function() {
+        $('#comment_image').val('');
+        $(this).hide();
+        $('.comment_preview').hide();
+        $('#comment_clear').hide();
+    });
 });
-
-$(document).on('click', '#my_clear', function() {
-    $('input[type=file]').val('');
-    $(this).hide();
-    $('.preview_img').hide();
+$(document).on('change', '#edit_image', function() {
+    $('#edit_clear').show();
+    $(document).on('click', '#edit_clear', function() {
+        $('#edit_image').val('');
+        $(this).hide();
+        $('.edit_preview').hide();
+        $('#edit_clear').hide();
+    });
 });
-
-$(document).on('click', '#profile_clear', function() {
-    $('input[type=file]').val('');
-    $(this).hide();
-    $('.editing_profile_img').hide();
-});
-
-$(document).on('click', '#comment_clear', function() {
-    $('#comment_image').val('');
-    $(this).hide();
-    $('.comment_preview').hide();
-});
-
-$(document).on('click', '#edit_clear', function() {
-    $('#edit_image').val('');
-    $(this).hide();
-    $('.comment_preview').hide();
-});
-
 $('#edit_profile_img').on('change', function(e) {
     var reader = new FileReader();
     reader.onload = function(e) {

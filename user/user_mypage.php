@@ -108,7 +108,7 @@ require_once('user_list.php');
   <div class="post_btn margin_top">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="image_name" class="my_image" accept="image/*" multiple>
+  <input type="file" name="image_name" id="my_image" accept="image/*" multiple>
 </label>
   <input type="submit" class="btn btn-outline-dark" value="OK">
   </div>
