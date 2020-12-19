@@ -112,7 +112,7 @@ require_once('user_list.php');
 </label>
   <input type="submit" class="btn btn-outline-dark" value="OK">
   </div>
-  <p class="preview_img"><img class="preview"></p>
+  <p class="preview_img"><img class="my_preview"></p>
   <input type="button" id="my_clear" value="ファイルをクリアする">
   </form>
 </div>

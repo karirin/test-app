@@ -40,12 +40,15 @@ $messages = get_messages($current_user['id'], $destination_user['id']);
                 <div class="message_image">
                   <label>
                     <i class="far fa-image"></i>
-                    <input type="file" name="image" class="my_image" accept="image/*" multiple>
+                    <input type="file" name="image" id="my_image" accept="image/*" multiple>
                   </label>
-                  <div><img class="preview"></div>
                 </div>
                   <button class="btn btn-outline-primary" type="submit" name="post" value="post" id="post">投稿</button>
                 </div>
+                <div class="message_image_detail">
+                <div><img class="my_preview"></div>
+                <input type="button" id="my_clear" value="ファイルをクリアする">
+            </div>
               </form>
             </div>
           </div>

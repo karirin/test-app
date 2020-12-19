@@ -49,16 +49,17 @@ require_once('../post_process.php');
             <p class="modal_title">この投稿にコメントしますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
-              <textarea id="comment_counter" class="textarea form-control" placeholder="コメント内容を入力ください" name="text"></textarea>
+              <textarea id="comment_counter" class="textarea form-control" placeholder="コメントを入力ください" name="text"></textarea>
               <div class="counter">
                 <span class="comment_count">0</span><span>/300</span>
               </div>
               <div class="comment_img">
                 <label>
                   <i class="far fa-image"></i>
-                  <input type="file" name="image_name" class="comment_image" accept="image/*" multiple>
+                  <input type="file" name="image_name" id="comment_image" accept="image/*" multiple>
                 </label>
                 <p><img class="comment_preview"></p>
+                <input type="button" id="comment_clear" value="ファイルをクリアする">
               </div>
               <input type="hidden" name="id" value="<?= $post['id'] ?>">
               <div class="post_btn">
@@ -78,9 +79,10 @@ require_once('../post_process.php');
               <div class="post_image">
                 <label>
                   <i class="far fa-image"></i>
-                  <input type="file" name="image_name" class="edit_image" accept="image/*" multiple>
+                  <input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
                 </label>
                 <p><img class="edit_preview"></p>
+                <input type="button" id="edit_clear" value="ファイルをクリアする">
               </div>
               <input type="hidden" name="id" value="<?php print $post['id']; ?>">
               <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">

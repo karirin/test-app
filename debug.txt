@@ -6,4 +6,10 @@ Array
     [error] => 4
     [size] => 0
 )
-$image
+$imagePDOStatement Object
+(
+    [queryString] => SELECT user_id,destination_user_id
+            FROM message_relation
+            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
+                  or (user_id = :destination_user_id and destination_user_id = :user_id)
+)

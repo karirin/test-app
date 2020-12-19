@@ -27,9 +27,9 @@ $('#image').on('change', function(e) {
 
 $('#my_image').on('change', function(e) {
     var reader = new FileReader();
-    $(".preview").fadeIn();
+    $(".my_preview").fadeIn();
     reader.onload = function(e) {
-        $(".preview").attr('src', e.target.result);
+        $(".my_preview").attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
 });
@@ -63,6 +63,7 @@ $('.reply_comment_image').on('change', function(e) {
 
 $('#edit_profile_img').on('change', function(e) {
     var reader = new FileReader();
+    $(".editing_profile_img").fadeIn();
     reader.onload = function(e) {
         $(".editing_profile_img").attr('src', e.target.result);
     }
@@ -261,7 +262,7 @@ $(document).on('change', '#my_image', function() {
     $(document).on('click', '#my_clear', function() {
         $('#my_image').val('');
         $(this).hide();
-        $('.preview_img').hide();
+        $('.my_preview').hide();
         $('#my_clear').hide();
     });
 });
@@ -275,7 +276,7 @@ $(document).on('change', '#edit_profile_img', function() {
     });
 });
 $(document).on('change', '#comment_image', function() {
-    $('#process_clear').show();
+    $('#comment_clear').show();
     $(document).on('click', '#comment_clear', function() {
         $('#comment_image').val('');
         $(this).hide();

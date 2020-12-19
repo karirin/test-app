@@ -634,6 +634,15 @@ nav.navbar.navbar-light.mb-2 {
     display: none;
 }
 
+img.my_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem rgb(163, 163, 163);
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
 img.preview {
     display: none;
     width: 7rem;
