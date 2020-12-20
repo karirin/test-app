@@ -110,8 +110,8 @@ require_once('../post_process.php');
         foreach ($comments as $comment) :
           if (empty($comment['comment_id'])) :
             $comment_user = get_user($comment['user_id']);
-        ?>
-            <div class="comment">
+        print'<div class="comment">';
+        ?>            
               <object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $comment_user['id'] ?>&type=all">
                   <div class="user_info">
                     <img src="/user/image/<?= $comment_user['image'] ?>">
@@ -140,9 +140,9 @@ require_once('../post_process.php');
                   </form>
                 </div>
                 <div class="reply_comment_count">
-                <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
-                <span class="post_comment_count"><?= current(get_reply_comment_count($comment['id'])) ?></span>
-            </div>
+                  <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button" data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
+                  <span class="post_comment_count"><?= current(get_reply_comment_count($comment['id'])) ?></span>
+                </div>
                 <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
                   <p class="modal_title">このコメントに返信しますか？</p>
                   <p class="post_content"><?= nl2br($comment['text']) ?></p>
@@ -177,15 +177,15 @@ require_once('../post_process.php');
           //     print'<a href="#" class="thread_btn" data-target="#reply_'.current($reply_comments[$i]).'"><p>このスレッドを表示する</p></a>';
           //   endif;
             ?>
-              <div class="reply">
-                <?php
-                foreach ($reply_comments as $reply_comment) :
+            <div class="reply">
+              <?php
+              foreach ($reply_comments as $reply_comment) :
                 if ($reply_comment['comment_id'] == $comment['id']) :
                   $reply_comment_user = get_user($reply_comment['user_id']);
-            //  if (!empty($reply_comment)) :
-            //    print '<a href="#" class="thread_btn" data-target="#'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
-            //  endif;
-                ?>
+                  //  if (!empty($reply_comment)) :
+                  //    print '<a href="#" class="thread_btn" data-target="#'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
+                  //  endif;
+              ?>
                   <div class="reply_comment">
                     <object><a href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>&type=all">
                         <div class="user_info">
@@ -213,40 +213,18 @@ require_once('../post_process.php');
                           <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                         </form>
                       </div>
-                      <div class="reply_comment_count">
-                      <button class="btn modal_btn" data-target="#reply_modal<?= $reply_comment['id'] ?>" type="button"><i class="fas fa-reply"></i></button>
-                      <span class="post_comment_count"><?= current(get_reply_comment_count($comment['id'])) ?></span>
-                  </div>
-                      <div class="reply_comment_confirmation" id="reply_modal<?= $reply_comment['id'] ?>">
-                        <p class="modal_title">このコメントに返信しますか？</p>
-                        <p class="post_content"><?= nl2br($reply_comment['text']) ?></p>
-                        <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
-                          <p>コメント内容を入力ください。</p>
-                          <input type="text" name="text">
-                          <p>画像を選んでください。</p>
-                          <label>
-                            <i class="far fa-image"></i>
-                            <input type="file" name="image_name" class="myImage" accept="image/*" multiple>
-                          </label>
-                          <p><img class="preview"></p>
-                          <input type="hidden" name="id" value="<?= $post_id ?>">
-                          <input type="hidden" name="comment_id" value="<?= $reply_comment['id'] ?>">
-                          <div class="post_btn">
-                            <button class="btn btn-outline-danger" type="submit" name="comment" value="comment">コメント</button>
-                            <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
-                          </div>
-                        </form>
-                      </div>
                     <?php endif; ?>
                     </div>
                     <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at']) ?></span>
 
                   </div>
-                  <?php endforeach; ?>
-              </div>
+                <?php endforeach; ?>
             </div>
-          <?php endforeach; ?>
           </div>
+          <?php endforeach; ?>
+      </div>
+                  </div>
+                  </div>
 
 
-          <?php require_once('../footer.php'); ?>
+      <?php require_once('../footer.php'); ?>
