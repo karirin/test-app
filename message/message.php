@@ -31,11 +31,13 @@ $messages = get_messages($current_user['id'], $destination_user['id']);
             <div class="message_process">
               <h2 class="message_title">メッセージ</h2>
               <form method="post" action="../message/message_add.php" enctype="multipart/form-data">
+              <div class="message_text">
                 <textarea id="message_counter" class="textarea form-control" placeholder="メッセージを入力ください" name="text"></textarea>
                 <div class="counter">
                   <span class="message_count">0</span><span>/300</span>
                 </div>
                 <input type="hidden" name="destination_user_id" value="<?= $destination_user['id'] ?>">
+            </div>
                 <div class="message_btn">
                 <div class="message_image">
                   <label>

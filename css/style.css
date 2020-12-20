@@ -596,24 +596,23 @@ nav.navbar.navbar-light.mb-2 {
     height: 11rem;
 }
 
-
-/* .image {
+#my_image {
     display: none;
 }
 
-.my_image {
-    display: none;
-} */
-
-.edit_image {
+#process_image {
     display: none;
 }
 
-.comment_image {
+#edit_image {
     display: none;
 }
 
-.reply_comment_image {
+#comment_image {
+    display: none;
+}
+
+#reply_comment_image {
     display: none;
 }
 
@@ -682,6 +681,26 @@ img.preview {
 }
 
 #edit_profile_img {
+    display: none;
+}
+
+#process_clear {
+    display: none;
+}
+
+#my_clear {
+    display: none;
+}
+
+#profile_clear {
+    display: none;
+}
+
+#comment_clear {
+    display: none;
+}
+
+#edit_clear {
     display: none;
 }
 

@@ -28,6 +28,7 @@ $('#image').on('change', function(e) {
 $('#my_image').on('change', function(e) {
     var reader = new FileReader();
     $(".my_preview").fadeIn();
+    $(".message_text").fadeOut();
     reader.onload = function(e) {
         $(".my_preview").attr('src', e.target.result);
     }
