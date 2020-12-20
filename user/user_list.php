@@ -49,9 +49,11 @@ $user = get_user($user);
 <div class="user_profile">
 <?= $user['profile'] ?>
 </div>
+<?php if(!($current_user==$user)): ?>
 <div class="direct_message">
 <object><a href="../message/message.php?user_id=<?= $user['id'] ?>"><i class="far fa-envelope"></i></a></object>
 </div>
+<?php endif; ?>
 </div>
 </a>
 <?php endforeach ?>

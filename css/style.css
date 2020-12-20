@@ -720,6 +720,12 @@ img.preview {
     text-align: left;
 }
 
+.left .says img {
+    width: 7rem;
+    height: 7rem;
+    padding: 0.5rem;
+}
+
 .right {
     text-align: right;
 }
@@ -854,6 +860,12 @@ img.preview {
     border-left: 18px solid #edf1ee;
     -webkit-transform: rotate(-35deg);
     transform: rotate(-35deg);
+}
+
+.mycomment.right p img {
+    width: 7rem;
+    height: 7rem;
+    padding: 0.5rem;
 }
 
 .message_created_at {
