@@ -18,7 +18,8 @@ $password = '';
 $dbh = new PDO($dsn,$user,$password);
 $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = 'DELETE FROM post WHERE id=?';
+$sql = 'DELETE post, comment FROM post INNER JOIN comment ON post.id = comment.post_id WHERE post.id=?';
+_debug($sql);
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_id;
 $stmt -> execute($data);
