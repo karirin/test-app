@@ -12,10 +12,11 @@ $message_image=$_FILES['image'];
 $user_id=$_SESSION['user_id'];
 $destination_user_id = $_POST['destination_user_id'];
 
-if($message_text=='')
-{
+if($message_text==''){
+if($message_image['name']==''){
     set_flash('danger','メッセージ内容が未記入です');
     reload();
+}
 }
 
 if($message_image['size']>0)
