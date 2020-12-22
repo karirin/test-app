@@ -18,11 +18,11 @@ switch ($page_type) {
     $posts = get_posts($current_user['id'],'favorite',0);
   break;
 
-  case 'follow':
+  case 'follows':
     $users = get_users('follows',$current_user['id']);
   break;
 
-  case 'follower':
+  case 'followers':
     $users = get_users('followers',$current_user['id']);
   break;
 }

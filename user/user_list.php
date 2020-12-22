@@ -11,6 +11,7 @@ require_once('../post_process.php');
 
 <body>
   <div class="col-8 offset-2">
+   <?php if(basename($_SERVER['PHP_SELF']) === 'user_list.php'): ?>
     <h2 class="center margin_top_bottom">ユーザー一覧</h2>
     <form method="post" action="#" class="search_container">
       <div class="input-group mb-2">
@@ -20,6 +21,7 @@ require_once('../post_process.php');
         </div>
       </div>
     </form>
+   <?php endif; ?>
 
     <?php
     $page_type = $_GET['type'];
@@ -58,7 +60,6 @@ require_once('../post_process.php');
         </div>
       </a>
     <?php endforeach ?>
-    <a href="../user_login/user_top.php?user_id=<?= $_SESSION['user_id'] ?>&type=main">トップメニューへ</a><br />
   </div>
 </body>
 <?php require_once('../footer.php'); ?>

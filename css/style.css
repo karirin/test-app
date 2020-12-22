@@ -704,6 +704,10 @@ img.preview {
     display: none;
 }
 
+#reply_clear {
+    display: none;
+}
+
 .margin_top {
     margin-top: 1rem;
 }

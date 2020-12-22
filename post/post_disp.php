@@ -154,9 +154,10 @@ require_once('../post_process.php');
                     <div class="comment_img">
                       <label>
                         <i class="far fa-image"></i>
-                        <input type="file" name="image_name" class="reply_comment_image" accept="image/*" multiple>
+                        <input type="file" name="image_name" id="reply_comment_image" accept="image/*" multiple>
                       </label>
                       <p><img class="reply_comment_preview"></p>
+                      <input type="button" id="reply_clear" value="ファイルをクリアする">
                     </div>
                     <input type="hidden" name="id" value="<?= $post['id'] ?>">
                     <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">

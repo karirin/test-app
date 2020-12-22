@@ -53,7 +53,7 @@ $('#comment_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('.reply_comment_image').on('change', function(e) {
+$('#reply_comment_image').on('change', function(e) {
     var reader = new FileReader();
     $(".reply_comment_preview").fadeIn();
     reader.onload = function(e) {
@@ -283,6 +283,15 @@ $(document).on('change', '#comment_image', function() {
         $(this).hide();
         $('.comment_preview').hide();
         $('#comment_clear').hide();
+    });
+});
+$(document).on('change', '#reply_comment_image', function() {
+    $('#reply_clear').show();
+    $(document).on('click', '#reply_clear', function() {
+        $('#reply_comment_image').val('');
+        $(this).hide();
+        $('.reply_comment_preview').hide();
+        $('#reply_clear').hide();
     });
 });
 $(document).on('change', '#edit_image', function() {
