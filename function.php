@@ -58,8 +58,7 @@ function get_users($type,$query){
       case 'follows':
         $sql = "SELECT follower_id
                 FROM relation
-                WHERE :follow_id = follow_id AND delete_flg = 0
-                ORDER BY id DESC";
+                WHERE follow_id = :follow_id";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':follow_id', $query);
       break;
@@ -67,9 +66,9 @@ function get_users($type,$query){
       case 'followers':
         $sql = "SELECT follow_id
                 FROM relation
-                WHERE :follower_id = follower_id AND delete_flg = 0
-                ORDER BY id DESC";
+                WHERE follower_id = :follower_id";
         $stmt = $dbh->prepare($sql);
+        _debug($stmt);
         $stmt->bindValue(':follower_id', $query);
       break;
     }

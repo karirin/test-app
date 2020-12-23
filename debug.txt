@@ -1,1 +1,54 @@
-DELETE post, comment FROM post INNER JOIN comment ON post.id = comment.post_id WHERE post.id=?
+Array
+(
+)
+PDOStatement Object
+(
+    [queryString] => SELECT follow_id
+                FROM relation
+                WHERE follower_id = :follower_id AND delete_flg = 0
+                ORDER BY id DESC
+)
+Array
+(
+)
+PDOStatement Object
+(
+    [queryString] => SELECT follow_id
+                FROM relation
+                WHERE follower_id = :follower_id AND delete_flg = 0
+                ORDER BY id DESC
+)
+PDOStatement Object
+(
+    [queryString] => SELECT follow_id
+                FROM relation
+                WHERE follower_id = :follower_id AND delete_flg = 0
+                ORDER BY id DESC
+)
+Array
+(
+)
+PDOStatement Object
+(
+    [queryString] => SELECT follow_id
+                FROM relation
+                WHERE follower_id = :follower_id AND delete_flg = 0
+                ORDER BY id DESC
+)
+PDOStatement Object
+(
+    [queryString] => SELECT follow_id
+                FROM relation
+                WHERE follower_id = :follower_id
+                ORDER BY id DESC
+)
+Array
+(
+)
+PDOStatement Object
+(
+    [queryString] => SELECT follow_id
+                FROM relation
+                WHERE follower_id = :follower_id
+                ORDER BY id DESC
+)

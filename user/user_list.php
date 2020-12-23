@@ -34,6 +34,14 @@ require_once('../post_process.php');
       case 'search':
         $users = get_users('search', $_GET['query']);
         break;
+
+      case 'follow':
+        $users = get_users('follows', $current_user['id']);
+        break;
+
+      case 'follower':
+        $users = get_users('followers', $current_user['id']);
+        break;
     }
     foreach ((array) $users as $user) :
       $user = current($user);
