@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
 <?php if(isset($_SESSION['login'])==false): ?>
     <ul>
-    <li><a href="../user_login/user_top.php">coffeeapp</a></li>
+    <li><a href="../user_login/user_top.php">app</a></li>
     <li><a href="../user_login/user_login.php">ログイン</a></li>
     <li><a href="../user/user_add.php">新規登録</a></li>
 <?php else: ?>
