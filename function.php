@@ -450,6 +450,26 @@ function change_delete_flg($id,$flg){
   }
 }
 
+function update_login_time($date,$id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $dbh->beginTransaction();
+    $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':date' => $date->format('Y-m-d H:i:s') , ':id' => $id));
+    
+    $dbh->commit();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+    $dbh->rollback();
+    reload();
+  }
+}
+
 function convert_to_fuzzy_time($time_db){
   ini_set("date.timezone", "Asia/Tokyo");
   $unix = strtotime($time_db);
