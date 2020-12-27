@@ -68,7 +68,6 @@ function get_users($type,$query){
                 FROM relation
                 WHERE follower_id = :follower_id";
         $stmt = $dbh->prepare($sql);
-        _debug($stmt);
         $stmt->bindValue(':follower_id', $query);
       break;
     }
@@ -346,7 +345,6 @@ function check_relation_message($user_id,$destination_user_id){
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
                   or (user_id = :destination_user_id and destination_user_id = :user_id)";
     $stmt = $dbh->prepare($sql);
-    _debug($stmt);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));
     return $stmt->fetch();
@@ -397,8 +395,64 @@ function get_messages($user_id,$destination_user_id){ //(5,4)
   }
 }
 
-function get_reply_comments($post_id,$comment_id){
+function message_count($user_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT COUNT(*)
+            FROM message
+            INNER JOIN user on message.destination_user_id = user.id
+            WHERE destination_user_id = :id and message.created_at > user.login_time";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
 
+function last_message_count($user_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT message_count
+            FROM message_relation
+            WHERE destination_user_id = :id";
+    _debug($user_id);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+function update_message_count($message_count,$id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $dbh->beginTransaction();
+    $sql = 'UPDATE message_relation SET message_count = :message_count WHERE destination_user_id = :id';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':message_count' => $message_count , ':id' => $id));
+    $dbh->commit();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+    $dbh->rollback();
+    reload();
+  }
+}
+
+function get_reply_comments($post_id,$comment_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
@@ -460,7 +514,6 @@ function update_login_time($date,$id){
     $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':date' => $date->format('Y-m-d H:i:s') , ':id' => $id));
-    
     $dbh->commit();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
