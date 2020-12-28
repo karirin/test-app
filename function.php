@@ -375,7 +375,7 @@ function get_bottom_message($user_id,$destination_user_id){
   }
 }
 
-function get_messages($user_id,$destination_user_id){ //(5,4)
+function get_messages($user_id,$destination_user_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
@@ -423,7 +423,6 @@ function last_message_count($user_id){
     $sql = "SELECT message_count
             FROM message_relation
             WHERE destination_user_id = :id";
-    _debug($user_id);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':id' => $user_id));
     return $stmt->fetch();
