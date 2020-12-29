@@ -6,6 +6,7 @@ require_once('../post_process.php');
 $current_user = get_user($_SESSION['user_id']);
 $destination_user = get_user($_GET['user_id']);
 $messages = get_messages($current_user['id'], $destination_user['id']);
+update_message_count($message_count,$current_user['id']);
 ?>
 
 <body>

@@ -404,7 +404,8 @@ function message_count($user_id){
     $sql = "SELECT COUNT(*)
             FROM message
             INNER JOIN user on message.destination_user_id = user.id
-            WHERE destination_user_id = :id and message.created_at > user.login_time";
+            WHERE destination_user_id = :id and user.login_time > message.created_at";
+    //_debug($user_id);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':id' => $user_id));
     return $stmt->fetch();
@@ -420,9 +421,11 @@ function last_message_count($user_id){
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
-    $sql = "SELECT message_count
+    $sql = "SELECT DISTINCT COALESCE(message_count,'0') as message_count
             FROM message_relation
-            WHERE destination_user_id = :id";
+            WHERE destination_user_id = :id
+            order by id desc";
+    _debug($user_id);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':id' => $user_id));
     return $stmt->fetch();
