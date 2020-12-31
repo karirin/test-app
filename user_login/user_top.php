@@ -20,7 +20,7 @@ print 'ようこそ、coffeeappへ';
 }
 else
 {
- require_once("../user/user_mypage.php");
+ require_once("../user/user_disp.php");
 }
 ?>
 

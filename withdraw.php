@@ -20,7 +20,7 @@ require('head.php');
 ?>
 
 <body>
-      <form action="" method="post">
+      <form action="#" method="post">
         <button class="btn red" name="withdraw" value="withdraw" type="submit">退会する</button>
       </form>
 

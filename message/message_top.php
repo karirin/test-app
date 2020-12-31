@@ -5,13 +5,18 @@ require_once('../header.php');
 require_once('../post_process.php');
 $current_user = get_user($_SESSION['user_id']);
 $message_relations = get_message_relations($current_user['id']);
-foreach ($message_relations as $message_relation) :
+foreach ($message_relations as $message_relation):
 if($message_relation['destination_user_id']==$current_user['id']){
 $destination_user=get_user($message_relation['user_id']);
 }else{
 $destination_user=get_user($message_relation['destination_user_id']);
 }
 $bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
+$message_count=current(message_count($current_user['id'],$destination_user['id']));
+if(!empty(last_message_count($current_user['id'],$destination_user['id'])/*||last_message_count($current_user['id'],$destination_user['id']))==="0"*/)){
+$last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
+$current_message_count = $message_count - $last_message_count;
+}
 ?>
 
 <body>
@@ -25,7 +30,13 @@ $bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
         <div class="destination_user_name"><?= $destination_user['name']?></div>
         <span class="destination_user_text"><?= $bottom_message['text'] ?></span>
 </div>
+
+<?php if(!empty(last_message_count($current_user['id'],$destination_user['id']))): ?>
+    <?php _debug("message_count   :".current(last_message_count($current_user['id'],$destination_user['id']))); ?>
+    <div class="message_notification">
+        <?php print''.$current_message_count.''; ?>
     </div>
+<?php endif;?>
     </a>
     <div class="col-3">
     <span class="bottom_message_time"><?= convert_to_fuzzy_time($bottom_message['created_at']); ?></span>
@@ -43,6 +54,7 @@ $bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
     </div>
 </div>
 </div>
-<?php endforeach ?>
+</div>
 </body>
+<?php endforeach ?>
 <?php require_once('../footer.php'); ?>

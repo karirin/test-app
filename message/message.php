@@ -6,7 +6,14 @@ require_once('../post_process.php');
 $current_user = get_user($_SESSION['user_id']);
 $destination_user = get_user($_GET['user_id']);
 $messages = get_messages($current_user['id'], $destination_user['id']);
-update_message_count($message_count,$current_user['id']);
+$message_count=current(message_count($current_user['id'],$destination_user['id']));
+if(!empty(last_message_count($current_user['id'],$destination_user['id']))){
+  _debug('dfafdlkasjdfjasdfj');
+  _debug(last_message_count($current_user['id'],$destination_user['id']));
+  _debug('asf        '.$message_count.'       asdf');
+  $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
+  update_message_count($last_message_count,$current_user['id'],$destination_user['id']);
+}
 ?>
 
 <body>
