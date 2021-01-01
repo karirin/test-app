@@ -12,10 +12,18 @@ $destination_user=get_user($message_relation['user_id']);
 $destination_user=get_user($message_relation['destination_user_id']);
 }
 $bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
+if(!empty(message_count($current_user['id'],$destination_user['id']))){
 $message_count=current(message_count($current_user['id'],$destination_user['id']));
+}else{
+$message_count=0; 
+_debug('asdfasdf');
+}
+_debug('$message_count:     '.$message_count.'     ');
 if(!empty(last_message_count($current_user['id'],$destination_user['id'])/*||last_message_count($current_user['id'],$destination_user['id']))==="0"*/)){
 $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
+_debug('$last_message_count:     '.$last_message_count.'     ');
 $current_message_count = $message_count - $last_message_count;
+_debug('$current_message_count:     '.$current_message_count.'     ');
 }
 ?>
 
@@ -32,7 +40,6 @@ $current_message_count = $message_count - $last_message_count;
 </div>
 
 <?php if(!empty(last_message_count($current_user['id'],$destination_user['id']))): ?>
-    <?php _debug("message_count   :".current(last_message_count($current_user['id'],$destination_user['id']))); ?>
     <div class="message_notification">
         <?php print''.$current_message_count.''; ?>
     </div>
