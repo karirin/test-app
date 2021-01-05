@@ -21,12 +21,13 @@ _debug('$message_count:     '.$message_count.'     ');
 // if(!empty(last_message_count($current_user['id'],$destination_user['id'])/*||last_message_count($current_user['id'],$destination_user['id']))==="0"*/)){
 $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
 _debug('$last_message_count:     '.$last_message_count.'     ');
-if($last_message_count!="0"){
-update_message_count($last_message_count,$current_user['id'],$destination_user['id']);
-}
-$last_db_message_count = current(last_db_message_count($current_user['id'],$destination_user['id']));
-_debug('$last_db_message_count:     '.$last_db_message_count.'     ');
-$current_message_count = $message_count - $last_db_message_count;
+// if($last_message_count!="0"){
+// update_message_count($last_message_count,$current_user['id'],$destination_user['id']);
+// }
+// $last_db_message_count = current(last_db_message_count($current_user['id'],$destination_user['id']));
+// _debug('$last_db_message_count:     '.$last_db_message_count.'     ');
+$current_message_count = $message_count - $last_message_count;
+// $current_message_count = $message_count - $last_db_message_count;
 _debug('$current_message_count:     '.$current_message_count.'     ');
 // }
 ?>
