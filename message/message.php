@@ -9,6 +9,7 @@ $messages = get_messages($current_user['id'], $destination_user['id']);
 // if(!empty(message_count($current_user['id'],$destination_user['id']))){
 $message_count=current(message_count($current_user['id'],$destination_user['id']));
 $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
+
 //update_message_count($last_message_count,$current_user['id'],$destination_user['id']);
 // }else{
 // $message_count=0; 

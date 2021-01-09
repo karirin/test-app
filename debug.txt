@@ -1,1 +1,1 @@
-$message_count:     5          $user_id:1     $destination_user_id:6$last_message_count:     2     $last_db_message_count:     2     $current_message_count:     3          $user_id:1     $destination_user_id:6
+$message_count:3     $last_message_count:1     

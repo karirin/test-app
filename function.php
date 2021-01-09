@@ -403,7 +403,7 @@ function last_message_count($user_id,$destination_user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT COUNT(*) FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at";
     $stmt = $dbh->prepare($sql);
-    _debug('     $user_id:'.$user_id.'     $destination_user_id:'.$destination_user_id);
+    // _debug('     $user_id:'.$user_id.'     $destination_user_id:'.$destination_user_id);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));
     return $stmt->fetch();
@@ -488,6 +488,26 @@ function update_message_count($message_count,$user_id,$destination_user_id){
     set_flash('error',ERR_MSG1);
     $dbh->rollback();
     reload();
+  }
+}
+
+function destination_message($destination_message){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM message
+            WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)
+            order by id desc";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
   }
 }
 
