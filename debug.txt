@@ -1,1 +1,0 @@
-$message_count:3     $last_message_count:1     

@@ -403,7 +403,6 @@ function last_message_count($user_id,$destination_user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT COUNT(*) FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at";
     $stmt = $dbh->prepare($sql);
-    // _debug('     $user_id:'.$user_id.'     $destination_user_id:'.$destination_user_id);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));
     return $stmt->fetch();

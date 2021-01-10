@@ -10,14 +10,13 @@ $messages = get_messages($current_user['id'], $destination_user['id']);
 $message_count=current(message_count($current_user['id'],$destination_user['id']));
 $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
 
-//update_message_count($last_message_count,$current_user['id'],$destination_user['id']);
-// }else{
-// $message_count=0; 
-// }
 _debug('$message_count:'.$message_count.'     ');
 // if(!empty(last_message_count($current_user['id'],$destination_user['id']))){
 
 _debug('$last_message_count:'.$last_message_count.'     ');
+// if($last_message_count!="0"){
+// update_message_count($message_count,$current_user['id'],$destination_user['id']);
+// }
 //   update_message_count($message_count,$current_user['id'],$destination_user['id']);
 // }
 ?>
