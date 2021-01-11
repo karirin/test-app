@@ -395,6 +395,43 @@ function get_messages($user_id,$destination_user_id){
   }
 }
 
+function last_message($user_id,$destination_user_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT * FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at ORDER BY message.id ASC";
+    // _debug('  $user_id:'.$user_id.'  $destnation_user_id:'.$destination_user_id);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+function get_last_bottom_message($message_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT *
+            FROM message
+            WHERE id = :message_id
+            ORDER BY created_at DESC";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':message_id' => $message_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 function last_message_count($user_id,$destination_user_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';

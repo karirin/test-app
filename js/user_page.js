@@ -180,6 +180,11 @@ $('#message_counter').on('input', function() {
     }
 });
 
+// メッセージリンク押下時の処理
+$(document).on('click', "#message_link", function() {
+    $('#message_count').fadeOut();
+});
+
 // 文字数が0文字、300文字以上以外ボタンを活性化
 $(document).on('input', '.textarea', function() {
     if ($(this).val().length !== 0 && $(this).val().length <= 300) {

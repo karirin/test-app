@@ -19,13 +19,18 @@ $message_count=current(message_count($current_user['id'],$destination_user['id']
 // }
 _debug('$message_count:     '.$message_count.'     ');
 // if(!empty(last_message_count($current_user['id'],$destination_user['id'])/*||last_message_count($current_user['id'],$destination_user['id']))==="0"*/)){
+$last_message=last_message($current_user['id'],$destination_user['id']);
+$last_bottom_message=get_last_bottom_message($last_message['id']);
+_debug('$last_bottom_message:     '.$last_bottom_message.'     ');
+// _debug('$last_messag:       '.print($last_message));
+// var_dump($last_message);
 $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
 _debug('$last_message_count:     '.$last_message_count.'     ');
 
-if($message_count>$last_message_count){
+if($message_count>$last_message_count && $last_message['user_id']==$current_user['id']){
 update_message_count($last_message_count,$current_user['id'],$destination_user['id']);
 }else{
-$last_message_count=0; 
+$last_message_count=0;
 }
 
 $last_db_message_count = current(last_db_message_count($current_user['id'],$destination_user['id']));
@@ -45,7 +50,7 @@ _debug('$current_message_count:     '.$current_message_count.'     ');
     <div class="row">
     <div class="col-8 offset-2">
     <div class="destination_user_list">
-    <a href='message.php?user_id=<?= $destination_user['id'] ?>'>
+    <a href='message.php?user_id=<?= $destination_user['id'] ?>' id="message_link">
     <div class='col-9 destination_user_info'>
     <img src="../user/image/<?= $destination_user['image']?>" class="message_user_img">
     <div class="destination_user_info_detail">
@@ -53,11 +58,10 @@ _debug('$current_message_count:     '.$current_message_count.'     ');
         <span class="destination_user_text"><?= $bottom_message['text'] ?></span>
 </div>
 
-<?php if(!empty(last_message_count($current_user['id'],$destination_user['id']))): ?>
     <div class="message_notification">
-        <?php print''.$current_message_count.''; ?>
+        <span id="message_count"><?= $current_message_count ?></span>
     </div>
-<?php endif;?>
+
     </a>
     <div class="col-3">
     <span class="bottom_message_time"><?= convert_to_fuzzy_time($bottom_message['created_at']); ?></span>
