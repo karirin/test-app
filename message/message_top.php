@@ -19,16 +19,20 @@ $message_count=current(message_count($current_user['id'],$destination_user['id']
 // }
 _debug('$message_count:     '.$message_count.'     ');
 // if(!empty(last_message_count($current_user['id'],$destination_user['id'])/*||last_message_count($current_user['id'],$destination_user['id']))==="0"*/)){
-$last_message=last_message($current_user['id'],$destination_user['id']);
-$last_bottom_message=get_last_bottom_message($last_message['id']);
-_debug('$last_bottom_message:     '.$last_bottom_message.'     ');
+// $last_message=last_message($current_user['id'],$destination_user['id']);
+$last_bottom_message=get_last_bottom_message($current_user['id'],$destination_user['id']);
+// _debug('$last_bottom_message:     '.$last_bottom_message.'     ');
 // _debug('$last_messag:       '.print($last_message));
 // var_dump($last_message);
 $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
-_debug('$last_message_count:     '.$last_message_count.'     ');
-
-if($message_count>$last_message_count && $last_message['user_id']==$current_user['id']){
+// _debug('$bottom_message:     '.$bottom_message.'     ');
+// _debug('$last_bottom_message:     '.$last_bottom_message.'     ');
+// var_dump($bottom_message);
+var_dump($last_bottom_message);
+if($message_count>$last_message_count){
+if($bottom_message['user_id']!=$last_bottom_message['user_id']){
 update_message_count($last_message_count,$current_user['id'],$destination_user['id']);
+}
 }else{
 $last_message_count=0;
 }
