@@ -419,7 +419,7 @@ function get_last_bottom_message($user_id,$destination_user_id){
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
-    $sql = "SELECT message.user_id FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at ORDER BY message.id DESC";
+    $sql = "SELECT message.id,message.user_id, FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at ORDER BY message.id DESC";
     // _debug('  $user_id:'.$user_id.'  $destnation_user_id:'.$destination_user_id);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
