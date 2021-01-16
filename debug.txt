@@ -1,1 +1,1 @@
-$message_count:7     $last_message_count:5     
+$message_count:     5     $last_messag_count:       3$last_db_message_count:     1     $current_message_count:          
