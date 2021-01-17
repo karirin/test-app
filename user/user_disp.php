@@ -6,18 +6,16 @@ require_once('../post_process.php');
 ?>
 
 <body>
-  <?php
-  $current_user = get_user($_GET['user_id']);
-  $profile_user = get_user($_GET['page_id']);
-  $page_type = $_GET['type'];
-  ?>
+
 <div class="row">
 <div class="col-4">
 <?php
-require_once('../function.php');
 $page_type = $_GET['type'];
-$current_user=get_user($_SESSION['user_id']);
-
+// if(isset($_GET['page_id'])){
+// $current_user=get_user($_SESSION['user_id']);
+// }else{
+// $current_user=get_user($_GET['page_id']);
+// }
 switch ($page_type) {
   case 'all':
     $posts = get_posts($current_user['id'],'all',0);
