@@ -57,7 +57,7 @@ if($rec['delete_flg']){
 	$_SESSION['user_id']=$rec['id'];
 	$_SESSION['user_name']=$rec['name'];
 	set_flash('sucsess','ログインしました');
-	header('Location:user_top.php?user_id='.$rec['id'].'&type=main');
+	header('Location:user_top.php?page_id='.$rec['id'].'&type=main');
 	exit();
  }
 }

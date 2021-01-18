@@ -11,11 +11,14 @@ require_once('../post_process.php');
 <div class="col-4">
 <?php
 $page_type = $_GET['type'];
-// if(isset($_GET['page_id'])){
-// $current_user=get_user($_SESSION['user_id']);
-// }else{
-// $current_user=get_user($_GET['page_id']);
-// }
+$page_id = $_GET['page_id'];
+
+if($page_id=='current_user'){
+  $current_user=get_user($_SESSION['user_id']);
+}else{
+  $current_user=get_user($page_id);
+}
+
 switch ($page_type) {
   case 'all':
     $posts = get_posts($current_user['id'],'all',0);
@@ -84,7 +87,10 @@ $follower_count = get_user_count('follower',$current_user['id']);
 <a href="user_top.php?user_id=<?= $current_user['id'] ?>&type=follower">フォロワー数<p><?= current(get_user_count('follower',$current_user['id'])) ?></p></a>
 </div>
 </div>
+<?php if($current_user==get_user($_SESSION['user_id'])):?>
 <button class="btn btn btn-outline-dark edit_btn" type="button" name="follow">プロフィール編集</button>
+<?php endif;?>
+
 </div>
 
 <div class="col-4">
