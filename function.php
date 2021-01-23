@@ -305,7 +305,7 @@ function get_message_relations($user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT *
             FROM message_relation
-            WHERE user_id = :user_id or destination_user_id = :user_id";
+            WHERE user_id = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id));
     return $stmt->fetchAll();
@@ -323,7 +323,26 @@ function insert_message($user_id,$destination_user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "INSERT INTO
             message_relation(user_id,destination_user_id)
-            VALUES (:user_id,:destination_user_id)";
+            VALUES (:user_id,:destination_user_id),(:destination_user_id,:user_id)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+function insert_message_count($user_id,$destination_user_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "UPDATE message_relation
+            SET message_count = message_count + 1
+            WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));
@@ -393,6 +412,26 @@ function get_messages($user_id,$destination_user_id){
     error_log('エラー発生:' . $e->getMessage());
     set_flash('error',ERR_MSG1);
   }
+}
+
+function reset_message_count($user_id,$destination_user_id){
+  try {
+  $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+  $user='root';
+  $password='';
+  $dbh=new PDO($dsn,$user,$password);
+  $dbh->beginTransaction();
+  $sql = 'UPDATE message_relation SET message_count = 0 WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :destination_user_id';
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':user_id' => $user_id,
+                       ':destination_user_id' => $destination_user_id));
+  $dbh->commit();
+} catch (\Exception $e) {
+  error_log('エラー発生:' . $e->getMessage());
+  set_flash('error',ERR_MSG1);
+  $dbh->rollback();
+  reload();
+}
 }
 
 // function get_user($user_id){
@@ -503,6 +542,25 @@ function last_db_message_count($user_id,$destination_user_id){
 //     set_flash('error',ERR_MSG1);
 //   }
 // }
+
+function new_message_count($user_id,$destination_user_id){
+  try {
+    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
+    $user='root';
+    $password='';
+    $dbh=new PDO($dsn,$user,$password);
+    $sql = "SELECT message_count
+            FROM message_relation
+            WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :destination_user_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
 
 function message_count($user_id,$destination_user_id){
   try {

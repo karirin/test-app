@@ -48,6 +48,8 @@ try {
     if (!check_relation_message($user_id, $destination_user_id)) {
         insert_message($user_id, $destination_user_id);
     }
+    //_debug('$sql');
+    insert_message_count($user_id,$destination_user_id);
     set_flash('sucsess', 'メッセージを送信しました');
     header('Location:../message/message.php?user_id=' . $destination_user_id . '');
 } catch (Exception $e) {

@@ -6,12 +6,6 @@
     <li><a href="../user/user_add.php">新規登録</a></li>
 <?php 
     else:
-    // $current_user=get_user($_SESSION['user_id']);
-    // $message_count=current(message_count($current_user['id']));
-    // if(!empty(last_message_count($current_user['id']))){
-    // $last_message_count=current(last_message_count($current_user['id']));
-    // $current_message_count = $message_count - $last_message_count;
-    // }
 ?>
     <ul>
     <li><a href="../user_login/user_top.php?type=main&page_id=current_user">coffeeapp</a></li>
