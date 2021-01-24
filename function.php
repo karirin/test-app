@@ -562,19 +562,17 @@ function new_message_count($user_id,$destination_user_id){
   }
 }
 
-function message_count($user_id,$destination_user_id){
+function message_count($user_id){
   try {
     $dsn='mysql:dbname=db;host=localhost;charset=utf8';
     $user='root';
     $password='';
     $dbh=new PDO($dsn,$user,$password);
-    $sql = "SELECT COUNT(*)
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)
-            order by id desc";
+    $sql = "SELECT SUM(message_count)
+            FROM message_relation
+            WHERE user_id = :user_id or destination_user_id = :user_id";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
+    $stmt->execute(array(':user_id' => $user_id));
     return $stmt->fetch();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());

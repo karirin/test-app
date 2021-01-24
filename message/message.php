@@ -7,27 +7,7 @@ $current_user = get_user($_SESSION['user_id']);
 $destination_user = get_user($_GET['user_id']);
 $messages = get_messages($current_user['id'], $destination_user['id']);
 $bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
-// // if(!empty(message_count($current_user['id'],$destination_user['id']))){
-// $message_count=current(message_count($current_user['id'],$destination_user['id']));
-// $last_message_count=current(last_message_count($current_user['id'],$destination_user['id']));
 reset_message_count($current_user['id'],$destination_user['id']);
-$new_message_count=current(new_message_count($current_user['id'],$destination_user['id']));
-_debug('$new_message_count(0)         :'.$new_message_count);
-
-// _debug('$message_count:'.$message_count.'     ');
-// if(!empty(last_message_count($current_user['id'],$destination_user['id']))){
-
-// _debug('$last_message_count:'.$last_message_count.'     ');
-
-// if($bottom_message['user_id']!=$current_user['id']){
-// update_message_count($message_count,$current_user['id'],$destination_user['id']);
-// }
-
-// if($last_message_count!="0"){
-// update_message_count($message_count,$current_user['id'],$destination_user['id']);
-// }
-//   update_message_count($message_count,$current_user['id'],$destination_user['id']);
-// }
 ?>
 
 <body>
