@@ -56,7 +56,11 @@ if($rec['delete_flg']){
 	$_SESSION['login']=1;
 	$_SESSION['user_id']=$rec['id'];
 	$_SESSION['user_name']=$rec['name'];
+	if(current(message_count($_SESSION['user_id']))!=0){
+	set_flash('sucsess','ログインしましたメッセージが'.current(message_count($_SESSION['user_id'])).'件届いています');
+	}else{
 	set_flash('sucsess','ログインしました');
+	}
 	header('Location:user_top.php?page_id='.$rec['id'].'&type=main');
 	exit();
  }

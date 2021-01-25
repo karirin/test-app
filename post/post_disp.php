@@ -120,7 +120,6 @@ require_once('../post_process.php');
                 </a></object>
               <span class="comment_text"><?= $comment['text'] ?></span>
               <?php
-              _debug($comment['image']);
               if (!empty($comment['image'])) {
                 print '<p class="comment_image"><img src="../comment/image/' . $comment['image'] . '"></p>';
               }

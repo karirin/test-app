@@ -24,7 +24,6 @@ switch ($page_type) {
 
   case 'follower':
     $users = get_users('followers',$current_user['id']);
-    _debug($users);
   break;
 }
 ?>

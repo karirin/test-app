@@ -1,7 +1,8 @@
 <?php
 function set_flash($type,$message){
 	$_SESSION['flash']['type'] = "flash_${type}";
-	$_SESSION['flash']['message'] = $message;
+  $_SESSION['flash']['message'] = $message;
+  _debug($_SESSION['flash']);
 }
 
 function _debug( $data, $clear_log = false ) {
@@ -570,50 +571,9 @@ function message_count($user_id){
     $dbh=new PDO($dsn,$user,$password);
     $sql = "SELECT SUM(message_count)
             FROM message_relation
-            WHERE user_id = :user_id or destination_user_id = :user_id";
+            WHERE destination_user_id = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
-
-function update_message_count($message_count,$user_id,$destination_user_id){
-  try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
-    $dbh->beginTransaction();
-    $sql = 'UPDATE message_relation SET message_count = :message_count WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)';
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':message_count' => $message_count,
-                         ':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
-    $dbh->commit();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-    $dbh->rollback();
-    reload();
-  }
-}
-
-function destination_message($destination_message){
-  try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
-    $sql = "SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)
-            order by id desc";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
     return $stmt->fetch();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());

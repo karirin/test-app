@@ -1,0 +1,85 @@
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました。     メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました。     メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました。     メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました。     メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました。     メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました。     メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました	メッセージが2件届いています
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => メッセージが2件届いています。
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました	メッセージが2件届いています
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました			メッセージが2件届いています
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしました		メッセージが2件届いています
+)
+Array
+(
+    [type] => flash_sucsess
+    [message] => ログインしましたメッセージが2件届いています
+)
