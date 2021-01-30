@@ -2,7 +2,6 @@
 function set_flash($type,$message){
 	$_SESSION['flash']['type'] = "flash_${type}";
   $_SESSION['flash']['message'] = $message;
-  _debug($_SESSION['flash']);
 }
 
 function _debug( $data, $clear_log = false ) {

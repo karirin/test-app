@@ -11,5 +11,5 @@ if(isset($_SESSION['flash'])){
 
 $error_messages = array();
 //グローバル変数として定義 
-//_debug('',true);
+_debug('',true);
 ?>
