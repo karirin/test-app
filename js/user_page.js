@@ -353,9 +353,9 @@ $(document).on('click', '.post_window', function() {
     $('.modal').fadeIn();
 });
 
-// 各種ツールチップ処理
-$('[data-toggle="favorite"]').tooltip();
-$('[data-toggle="post"]').tooltip();
-$('[data-toggle="edit"]').tooltip();
-$('[data-toggle="delete"]').tooltip();
-$('[data-toggle="reply"]').tooltip();
+// // 各種ツールチップ処理
+// $('[data-toggle="favorite"]').tooltip();
+// $('[data-toggle="post"]').tooltip();
+// $('[data-toggle="edit"]').tooltip();
+// $('[data-toggle="delete"]').tooltip();
+// $('[data-toggle="reply"]').tooltip();
