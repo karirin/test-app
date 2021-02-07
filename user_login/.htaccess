@@ -1,1 +1,8 @@
-SetEnv php_value output_buffering ON^Mdefault_charset UTF-8^Mmbstring.detect_order SJIS,EUC-JP,JIS,UTF-8,ASCII^Mmbstring.http_input pass^Mmbstring.http_output pass^Mmbstring.internal_encoding UTF-8^Mmbstring.substitute_character none^Mmbstring.encoding_translation OFF
+php_value output_buffering ON
+php_value default_charset UTF-8
+php_value mbstring.detect_order SJIS,EUC-JP,JIS,UTF-8,ASCII
+php_value mbstring.http_input pass
+php_value mbstring.http_output pass
+php_value mbstring.internal_encoding UTF-8
+php_value mbstring.substitute_character none 
+php_value mbstring.encoding_translation OFF
