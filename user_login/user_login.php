@@ -1,10 +1,10 @@
 <?php
 require_once('../config.php');
+require_once('../head.php');
+require_once('../header.php');
 if(!empty($_POST)){
   require_once('user_login_check.php');
 }
-require_once('../head.php');
-require_once('../header.php');
 ?>
 <body>
   <div class="row">
