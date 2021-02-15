@@ -39,11 +39,7 @@ if($comment_image_name['size']>0)
 $comment_text=htmlspecialchars($comment_text,ENT_QUOTES,'UTF-8');
 $user_id=htmlspecialchars($user_id,ENT_QUOTES,'UTF-8');
 
-$dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
-$user = 'root';
-$password = '';
-$dbh = new PDO($dsn,$user,$password);
-$dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$dbh = dbConnect();
 $sql = 'INSERT INTO comment(text,image,user_id,created_at,post_id,comment_id) VALUES (?,?,?,?,?,?)';
 $stmt = $dbh -> prepare($sql);
 $data[] = $comment_text;

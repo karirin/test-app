@@ -31,12 +31,7 @@ if($post_image_name['size']>0)
 $post_text=htmlspecialchars($post_text,ENT_QUOTES,'UTF-8');
 $post_id=htmlspecialchars($post_id,ENT_QUOTES,'UTF-8');
 
-$dsn = 'mysql:dbname=db;host=localhost';
-$user = 'root';
-$password = '';
-$dbh = new PDO($dsn,$user,$password);
-$dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+$dbh = dbConnect();
 $sql = 'UPDATE post SET text=?,image=? WHERE id=?';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_text;

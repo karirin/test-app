@@ -12,12 +12,7 @@ try
 $post_id = $_POST['id'];
 $post_image_name = $_POST['image_name'];
 
-$dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
-$user = 'root';
-$password = '';
-$dbh = new PDO($dsn,$user,$password);
-$dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+$dbh = dbConnect();
 $sql = 'DELETE post, comment FROM post INNER JOIN comment ON post.id = comment.post_id WHERE post.id=?';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_id;
