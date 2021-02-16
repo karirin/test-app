@@ -19,10 +19,7 @@ if(isset($_POST)){
             VALUES(:user_id,:post_id)";
   }
   try{
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $current_user['id'] , ':post_id' => $post_id));
   } catch (\Exception $e) {

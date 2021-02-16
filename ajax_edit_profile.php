@@ -37,10 +37,7 @@ if($image['size']>0)
 }
 
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "UPDATE user
             SET profile = :comment_data,name = :name,image = :image
             WHERE id = :user_id";

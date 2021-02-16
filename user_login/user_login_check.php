@@ -15,12 +15,7 @@ $user_pass2=md5($user_pass2);
 $date = new DateTime();
 $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
 
-$dsn='mysql:dbname=db;host=localhost;charset=utf8';
-$user='root';
-$password='';
-$dbh=new PDO($dsn,$user,$password);
-$dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
+$dbh = dbConnect();
 $sql='SELECT name,delete_flg,id FROM user WHERE name=? AND password=?';
 $stmt=$dbh->prepare($sql);
 

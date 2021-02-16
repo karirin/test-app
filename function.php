@@ -14,10 +14,7 @@ function _debug( $data, $clear_log = false ) {
 
 function get_user($user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT id,name,password,profile,image
             FROM user
             WHERE id = :id AND delete_flg = 0 ";
@@ -32,10 +29,7 @@ function get_user($user_id){
 
 function get_users($type,$query){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
 
     switch ($type) {
       case 'all':
@@ -80,10 +74,7 @@ function get_users($type,$query){
 }
 
 function get_user_count($object,$user_id){
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
 
   switch ($object) {
 
@@ -119,10 +110,7 @@ function get_user_count($object,$user_id){
 
 //お気に入りの重複チェック
 function check_favolite_duplicate($user_id,$post_id){
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM favorite
             WHERE user_id = :user_id AND post_id = :post_id";
@@ -190,10 +178,7 @@ function check_user($user_name,$user_pass){
 
 function get_post($post_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM post
             WHERE id = :id";
@@ -209,10 +194,7 @@ function get_post($post_id){
 // ユーザーの投稿を取得する
 function get_posts($user_id,$type,$query){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     // ページに合わせてSQLを変える
     switch ($type) {
       case 'all':
@@ -263,10 +245,7 @@ function get_posts($user_id,$type,$query){
 
 function get_comment($comment_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM comment
             WHERE id = :id";
@@ -281,10 +260,7 @@ function get_comment($comment_id){
 
 function get_comments($post_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM comment
             WHERE post_id = :id";
@@ -299,10 +275,7 @@ function get_comments($post_id){
 
 function get_message_relations($user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM message_relation
             WHERE user_id = :user_id";
@@ -317,10 +290,7 @@ function get_message_relations($user_id){
 
 function insert_message($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "INSERT INTO
             message_relation(user_id,destination_user_id)
             VALUES (:user_id,:destination_user_id),(:destination_user_id,:user_id)";
@@ -336,10 +306,7 @@ function insert_message($user_id,$destination_user_id){
 
 function insert_message_count($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "UPDATE message_relation
             SET message_count = message_count + 1
             WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :user_id";
@@ -355,10 +322,7 @@ function insert_message_count($user_id,$destination_user_id){
 
 function check_relation_message($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT user_id,destination_user_id
             FROM message_relation
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
@@ -375,10 +339,7 @@ function check_relation_message($user_id,$destination_user_id){
 
 function get_bottom_message($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM message
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
@@ -396,10 +357,7 @@ function get_bottom_message($user_id,$destination_user_id){
 
 function get_messages($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM message
             WHERE (user_id = :id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :id)
@@ -454,10 +412,7 @@ function reset_message_count($user_id,$destination_user_id){
 
 function get_last_bottom_message($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT message.id,message.user_id,message.destination_user_id FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at ORDER BY message.id DESC";
     // _debug('  $user_id:'.$user_id.'  $destnation_user_id:'.$destination_user_id);
     $stmt = $dbh->prepare($sql);
@@ -491,10 +446,7 @@ function get_last_bottom_message($user_id,$destination_user_id){
 
 function last_message_count($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT COUNT(*) FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
@@ -508,10 +460,7 @@ function last_message_count($user_id,$destination_user_id){
 
 function last_db_message_count($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT message_count
             FROM message_relation
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)
@@ -545,10 +494,7 @@ function last_db_message_count($user_id,$destination_user_id){
 
 function new_message_count($user_id,$destination_user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT message_count
             FROM message_relation
             WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :destination_user_id";
@@ -564,10 +510,7 @@ function new_message_count($user_id,$destination_user_id){
 
 function message_count($user_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT SUM(message_count)
             FROM message_relation
             WHERE destination_user_id = :user_id";
@@ -582,10 +525,7 @@ function message_count($user_id){
 
 function get_reply_comments($post_id,$comment_id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $sql = "SELECT *
             FROM comment
             WHERE post_id = :id AND comment_id = :comment_id";
@@ -614,10 +554,7 @@ function get_reply_comment_count($comment_id){
 
 function change_delete_flg($id,$flg){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $dbh->beginTransaction();
     $sql = 'UPDATE user SET delete_flg = :flg WHERE id = :id';
     $stmt = $dbh->prepare($sql);
@@ -634,10 +571,7 @@ function change_delete_flg($id,$flg){
 
 function update_login_time($date,$id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $dbh->beginTransaction();
     $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
     $stmt = $dbh->prepare($sql);
@@ -653,10 +587,7 @@ function update_login_time($date,$id){
 
 function update_last_login_time($date,$id){
   try {
-    $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-    $user='root';
-    $password='';
-    $dbh=new PDO($dsn,$user,$password);
+$dbh = dbConnect();
     $dbh->beginTransaction();
     $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
     $stmt = $dbh->prepare($sql);
