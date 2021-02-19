@@ -23,10 +23,7 @@ if(isset($_POST)){
               VALUES(:follow_id,:follower_id)";
     }
     try {
-      $dsn='mysql:dbname=db;host=localhost;charset=utf8';
-      $user='root';
-      $password='';
-      $dbh=new PDO($dsn,$user,$password);
+      $dbh = dbConnect();
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(':follow_id' => $current_user_id , ':follower_id' => $user_id));
       $return = array('action' => $action,

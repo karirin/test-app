@@ -14,7 +14,7 @@ function _debug( $data, $clear_log = false ) {
 
 function get_user($user_id){
   try {
-$dbh = dbConnect();
+    $dbh = dbConnect();
     $sql = "SELECT id,name,password,profile,image
             FROM user
             WHERE id = :id AND delete_flg = 0 ";
@@ -29,7 +29,7 @@ $dbh = dbConnect();
 
 function get_users($type,$query){
   try {
-$dbh = dbConnect();
+    $dbh = dbConnect();
 
     switch ($type) {
       case 'all':
@@ -74,7 +74,7 @@ $dbh = dbConnect();
 }
 
 function get_user_count($object,$user_id){
-$dbh = dbConnect();
+  $dbh = dbConnect();
 
   switch ($object) {
 

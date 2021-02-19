@@ -19,7 +19,7 @@ if(isset($_POST)){
             VALUES(:user_id,:post_id)";
   }
   try{
-$dbh = dbConnect();
+    $dbh = dbConnect();
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $current_user['id'] , ':post_id' => $post_id));
   } catch (\Exception $e) {
