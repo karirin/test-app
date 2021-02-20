@@ -1,1 +1,8 @@
-test
+Array
+(
+    [name] => chcp.png
+    [type] => image/png
+    [tmp_name] => C:\xampp4\tmp\php1CE.tmp
+    [error] => 0
+    [size] => 14561
+)

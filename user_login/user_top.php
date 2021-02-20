@@ -6,7 +6,6 @@ require_once('../post_process.php');
 ?>
 <body>
 <?php
-_debug('test');
 if (isset($_SESSION['id'])) {
   $current_user = get_user($_SESSION['id']);
 }else{

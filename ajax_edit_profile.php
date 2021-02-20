@@ -12,6 +12,7 @@ require_once('head.php');
   }else{
     $image = $_FILES['image_name'];
   }
+
   $user_id = $_POST['id'];
 
 if($name=='')
@@ -30,8 +31,7 @@ if($image['size']>0)
   }
   else
   {
-      move_uploaded_file($image['tmp_name'],'./image/'.$image['name']);
-
+      move_uploaded_file($image['tmp_name'],'user/image/'.$image['name']);
   }
 }
 }
