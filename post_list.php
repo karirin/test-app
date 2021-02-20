@@ -28,6 +28,17 @@ endif;
 ?>
 </a>
 <div class="post_info">
+<form class="favorite_count" action="#" method="post">
+            <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
+            <button type="button" name="favorite" class="btn favorite_btn" data-toggle="favorite" title="いいね">
+              <?php if (!check_favolite_duplicate($_SESSION['user_id'], $post['id'])) : ?>
+                <i class="far fa-star"></i>
+              <?php else : ?>
+                <i class="fas fa-star"></i>
+              <?php endif; ?>
+            </button>
+            <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
+</form>
 <div class="post_favorite">
 <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>" type="button" data-toggle="post" title="投稿"><i class="fas fa-comment-dots"></i></button>
 <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>

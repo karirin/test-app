@@ -560,13 +560,15 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .user_name_input {
-    width: 30%;
-    margin-bottom: 1rem;
+    width: 60%;
+    margin: 1rem 0;
+    padding: 0.5rem;
 }
 
 .user_pass_input {
-    width: 30%;
-    margin-bottom: 1rem;
+    width: 60%;
+    margin: 1rem 0;
+    padding: 0.5rem;
 }
 
 .editing {
@@ -958,4 +960,9 @@ img.preview {
     height: 0.01rem;
     font-weight: bold;
     margin-left: 2rem;
+}
+
+.image_select {
+    margin-top: 1rem;
+    font-size: 1rem;
 }

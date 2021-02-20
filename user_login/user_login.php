@@ -8,13 +8,11 @@ if(!empty($_POST)){
 ?>
 <body>
   <div class="row">
-<div class="col-8 offset-2 center">
-<h2>ユーザーログイン</h2>
+<div class="col-6 offset-3 center">
+<h2>ログイン</h2>
 <form method="post"action="#">
-<div class="user_login_info">ユーザー名</div>
-<input type="text" name="name" class="user_name_input">
-<div class="user_login_info">パスワード</div>
-<input type="password" name="pass" class="user_pass_input">
+<input type="text" name="name" class="user_name_input" placeholder="ユーザーID">
+<input type="password" name="pass" class="user_pass_input" placeholder="パスワード">
 <div class="login_btn margin_top">
 <input class="btn btn-outline-dark" type="submit" value="ログイン">
 <input class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">

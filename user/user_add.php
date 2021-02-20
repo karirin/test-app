@@ -5,16 +5,13 @@ require_once('../header.php');
 ?>
 <body>
 <div class="row">
-<div class="col-8 offset-2 center">
-<h2>ユーザー追加</h2>
+<div class="col-6 offset-3 center">
+<h2>新規登録</h2>
 <form method="post" action="user_add_check.php" enctype="multipart/form-data">
-<div class="user_login_info">ユーザー名を入力してください。</div>
-<input type="text" name="name" class="user_name_input">
-<div class="user_login_info">パスワード</div>
-<input type="password" name="pass">
-<div class="user_login_info">パスワードをもう一度入力してください。</div>
-<input type="password" name="pass2">
-<div class="user_login_info">プロフィール画像を選んでください。</div>
+<input type="text" name="name" class="user_name_input" placeholder="ユーザーID">
+<input type="password" name="pass" class="user_pass_input" placeholder="パスワード">
+<input type="password" name="pass2" class="user_pass_input" placeholder="パスワードを再度入力してください">
+<div class="image_select">プロフィール画像を選んでください。</div>
 <div class="post_btn margin_top">
 <label>
   <i class="far fa-image"></i>
