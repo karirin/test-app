@@ -14,11 +14,11 @@ $user_id = $_POST['user_id'];
 $post_id = $_POST['post_id'];
 
 $dbh = dbConnect();
-$sql = 'DELETE FROM comment WHERE id=?';
+$sql = 'DELETE FROM comment WHERE id OR comment_id=?';
 $stmt = $dbh -> prepare($sql);
 $data[] = $comment_id;
 $stmt -> execute($data);
-
+_debug($stmt);
 $dbh = null;
 
 if($comment_image_name != '')
