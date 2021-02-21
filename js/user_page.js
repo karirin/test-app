@@ -273,12 +273,11 @@ $(document).on('change', '#my_image', function() {
     });
 });
 $(document).on('change', '#edit_profile_img', function() {
-    $('#profile_clear').show();
+    $('.far.fa-times-circle').show();
     $(document).on('click', '#profile_clear', function() {
         $('#edit_profile_img').val('');
-        $(this).hide();
+        $('.far.fa-times-circle').hide();
         $('.editing_profile_img').hide();
-        $('#profile_clear').hide();
     });
 });
 $(document).on('change', '#comment_image', function() {

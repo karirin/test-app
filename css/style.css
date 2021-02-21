@@ -76,6 +76,7 @@ img.mypage {
     top: 34%;
     right: 33%;
     z-index: 10;
+    color: rgb(153, 153, 153);
 }
 
 .edit_profile_img .fa-image_range {
@@ -506,15 +507,6 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0;
 }
 
-
-/* .post .post_list .reply_comment {
-    display: none;
-}
-
-.post .post_list .comment .reply .thread_btn p:nth-child(n + 1) {
-    display: none;
-} */
-
 .post .post_list .reply_comment {
     border-top: 0.1rem solid rgb(163, 163, 163);
     padding: 1rem;
@@ -609,7 +601,7 @@ nav.navbar.navbar-light.mb-2 {
 
 .profile .editing_profile_img {
     border-radius: 10rem;
-    opacity: 0.8;
+    opacity: 0.3;
     width: 11rem;
     height: 11rem;
 }

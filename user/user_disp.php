@@ -52,7 +52,10 @@ switch ($page_type) {
 <input type="file" name="image_name" id="edit_profile_img" accept="image/*" multiple>
 </label>
 <img name="profile_image" class="editing_profile_img" src="/user/image/<?= $current_user['image'] ?>">
-<input type="button" id="profile_clear" value="ファイルをクリアする">
+<label>
+  <i class="far fa-times-circle"></i>
+  <input type="button" id="profile_clear">
+</label>
 </div>
 <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
 <h3 class="profile_name"><?= $current_user['name'] ?></h3>
