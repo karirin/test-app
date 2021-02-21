@@ -79,6 +79,20 @@ img.mypage {
     color: rgb(153, 153, 153);
 }
 
+.edit_profile_img .fa-times-circle {
+    position: absolute;
+    top: 8%;
+    right: 30%;
+    z-index: 10;
+    font-size: 2rem;
+    color: rgb(172, 172, 172);
+    display: none;
+}
+
+.edit_profile_img .fa-times-circle:hover {
+    opacity: 0.5;
+}
+
 .edit_profile_img .fa-image_range {
     position: absolute;
     width: 3rem;
@@ -89,7 +103,7 @@ img.mypage {
 }
 
 .edit_profile_img .fa-image_range:hover {
-    background-color: rgba(256, 256, 256, 0.5);
+    background-color: rgba(256, 256, 256, 0.3);
 }
 
 ul {
