@@ -79,17 +79,27 @@ img.mypage {
     color: rgb(153, 153, 153);
 }
 
-.edit_profile_img .fa-times-circle {
+.far.fa-times-circle {
+    display: none;
     position: absolute;
+}
+
+.col-10.offset-1 .far.fa-times-circle {
+    top: 62%;
+    right: 29%;
+    font-size: 2rem;
+}
+
+.edit_profile_img .far.fa-times-circle {
     top: 8%;
     right: 30%;
     z-index: 10;
     font-size: 2rem;
     color: rgb(172, 172, 172);
-    display: none;
 }
 
-.edit_profile_img .fa-times-circle:hover {
+.edit_profile_img .fa-times-circle:hover,
+.col-10.offset-1 .far.fa-times-circle:hover {
     opacity: 0.5;
 }
 
@@ -945,11 +955,6 @@ img.preview {
 .bottom_message_time {
     vertical-align: top;
     float: right;
-}
-
-.preview_img {
-    text-align: left;
-    margin-left: 2rem;
 }
 
 .direct_message {

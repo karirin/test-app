@@ -264,19 +264,18 @@ $(document).on('change', '#process_image', function() {
 });
 
 $(document).on('change', '#my_image', function() {
-    $('#my_clear').show();
+    $('.far.fa-times-circle.my_clear').show();
     $(document).on('click', '#my_clear', function() {
         $('#my_image').val('');
-        $(this).hide();
+        $('.far.fa-times-circle.my_clear').hide();
         $('.my_preview').hide();
-        $('#my_clear').hide();
     });
 });
 $(document).on('change', '#edit_profile_img', function() {
-    $('.far.fa-times-circle').show();
+    $('.far.fa-times-circle.profile_clear').show();
     $(document).on('click', '#profile_clear', function() {
         $('#edit_profile_img').val('');
-        $('.far.fa-times-circle').hide();
+        $('.far.fa-times-circle.profile_clear').hide();
         $('.editing_profile_img').hide();
     });
 });

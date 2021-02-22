@@ -110,8 +110,8 @@ require_once('../post_process.php');
         foreach ($comments as $comment) :
           if (empty($comment['comment_id'])) :
             $comment_user = get_user($comment['user_id']);
-        print'<div class="comment">';
-        ?>            
+        ?>
+            <div class="comment">
               <object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $comment_user['id'] ?>&type=all">
                   <div class="user_info">
                     <img src="/user/image/<?= $comment_user['image'] ?>">
@@ -171,21 +171,13 @@ require_once('../post_process.php');
             print '<span class="comment_created_at margin_bottom">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
           endif;
           $reply_comments = get_reply_comments($post['id'], $comment['id']);
-          // _debug($reply_comments);
-          // for($i = 0; $i <= $reply_comments[$i]; $i++){
-          //   if(!empty($reply_comments)):
-          //     print'<a href="#" class="thread_btn" data-target="#reply_'.current($reply_comments[$i]).'"><p>このスレッドを表示する</p></a>';
-          //   endif;
             ?>
-            <div class="reply">
               <?php
               foreach ($reply_comments as $reply_comment) :
                 if ($reply_comment['comment_id'] == $comment['id']) :
                   $reply_comment_user = get_user($reply_comment['user_id']);
-                  //  if (!empty($reply_comment)) :
-                  //    print '<a href="#" class="thread_btn" data-target="#'.$reply_comment['id'].'"><p>このスレッドを表示する</p></a>';
-                  //  endif;
               ?>
+            <div class="reply">
                   <div class="reply_comment">
                     <object><a href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>&type=all">
                         <div class="user_info">
@@ -213,18 +205,22 @@ require_once('../post_process.php');
                           <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                         </form>
                       </div>
-                    <?php endif; ?>
                     </div>
                     <span class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at']) ?></span>
 
                   </div>
-                <?php endforeach; ?>
+                  <?php endif; ?>
+            <?php endforeach; ?>
             </div>
-          </div>
-          <?php endforeach; ?>
+
+            <?php endforeach; ?>
+            </div>
+
+            </div>
+
+            </div>
       </div>
-                  </div>
-                  </div>
+    </div>
+  </divaa>
 
-
-      <?php require_once('../footer.php'); ?>
+    <?php require_once('../footer.php'); ?>

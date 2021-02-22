@@ -18,7 +18,7 @@ require_once('../header.php');
   <input type="file" name="image" id="my_image" accept="image/*" multiple>
 </label>
 </div>
-  <p class="preview_img"><img class="my_preview"></p>
+<p class="preview_img"><img class="my_preview"></p>
   <input type="button" id="my_clear" value="ファイルをクリアする">
   <div class="login_btn margin_top">
 <input　class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">
