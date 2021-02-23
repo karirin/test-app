@@ -46,7 +46,7 @@ $stmt -> execute($data);
 $dbh = null;
 
 set_flash('sucsess','投稿しました');
-header('Location:../user_login/user_top.php?type=main');
+header('Location:../user_login/user_top.php?type=main&page_id=current_user');
 
 }   
 catch (Exception $e)

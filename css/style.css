@@ -156,6 +156,26 @@ nav.navbar.navbar-light.mb-2 {
     width: auto;
 }
 
+.slide_menu {
+    display: none;
+    color: #fff;
+    width: 300px;
+    height: 100%;
+    padding: 100px 10px;
+    background-color: #000;
+    border-left: 2px solid #fff;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 15;
+    -webkit-transform: translate(400px);
+    transform: translate(400px);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    cursor: default;
+}
+
 .btn_flex {
     display: none;
     justify-content: space-around;

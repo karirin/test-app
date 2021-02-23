@@ -221,6 +221,6 @@ require_once('../post_process.php');
             </div>
       </div>
     </div>
-  </divaa>
+  </div>
 
     <?php require_once('../footer.php'); ?>
