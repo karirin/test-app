@@ -15,6 +15,15 @@ function get_param(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+$('.slide_menu').show();
+
+$('.show_menu').on('click', function() {
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    $('.modal').fadeIn();
+    $('.slide_menu').addClass('open');
+})
+
 // 画像の選択時、表示処理
 $('#image').on('change', function(e) {
     var reader = new FileReader();

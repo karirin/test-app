@@ -176,6 +176,20 @@ nav.navbar.navbar-light.mb-2 {
     cursor: default;
 }
 
+.slide_menu.open {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+}
+
+.slide_menu li {
+    width: 100%;
+    line-height: 50px;
+    padding: 0;
+    margin: 0 0 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
 .btn_flex {
     display: none;
     justify-content: space-around;

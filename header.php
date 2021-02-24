@@ -9,9 +9,6 @@
         <ul>
             <li><a href="../user/user_list.php?type=all">ユーザー一覧</a></li>
             <li><a href="../post/post_index.php?type=all">投稿一覧</a></li>
-            <li><a href="../message/message_top.php">
-                メッセージ<?php if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';} ?>
-            </a></li>
             <li><a href="../user_login/user_logout.php">ログアウト</a></li>
             <li><a href="/withdraw.php">退会</a></li>
         </ul>
