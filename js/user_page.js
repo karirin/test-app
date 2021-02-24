@@ -240,6 +240,7 @@ $(document).on('click', ".modal_close", function() {
     $('.btn_flex').css('display', 'none');
     $('.profile').removeClass('editing');
     $('.edit_btn').fadeIn();
+    $('.slide_menu').removeClass('open');
 });
 
 // 編集ボタン押下時の処理
