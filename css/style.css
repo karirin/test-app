@@ -117,8 +117,6 @@ img.mypage {
 }
 
 ul {
-    display: -webkit-flex;
-    display: flex;
     -webkit-justify-content: flex-start;
     justify-content: flex-start;
     list-style: none;
@@ -132,8 +130,8 @@ ul li {
     font-size: 1.2rem;
 }
 
-ul li:nth-of-type(2) {
-    margin-left: auto;
+ul li.top_link {
+    margin-right: auto;
 }
 
 ul li a {
@@ -142,6 +140,20 @@ ul li a {
 
 ul li a:hover {
     color: #fff;
+}
+
+ul.main_ul {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.slide_menu ul {
+    padding: 0rem 0.5rem;
+    text-align: center;
+}
+
+.slide_menu ul li:hover {
+    opacity: 0.7;
 }
 
 nav.navbar.navbar-light.mb-2 {
@@ -153,6 +165,7 @@ nav.navbar.navbar-light.mb-2 {
 
 .show_menu {
     display: none;
+    color: #fff;
 }
 
 .slide_menu {
@@ -182,11 +195,11 @@ nav.navbar.navbar-light.mb-2 {
 
 .slide_menu li {
     width: 100%;
-    line-height: 50px;
-    padding: 0;
-    margin: 0 0 10px;
-    border-radius: 8px;
+    line-height: 3.5rem;
+    margin: 0 0 1rem;
+    border-radius: 0.5rem;
     box-sizing: border-box;
+    border: solid;
 }
 
 .btn_flex {
@@ -1011,11 +1024,11 @@ img.preview {
     font-size: 1rem;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .show_menu {
         display: block;
     }
-    .header_menu {
+    .header_menu_wide {
         display: none;
     }
 }
