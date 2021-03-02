@@ -1031,4 +1031,16 @@ img.preview {
     .header_menu_wide {
         display: none;
     }
+    .slide_menu_message {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .slide_menu_message {
+        display: block;
+    }
+    .header_menu {
+        display: none;
+    }
 }
