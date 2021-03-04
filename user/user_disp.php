@@ -7,7 +7,7 @@ require_once('../post_process.php');
 
 <body>
 
-<div class="row wide">
+<div class="row wide_disp">
 <div class="col-4">
 <?php
 $page_type = $_GET['type'];
@@ -141,8 +141,8 @@ require_once('user_list.php');
 </div>
 </div>
 
-<div class="row narrow">
-<div class="col-4">
+<div class="row narrow_disp">
+<div class="col-6 center">
 <?php
 $page_type = $_GET['type'];
 $page_id = $_GET['page_id'];
@@ -230,7 +230,7 @@ $follower_count = get_user_count('follower',$current_user['id']);
 
 </div>
 
-<div class="col-4">
+<div class="col-6">
 
 <?php if($page_type === 'main'): ?>
   <h2 class="left"><?= $current_user['name'] ?>さんの投稿</h2>
@@ -245,6 +245,7 @@ $follower_count = get_user_count('follower',$current_user['id']);
 <?php
 if(isset($posts)){
 require_once('../post_list.php');
+_debug('test');
 }else{
 require_once('user_list.php');
 }

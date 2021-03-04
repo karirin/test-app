@@ -1024,7 +1024,7 @@ img.preview {
     font-size: 1rem;
 }
 
-.narrow {
+.narrow_disp {
     display: none;
     text-align: center;
 }
@@ -1039,10 +1039,13 @@ img.preview {
     .slide_menu_message {
         display: none;
     }
-    .wide {
+    .wide_disp {
         display: none;
     }
-    .narrow {
+    .narrow_disp {
+        display: flex;
+    }
+    .post {
         display: block;
     }
 }
