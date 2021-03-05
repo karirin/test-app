@@ -1,30 +1,29 @@
 <?php 
 foreach($posts as $post):
 $post_user = get_user($post['user_id']); 
-
-print'<div class="post">';
-print'<a href="/post/post_disp.php?post_id='.$post['id'].'&user_id='.$current_user['id'].'" class="post_link">';
-if(basename($_SERVER['PHP_SELF']) === 'user_top.php'):
-print'<div class="post_list"  style="width: 100%;">';
-else:
-print'<div class="post_list"  style="width: 80%;">';
-endif;
-print'<div class="post_user">';
-print'<object><a href="/user/user_disp.php?user_id='.$current_user['id'].'&page_id='.$post_user['id'].'&type=all">';
-print'<img src="/user/image/'.$post_user['image'].'">'; 
-print''.$post_user['name'].'';
-print'</a></object>';
-print'</div>';
-print'<div class="post_text ellipsis" id="post_text">';
-print''.$post['text'].'';
-print'</div>';
-if (substr_count($post['text'],"\n") +1 > 10):
-print'<object><a href="#" class="show_all">続きを表示する</a></object>';
-endif;
+?>
+<div class="post">
+<a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
+<?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
+<div class="post_list"  style="width: 100%;">
+<?php else: ?>
+<div class="post_list"  style="width: 80%;">
+<?php endif; ?>
+<div class="post_user">
+<object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=all">
+<img src="/user/image/<?= $post_user['image'] ?>">
+<?php print''.$post_user['name'].''; ?>
+</a></object>
+</div>
+<div class="post_text ellipsis" id="post_text">
+<?php print''.$post['text'].''; ?>
+</div>
+<?php if (substr_count($post['text'],"\n") +1 > 10): ?>
+<object><a href="#" class="show_all">続きを表示する</a></object>
+<?php endif; 
 if (!empty($post['image'])):
   print'<img src="/post/image/'.$post['image'].'" class="post_img" >';
 endif;
-
 ?>
 </a>
 <div class="post_info">

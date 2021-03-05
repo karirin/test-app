@@ -110,9 +110,9 @@ $follower_count = get_user_count('follower',$current_user['id']);
 
 <?php
 if(isset($posts)){
-require_once('../post_list.php');
+require('../post_list.php');
 }else{
-require_once('user_list.php');
+require('user_list.php');
 }
 ?>
 </div>
@@ -244,10 +244,9 @@ $follower_count = get_user_count('follower',$current_user['id']);
 
 <?php
 if(isset($posts)){
-require_once('../post_list.php');
-_debug('test');
+require('../post_list.php');
 }else{
-require_once('user_list.php');
+require('user_list.php');
 }
 ?>
 </div>

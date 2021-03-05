@@ -1046,7 +1046,7 @@ img.preview {
         display: flex;
     }
     .post {
-        display: block;
+        width: 80%;
     }
 }
 
