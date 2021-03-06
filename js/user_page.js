@@ -44,7 +44,7 @@ $('#my_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('#edit_image').on('change', function(e) {
+$('#edit_image,#edit_image_narrow').on('change', function(e) {
     var reader = new FileReader();
     $(".edit_preview").fadeIn();
     reader.onload = function(e) {
@@ -53,7 +53,7 @@ $('#edit_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('#comment_image').on('change', function(e) {
+$('#comment_image,#comment_image_narrow').on('change', function(e) {
     var reader = new FileReader();
     $(".comment_preview").fadeIn();
     reader.onload = function(e) {
@@ -149,7 +149,7 @@ $('#post_counter').on('input', function() {
     }
 });
 
-$('#comment_counter').on('input', function() {
+$('#comment_counter,#comment_counter_narrow').on('input', function() {
     var count = $(this).val().length;
     $('.comment_count').text(count);
     if (count > 300) {
@@ -159,7 +159,7 @@ $('#comment_counter').on('input', function() {
     }
 });
 
-$('#edit_counter').on('input', function() {
+$('#edit_counter,#edit_counter_narrow').on('input', function() {
     var count = $(this).val().length;
     $('.post_edit_count').text(count);
     if (count > 300) {
@@ -289,13 +289,13 @@ $(document).on('change', '#edit_profile_img', function() {
         $('.editing_profile_img').hide();
     });
 });
-$(document).on('change', '#comment_image', function() {
-    $('#comment_clear').show();
-    $(document).on('click', '#comment_clear', function() {
-        $('#comment_image').val('');
+$(document).on('change', '#comment_image,#comment_image_narrow', function() {
+    $('#comment_clear,#comment_clear_narrow').show();
+    $(document).on('click', '#comment_clear,#comment_clear_narrow', function() {
+        $('#comment_image,#comment_image_narrow').val('');
         $(this).hide();
         $('.comment_preview').hide();
-        $('#comment_clear').hide();
+        $('#comment_clear,#comment_clear_narrow').hide();
     });
 });
 $(document).on('change', '#reply_comment_image', function() {
@@ -307,13 +307,13 @@ $(document).on('change', '#reply_comment_image', function() {
         $('#reply_clear').hide();
     });
 });
-$(document).on('change', '#edit_image', function() {
-    $('#edit_clear').show();
-    $(document).on('click', '#edit_clear', function() {
-        $('#edit_image').val('');
+$(document).on('change', '#edit_image,#edit_image_narrow', function() {
+    $('#edit_clear,#edit_clear_narrow').show();
+    $(document).on('click', '#edit_clear_narrow', function() {
+        $('#edit_image_narrow').val('');
         $(this).hide();
         $('.edit_preview').hide();
-        $('#edit_clear').hide();
+        $('#edit_clear_narrow').hide();
     });
 });
 $('#edit_profile_img').on('change', function(e) {

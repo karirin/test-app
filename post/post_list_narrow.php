@@ -1,8 +1,8 @@
-<?php 
+<?php
 foreach($posts as $post):
 $post_user = get_user($post['user_id']); 
 ?>
-<div class="post">
+<div class="post narrow">
 <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
 <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
 <div class="post_list"  style="width: 100%;">
@@ -46,14 +46,14 @@ endif;
             <p class="modal_title" >この投稿にコメントしますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
-            <textarea id="comment_counter" class="textarea form-control" placeholder="コメントを入力ください" name="text"></textarea>
+            <textarea id="comment_counter_narrow" class="textarea form-control" placeholder="コメントを入力ください" name="text"></textarea>
             <div class="counter">
                 <span class="comment_count">0</span><span>/300</span>
             </div>
             <div class="comment_img">
             <label>
             <i class="far fa-image"></i>
-            <input type="file" name="image_name" id="comment_image" accept="image/*" multiple>
+            <input type="file" name="image_name" id="comment_image_narrow" accept="image/*" multiple>
             </label>
             <p><img class="comment_preview"></p>
             <input type="button" id="comment_clear" value="ファイルをクリアする">
@@ -69,17 +69,17 @@ endif;
 <div class="post_edit" id="edit_modal<?= $post['id'] ?>_narrow">
 <p>投稿内容更新</p>
 <form method="post" action="../post/post_edit_done.php" enctype="multipart/form-data">
-<textarea id="edit_counter" class="textarea form-control" placeholder="投稿内容を編集してください" name="text"><?php print $post['text']; ?></textarea>
+<textarea id="edit_counter_narrow" class="textarea form-control" placeholder="投稿内容を編集してください" name="text"><?php print $post['text']; ?></textarea>
 <div class="counter">
                 <span class="post_edit_count">0</span><span>/300</span>
 </div>
 <div class="post_image">
 <label>
 <i class="far fa-image"></i>
-<input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
+<input type="file" name="image_name" id="edit_image_narrow" accept="image/*" multiple>
 </label>
 <p><img class="edit_preview"></p>
-<input type="button" id="edit_clear" value="ファイルをクリアする">
+<input type="button" id="edit_clear_narrow" value="ファイルをクリアする">
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">

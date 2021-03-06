@@ -111,7 +111,7 @@ $follower_count = get_user_count('follower',$current_user['id']);
 <?php
 _debug($posts);
 if(isset($posts)){
-require('../post/post_list_wide.php');
+require('../post/post_list.php');
 }else{
 require('user_list.php');
 }

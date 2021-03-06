@@ -676,19 +676,15 @@ nav.navbar.navbar-light.mb-2 {
     height: 11rem;
 }
 
-#my_image {
-    display: none;
-}
-
-#process_image {
-    display: none;
-}
-
-#edit_image {
-    display: none;
-}
-
-#comment_image {
+#comment_image,
+#comment_image_narrow,
+#edit_image,
+#edit_image_narrow,
+#edit_profile_img,
+#my_image,
+#my_image_narrow,
+#process_image,
+#reply_comment_image {
     display: none;
 }
 
@@ -760,30 +756,13 @@ img.preview {
     margin-left: 1rem;
 }
 
-#edit_profile_img {
-    display: none;
-}
-
-#process_clear {
-    display: none;
-}
-
-#my_clear {
-    display: none;
-}
-
-#profile_clear {
-    display: none;
-}
-
-#comment_clear {
-    display: none;
-}
-
-#edit_clear {
-    display: none;
-}
-
+#comment_clear,
+#edit_clear,
+#edit_clear_narrow,
+#my_clear,
+#my_clear_narrow,
+#profile_clear,
+#process_clear,
 #reply_clear {
     display: none;
 }
@@ -1045,7 +1024,7 @@ img.preview {
     .narrow_disp {
         display: flex;
     }
-    .post {
+    .post.narrow {
         width: 80%;
     }
 }
