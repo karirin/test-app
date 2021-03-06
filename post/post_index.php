@@ -34,7 +34,7 @@ switch ($page_type) {
 </div>
 </form>
 <?php
-require_once('../post_list.php');
+require_once('post_list.php');
 print'</div>';
 require_once('../footer.php'); 
 ?>
