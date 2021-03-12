@@ -193,8 +193,8 @@ switch ($page_type) {
 </label>
 </div>
 <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
-<h3 class="profile_name"><?= $current_user['name'] ?></h3>
-<p class="comment"><?= $current_user['profile'] ?></p>
+<h3 class="profile_name_narrow"><?= $current_user['name'] ?></h3>
+<p class="comment_narrow"><?= $current_user['profile'] ?></p>
 <input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
 <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>" style="display:none;">
 <div class="btn_flex">

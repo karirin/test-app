@@ -221,6 +221,8 @@ $(document).on('focus', '.textarea', function() {
 
 var user_comment = $('.comment').text(),
     user_name = $('.profile_name').text(),
+    user_comment_narrow = $('.comment_narrow').text(),
+    user_name_narrow = $('.profile_name_narrow').text(),
     user_id = $('.user_id').val();
 
 // モーダル画面キャンセルボタン押下時の処理
@@ -235,6 +237,8 @@ $(document).on('click', ".modal_close", function() {
     $('.reply_comment_confirmation').fadeOut();
     $('.edit_comment').replaceWith('<p class="comment">' + user_comment + '</p>');
     $('.edit_name').replaceWith('<h2 class="profile_name">' + user_name + '</h2>');
+    $('.edit_comment_narrow').replaceWith('<p class="comment">' + user_comment_narrow + '</p>');
+    $('.edit_name_narrow').replaceWith('<h2 class="profile_name">' + user_name_narrow + '</h2>');
     $('.mypage').css('display', 'inline');
     $('.edit_profile_img').css('display', 'none');
     $('.btn_flex').css('display', 'none');
@@ -250,6 +254,8 @@ $(document).on('click', '.edit_btn', function() {
     $('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name + '">');
+    $('.comment_narrow').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrow);
+    $('.profile_name_narrow').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrow + '">');
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
