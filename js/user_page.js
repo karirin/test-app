@@ -24,6 +24,13 @@ $('.show_menu').on('click', function() {
     $('.slide_menu').addClass('open');
 })
 
+$('.slide_prof').on('click', function() {
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    $('.modal').fadeIn();
+    $('.slide_prof').addClass('open');
+})
+
 // 画像の選択時、表示処理
 $('#image').on('change', function(e) {
     var reader = new FileReader();
@@ -223,6 +230,8 @@ var user_comment = $('.comment').text(),
     user_name = $('.profile_name').text(),
     user_comment_narrow = $('.comment_narrow').text(),
     user_name_narrow = $('.profile_name_narrow').text(),
+    user_comment_narrower = $('.comment_narrower').text(),
+    user_name_narrower = $('.profile_name_narrower').text(),
     user_id = $('.user_id').val();
 
 // モーダル画面キャンセルボタン押下時の処理
@@ -230,6 +239,7 @@ $(document).on('click', ".modal_close", function() {
     $('body').removeClass('fixed').css({ 'top': 0 });
     window.scrollTo(0, scroll_position);
     $('.modal').fadeOut();
+    $('.modal_post').fadeOut();
     $('.delete_confirmation').fadeOut();
     $('.post_process').fadeOut();
     $('.post_edit').fadeOut();
@@ -239,6 +249,8 @@ $(document).on('click', ".modal_close", function() {
     $('.edit_name').replaceWith('<h2 class="profile_name">' + user_name + '</h2>');
     $('.edit_comment_narrow').replaceWith('<p class="comment">' + user_comment_narrow + '</p>');
     $('.edit_name_narrow').replaceWith('<h2 class="profile_name">' + user_name_narrow + '</h2>');
+    $('.edit_comment_narrower').replaceWith('<p class="comment">' + user_comment_narrower + '</p>');
+    $('.edit_name_narrower').replaceWith('<h2 class="profile_name">' + user_name_narrower + '</h2>');
     $('.mypage').css('display', 'inline');
     $('.edit_profile_img').css('display', 'none');
     $('.btn_flex').css('display', 'none');
@@ -256,10 +268,13 @@ $(document).on('click', '.edit_btn', function() {
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name + '">');
     $('.comment_narrow').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrow);
     $('.profile_name_narrow').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrow + '">');
+    $('.comment_narrower').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrower);
+    $('.profile_name_narrower').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrower + '">');
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
     $('.modal').fadeIn();
+    $('.modal_prof').fadeIn();
     $('.profile').addClass('editing');
 });
 
@@ -358,13 +373,23 @@ $(document).on('click', '.thread_btn', function() {
 });
 
 // 投稿モーダル画面出力処理
-$(document).on('click', '.post_window', function() {
+$(document).on('click', '.post_modal', function() {
     //背景をスクロールできないように　&　スクロール場所を維持
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
     // モーダルウィンドウを開く
     $('.post_process').fadeIn();
-    $('.modal').fadeIn();
+    $('.modal_post').fadeIn();
+});
+
+$(document).on('click', '.prof_modal', function() {
+    //背景をスクロールできないように　&　スクロール場所を維持
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    // モーダルウィンドウを開く
+    $('.slide_prof').fadeIn();
+    $('.modal_prof').fadeIn();
+    $('.slide_prof').addClass('open');
 });
 
 // // 各種ツールチップ処理

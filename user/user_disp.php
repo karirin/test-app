@@ -252,4 +252,17 @@ require('user_list.php');
 ?>
 </div>
 </div>
+<div class="row narrower_disp">
+<?php 
+$page_type = $_GET['type'];
+$page_id = $_GET['page_id'];
+
+if($page_id=='current_user'){
+  $current_user=get_user($_SESSION['user_id']);
+}else{
+  $current_user=get_user($page_id);
+}
+require_once('../profile.php');
+?>
+</div>
   <?php require_once('../footer.php'); ?>

@@ -6,11 +6,13 @@
     <li><a href="../user/user_add.php">新規登録</a></li>
 <?php 
     else:
+    $current_user=get_user($_SESSION['user_id']);
 ?>
     <ul class="main_ul">
     <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">app</a></li>
+    <li class="top_link prof_page"><a class="prof_modal" href="#"><img src="/user/image/<?= $current_user['image'] ?>" class="user_image"></a></li>
     <li class="header_menu_wide"><a href="../user/user_list.php?type=all">ユーザー一覧</a></li>
-    <li class="header_menu_narrow"><a class="post_window" href="#">投稿</a></li>
+    <li class="header_menu_narrow"><a class="post_modal" href="#">投稿</a></li>
     <li class="header_menu_wide"><a href="../post/post_index.php?type=all">投稿一覧</a></li>
     <li class="header_menu"><a href="../message/message_top.php">
       メッセージ<?php if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';} ?>

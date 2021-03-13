@@ -8,8 +8,8 @@ Array
             [1] => karirin3948
             [password] => 11a3293c59067da2dd09fec6c5ff0466
             [2] => 11a3293c59067da2dd09fec6c5ff0466
-            [profile] => aaa
-            [3] => aaa
+            [profile] => 
+            [3] => 
             [delete_flg] => 0
             [4] => 0
             [5] => 34
@@ -31,8 +31,8 @@ Array
             [1] => karirin3948
             [password] => 11a3293c59067da2dd09fec6c5ff0466
             [2] => 11a3293c59067da2dd09fec6c5ff0466
-            [profile] => aaa
-            [3] => aaa
+            [profile] => 
+            [3] => 
             [delete_flg] => 0
             [4] => 0
             [5] => 33

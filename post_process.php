@@ -1,4 +1,4 @@
-<div class="modal"></div>
+<div class="modal_post"></div>
 <div class="post_process">
   <h2 class="post_title">投稿</h2>
   <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">

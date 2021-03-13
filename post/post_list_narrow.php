@@ -79,7 +79,7 @@ endif;
 <input type="file" name="image_name" id="edit_image_narrow" accept="image/*" multiple>
 </label>
 <p><img class="edit_preview"></p>
-<input type="button" id="edit_clear_narrow" value="ファイルをクリアする">
+<input type="button" id="edit_clear_narrowl" value="ファイルをクリアする">
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
