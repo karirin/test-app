@@ -85,7 +85,7 @@ img.mypage {
     top: 34%;
     right: 33%;
     z-index: 10;
-    color: rgb(153, 153, 153);
+    color: rgb(0, 0, 0);
 }
 
 .far.fa-times-circle {
@@ -122,7 +122,7 @@ img.mypage {
 }
 
 .edit_profile_img .fa-image_range:hover {
-    background-color: rgba(256, 256, 256, 0.3);
+    background-color: rgb(182, 182, 182);
 }
 
 ul {
@@ -1112,5 +1112,8 @@ img.preview {
     }
     .edit_profile_img .far.fa-times-circle {
         right: 13%;
+    }
+    .edit_profile_img .fa-image_range {
+        right: 40%;
     }
 }
