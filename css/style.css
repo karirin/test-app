@@ -44,6 +44,15 @@ body.fixed {
     border-radius: 1rem;
 }
 
+.fas.fa-angle-right {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+.fas.fa-angle-right:hover {
+    opacity: 0.5;
+}
+
 .fa-trash-alt:hover {
     color: hsl(0, 100%, 30%);
 }
@@ -91,11 +100,11 @@ img.mypage {
 }
 
 .edit_profile_img .far.fa-times-circle {
-    top: 8%;
-    right: 30%;
+    top: 4%;
+    right: 26%;
     z-index: 10;
-    font-size: 2rem;
-    color: rgb(172, 172, 172);
+    font-size: 3rem;
+    color: black;
 }
 
 .edit_profile_img .fa-times-circle:hover,
@@ -173,7 +182,7 @@ nav.navbar.navbar-light.mb-2 {
     color: #fff;
     width: 300px;
     height: 100%;
-    padding: 100px 10px;
+    padding: 20px;
     background-color: #000;
     border-left: 2px solid #fff;
     box-sizing: border-box;
@@ -406,7 +415,7 @@ nav.navbar.navbar-light.mb-2 {
     display: none;
     width: 300px;
     height: 100%;
-    padding: 50px 10px;
+    padding: 20px;
     background-color: rgb(255, 255, 255);
     border-right: 2px solid rgb(0, 0, 0);
     box-sizing: border-box;
@@ -615,6 +624,14 @@ nav.navbar.navbar-light.mb-2 {
     padding: 0;
 }
 
+.prof_close {
+    text-align: right;
+}
+
+.prof_close p {
+    margin: 0;
+}
+
 .post .post_list .reply_comment {
     border-top: 0.1rem solid rgb(163, 163, 163);
     padding: 1rem;
@@ -673,7 +690,6 @@ nav.navbar.navbar-light.mb-2 {
 
 .editing {
     z-index: 15;
-    background-color: #000;
     position: relative;
 }
 
@@ -716,11 +732,16 @@ nav.navbar.navbar-light.mb-2 {
 
 #comment_image,
 #comment_image_narrow,
+#comment_image_narrower,
 #edit_image,
 #edit_image_narrow,
+#edit_image_narrower,
 #edit_profile_img,
+#edit_profile_img_narrow,
+#edit_profile_img_narrower,
 #my_image,
 #my_image_narrow,
+#my_image_narrower,
 #process_image,
 #reply_comment_image {
     display: none;
@@ -793,8 +814,10 @@ img.preview {
 #comment_clear,
 #edit_clear,
 #edit_clear_narrow,
+#edit_clear_narrower,
 #my_clear,
 #my_clear_narrow,
+#my_clear_narrower,
 #profile_clear,
 #process_clear,
 #reply_clear {
@@ -1042,6 +1065,11 @@ img.preview {
     text-align: center;
 }
 
+.narrower_disp {
+    display: none;
+    text-align: center;
+}
+
 @media screen and (max-width: 1000px) {
     .show_menu {
         display: block;
@@ -1078,5 +1106,11 @@ img.preview {
     }
     .prof_page {
         display: block;
+    }
+    .post.narrower {
+        width: 100%;
+    }
+    .edit_profile_img .far.fa-times-circle {
+        right: 13%;
     }
 }

@@ -39,21 +39,21 @@ endif;
             <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
 </form>
 <div class="post_favorite">
-<button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>_narrow" type="button" data-toggle="post" title="投稿"><i class="fas fa-comment-dots"></i></button>
+<button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>_narrower" type="button" data-toggle="post" title="投稿"><i class="fas fa-comment-dots"></i></button>
 <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
 </div>
-<div class="comment_confirmation" id="modal<?= $post['id'] ?>_narrow">
+<div class="comment_confirmation" id="modal<?= $post['id'] ?>_narrower">
             <p class="modal_title" >この投稿にコメントしますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form method="post" action="../comment/comment_add_done.php" enctype="multipart/form-data">
-            <textarea id="comment_counter_narrow" class="textarea form-control" placeholder="コメントを入力ください" name="text"></textarea>
+            <textarea id="comment_counter_narrower" class="textarea form-control" placeholder="コメントを入力ください" name="text"></textarea>
             <div class="counter">
                 <span class="comment_count">0</span><span>/300</span>
             </div>
             <div class="comment_img">
             <label>
             <i class="far fa-image"></i>
-            <input type="file" name="image_name" id="comment_image_narrow" accept="image/*" multiple>
+            <input type="file" name="image_name" id="comment_image_narrower" accept="image/*" multiple>
             </label>
             <p><img class="comment_preview"></p>
             <input type="button" id="comment_clear" value="ファイルをクリアする">
@@ -65,21 +65,21 @@ endif;
               </div>
             </form>
 </div>
-<button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>_narrow" type="button" data-toggle="edit" title="編集"><i class="fas fa-edit"></i></button>
-<div class="post_edit" id="edit_modal<?= $post['id'] ?>_narrow">
+<button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>_narrower" type="button" data-toggle="edit" title="編集"><i class="fas fa-edit"></i></button>
+<div class="post_edit" id="edit_modal<?= $post['id'] ?>_narrower">
 <p>投稿内容更新</p>
 <form method="post" action="../post/post_edit_done.php" enctype="multipart/form-data">
-<textarea id="edit_counter_narrow" class="textarea form-control" placeholder="投稿内容を編集してください" name="text"><?php print $post['text']; ?></textarea>
+<textarea id="edit_counter_narrower" class="textarea form-control" placeholder="投稿内容を編集してください" name="text"><?php print $post['text']; ?></textarea>
 <div class="counter">
                 <span class="post_edit_count">0</span><span>/300</span>
 </div>
 <div class="post_image">
 <label>
 <i class="far fa-image"></i>
-<input type="file" name="image_name" id="edit_image_narrow" accept="image/*" multiple>
+<input type="file" name="image_name" id="edit_image_narrower" accept="image/*" multiple>
 </label>
 <p><img class="edit_preview"></p>
-<input type="button" id="edit_clear_narrow" value="ファイルをクリアする">
+<input type="button" id="edit_clear_narrower" value="ファイルをクリアする">
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
@@ -89,8 +89,8 @@ endif;
 </div>
 </form>
 </div>
-<button class="btn modal_btn" data-target="#delete_modal<?= $post['id'] ?>_narrow" type="button" data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>
-<div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>_narrow">
+<button class="btn modal_btn" data-target="#delete_modal<?= $post['id'] ?>_narrower" type="button" data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>
+<div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>_narrower">
             <p class="modal_title" >こちらの投稿を削除しますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form action="../post/post_delete_done.php" method="post">

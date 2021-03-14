@@ -21,6 +21,7 @@
     <li class="header_menu_wide"><a href="/withdraw.php">退会</a></li>
     <li class="show_menu">メニュー
         <div class="slide_menu">
+        <a class="modal_close" href="#"><p><i class="fas fa-angle-left"></i></p></a>
         <ul>
             <a href="../user/user_list.php?type=all"><li>ユーザー一覧</li></a>
             <a href="../post/post_index.php?type=all"><li>投稿一覧</li></a>
@@ -29,7 +30,6 @@
             </li></a>
             <a href="../user_login/user_logout.php"><li>ログアウト</li></a>
             <a href="/withdraw.php"><li>退会</li></a>
-            <a class="modal_close" href="#"><li>戻る</li></a>
         </ul>
         </div>
     </li>

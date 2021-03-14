@@ -51,7 +51,7 @@ $('#my_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('#edit_image,#edit_image_narrow').on('change', function(e) {
+$('#edit_image,#edit_image_narrow,#edit_image_narrower').on('change', function(e) {
     var reader = new FileReader();
     $(".edit_preview").fadeIn();
     reader.onload = function(e) {
@@ -60,7 +60,7 @@ $('#edit_image,#edit_image_narrow').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('#comment_image,#comment_image_narrow').on('change', function(e) {
+$('#comment_image,#comment_image_narrow,#comment_image_narrower').on('change', function(e) {
     var reader = new FileReader();
     $(".comment_preview").fadeIn();
     reader.onload = function(e) {
@@ -78,7 +78,7 @@ $('#reply_comment_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('#edit_profile_img').on('change', function(e) {
+$('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').on('change', function(e) {
     var reader = new FileReader();
     $(".editing_profile_img").fadeIn();
     reader.onload = function(e) {
@@ -156,7 +156,7 @@ $('#post_counter').on('input', function() {
     }
 });
 
-$('#comment_counter,#comment_counter_narrow').on('input', function() {
+$('#comment_counter,#comment_counter_narrow,#comment_counter_narrower').on('input', function() {
     var count = $(this).val().length;
     $('.comment_count').text(count);
     if (count > 300) {
@@ -166,7 +166,7 @@ $('#comment_counter,#comment_counter_narrow').on('input', function() {
     }
 });
 
-$('#edit_counter,#edit_counter_narrow').on('input', function() {
+$('#edit_counter,#edit_counter_narrow,#edit_counter_narrower').on('input', function() {
     var count = $(this).val().length;
     $('.post_edit_count').text(count);
     if (count > 300) {
@@ -302,21 +302,21 @@ $(document).on('change', '#my_image', function() {
         $('.my_preview').hide();
     });
 });
-$(document).on('change', '#edit_profile_img', function() {
+$(document).on('change', '#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower', function() {
     $('.far.fa-times-circle.profile_clear').show();
     $(document).on('click', '#profile_clear', function() {
-        $('#edit_profile_img').val('');
+        $('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').val('');
         $('.far.fa-times-circle.profile_clear').hide();
         $('.editing_profile_img').hide();
     });
 });
-$(document).on('change', '#comment_image,#comment_image_narrow', function() {
-    $('#comment_clear,#comment_clear_narrow').show();
-    $(document).on('click', '#comment_clear,#comment_clear_narrow', function() {
-        $('#comment_image,#comment_image_narrow').val('');
+$(document).on('change', '#comment_image,#comment_image_narrow,#comment_image_narrower', function() {
+    $('#comment_clear,#comment_clear_narrow,#comment_image_narrower').show();
+    $(document).on('click', '#comment_clear,#comment_clear_narrow,#comment_clear_narrower', function() {
+        $('#comment_image,#comment_image_narrow,#comment_image_narrower').val('');
         $(this).hide();
         $('.comment_preview').hide();
-        $('#comment_clear,#comment_clear_narrow').hide();
+        $('#comment_clear,#comment_clear_narrow,#comment_clear_narrower').hide();
     });
 });
 $(document).on('change', '#reply_comment_image', function() {
@@ -328,16 +328,17 @@ $(document).on('change', '#reply_comment_image', function() {
         $('#reply_clear').hide();
     });
 });
-$(document).on('change', '#edit_image,#edit_image_narrow', function() {
-    $('#edit_clear,#edit_clear_narrow').show();
+$(document).on('change', '#edit_image,#edit_image_narrow,#edit_image_narrower', function() {
+    $('#edit_clear,#edit_clear_narrow,#edit_image_narrower').show();
     $(document).on('click', '#edit_clear_narrow', function() {
         $('#edit_image_narrow').val('');
         $(this).hide();
         $('.edit_preview').hide();
         $('#edit_clear_narrow').hide();
+        $('#edit_clear_narrower').hide();
     });
 });
-$('#edit_profile_img').on('change', function(e) {
+$('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').on('change', function(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
         file_name = $(".editing_profile_img").attr('src', e.target.result).file_name();
@@ -390,6 +391,14 @@ $(document).on('click', '.prof_modal', function() {
     $('.slide_prof').fadeIn();
     $('.modal_prof').fadeIn();
     $('.slide_prof').addClass('open');
+});
+
+$(document).on('click', ".prof_close", function() {
+    $('body').removeClass('fixed').css({ 'top': 0 });
+    window.scrollTo(0, scroll_position);
+    $('.slide_prof').fadeOut();
+    $('.modal_prof').fadeOut();
+    $('.slide_prof').removeClass('open');
 });
 
 // // 各種ツールチップ処理

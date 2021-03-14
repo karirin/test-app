@@ -1,5 +1,6 @@
 <div class="modal_prof"></div>
 <div class="slide_prof">
+<a class="prof_close" href="#"><p><i class="fas fa-angle-right"></i></p></a>
 <div class="profile">
 <form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
 <div class="edit_profile_img">
@@ -7,7 +8,7 @@
 <div class="fa-image_range">
 <i class="far fa-image"></i>
 </div>
-<input type="file" name="image_name" id="edit_profile_img" accept="image/*" multiple>
+<input type="file" name="image_name" id="edit_profile_img_narrower" accept="image/*" multiple>
 </label>
 <img name="profile_image" class="editing_profile_img" src="/user/image/<?= $current_user['image'] ?>">
 <label>
@@ -21,8 +22,8 @@
 <input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
 <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>" style="display:none;">
 <div class="btn_flex">
-<input type="submit" class="btn btn-outline-primary" value="編集完了">
-<button class="btn btn-outline-danger modal_close" type="button">キャンセル</button>
+<input type="submit" class="btn btn-outline-dark" value="編集完了">
+<button class="btn btn-outline-info modal_close" type="button">キャンセル</button>
 </div>
 </form>
 </div>
