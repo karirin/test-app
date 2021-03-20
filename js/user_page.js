@@ -273,7 +273,6 @@ $(document).on('click', '.edit_btn', function() {
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
-    $('.modal').fadeIn();
     $('.modal_prof').fadeIn();
     $('.profile').addClass('editing');
 });
