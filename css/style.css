@@ -811,10 +811,6 @@ img.preview {
     margin-left: 1rem;
 }
 
-#comment_clear,
-#edit_clear,
-#edit_clear_narrow,
-#edit_clear_narrower,
 #my_clear,
 #my_clear_narrow,
 #my_clear_narrower,
@@ -1011,6 +1007,10 @@ img.preview {
 .destination_user_list .col-3 .message_list_delete {
     vertical-align: bottom;
     float: right;
+}
+
+.destination_user_list .post_content {
+    text-align: center;
 }
 
 .destination_user_list .destination_user_info {

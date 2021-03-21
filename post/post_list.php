@@ -4,20 +4,18 @@ $post_user = get_user($post['user_id']);
 ?>
 <div class="post">
 <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
-<?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-<div class="post_list"  style="width: 100%;">
-<?php else: ?>
+<?php if(basename($_SERVER['PHP_SELF']) === 'post_index.php'): ?>
 <div class="post_list"  style="width: 80%;">
+<?php else: ?>
+<div class="post_list"  style="width: 100%;">
 <?php endif; ?>
 <div class="post_user">
-<object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=all">
+<object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
 <img src="/user/image/<?= $post_user['image'] ?>">
 <?php print''.$post_user['name'].''; ?>
 </a></object>
 </div>
-<div class="post_text ellipsis" id="post_text">
-<?php print''.$post['text'].''; ?>
-</div>
+<div class="post_text ellipsis" id="post_text"><?php print''.$post['text'].''; ?></div>
 <?php if (substr_count($post['text'],"\n") +1 > 10): ?>
 <object><a href="#" class="show_all">続きを表示する</a></object>
 <?php endif; 
@@ -56,7 +54,7 @@ endif;
             <input type="file" name="image_name" id="comment_image" accept="image/*" multiple>
             </label>
             <p><img class="comment_preview"></p>
-            <input type="button" id="comment_clear" value="ファイルをクリアする">
+            <i class="far fa-times-circle comment_clear"></i>
             </div>
               <input type="hidden" name="id" value="<?= $post['id'] ?>">
               <div class="post_btn">
@@ -79,7 +77,7 @@ endif;
 <input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
 </label>
 <p><img class="edit_preview"></p>
-<input type="button" id="edit_clear" value="ファイルをクリアする">
+<i class="far fa-times-circle edit_clear"></i>
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">

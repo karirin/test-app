@@ -27,7 +27,6 @@ $('.show_menu').on('click', function() {
 $('.slide_prof').on('click', function() {
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
-    $('.modal').fadeIn();
     $('.slide_prof').addClass('open');
 })
 
@@ -310,12 +309,12 @@ $(document).on('change', '#edit_profile_img,#edit_profile_img_narrow,#edit_profi
     });
 });
 $(document).on('change', '#comment_image,#comment_image_narrow,#comment_image_narrower', function() {
-    $('#comment_clear,#comment_clear_narrow,#comment_image_narrower').show();
-    $(document).on('click', '#comment_clear,#comment_clear_narrow,#comment_clear_narrower', function() {
+    $('.far.fa-times-circle.comment_clear').show();
+    $(document).on('click', '.far.fa-times-circle.comment_clear', function() {
         $('#comment_image,#comment_image_narrow,#comment_image_narrower').val('');
         $(this).hide();
         $('.comment_preview').hide();
-        $('#comment_clear,#comment_clear_narrow,#comment_clear_narrower').hide();
+        $('.far.fa-times-circle.comment_clear').hide();
     });
 });
 $(document).on('change', '#reply_comment_image', function() {
@@ -328,13 +327,12 @@ $(document).on('change', '#reply_comment_image', function() {
     });
 });
 $(document).on('change', '#edit_image,#edit_image_narrow,#edit_image_narrower', function() {
-    $('#edit_clear,#edit_clear_narrow,#edit_image_narrower').show();
-    $(document).on('click', '#edit_clear_narrow', function() {
-        $('#edit_image_narrow').val('');
+    $('.far.fa-times-circle.edit_clear').show();
+    $(document).on('click', '.far.fa-times-circle.edit_clear', function() {
+        $('#edit_image,#edit_image_narrow,#edit_image_narrower').val('');
         $(this).hide();
         $('.edit_preview').hide();
-        $('#edit_clear_narrow').hide();
-        $('#edit_clear_narrower').hide();
+        $('.far.fa-times-circle.edit_clear').hide();
     });
 });
 $('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').on('change', function(e) {
@@ -393,16 +391,16 @@ $(document).on('click', '.prof_modal', function() {
 });
 
 $(document).on('click', ".prof_close", function() {
-    $('body').removeClass('fixed').css({ 'top': 0 });
     window.scrollTo(0, scroll_position);
+    $('body').removeClass('fixed').css({ 'top': 0 });
     $('.slide_prof').fadeOut();
     $('.modal_prof').fadeOut();
     $('.slide_prof').removeClass('open');
 });
 
-// // 各種ツールチップ処理
-// $('[data-toggle="favorite"]').tooltip();
-// $('[data-toggle="post"]').tooltip();
-// $('[data-toggle="edit"]').tooltip();
-// $('[data-toggle="delete"]').tooltip();
-// $('[data-toggle="reply"]').tooltip();
+// 各種ツールチップ処理
+$('[data-toggle="favorite"]').tooltip();
+$('[data-toggle="post"]').tooltip();
+$('[data-toggle="edit"]').tooltip();
+$('[data-toggle="delete"]').tooltip();
+$('[data-toggle="reply"]').tooltip();

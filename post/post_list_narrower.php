@@ -52,7 +52,7 @@ endif;
             <input type="file" name="image_name" id="comment_image_narrower" accept="image/*" multiple>
             </label>
             <p><img class="comment_preview"></p>
-            <input type="button" id="comment_clear" value="ファイルをクリアする">
+            <i class="far fa-times-circle comment_clear"></i>
             </div>
               <input type="hidden" name="id" value="<?= $post['id'] ?>">
               <div class="post_btn">
@@ -75,7 +75,7 @@ endif;
 <input type="file" name="image_name" id="edit_image_narrower" accept="image/*" multiple>
 </label>
 <p><img class="edit_preview"></p>
-<input type="button" id="edit_clear_narrower" value="ファイルをクリアする">
+<i class="far fa-times-circle edit_clear"></i>
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
