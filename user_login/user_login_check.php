@@ -1,5 +1,4 @@
 <?php
-require_once('../function.php');
 try
 {
 $user_name=$_POST['name'];
@@ -29,6 +28,7 @@ if($rec==false)
 {
 	if(empty($user_name)&&empty($user_pass)){
 		$error_messages[] = "ユーザー名とパスワードを入力してください";
+		_debug('test');
 	  }else if(empty($user_name)){
 		$error_messages[] = "ユーザー名を入力してください";
 	}else if(empty($user_pass)){

@@ -1,5 +1,5 @@
 <?php
-require('../config.php');
+require_once('../config.php');
 
 $page_type = $_GET['type'];
 $page_id = $_GET['page_id'];

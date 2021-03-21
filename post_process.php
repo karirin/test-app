@@ -9,10 +9,10 @@
   <div class="post_image">
   <label>
   <i class="far fa-image"></i>
-  <input type="file" name="image_name" id="process_image" accept="image/*" multiple>
+  <input type="file" name="image_name" id="post_image" accept="image/*" multiple>
   </label>
-  <p><img class="process_preview"></p>
-<input type="button" id="process_clear" value="ファイルをクリアする">
+  <p><img class="post_preview"></p>
+  <i class="far fa-times-circle post_clear"></i>
   </div>
   <div class="post_btn">
   <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>

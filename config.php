@@ -4,7 +4,6 @@ session_start();
 require('db_connect.php');
 require('function.php');
 require('head.php'); 
-require('header.php');
 require('profile.php');
 require('post_process.php');
 
@@ -15,6 +14,8 @@ if(isset($_SESSION['flash'])){
   unset($_SESSION['flash']);
 
 $error_messages = array();
+
+require('header.php');
 //グローバル変数として定義 
 _debug('',true);
 ?>

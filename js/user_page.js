@@ -31,15 +31,6 @@ $('.slide_prof').on('click', function() {
 })
 
 // 画像の選択時、表示処理
-$('#image').on('change', function(e) {
-    var reader = new FileReader();
-    $(".process_preview").fadeIn();
-    reader.onload = function(e) {
-        $(".process_preview").attr('src', e.target.result);
-    }
-    reader.readAsDataURL(e.target.files[0]);
-});
-
 $('#my_image').on('change', function(e) {
     var reader = new FileReader();
     $(".my_preview").fadeIn();
@@ -86,11 +77,11 @@ $('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').on('c
     reader.readAsDataURL(e.target.files[0]);
 });
 
-$('#process_image').on('change', function(e) {
+$('#post_image').on('change', function(e) {
     var reader = new FileReader();
-    $(".process_preview").fadeIn();
+    $(".post_preview").fadeIn();
     reader.onload = function(e) {
-        $(".process_preview").attr('src', e.target.result);
+        $(".post_preview").attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
 });
@@ -239,6 +230,7 @@ $(document).on('click', ".modal_close", function() {
     window.scrollTo(0, scroll_position);
     $('.modal').fadeOut();
     $('.modal_post').fadeOut();
+    $('.modal_prof').fadeOut();
     $('.delete_confirmation').fadeOut();
     $('.post_process').fadeOut();
     $('.post_edit').fadeOut();
@@ -272,7 +264,6 @@ $(document).on('click', '.edit_btn', function() {
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
-    $('.modal_prof').fadeIn();
     $('.profile').addClass('editing');
 });
 
@@ -282,19 +273,19 @@ function file_name(extension) {
     return extension ? s.replace(/[?#].+$/, '') : s.split('.')[0];
 }
 
-$(document).on('change', '#process_image', function() {
-    $('#process_clear').show();
-    $(document).on('click', '#process_clear', function() {
-        $('#process_image').val('');
+$(document).on('change', '#post_image', function() {
+    $('.far.fa-times-circle.post_clear').show();
+    $(document).on('click', '.far.fa-times-circle.post_clear', function() {
+        $('#post_image').val('');
         $(this).hide();
-        $('.process_preview').hide();
-        $('#process_clear').hide();
+        $('.post_preview').hide();
+        $('#post_clear').hide();
     });
 });
-
 $(document).on('change', '#my_image', function() {
     $('.far.fa-times-circle.my_clear').show();
-    $(document).on('click', '#my_clear', function() {
+    $(document).on('click', '.far.fa-times-circle.my_clear', function() {
+        $(".message_text").fadeIn();
         $('#my_image').val('');
         $('.far.fa-times-circle.my_clear').hide();
         $('.my_preview').hide();
@@ -318,12 +309,12 @@ $(document).on('change', '#comment_image,#comment_image_narrow,#comment_image_na
     });
 });
 $(document).on('change', '#reply_comment_image', function() {
-    $('#reply_clear').show();
-    $(document).on('click', '#reply_clear', function() {
+    $('.far.fa-times-circle.edit_clear').show();
+    $(document).on('click', '.far.fa-times-circle.edit_clear', function() {
         $('#reply_comment_image').val('');
         $(this).hide();
         $('.reply_comment_preview').hide();
-        $('#reply_clear').hide();
+        $('.far.fa-times-circle.edit_clear').hide();
     });
 });
 $(document).on('change', '#edit_image,#edit_image_narrow,#edit_image_narrower', function() {

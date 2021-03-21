@@ -742,7 +742,7 @@ nav.navbar.navbar-light.mb-2 {
 #my_image,
 #my_image_narrow,
 #my_image_narrower,
-#process_image,
+#post_image,
 #reply_comment_image {
     display: none;
 }
@@ -752,7 +752,7 @@ nav.navbar.navbar-light.mb-2 {
     text-align: left;
 }
 
-.post_image p .process_preview {
+.post_image p .post_preview {
     display: none;
     width: 7rem;
     height: 7rem;
@@ -815,8 +815,7 @@ img.preview {
 #my_clear_narrow,
 #my_clear_narrower,
 #profile_clear,
-#process_clear,
-#reply_clear {
+#process_clear {
     display: none;
 }
 
@@ -1115,5 +1114,11 @@ img.preview {
     }
     .edit_profile_img .fa-image_range {
         right: 40%;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .modal_prof {
+        background-color: transparent;
     }
 }

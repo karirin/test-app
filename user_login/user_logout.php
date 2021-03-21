@@ -1,5 +1,4 @@
 <?php
-require_once('../config.php');
 $_SESSION=array();
 if(isset($_COOKIE[session_name()])==true)
 {

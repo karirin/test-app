@@ -60,7 +60,7 @@ reset_message_count($current_user['id'],$destination_user['id']);
                 </div>
                 <div class="message_image_detail">
                   <div><img class="my_preview"></div>
-                  <input type="button" id="my_clear" value="ファイルをクリアする">
+                  <i class="far fa-times-circle my_clear"></i>
                 </div>
               </form>
             </div>

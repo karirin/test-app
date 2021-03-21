@@ -1,5 +1,7 @@
 <?php
+if(isset($_SESSION['login'])==true){
 $current_user=get_user($_SESSION['user_id']);
+}
 ?>
 <div class="modal_prof"></div>
 <div class="slide_prof">
