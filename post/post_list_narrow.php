@@ -11,9 +11,7 @@ $post_user = get_user($post['user_id']);
 <?php print''.$post_user['name'].''; ?>
 </a></object>
 </div>
-<div class="post_text ellipsis" id="post_text">
-<?php print''.$post['text'].''; ?>
-</div>
+<div class="post_text ellipsis" id="post_text"><?php print''.$post['text'].''; ?></div>
 <?php if (substr_count($post['text'],"\n") +1 > 10): ?>
 <object><a href="#" class="show_all">続きを表示する</a></object>
 <?php endif; 

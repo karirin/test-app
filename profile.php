@@ -1,3 +1,6 @@
+<?php
+$current_user=get_user($_SESSION['user_id']);
+?>
 <div class="modal_prof"></div>
 <div class="slide_prof">
 <a class="prof_close" href="#"><p><i class="fas fa-angle-right"></i></p></a>
