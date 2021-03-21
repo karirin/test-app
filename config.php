@@ -1,8 +1,12 @@
 <?php
 session_start();
 @session_regenerate_id(true);
-require_once('function.php');
-require_once('db_connect.php');
+require('db_connect.php');
+require('function.php');
+require('head.php'); 
+require('header.php');
+require('profile.php');
+require('post_process.php');
 
 if(isset($_SESSION['flash'])){
   $flash_messages = $_SESSION['flash']['message'];

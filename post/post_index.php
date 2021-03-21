@@ -4,11 +4,6 @@ if (!empty($_POST['search_post'])){
     header("Location:post_index.php?type=search&query=${hoge}");
   }
 require_once('../config.php'); 
-require_once('../header.php'); 
-require_once('../head.php');
-require_once('../profile.php');
-require_once('../post_process.php');
-
 ?>
 <div class="col-8 offset-2">
 <h2 class="center margin_top">投稿一覧</h2>

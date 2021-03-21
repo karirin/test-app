@@ -1,6 +1,5 @@
 <?php
 require_once('config.php');
-require_once('head.php');
 
   if(isset($_POST)){
   

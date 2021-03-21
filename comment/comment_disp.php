@@ -1,8 +1,5 @@
 <?php
-
 require_once('../config.php');
-require_once('../head.php');
-require_once('../header.php');
 
 $post_id=$_GET['post_id'];
 $comment_id=$_GET['comment_id'];
