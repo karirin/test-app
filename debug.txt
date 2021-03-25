@@ -1,0 +1,109 @@
+testaaaArray
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名とパスワードを入力してください
+        )
+
+)
+Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名とパスワードを入力してください
+        )
+
+)
+$flash_messagestestaaaArray
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名とパスワードを入力してください
+        )
+
+)
+Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名とパスワードを入力してください
+        )
+
+)
+$flash_messagestestaaaArray
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名とパスワードを入力してください
+        )
+
+)
+Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名とパスワードを入力してください
+        )
+
+)
+$flash_messagestest2Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => このユーザー名は既に使用されています
+        )
+
+)
+Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => このユーザー名は既に使用されています
+        )
+
+)
+$flash_messagestest1Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名を入力してください
+        )
+
+)
+Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => ユーザー名を入力してください
+        )
+
+)
+$flash_messagestest4Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => パスワードが一致しません
+        )
+
+)
+Array
+(
+    [type] => flash_error
+    [message] => Array
+        (
+            [0] => パスワードが一致しません
+        )
+
+)
+$flash_messages

@@ -120,23 +120,12 @@ require('user_list.php');
 }
 ?>
 </div>
-<div class="col-4">
-<?php if($page_type === 'main'): ?>
-  <h2 class="left"><?= $current_user['name'] ?>さんの投稿</h2>
-<?php elseif ($page_type === 'favorites'): ?>
-  <h2 class="left">お気に入りの投稿</h2>
-<?php elseif ($page_type === 'follow'): ?>
-  <h2 class="left">フォローした人</h2>
-<?php elseif ($page_type === 'follower'): ?>
-  <h2 class="left">フォロワー</h2>
-<?php endif; ?>
 
+<div class="col-4">
+<h2 class="left">タイムライン</h2>
 <?php
-if(isset($posts)){
+$posts=get_posts($current_user['id'],'follow','');
 require('../post/post_list.php');
-}else{
-require('user_list.php');
-}
 ?>
 </div>
 </div>

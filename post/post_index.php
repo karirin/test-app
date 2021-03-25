@@ -5,7 +5,7 @@ if (!empty($_POST['search_post'])){
   }
 require_once('../config.php'); 
 ?>
-<div class="col-8 offset-2">
+<div class="col-6 offset-3">
 <h2 class="center margin_top">投稿一覧</h2>
 <form method="post" action="#" class="search_container">
 <div class="input-group mb-2">

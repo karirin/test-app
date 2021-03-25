@@ -1,12 +1,28 @@
 <?php
-require_once('../config.php');
+session_start();
+@session_regenerate_id(true);
+
+require('../db_connect.php');
+require('../function.php');
+require('../head.php');
+
+if(isset($_SESSION['flash'])){
+  $flash_messages = $_SESSION['flash']['message'];
+  $flash_type = $_SESSION['flash']['type'];
+  }
+unset($_SESSION['flash']);
+
+$error_messages = array();
+
+require('../header.php');
+
 ?>
 <body>
 <div class="row">
 <div class="col-6 offset-3 center">
 <h2>新規登録</h2>
 <form method="post" action="user_add_check.php" enctype="multipart/form-data">
-<input type="text" name="name" class="user_name_input" placeholder="ユーザーID">
+<input type="text" name="name" class="user_name_input" placeholder="ユーザー名">
 <input type="password" name="pass" class="user_pass_input" placeholder="パスワード">
 <input type="password" name="pass2" class="user_pass_input" placeholder="パスワードを再度入力してください">
 <div class="image_select">プロフィール画像を選んでください。</div>

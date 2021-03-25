@@ -25,7 +25,7 @@ if(!empty($_POST)){
 <div class="col-6 offset-3 center">
 <h2>ログイン</h2>
 <form method="post"action="#">
-<input type="text" name="name" class="user_name_input" placeholder="ユーザーID">
+<input type="text" name="name" class="user_name_input" placeholder="ユーザー名">
 <input type="password" name="pass" class="user_pass_input" placeholder="パスワード">
 <div class="login_btn margin_top">
 <input class="btn btn-outline-dark" type="submit" value="ログイン">

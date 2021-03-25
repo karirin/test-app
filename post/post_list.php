@@ -4,11 +4,9 @@ $post_user = get_user($post['user_id']);
 ?>
 <div class="post">
 <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
-<?php if(basename($_SERVER['PHP_SELF']) === 'post_index.php'): ?>
-<div class="post_list"  style="width: 80%;">
-<?php else: ?>
-<div class="post_list"  style="width: 100%;">
-<?php endif; ?>
+
+<div class="post_list">
+
 <div class="post_user">
 <object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
 <img src="/user/image/<?= $post_user['image'] ?>">

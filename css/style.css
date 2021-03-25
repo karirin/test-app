@@ -93,6 +93,24 @@ img.mypage {
     position: absolute;
 }
 
+.far.fa-times-circle.post_clear {
+    top: 47%;
+    right: 74%;
+    font-size: 2rem;
+}
+
+.far.fa-times-circle.comment_clear {
+    top: 50%;
+    right: 74%;
+    font-size: 2rem;
+}
+
+.far.fa-times-circle.edit_clear {
+    top: 44%;
+    right: 74%;
+    font-size: 2rem;
+}
+
 .col-10.offset-1 .far.fa-times-circle {
     top: 62%;
     right: 29%;
@@ -238,7 +256,7 @@ nav.navbar.navbar-light.mb-2 {
     border-radius: 0.5rem;
     padding: 1rem;
     margin: 1rem 0;
-    width: 100%;
+    width: 90%;
 }
 
 .post .post_list .post_created_at {
@@ -1084,9 +1102,6 @@ img.preview {
     }
     .narrow_disp {
         display: flex;
-    }
-    .post.narrow {
-        width: 80%;
     }
 }
 

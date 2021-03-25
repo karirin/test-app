@@ -153,14 +153,13 @@ function check_follow($follow_user,$follower_user){
   return  $stmt->fetch();
 }
 
-function check_user($user_name,$user_pass){
+function check_user($user_name){
   $dbh = dbConnect();
-  $sql = "SELECT name,password
+  $sql = "SELECT name
           FROM user
-          WHERE :name = name AND :password = password";
+          WHERE :name = name";
   $stmt = $dbh->prepare($sql);
-  $stmt->execute(array(':name' => $user_name,
-                       ':password' => $user_pass));
+  $stmt->execute(array(':name' => $user_name));
   return  $stmt->fetch();
 }
 
@@ -212,6 +211,17 @@ function get_posts($user_id,$type,$query){
               ORDER BY created_at DESC";
               $stmt = $dbh->prepare($sql);
               $stmt->bindValue(':id', $user_id);
+      break;
+
+      case 'follow':
+        $sql = "SELECT *
+                FROM post INNER JOIN relation ON post.user_id = relation.follower_id
+                WHERE relation.follow_id = :id
+                ORDER BY created_at DESC";
+                _debug($sql);
+                _debug('        :'.$user_id);
+                $stmt = $dbh->prepare($sql);
+                $stmt->bindValue(':id', $user_id);
       break;
 
       case 'search':
