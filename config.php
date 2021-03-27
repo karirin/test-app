@@ -4,7 +4,6 @@ session_start();
 require('db_connect.php');
 require('function.php');
 require('head.php'); 
-require('profile.php');
 require('post_process.php');
 
 if(isset($_SESSION['flash'])){

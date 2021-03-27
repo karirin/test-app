@@ -1,22 +1,7 @@
 <body>
 
 <?php
-session_start();
-@session_regenerate_id(true);
-
-require('../db_connect.php');
-require('../function.php');
-require('../head.php');
-
-if(isset($_SESSION['flash'])){
-  $flash_messages = $_SESSION['flash']['message'];
-  $flash_type = $_SESSION['flash']['type'];
-  }
-unset($_SESSION['flash']);
-
-$error_messages = array();
-
-require('../header.php');
+require_once('../config.php');
 
 $user_name=$_POST['name'];
 $user_pass=$_POST['pass'];
@@ -45,26 +30,36 @@ if(empty($user_name)&&empty($user_pass)&&empty($user_pass2)){
 }
 set_flash('error',$error_messages);
 
+// if($user_image['size']>0)
+// {
+// 	if($user_image['size']>1000000)
+// 	{
+// 		$error_messages[] = '画像が大き過ぎます';
+// 	}
+// 	else
+// 	{
+// 		move_uploaded_file($user_image['tmp_name'],'./image/'.$user_image['name']);
+// 	}
+// }
+
 if(!empty($error_messages)){
     header("Location:/user/user_add.php");
 }
 
-if($user_image['size']>0)
-{
-	if($user_image['size']>1000000)
-	{
-		$error_messages[] = '画像が大き過ぎます';
-	}
-	else
-	{
-		move_uploaded_file($user_image['tmp_name'],'./image/'.$user_image['name']);
-	}
-}
-
 $user_pass=md5($user_pass);
-
 set_flash('error',$error_messages);
+
+// $tmp_filename = UPLOAD_TMP_DIR.basename($_FILES['image']['tmp_name']);
+// _debug($_FILES['image']['tmp_name']);
+// move_uploaded_file($_FILES['image']['tmp_name'], $tmp_filename);
+// move_uploaded_file($_FILES['image']['tmp_name'], './image2/'.$user_image['name']);
+$_SESSION['image'] = file_get_contents($_FILES['image']['tmp_name']);
+$_SESSION['image_type'] = exif_imagetype($_FILES['image']['tmp_name']);
+//_debug($_FILES['image']);
+echo '<img src="image.php">';
 ?>
+
+
 
 <form method="post" action="#">
 <input type="hidden" name="name" value="<?= $user_name ?>">
