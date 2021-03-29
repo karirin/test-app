@@ -44,7 +44,7 @@ require_once('../config.php');
       $user = current($user);
       $user = get_user($user);
     ?>
-      <a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main" class="user_link">
+      <a href="/user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main" class="user_link">
         <div class="user">
           <div class="user_info">
             <?php if (!empty($user['image'])) : ?>
