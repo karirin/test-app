@@ -302,6 +302,17 @@ nav.navbar.navbar-light.mb-2 {
     display: block;
 }
 
+.user_newimage {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+}
+
+.user_newname {
+    font-size: 1.75rem;
+}
+
 .post .post_list .comment .user_info {
     text-align: left;
     color: rgb(0, 0, 0);
@@ -689,7 +700,7 @@ nav.navbar.navbar-light.mb-2 {
     color: rgb(26, 126, 1);
 }
 
-.login_btn {
+.flex_btn {
     justify-content: space-evenly;
     display: flex;
 }

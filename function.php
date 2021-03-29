@@ -13,6 +13,21 @@ function _debug( $data, $clear_log = false ) {
   file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
 }
 
+function get_newuser($name,$password){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT id,name,password,profile,image
+            FROM user
+            WHERE name = :name and password = :password";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':name' => $name,':password' => $password));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 function get_user($user_id){
   try {
     $dbh = dbConnect();

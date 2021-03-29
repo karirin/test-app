@@ -19,9 +19,9 @@ require_once('../config.php');
 </div>
 <p class="preview_img"><img class="my_preview"></p>
   <input type="button" id="my_clear" value="ファイルをクリアする">
-  <div class="login_btn margin_top">
-<input class="btn btn-outline-dark" type="submit" value="登録">
+  <div class="flex_btn margin_top">
 <input class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">
+<input class="btn btn-outline-dark" type="submit" value="登録">
 </div>
 </form>
 </body>
