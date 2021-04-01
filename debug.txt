@@ -1,4 +1,0 @@
-SELECT *
-                FROM post INNER JOIN relation ON post.user_id = relation.follower_id
-                WHERE relation.follow_id = :id
-                ORDER BY created_at DESC        :1

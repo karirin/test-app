@@ -42,7 +42,6 @@
 <p class="flash">
 <?php
 if (isset($flash_messages)):
-    _debug('$flash_messages');
 foreach ((array)$flash_messages as $message):
 print'<span class="flash_message">'.$message.'</span>';
 endforeach;

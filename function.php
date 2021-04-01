@@ -2,7 +2,6 @@
 function set_flash($type,$message){
 	$_SESSION['flash']['type'] = "flash_${type}";
   $_SESSION['flash']['message'] = $message;
-  _debug($_SESSION['flash']);
 }
 
 function _debug( $data, $clear_log = false ) {
@@ -233,8 +232,6 @@ function get_posts($user_id,$type,$query){
                 FROM post INNER JOIN relation ON post.user_id = relation.follower_id
                 WHERE relation.follow_id = :id
                 ORDER BY created_at DESC";
-                _debug($sql);
-                _debug('        :'.$user_id);
                 $stmt = $dbh->prepare($sql);
                 $stmt->bindValue(':id', $user_id);
       break;

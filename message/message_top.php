@@ -27,7 +27,8 @@ $new_message_count=current(new_message_count($current_user['id'],$destination_us
 
     <div class="message_notification">
         <span id="message_count">
-            <?php if($new_message_count!=0){
+            <?php
+            if($new_message_count!=0){    
             print''.$new_message_count.'';
             }?>
         </span>

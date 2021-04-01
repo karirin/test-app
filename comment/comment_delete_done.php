@@ -17,7 +17,7 @@ $sql = 'DELETE FROM comment WHERE id OR comment_id=?';
 $stmt = $dbh -> prepare($sql);
 $data[] = $comment_id;
 $stmt -> execute($data);
-_debug($stmt);
+
 $dbh = null;
 
 if($comment_image_name != '')

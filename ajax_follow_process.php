@@ -1,8 +1,6 @@
 <?php
 require_once('config.php');
 
-  // _debug('',true);
-
 if(isset($_POST)){
 
   $user_id = $_POST['user_id'];

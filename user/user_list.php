@@ -22,7 +22,12 @@ require_once('../config.php');
 
     <?php
     $page_type = $_GET['type'];
+    if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
     $current_user = get_user($_SESSION['user_id']);
+    }else{
+    $page_id = $_GET['page_id'];
+    $current_user = get_user($page_id);  
+    }
     switch ($page_type) {
       case 'all';
         $users = get_users('all', '');
@@ -34,6 +39,7 @@ require_once('../config.php');
 
       case 'follow':
         $users = get_users('follows', $current_user['id']);
+        _debug($users);
         break;
 
       case 'follower':
