@@ -1,12 +1,11 @@
 <?php 
 foreach($posts as $post):
-$post_user = get_user($post['user_id']); 
+$post_user = get_user($post['user_id']);
 ?>
 <div class="post">
 <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
 
 <div class="post_list">
-
 <div class="post_user">
 <object><a href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
 <img src="/user/image/<?= $post_user['image'] ?>">
@@ -52,7 +51,11 @@ endif;
             <input type="file" name="image_name" id="comment_image" accept="image/*" multiple>
             </label>
             <p><img class="comment_preview"></p>
+            <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'):?>
+            <i class="far fa-times-circle comment_clear" style="top: 50%;"></i>
+            <?php else:?>
             <i class="far fa-times-circle comment_clear"></i>
+            <?php endif;?>
             </div>
               <input type="hidden" name="id" value="<?= $post['id'] ?>">
               <div class="post_btn">

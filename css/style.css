@@ -94,13 +94,13 @@ img.mypage {
 }
 
 .far.fa-times-circle.post_clear {
-    top: 47%;
+    top: 43%;
     right: 74%;
     font-size: 2rem;
 }
 
 .far.fa-times-circle.comment_clear {
-    top: 50%;
+    top: 53%;
     right: 74%;
     font-size: 2rem;
 }
@@ -1140,6 +1140,24 @@ img.preview {
     }
     .edit_profile_img .fa-image_range {
         right: 40%;
+    }
+    .comment_confirmation {
+        width: 400px;
+    }
+    .post_process {
+        width: 400px;
+    }
+    .post_edit {
+        width: 400px;
+    }
+    .far.fa-times-circle.post_clear {
+        right: 61%;
+    }
+    .far.fa-times-circle.comment_clear {
+        right: 61%;
+    }
+    .far.fa-times-circle.edit_clear {
+        right: 61%;
     }
 }
 

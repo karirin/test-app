@@ -16,6 +16,7 @@ switch ($page_type) {
 
   case 'main':
     $posts = get_posts($page_user['id'],'my_post',0);
+    _debug($posts);
   break;
 
   case 'favorites':
@@ -24,7 +25,6 @@ switch ($page_type) {
 
   case 'follow':
     $users = get_users('follows',$page_user['id']);
-    _debug($users);
   break;
 
   case 'follower':
@@ -131,6 +131,30 @@ require('../post/post_list.php');
 </div>
 
 <div class="row narrow_disp">
+<?php
+switch ($page_type) {
+  case 'all':
+    $posts = get_posts($page_user['id'],'all',0);
+  break;
+
+  case 'main':
+    $posts = get_posts($page_user['id'],'my_post',0);
+    _debug($posts);
+  break;
+
+  case 'favorites':
+    $posts = get_posts($page_user['id'],'favorite',0);
+  break;
+
+  case 'follow':
+    $users = get_users('follows',$page_user['id']);
+  break;
+
+  case 'follower':
+    $users = get_users('followers',$page_user['id']);
+  break;
+}
+?>
 <div class="col-6 center">
 <div class="profile">
 <form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
@@ -192,7 +216,8 @@ require('../post/post_list.php');
 <?php endif; ?>
 
 <?php
-if(isset($posts)){
+_debug($posts);
+if(isset($posts)){ 
 require('../post/post_list_narrow.php');
 }else{
 require('user_list.php');
@@ -203,6 +228,29 @@ require('user_list.php');
 <div class="row narrower_disp">
 <div class="col-8 offset-2">
 <?php 
+
+switch ($page_type) {
+  case 'all':
+    $posts = get_posts($page_user['id'],'all',0);
+  break;
+
+  case 'main':
+    $posts = get_posts($page_user['id'],'my_post',0);
+    _debug($posts);
+  break;
+
+  case 'favorites':
+    $posts = get_posts($page_user['id'],'favorite',0);
+  break;
+
+  case 'follow':
+    $users = get_users('follows',$page_user['id']);
+  break;
+
+  case 'follower':
+    $users = get_users('followers',$page_user['id']);
+  break;
+}
 
 if($page_type === 'main'): 
 ?>
