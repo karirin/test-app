@@ -78,7 +78,11 @@ endif;
 <input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
 </label>
 <p><img class="edit_preview"></p>
-<i class="far fa-times-circle edit_clear"></i>
+<?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
+ <i class="far fa-times-circle edit_clear" style="top: 44%;"></i>
+<?php else: ?>
+ <i class="far fa-times-circle edit_clear"></i>
+<?php endif; ?>
 </div>
 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
