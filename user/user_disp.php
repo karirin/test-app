@@ -16,7 +16,6 @@ switch ($page_type) {
 
   case 'main':
     $posts = get_posts($page_user['id'],'my_post',0);
-    _debug($posts);
   break;
 
   case 'favorites':
@@ -139,7 +138,7 @@ switch ($page_type) {
 
   case 'main':
     $posts = get_posts($page_user['id'],'my_post',0);
-    _debug($posts);
+
   break;
 
   case 'favorites':
@@ -216,7 +215,6 @@ switch ($page_type) {
 <?php endif; ?>
 
 <?php
-_debug($posts);
 if(isset($posts)){ 
 require('../post/post_list_narrow.php');
 }else{
@@ -236,7 +234,6 @@ switch ($page_type) {
 
   case 'main':
     $posts = get_posts($page_user['id'],'my_post',0);
-    _debug($posts);
   break;
 
   case 'favorites':

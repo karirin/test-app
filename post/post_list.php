@@ -1,4 +1,9 @@
-<?php 
+<?php
+$post_cnt=count($posts);
+$post_show=floor($post_cnt/5)+1;
+_debug('$post_cnt'.$post_cnt);//5
+_debug('$post_show'.$post_show);//1
+//$blocks=post_block($posts,$post_show);
 foreach($posts as $post):
 $post_user = get_user($post['user_id']);
 ?>
