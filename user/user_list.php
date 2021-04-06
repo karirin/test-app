@@ -7,8 +7,8 @@ require_once('../config.php');
 ?>
 
 <body>
-  <div class="col-8 offset-2">
-   <?php if(basename($_SERVER['PHP_SELF']) === 'user_list.php'): ?>
+<div class="col-8 offset-2">
+<?php if(basename($_SERVER['PHP_SELF']) === 'user_list.php'): ?>
     <h2 class="center margin_top_bottom">ユーザー一覧</h2>
     <form method="post" action="#" class="search_container">
       <div class="input-group mb-2">
@@ -39,7 +39,6 @@ require_once('../config.php');
 
       case 'follow':
         $users = get_users('follows', $current_user['id']);
-        _debug($users);
         break;
 
       case 'follower':
@@ -51,9 +50,9 @@ require_once('../config.php');
       $user = get_user($user);
     ?>
       <a href="/user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main" class="user_link">
-        <div class="user">
+      <div class="user">
         <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-          <div class="user_info">
+          <div class="user_info top">
         <?php else:?>
           <div class="user_info" style="width: 25%;">
         <?php endif;?>
@@ -64,18 +63,16 @@ require_once('../config.php');
               <?= $user['name'] ?>
             <?php if (!($current_user == $user)) : ?>
               <object><a href="../message/message.php?user_id=<?= $user['id'] ?>">
-              <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-              <i class="far fa-envelope" style="margin-top: -0.25rem;"></i>
-              <?php else:?>
-              <i class="far fa-envelope"></i>
-              <?php endif;?>
+              <i class="fas fa-envelope-square"></i>
               </a></object>
           <?php endif; ?>
             </div>
           </div>
-          <div class="user_profile">
-            <?= $user['profile'] ?>
-          </div>
+          <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
+            <div class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;"><?= $user['profile'] ?></div>
+          <?php else:?>
+            <div class="user_profile"><?= $user['profile'] ?></div>
+          <?php endif; ?>
         </div>
       </a>
     <?php endforeach ?>
