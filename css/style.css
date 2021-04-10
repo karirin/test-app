@@ -1153,6 +1153,31 @@ img.preview {
     text-align: center;
 }
 
+.pagination.justify-content-center .page-item {
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+.pagination.justify-content-center .page-item .page-link.first:disabled {
+    z-index: 2;
+    color: #000;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.pagination.justify-content-center .page-item .page-link.last:disabled {
+    z-index: 2;
+    color: #000;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.pagination.justify-content-center .page-item .page-link {
+    width: 4rem;
+}
+
 @media screen and (max-width: 1000px) {
     .show_menu {
         display: block;

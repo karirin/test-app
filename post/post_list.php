@@ -1,22 +1,43 @@
 <?php
 $post_cnt=count($posts);
 $post_show=ceil($post_cnt/5);
-_debug($post_show);
+//_debug($post_show);
 // if(isset($posts[4])){
 //   $blocks=post_block($posts,$post_show);
 //   }
 //$i =$posts%5;
-  $k=0;
-  for($i=0;$i<$post_show;$i++){
+
+$k=0;
+for($i=0;$i<$post_show;$i++){
     for($j=0;$j<5;$j++){
+        if($post_cnt==$k){
+            break;
+        }
         $block[$i][$j]=$posts[$k];
         $k++;
     }
-   }
+}
 
-  _debug($block);
-
-foreach($posts as $post):
+if(empty($_POST['block'])){
+  $_SESSION['block_cnt']=0;
+}
+if(isset($_POST['block'])){
+  switch($_POST['block']){
+    case '«':
+        $_SESSION['block_cnt']--;
+    break;
+    case '»':
+        $_SESSION['block_cnt']++;
+    break;
+    default:
+        $_SESSION['block_cnt'] = $_POST['block']-1;
+    break;
+    $_POST = array();
+  }
+}
+_debug('$post_show  :'.$post_show);
+_debug('$_SESSION[block_cnt]  :'.$_SESSION['block_cnt']);
+foreach($block[$_SESSION['block_cnt']] as $post):
 $post_user = get_user($post['user_id']);
 ?>
 <div class="post">
@@ -132,3 +153,33 @@ endif;
 </div>
 
 <?php endforeach ?>
+<?php if(5<$post_cnt):?>
+<form method="post" action="#">
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center pagination-lg">
+    <li class="page-item">
+        <?php if($_SESSION['block_cnt']==0):?>
+            <?=_debug('tessts');?>
+            <input class="page-link first" name="block" type="submit" value="&laquo;" disabled>
+        <?php else:?>
+            <input class="page-link" name="block" type="submit" value="&laquo;">
+        <?php endif;?>
+    </li>
+
+    <?php for($l=1;$l<$post_show+1;$l++){
+    print'<li class="page-item"><input class="page-link" name="block" type="submit" value="'.$l.'"></li>';
+    }?>
+    <li class="page-item">
+    <li class="page-item">
+        <?php if($_SESSION['block_cnt']==$post_show-1):?>
+            <?=_debug('tessts');?>
+            <input class="page-link last" name="block" type="submit" value="&raquo;" disabled>
+        <?php else:?>
+            <input class="page-link" name="block" type="submit" value="&raquo;">
+        <?php endif;?>
+    </li>
+    </li>
+  </ul>
+</nav>
+</form>
+<?php endif; ?>
