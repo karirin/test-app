@@ -15,9 +15,9 @@ if(!empty($_POST['withdraw'])){
 ?>
 
 <body>
-      <form action="#" method="post">
+    <form action="#" method="post">
         <button class="btn red" name="withdraw" value="withdraw" type="submit">退会する</button>
-      </form>
+    </form>
 
 </body>
 <?php require_once('footer.php'); ?>

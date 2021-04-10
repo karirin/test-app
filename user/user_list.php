@@ -7,20 +7,20 @@ require_once('../config.php');
 ?>
 
 <body>
-<div class="col-8 offset-2">
-<?php if(basename($_SERVER['PHP_SELF']) === 'user_list.php'): ?>
-    <h2 class="center margin_top_bottom">ユーザー一覧</h2>
-    <form method="post" action="#" class="search_container">
-      <div class="input-group mb-2">
-        <input type="text" name="search_input" class="form-control" placeholder="ユーザー検索">
-        <div class="input-group-append">
-          <input type="submit" name="search_user" class="btn btn-outline-secondary">
-        </div>
-      </div>
-    </form>
-   <?php endif; ?>
+    <div class="col-8 offset-2">
+        <?php if(basename($_SERVER['PHP_SELF']) === 'user_list.php'): ?>
+        <h2 class="center margin_top_bottom">ユーザー一覧</h2>
+        <form method="post" action="#" class="search_container">
+            <div class="input-group mb-2">
+                <input type="text" name="search_input" class="form-control" placeholder="ユーザー検索">
+                <div class="input-group-append">
+                    <input type="submit" name="search_user" class="btn btn-outline-secondary">
+                </div>
+            </div>
+        </form>
+        <?php endif; ?>
 
-    <?php
+        <?php
     $page_type = $_GET['type'];
     if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
     $current_user = get_user($_SESSION['user_id']);
@@ -49,33 +49,35 @@ require_once('../config.php');
       $user = current($user);
       $user = get_user($user);
     ?>
-      <a href="/user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main" class="user_link">
-      <div class="user">
-        <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-          <div class="user_info top">
-        <?php else:?>
-          <div class="user_info" style="width: 25%;">
-        <?php endif;?>
-            <?php if (!empty($user['image'])) : ?>
-              <img src="/user/image/<?= $user['image'] ?>">
-            <?php endif; ?>
-            <div class="user_name">
-              <?= $user['name'] ?>
-            <?php if (!($current_user == $user)) : ?>
-              <object><a href="../message/message.php?user_id=<?= $user['id'] ?>">
-              <i class="fas fa-envelope-square"></i>
-              </a></object>
-          <?php endif; ?>
-            </div>
-          </div>
-          <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-            <div class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;"><?= $user['profile'] ?></div>
-          <?php else:?>
-            <div class="user_profile"><?= $user['profile'] ?></div>
-          <?php endif; ?>
-        </div>
-      </a>
-    <?php endforeach ?>
-  </div>
+        <a href="/user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
+            class="user_link">
+            <div class="user">
+                <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
+                <div class="user_info top">
+                    <?php else:?>
+                    <div class="user_info" style="width: 25%;">
+                        <?php endif;?>
+                        <?php if (!empty($user['image'])) : ?>
+                        <img src="/user/image/<?= $user['image'] ?>">
+                        <?php endif; ?>
+                        <div class="user_name">
+                            <?= $user['name'] ?>
+                            <?php if (!($current_user == $user)) : ?>
+                            <object><a href="../message/message.php?user_id=<?= $user['id'] ?>">
+                                    <i class="fas fa-envelope-square"></i>
+                                </a></object>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
+                    <div class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;">
+                        <?= $user['profile'] ?></div>
+                    <?php else:?>
+                    <div class="user_profile"><?= $user['profile'] ?></div>
+                    <?php endif; ?>
+                </div>
+        </a>
+        <?php endforeach ?>
+    </div>
 </body>
 <?php require_once('../footer.php'); ?>

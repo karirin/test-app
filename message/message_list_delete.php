@@ -3,8 +3,9 @@ require_once('../config.php');
 set_flash('sucsess','メッセージリストを削除しました');
 header('Location:../user_login/user_top.php?type=main');
 ?>
+
 <body>
-<?php
+    <?php
 try
 {
 
@@ -29,4 +30,5 @@ exit();
 
 </body>
 <?php require_once('../footer.php'); ?>
+
 </html>

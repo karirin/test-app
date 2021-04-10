@@ -1,42 +1,39 @@
 <?php
-require_once('../config.php'); 
+require_once('../config.php');
 ?>
+
 <body>
-<?php
+    <?php
 
-try
-{
+    try {
 
-$comment_id = $_POST['id'];
-$comment_image_name = $_POST['image_name'];
-$user_id = $_POST['user_id'];
-$post_id = $_POST['post_id'];
+        $comment_id = $_POST['id'];
+        $comment_image_name = $_POST['image_name'];
+        $user_id = $_POST['user_id'];
+        $post_id = $_POST['post_id'];
 
-$dbh = dbConnect();
-$sql = 'DELETE FROM comment WHERE id OR comment_id=?';
-$stmt = $dbh -> prepare($sql);
-$data[] = $comment_id;
-$stmt -> execute($data);
+        $dbh = dbConnect();
+        $sql = 'DELETE FROM comment WHERE id OR comment_id=?';
+        $stmt = $dbh->prepare($sql);
+        $data[] = $comment_id;
+        $stmt->execute($data);
 
-$dbh = null;
+        $dbh = null;
 
-if($comment_image_name != '')
-{
-    unlink('./image/'.$comment_image_name);
-}
+        if ($comment_image_name != '') {
+            unlink('./image/' . $comment_image_name);
+        }
+    } catch (Exception $e) {
+        print 'ただいま障害により大変ご迷惑をお掛けしております。';
+        exit();
+    }
 
-}   
-catch (Exception $e)
-{
-print'ただいま障害により大変ご迷惑をお掛けしております。';
-exit();
-}
+    set_flash('sucsess', 'コメントを削除しました');
+    header('Location:../post/post_disp.php?post_id=' . $post_id . '');
 
-set_flash('sucsess','コメントを削除しました');
-header('Location:../post/post_disp.php?post_id='.$post_id.'');
-
-?>
+    ?>
 
 </body>
 <?php require_once('../footer.php'); ?>
+
 </html>

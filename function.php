@@ -160,21 +160,21 @@ function post_block($posts,$block_cnt){ //$block_cnt=2
   global $block;
   $j=0;
   $k=0;
-  for($i=1;$i=$block_cnt;$i++){
+  for($i=1;$i<$block_cnt;$i++){
     if($j!=0){
-    $k=+$j+1;
+    $k=$j+1;
     }
     if($i=1){
-    for($j=0;$j=4;$j++){
-      $block[$i]=$posts[$j];
+    for($j=0;$j<5;$j++){
+      $block[$i]=$block[$i]+$posts[$j];// ここの代入方法がわからない
+      _debug($block);
     }
     }else{
-    for($j=$k;$j=$k+5;$j++){
+    for($j=$k;$j<$k+5;$j++){
       $block[$i]=$posts[$j];
     }
     }
   }
-  return $block;
 }
 
 //フォロー中かどうか確認している処理
@@ -303,6 +303,17 @@ function get_comments($post_id){
     error_log('エラー発生:' . $e->getMessage());
     set_flash('error',ERR_MSG1);
   }
+}
+
+function check_comment($post_id){
+  $dbh = dbConnect();
+  $sql = "SELECT *
+          FROM comment
+          WHERE post_id = :post_id";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':post_id' => $post_id));
+  $favorite = $stmt->fetch();
+  return $favorite;
 }
 
 function get_message_relations($user_id){

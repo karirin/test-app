@@ -1,6 +1,6 @@
 <body>
 
-<?php
+    <?php
 require_once('../config.php');
 
 $user_name=$_POST['name'];
@@ -35,23 +35,24 @@ set_flash('error',$error_messages);
 $_SESSION['image']['data'] = file_get_contents($_FILES['image']['tmp_name']);
 $_SESSION['image']['type'] = exif_imagetype($_FILES['image']['tmp_name']);
 ?>
-<div class="row center">
-<div class="col-8 offset-2">
-<h2 class="margin_top_bottom">こちらのユーザーを追加しますか</h2>
-<img src="image.php" class="user_newimage">
-<h3 class="margin_top_bottom"><?= $user_name ?></h3>
-<form method="post" action="user_add_done.php">
-<input type="hidden" name="name" value="<?= $user_name ?>">
-<input type="hidden" name="pass" value="<?= $user_pass ?>">
-<input type="hidden" name="image_name" value="<?= $user_image['name'] ?>">
-<div class="flex_btn">
-<input type="button" class="btn btn-outline-info modal_close" onclick="history.back()" value="戻る">
-<input type="submit" class="btn btn-outline-dark" value="OK">
-</div>
-</form>
-</div>
-</div>
+    <div class="row center">
+        <div class="col-8 offset-2">
+            <h2 class="margin_top_bottom">こちらのユーザーを追加しますか</h2>
+            <img src="image.php" class="user_newimage">
+            <h3 class="margin_top_bottom"><?= $user_name ?></h3>
+            <form method="post" action="user_add_done.php">
+                <input type="hidden" name="name" value="<?= $user_name ?>">
+                <input type="hidden" name="pass" value="<?= $user_pass ?>">
+                <input type="hidden" name="image_name" value="<?= $user_image['name'] ?>">
+                <div class="flex_btn">
+                    <input type="button" class="btn btn-outline-info modal_close" onclick="history.back()" value="戻る">
+                    <input type="submit" class="btn btn-outline-dark" value="OK">
+                </div>
+            </form>
+        </div>
+    </div>
 
 </body>
 <?php require_once('../footer.php'); ?>
+
 </html>

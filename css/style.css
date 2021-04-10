@@ -1214,6 +1214,9 @@ img.preview {
     .far.fa-times-circle.edit_clear {
         right: 61%;
     }
+    .edit_btn {
+        margin-bottom: 1rem;
+    }
 }
 
 @media screen and (min-width: 701px) {
