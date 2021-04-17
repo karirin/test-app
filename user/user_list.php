@@ -69,12 +69,14 @@ require_once('../config.php');
                             <?php endif; ?>
                         </div>
                     </div>
+                    <?php if(isset($user['profile'])):?>
                     <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
                     <div class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;">
                         <?= $user['profile'] ?></div>
                     <?php else:?>
                     <div class="user_profile"><?= $user['profile'] ?></div>
                     <?php endif; ?>
+                    <?php endif;?>
                 </div>
         </a>
         <?php endforeach ?>

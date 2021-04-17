@@ -4,7 +4,7 @@ require_once('../config.php');
 $current_user = get_user($_SESSION['user_id']);
 $destination_user = get_user($_GET['user_id']);
 $messages = get_messages($current_user['id'], $destination_user['id']);
-$bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
+$bottom_message=get_new_message($current_user['id'],$destination_user['id']);
 reset_message_count($current_user['id'],$destination_user['id']);
 ?>
 

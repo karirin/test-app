@@ -1,8 +1,17 @@
 <?php
+
+//================================
+// フラッシュメッセージ
+//================================
+
 function set_flash($type,$message){
 	$_SESSION['flash']['type'] = "flash_${type}";
   $_SESSION['flash']['message'] = $message;
 }
+
+//================================
+// デバッグ
+//================================
 
 function _debug( $data, $clear_log = false ) {
   $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
@@ -12,21 +21,11 @@ function _debug( $data, $clear_log = false ) {
   file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
 }
 
-function get_newuser($name,$password){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT id,name,password,profile,image
-            FROM user
-            WHERE name = :name and password = :password";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':name' => $name,':password' => $password));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
+//================================
+// ユーザー関連
+//================================
 
+//  ユーザーを取得する
 function get_user($user_id){
   try {
     $dbh = dbConnect();
@@ -42,6 +41,7 @@ function get_user($user_id){
   }
 }
 
+//  複数のユーザーを取得する
 function get_users($type,$query){
   try {
     $dbh = dbConnect();
@@ -88,7 +88,23 @@ function get_users($type,$query){
   }
 }
 
+//  ユーザー新規登録の際、既にユーザーIDとパスワードがないか確認する
+function get_newuser($name,$password){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT id,name,password,profile,image
+            FROM user
+            WHERE name = :name and password = :password";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':name' => $name,':password' => $password));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
 
+//  ユーザー数を取得する
 function get_user_count($object,$user_id){
   $dbh = dbConnect();
   switch ($object) {
@@ -123,61 +139,24 @@ function get_user_count($object,$user_id){
   return $stmt->fetch();
 }
 
-//お気に入りの重複チェック
-function check_favolite_duplicate($user_id,$post_id){
+//  ユーザーのログイン時刻を更新する
+function update_login_time($date,$id){
+  try {
     $dbh = dbConnect();
-    $sql = "SELECT *
-            FROM favorite
-            WHERE user_id = :user_id AND post_id = :post_id";
+    $dbh->beginTransaction();
+    $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id ,
-                         ':post_id' => $post_id));
-    $favorite = $stmt->fetch();
-    return $favorite;
-}
-
-function get_post_favorite_count($post_id){
-  $dbh = dbConnect();
-  $sql = "SELECT COUNT(user_id)
-          FROM favorite
-          WHERE post_id = :post_id";
-  $stmt = $dbh->prepare($sql);
-  $stmt->execute(array(':post_id' => $post_id));
-  return $stmt->fetch();
-}
-
-function get_post_comment_count($post_id){
-  $dbh = dbConnect();
-  $sql = "SELECT COUNT(id)
-          FROM comment
-          WHERE post_id = :post_id";
-  $stmt = $dbh->prepare($sql);
-  $stmt->execute(array(':post_id' => $post_id));
-  return $stmt->fetch();
-}
-
-function post_block($posts,$block_cnt){ //$block_cnt=2
-  global $block;
-  $j=0;
-  $k=0;
-  for($i=1;$i<$block_cnt;$i++){
-    if($j!=0){
-    $k=$j+1;
-    }
-    if($i=1){
-    for($j=0;$j<5;$j++){
-      $block[$i]=$block[$i]+$posts[$j];// ここの代入方法がわからない
-      _debug($block);
-    }
-    }else{
-    for($j=$k;$j<$k+5;$j++){
-      $block[$i]=$posts[$j];
-    }
-    }
+    $stmt->execute(array(':date' => $date->format('Y-m-d H:i:s') , ':id' => $id));
+    $dbh->commit();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+    $dbh->rollback();
+    reload();
   }
 }
 
-//フォロー中かどうか確認している処理
+//フォロー中かどうか確認する
 function check_follow($follow_user,$follower_user){
   $dbh = dbConnect();
   $sql = "SELECT follow_id,follower_id
@@ -199,6 +178,11 @@ function check_user($user_name){
   return  $stmt->fetch();
 }
 
+//================================
+// 投稿関連
+//================================
+
+// 投稿を取得する
 function get_post($post_id){
   try {
     $dbh = dbConnect();
@@ -214,21 +198,22 @@ function get_post($post_id){
   }
 }
 
-// ユーザーの投稿を取得する
+//　投稿を複数取得する
 function get_posts($user_id,$type,$query){
   try {
       $dbh = dbConnect();
-    // ページに合わせてSQLを変える
+    //　ページに合わせてSQLを変える
     switch ($type) {
+      //  すべての投稿を取得する
       case 'all':
       $sql = "SELECT *
               FROM post
               ORDER BY created_at DESC";
               $stmt = $dbh->prepare($sql);
       break;
-      //自分の投稿を取得する
+      //　自分の投稿を取得する
       case 'my_post':
-      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.image,post.text,post.user_id,post.created_at
+      $sql = "SELECT *
               FROM user INNER JOIN post ON user.id = post.user_id
               WHERE user_id = :id AND delete_flg = 0
               ORDER BY created_at DESC";
@@ -238,9 +223,9 @@ function get_posts($user_id,$type,$query){
               $stmt = $dbh->prepare($sql);
               $stmt->bindValue(':id', $user_id);
       break;
-      //お気に入り登録した投稿を取得する
+      //　お気に入り登録した投稿を取得する
       case 'favorite':
-      $sql = "SELECT user.id,user.name,user.password,user.profile,user.delete_flg,post.id,post.image,post.text,post.user_id,post.created_at
+      $sql = "SELECT *
               FROM post INNER JOIN favorite ON post.id = favorite.post_id
               INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id
@@ -248,7 +233,7 @@ function get_posts($user_id,$type,$query){
               $stmt = $dbh->prepare($sql);
               $stmt->bindValue(':id', $user_id);
       break;
-
+      //　フォローしているユーザーの投稿を取得する
       case 'follow':
         $sql = "SELECT *
                 FROM post INNER JOIN relation ON post.user_id = relation.follower_id
@@ -257,7 +242,7 @@ function get_posts($user_id,$type,$query){
                 $stmt = $dbh->prepare($sql);
                 $stmt->bindValue(':id', $user_id);
       break;
-
+      //　検索結果の投稿を取得する
       case 'search':
         $sql = "SELECT *
                 FROM post
@@ -275,6 +260,33 @@ function get_posts($user_id,$type,$query){
   }
 }
 
+//　お気に入りの投稿数を取得する
+function get_post_favorite_count($post_id){
+  $dbh = dbConnect();
+  $sql = "SELECT COUNT(user_id)
+          FROM favorite
+          WHERE post_id = :post_id";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':post_id' => $post_id));
+  return $stmt->fetch();
+}
+
+//　投稿IDからコメントを取得する
+function get_post_comment_count($post_id){
+  $dbh = dbConnect();
+  $sql = "SELECT COUNT(id)
+          FROM comment
+          WHERE post_id = :post_id";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':post_id' => $post_id));
+  return $stmt->fetch();
+}
+
+//================================
+// コメント関連
+//================================
+
+//　コメントを取得する
 function get_comment($comment_id){
   try {
     $dbh = dbConnect();
@@ -290,6 +302,7 @@ function get_comment($comment_id){
   }
 }
 
+//  複数のコメントを取得する
 function get_comments($post_id){
   try {
     $dbh = dbConnect();
@@ -305,6 +318,7 @@ function get_comments($post_id){
   }
 }
 
+//  コメントがある投稿か確認する
 function check_comment($post_id){
   $dbh = dbConnect();
   $sql = "SELECT *
@@ -316,14 +330,49 @@ function check_comment($post_id){
   return $favorite;
 }
 
-function get_message_relations($user_id){
+//  コメントへの返信コメントを取得する
+function get_reply_comments($post_id,$comment_id){
   try {
     $dbh = dbConnect();
     $sql = "SELECT *
-            FROM message_relation
-            WHERE user_id = :user_id";
+            FROM comment
+            WHERE post_id = :id AND comment_id = :comment_id";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id));
+    $stmt->execute(array(':id' => $post_id , ':comment_id' => $comment_id));
+    return $stmt->fetchAll();
+
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+//　コメントへの返信コメント数を取得する
+function get_reply_comment_count($comment_id){
+  $dbh = dbConnect();
+  $sql = "SELECT COUNT(id)
+          FROM comment
+          WHERE comment_id = :comment_id";
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':comment_id' => $comment_id));
+  return $stmt->fetch();
+}
+
+//================================
+// メッセージ関連
+//================================
+
+//  複数のメッセージを取得する
+function get_messages($user_id,$destination_user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT *
+            FROM message
+            WHERE (user_id = :id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :id)
+            ORDER BY created_at ASC";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
     return $stmt->fetchAll();
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
@@ -331,6 +380,42 @@ function get_message_relations($user_id){
   }
 }
 
+//　メッセージ数を取得する
+function message_count($user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT SUM(message_count)
+            FROM message_relation
+            WHERE destination_user_id = :user_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+//　最新のメッセージを取得する
+function get_new_message($user_id,$destination_user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT *
+            FROM message
+            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
+                  or (user_id = :destination_user_id and destination_user_id = :user_id)
+            ORDER BY created_at DESC";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+//  メッセージを新規登録する
 function insert_message($user_id,$destination_user_id){
   try {
     $dbh = dbConnect();
@@ -363,6 +448,22 @@ function insert_message_count($user_id,$destination_user_id){
   }
 }
 
+//  メッセージリストを取得する
+function get_message_relations($user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT *
+            FROM message_relation
+            WHERE user_id = :user_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id));
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 function check_relation_message($user_id,$destination_user_id){
   try {
     $dbh = dbConnect();
@@ -380,40 +481,7 @@ function check_relation_message($user_id,$destination_user_id){
   }
 }
 
-function get_bottom_message($user_id,$destination_user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT *
-            FROM message
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
-                  or (user_id = :destination_user_id and destination_user_id = :user_id)
-            ORDER BY created_at DESC";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
 
-function get_messages($user_id,$destination_user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT *
-            FROM message
-            WHERE (user_id = :id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :id)
-            ORDER BY created_at ASC";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
-    return $stmt->fetchAll();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
 
 function reset_message_count($user_id,$destination_user_id){
   try {
@@ -477,6 +545,8 @@ function last_db_message_count($user_id,$destination_user_id){
   }
 }
 
+
+
 function new_message_count($user_id,$destination_user_id){
   try {
     $dbh = dbConnect();
@@ -493,45 +563,19 @@ function new_message_count($user_id,$destination_user_id){
   }
 }
 
-function message_count($user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT SUM(message_count)
-            FROM message_relation
-            WHERE destination_user_id = :user_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
 
-function get_reply_comments($post_id,$comment_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT *
-            FROM comment
-            WHERE post_id = :id AND comment_id = :comment_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':id' => $post_id , ':comment_id' => $comment_id));
-    return $stmt->fetchAll();
 
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
-
-function get_reply_comment_count($comment_id){
+//お気に入りの重複を確認する
+function check_favolite_duplicate($user_id,$post_id){
   $dbh = dbConnect();
-  $sql = "SELECT COUNT(id)
-          FROM comment
-          WHERE comment_id = :comment_id";
+  $sql = "SELECT *
+          FROM favorite
+          WHERE user_id = :user_id AND post_id = :post_id";
   $stmt = $dbh->prepare($sql);
-  $stmt->execute(array(':comment_id' => $comment_id));
-  return $stmt->fetch();
+  $stmt->execute(array(':user_id' => $user_id ,
+                       ':post_id' => $post_id));
+  $favorite = $stmt->fetch();
+  return $favorite;
 }
 
 function change_delete_flg($id,$flg){
@@ -551,36 +595,21 @@ function change_delete_flg($id,$flg){
   }
 }
 
-function update_login_time($date,$id){
-  try {
-    $dbh = dbConnect();
-    $dbh->beginTransaction();
-    $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':date' => $date->format('Y-m-d H:i:s') , ':id' => $id));
-    $dbh->commit();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-    $dbh->rollback();
-    reload();
+function pagination_block($data){
+  global $block;
+  $data_count=count($data);
+  $block_count=ceil($data_count/3);
+  $k=0;
+  for($i=0;$i<$block_count;$i++){
+    for($j=0;$j<3;$j++){
+        if($data_count==$k){
+            break;
+        }
+        $block[$i][$j]=$data[$k];
+        $k++;
+    }
   }
-}
-
-function update_last_login_time($date,$id){
-  try {
-    $dbh = dbConnect();
-    $dbh->beginTransaction();
-    $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':date' => $date, ':id' => $id));
-    $dbh->commit();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-    $dbh->rollback();
-    reload();
-  }
+  return $block;
 }
 
 function convert_to_fuzzy_time($time_db){

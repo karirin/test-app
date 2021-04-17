@@ -17,4 +17,21 @@ $error_messages = array();
 require('header.php');
 //グローバル変数として定義 
 _debug('',true);
+global $i;
+if(empty($_POST['block'])){
+  $_SESSION[$i]=0;
+}
+if(isset($_POST['block'])){
+switch($_POST['block']){
+  case '«':
+    $_SESSION[$i]--;
+  break;
+  case '»':
+    $_SESSION[$i]++;
+  break;
+  default:
+  $_SESSION[$i] = $_POST['block']-1;
+  break;
+}
+}
 ?>

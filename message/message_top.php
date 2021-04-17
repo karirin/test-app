@@ -9,7 +9,7 @@ $destination_user=get_user($message_relation['user_id']);
 }else{
 $destination_user=get_user($message_relation['destination_user_id']);
 }
-$bottom_message=get_bottom_message($current_user['id'],$destination_user['id']);
+$new_message=get_new_message($current_user['id'],$destination_user['id']);
 $new_message_count=current(new_message_count($current_user['id'],$destination_user['id']));
 ?>
 
@@ -22,7 +22,7 @@ $new_message_count=current(new_message_count($current_user['id'],$destination_us
                         <img src="../user/image/<?= $destination_user['image']?>" class="message_user_img">
                         <div class="destination_user_info_detail">
                             <div class="destination_user_name"><?= $destination_user['name']?></div>
-                            <span class="destination_user_text"><?= $bottom_message['text'] ?></span>
+                            <span class="destination_user_text"><?= $new_message['text'] ?></span>
                         </div>
 
                         <div class="message_notification">
@@ -36,7 +36,7 @@ $new_message_count=current(new_message_count($current_user['id'],$destination_us
 
                         <div class="col-3">
                             <span
-                                class="bottom_message_time"><?= convert_to_fuzzy_time($bottom_message['created_at']); ?></span>
+                                class="new_message_time"><?= convert_to_fuzzy_time($new_message['created_at']); ?></span>
                         </div>
                     </div>
             </a>
