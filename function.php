@@ -598,10 +598,10 @@ function change_delete_flg($id,$flg){
 function pagination_block($data){
   global $block;
   $data_count=count($data);
-  $block_count=ceil($data_count/3);
+  $block_count=ceil($data_count/5);
   $k=0;
   for($i=0;$i<$block_count;$i++){
-    for($j=0;$j<3;$j++){
+    for($j=0;$j<5;$j++){
         if($data_count==$k){
             break;
         }

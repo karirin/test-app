@@ -26,7 +26,7 @@ require_once('../config.php');
     $current_user = get_user($_SESSION['user_id']);
     }else{
     $page_id = $_GET['page_id'];
-    $current_user = get_user($page_id);  
+    $current_user = get_user($page_id); 
     }
     switch ($page_type) {
       case 'all';
@@ -45,7 +45,10 @@ require_once('../config.php');
         $users = get_users('followers', $current_user['id']);
         break;
     }
-    foreach ((array) $users as $user) :
+    $block=pagination_block($users);
+    if(isset($block[0])):
+        
+    foreach ($block[$_SESSION[$i]] as $user) :
       $user = current($user);
       $user = get_user($user);
     ?>
@@ -80,6 +83,8 @@ require_once('../config.php');
                 </div>
         </a>
         <?php endforeach ?>
+        <?php endif ?>
     </div>
+    <?php require('../pagination.php');?>
 </body>
 <?php require_once('../footer.php'); ?>
