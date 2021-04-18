@@ -32,8 +32,10 @@ if(!empty($error_messages)){
 $user_pass=md5($user_pass);
 set_flash('error',$error_messages);
 
+if(!empty($_FILES['image']['tmp_name'])){
 $_SESSION['image']['data'] = file_get_contents($_FILES['image']['tmp_name']);
 $_SESSION['image']['type'] = exif_imagetype($_FILES['image']['tmp_name']);
+}
 ?>
     <div class="row center">
         <div class="col-8 offset-2">
