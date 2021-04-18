@@ -1,7 +1,7 @@
 <?php 
 require_once('../config.php');
 set_flash('sucsess','メッセージリストを削除しました');
-header('Location:../user_login/user_top.php?type=main');
+header('Location:../user_login/user_top.php?type=main&page_id=current_user');
 ?>
 
 <body>

@@ -231,8 +231,10 @@ $(document).on('click', ".modal_close", function() {
     $('.modal').fadeOut();
     $('.modal_post').fadeOut();
     $('.modal_prof').fadeOut();
+    $('.modal_withdraw').fadeOut();
     $('.delete_confirmation').fadeOut();
     $('.post_process').fadeOut();
+    $('.withdraw_process').fadeOut();
     $('.post_edit').fadeOut();
     $('.comment_confirmation').fadeOut();
     $('.reply_comment_confirmation').fadeOut();
@@ -379,6 +381,15 @@ $(document).on('click', '.prof_modal', function() {
     $('.slide_prof').fadeIn();
     $('.modal_prof').fadeIn();
     $('.slide_prof').addClass('open');
+});
+
+$(document).on('click', '.withdraw', function() {
+    //背景をスクロールできないように　&　スクロール場所を維持
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    // モーダルウィンドウを開く
+    $('.withdraw_process').fadeIn();
+    $('.modal_withdraw').fadeIn();
 });
 
 $(document).on('click', ".prof_close", function() {

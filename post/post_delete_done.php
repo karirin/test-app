@@ -5,7 +5,7 @@ header('Location:../user_login/user_top.php?type=main&page_id=current_user');
 ?>
 
 <body>
- <?php
+    <?php
 try
 {
 

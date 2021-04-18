@@ -21,8 +21,8 @@ require_once('../config.php');
                 <p class="preview_img"><img class="my_preview"></p>
                 <input type="button" id="my_clear" value="ファイルをクリアする">
                 <div class="flex_btn margin_top">
-                    <input class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">
                     <input class="btn btn-outline-dark" type="submit" value="登録">
+                    <input class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">
                 </div>
             </form>
 </body>

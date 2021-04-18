@@ -47,8 +47,8 @@ $_SESSION['image']['type'] = exif_imagetype($_FILES['image']['tmp_name']);
                 <input type="hidden" name="pass" value="<?= $user_pass ?>">
                 <input type="hidden" name="image_name" value="<?= $user_image['name'] ?>">
                 <div class="flex_btn">
+                    <input type="submit" class="btn btn-outline-dark" value="登録">
                     <input type="button" class="btn btn-outline-info modal_close" onclick="history.back()" value="戻る">
-                    <input type="submit" class="btn btn-outline-dark" value="OK">
                 </div>
             </form>
         </div>

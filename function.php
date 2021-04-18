@@ -1,7 +1,7 @@
 <?php
 
 //================================
-// フラッシュメッセージ
+//  フラッシュメッセージ
 //================================
 
 function set_flash($type,$message){
@@ -10,7 +10,7 @@ function set_flash($type,$message){
 }
 
 //================================
-// デバッグ
+//  デバッグ
 //================================
 
 function _debug( $data, $clear_log = false ) {
@@ -22,7 +22,7 @@ function _debug( $data, $clear_log = false ) {
 }
 
 //================================
-// ユーザー関連
+//  ユーザー関連
 //================================
 
 //  ユーザーを取得する
@@ -179,7 +179,7 @@ function check_user($user_name){
 }
 
 //================================
-// 投稿関連
+//  投稿関連
 //================================
 
 // 投稿を取得する
@@ -283,7 +283,7 @@ function get_post_comment_count($post_id){
 }
 
 //================================
-// コメント関連
+//  コメント関連
 //================================
 
 //　コメントを取得する
@@ -359,8 +359,24 @@ function get_reply_comment_count($comment_id){
 }
 
 //================================
-// メッセージ関連
+//  メッセージ関連
 //================================
+
+//　メッセージ数を取得する
+function message_count($user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT SUM(message_count)
+            FROM message_relation
+            WHERE destination_user_id = :user_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
 
 //  複数のメッセージを取得する
 function get_messages($user_id,$destination_user_id){
@@ -380,22 +396,6 @@ function get_messages($user_id,$destination_user_id){
   }
 }
 
-//　メッセージ数を取得する
-function message_count($user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT SUM(message_count)
-            FROM message_relation
-            WHERE destination_user_id = :user_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
-
 //　最新のメッセージを取得する
 function get_new_message($user_id,$destination_user_id){
   try {
@@ -405,6 +405,23 @@ function get_new_message($user_id,$destination_user_id){
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
                   or (user_id = :destination_user_id and destination_user_id = :user_id)
             ORDER BY created_at DESC";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+//  新規メッセージ数を取得する
+function new_message_count($user_id,$destination_user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT message_count
+            FROM message_relation
+            WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :destination_user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));
@@ -432,6 +449,7 @@ function insert_message($user_id,$destination_user_id){
   }
 }
 
+//  メッセージ数を更新する
 function insert_message_count($user_id,$destination_user_id){
   try {
     $dbh = dbConnect();
@@ -464,6 +482,7 @@ function get_message_relations($user_id){
   }
 }
 
+//  メッセージリストがあるか確認する
 function check_relation_message($user_id,$destination_user_id){
   try {
     $dbh = dbConnect();
@@ -481,8 +500,7 @@ function check_relation_message($user_id,$destination_user_id){
   }
 }
 
-
-
+//  メッセージ数を０にする
 function reset_message_count($user_id,$destination_user_id){
   try {
   $dbh = dbConnect();
@@ -500,72 +518,11 @@ function reset_message_count($user_id,$destination_user_id){
 }
 }
 
-function get_last_bottom_message($user_id,$destination_user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT message.id,message.user_id,message.destination_user_id FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at ORDER BY message.id DESC";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
+//================================
+//  その他
+//================================
 
-function last_message_count($user_id,$destination_user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT COUNT(*) FROM message INNER JOIN user on user.id = message.user_id WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user.login_time > message.created_at";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
-
-function last_db_message_count($user_id,$destination_user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT message_count
-            FROM message_relation
-            WHERE (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)
-            order by id desc";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
-
-
-
-function new_message_count($user_id,$destination_user_id){
-  try {
-    $dbh = dbConnect();
-    $sql = "SELECT message_count
-            FROM message_relation
-            WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :destination_user_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $user_id,
-                         ':destination_user_id' => $destination_user_id));
-    return $stmt->fetch();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-  }
-}
-
-
-
-//お気に入りの重複を確認する
+//  お気に入りの重複を確認する
 function check_favolite_duplicate($user_id,$post_id){
   $dbh = dbConnect();
   $sql = "SELECT *
@@ -578,6 +535,7 @@ function check_favolite_duplicate($user_id,$post_id){
   return $favorite;
 }
 
+//  
 function change_delete_flg($id,$flg){
   try {
     $dbh = dbConnect();
@@ -595,6 +553,7 @@ function change_delete_flg($id,$flg){
   }
 }
 
+//  ページネーション
 function pagination_block($data){
   global $block;
   $data_count=count($data);
@@ -612,6 +571,7 @@ function pagination_block($data){
   return $block;
 }
 
+//  作成時間を～前で表示する
 function convert_to_fuzzy_time($time_db){
   ini_set("date.timezone", "Asia/Tokyo");
   $unix = strtotime($time_db);
@@ -648,8 +608,9 @@ function convert_to_fuzzy_time($time_db){
   return (int)$time .$unit;
 }
 
+//  ページを再読み込みする
 function reload(){
-  header('Location:'.$_SERVER['HTTP_REFERER']);
+  header('Locations:'.$_SERVER['HTTP_REFERER']);
   exit();
 }
 ?>

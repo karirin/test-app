@@ -590,6 +590,10 @@ nav.navbar.navbar-light.mb-2 {
     margin-left: 1rem;
 }
 
+.delete_confirmation .modal_title {
+    text-align: center;
+}
+
 .comment_confirmation {
     display: none;
     position: fixed;
@@ -641,6 +645,23 @@ nav.navbar.navbar-light.mb-2 {
     border: 0.3rem solid #fff;
 }
 
+.withdraw_process {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 1rem;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
 .post_process {
     display: none;
     position: fixed;
@@ -674,6 +695,12 @@ nav.navbar.navbar-light.mb-2 {
     color: rgb(26, 126, 1);
 }
 
+.withdraw_btn {
+    justify-content: space-evenly;
+    display: flex;
+    margin-top: 2rem;
+}
+
 .post_btn {
     justify-content: space-evenly;
     display: flex;
@@ -689,7 +716,8 @@ nav.navbar.navbar-light.mb-2 {
 
 .modal,
 .modal_post,
-.modal_prof {
+.modal_prof,
+.modal_withdraw {
     display: none;
     position: fixed;
     top: 0;
@@ -941,6 +969,16 @@ img.preview {
     color: rgb(26, 126, 1);
 }
 
+.message_image_detail {
+    text-align: center;
+}
+
+.message_image_detail .far.fa-times-circle.my_clear {
+    top: 71%;
+    right: 41.5%;
+    font-size: 2rem;
+}
+
 .message_btn {
     justify-content: space-evenly;
     display: flex;
@@ -1079,7 +1117,7 @@ img.preview {
 .destination_user_list {
     border: solid;
     border-radius: 3rem;
-    padding: 1rem;
+    padding: 0.8rem;
     margin: 1rem 0;
 }
 
@@ -1111,6 +1149,16 @@ img.preview {
 
 .destination_user_list .destination_user_info .destination_user_info_detail {
     display: inline-block;
+    width: 80%;
+}
+
+.destination_user_list .destination_user_info .destination_user_info_detail .destination_user_message_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.destination_user_list .destination_user_info .destination_user_info_detail .destination_user_message_info #message_count {
+    margin-top: -0.5rem;
 }
 
 .destination_user_list .destination_user_info .destination_user_text {
@@ -1120,6 +1168,7 @@ img.preview {
 .new_message_time {
     vertical-align: top;
     float: right;
+    margin-right: -3rem;
 }
 
 .direct_message {

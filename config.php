@@ -5,6 +5,7 @@ require('db_connect.php');
 require('function.php');
 require('head.php'); 
 require('post_process.php');
+require('withdraw.php');
 
 if(isset($_SESSION['flash'])){
   $flash_messages = $_SESSION['flash']['message'];
