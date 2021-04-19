@@ -1,7 +1,12 @@
 <?php 
-require_once('../config.php');
+session_start();
+@session_regenerate_id(true);
+
+require('../db_connect.php');
+require_once('../function.php');
+
 set_flash('sucsess','投稿を削除しました');
-header('Location:../user_login/user_top.php?type=main&page_id=current_user');
+reload();
 ?>
 
 <body>
@@ -22,8 +27,6 @@ $sql = 'DELETE post FROM post WHERE post.id=?';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_id;
 $stmt -> execute($data);
-_debug($stmt);
-_debug($post_id);
 
 $dbh = null;
 

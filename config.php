@@ -18,10 +18,10 @@ $error_messages = array();
 require('header.php');
 //グローバル変数として定義 
 _debug('',true);
+//_debug($flash_messages);
 global $i;
 if(empty($_POST['block'])){
   $_SESSION[$i]=0;
-  //_debug($_SESSION[$i]);
 }
 if(isset($_POST['block'])){
 switch($_POST['block']){
@@ -36,5 +36,4 @@ switch($_POST['block']){
   break;
 }
 }
-//_debug($_SESSION[$i]);
 ?>

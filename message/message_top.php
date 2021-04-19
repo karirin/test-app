@@ -11,7 +11,6 @@ $destination_user=get_user($message_relation['destination_user_id']);
 }
 $new_message=get_new_message($current_user['id'],$destination_user['id']);
 $new_message_count=current(new_message_count($current_user['id'],$destination_user['id']));
-_debug(new_message_count($current_user['id'],$destination_user['id']));
 ?>
 
 <body>

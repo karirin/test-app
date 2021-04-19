@@ -1,27 +1,6 @@
 <?php
 
 //================================
-//  フラッシュメッセージ
-//================================
-
-function set_flash($type,$message){
-	$_SESSION['flash']['type'] = "flash_${type}";
-  $_SESSION['flash']['message'] = $message;
-}
-
-//================================
-//  デバッグ
-//================================
-
-function _debug( $data, $clear_log = false ) {
-  $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-  if( $clear_log ){
-    file_put_contents($uri_debug_file, print_r('', true));
-  }
-  file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
-}
-
-//================================
 //  ユーザー関連
 //================================
 
@@ -155,7 +134,7 @@ function update_login_time($date,$id){
   }
 }
 
-//フォロー中かどうか確認する
+//  フォロー中かどうか確認する
 function check_follow($follow_user,$follower_user){
   $dbh = dbConnect();
   $sql = "SELECT follow_id,follower_id
@@ -591,7 +570,22 @@ function convert_to_fuzzy_time($time_db){
 
 //  ページを再読み込みする
 function reload(){
-  header('Locations:'.$_SERVER['HTTP_REFERER']);
+  header('Location:'.$_SERVER['HTTP_REFERER']);
   exit();
+}
+
+//　フラッシュメッセージ
+function set_flash($type,$message){
+	$_SESSION['flash']['type'] = "flash_${type}";
+  $_SESSION['flash']['message'] = $message;
+}
+
+//  デバッグ
+function _debug( $data, $clear_log = false ) {
+  $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+  if( $clear_log ){
+    file_put_contents($uri_debug_file, print_r('', true));
+  }
+  file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
 }
 ?>
