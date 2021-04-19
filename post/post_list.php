@@ -72,6 +72,7 @@ endif;
                 </div>
             </form>
         </div>
+        <?php if($post['user_id']==$current_user['id']): ?>
         <button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>" type="button" data-toggle="edit"
             title="編集"><i class="fas fa-edit"></i></button>
         <div class="post_edit" id="edit_modal<?= $post['id'] ?>">
@@ -114,6 +115,7 @@ endif;
                 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
         </div>
+<?php endif; ?>
     </div>
     <p class="post_created_at"><?php print''.convert_to_fuzzy_time($post['created_at']).''; ?></p>
 </div>

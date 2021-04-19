@@ -1,3 +1,11 @@
+/* ///////////////////////// */
+
+
+/*        　 共通            */
+
+
+/* ///////////////////////// */
+
 * {
     font-family: Palatino Linotype;
 }
@@ -23,143 +31,6 @@ body.fixed {
 
 .col-4 {
     text-align: center;
-}
-
-.profile_count {
-    margin-right: -3rem;
-}
-
-.profile_count .col-4.offset-1 {
-    padding: 0;
-    margin-bottom: 1rem;
-}
-
-.profile_count .col-4.offset-1 a {
-    color: rgb(0, 0, 0);
-}
-
-.profile_count .col-4.offset-1 a p {
-    margin: 0;
-}
-
-.profile_count .col-4.offset-1:hover {
-    background-color: rgb(172, 172, 172);
-    padding: 0;
-    border-radius: 1rem;
-}
-
-.fas.fa-angle-right {
-    font-size: 2rem;
-    color: rgb(0, 0, 0);
-}
-
-.fas.fa-angle-right:hover {
-    opacity: 0.5;
-}
-
-.fa-trash-alt {
-    margin-bottom: 0.7rem;
-}
-
-.fa-trash-alt:hover {
-    color: hsl(0, 100%, 30%);
-}
-
-.fa-comment-dots:hover {
-    color: rgb(0, 90, 112);
-}
-
-.fa-edit {
-    margin-bottom: 0.8rem;
-}
-
-.fa-edit:hover {
-    color: rgb(26, 126, 1);
-}
-
-img.mypage {
-    border-radius: 10rem;
-    border: solid 0.3rem;
-    width: 12rem;
-    height: 12rem;
-}
-
-.edit_profile_img {
-    border-radius: 10rem;
-    border: solid 0.3rem;
-    width: 12rem;
-    height: 12rem;
-    display: none;
-}
-
-.edit_profile_img .far.fa-image {
-    position: absolute;
-    top: 34%;
-    right: 33%;
-    z-index: 10;
-    color: rgb(0, 0, 0);
-}
-
-.fas.fa-envelope-square {
-    color: #000;
-}
-
-.fas.fa-envelope-square:hover {
-    opacity: 0.5;
-}
-
-.far.fa-times-circle {
-    display: none;
-    position: absolute;
-}
-
-.far.fa-times-circle:hover {
-    opacity: 0.5;
-}
-
-.far.fa-times-circle.post_clear {
-    top: 47%;
-    right: 74%;
-    font-size: 2rem;
-}
-
-.far.fa-times-circle.comment_clear {
-    top: 53%;
-    right: 74%;
-    font-size: 2rem;
-}
-
-.far.fa-times-circle.edit_clear {
-    top: 47%;
-    right: 74%;
-    font-size: 2rem;
-}
-
-.col-10.offset-1 .far.fa-times-circle {
-    top: 62%;
-    right: 29%;
-    font-size: 2rem;
-}
-
-.edit_profile_img .far.fa-times-circle {
-    top: 4%;
-    right: 26%;
-    z-index: 10;
-    font-size: 3rem;
-    color: black;
-}
-
-.edit_profile_img .fa-image_range {
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    top: 20%;
-    right: 44%;
-    border-radius: 1rem;
-}
-
-.edit_profile_img .fa-image_range:hover {
-    background-color: rgb(182, 182, 182);
 }
 
 ul {
@@ -195,15 +66,6 @@ ul.main_ul {
 
 ul.main_ul a:hover {
     opacity: 0.5;
-}
-
-.slide_menu ul {
-    padding: 0rem 0.5rem;
-    text-align: center;
-}
-
-.slide_menu ul li:hover {
-    opacity: 0.7;
 }
 
 nav.navbar.navbar-light.mb-2 {
@@ -250,6 +112,255 @@ nav.navbar.navbar-light.mb-2 {
     border-radius: 0.5rem;
     box-sizing: border-box;
     border: solid;
+}
+
+.slide_menu ul {
+    padding: 0rem 0.5rem;
+    text-align: center;
+}
+
+.slide_menu ul li:hover {
+    opacity: 0.7;
+}
+
+.margin_top {
+    margin-top: 1rem;
+}
+
+.margin_bottom {
+    margin-bottom: 1rem;
+}
+
+.margin_top_bottom {
+    margin: 1rem 0;
+}
+
+.left {
+    text-align: left;
+}
+
+.left .says img {
+    width: 7rem;
+    height: 7rem;
+    padding: 0.5rem;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.fas.fa-angle-right {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+.fas.fa-angle-right:hover {
+    opacity: 0.5;
+}
+
+.fa-trash-alt {
+    margin-bottom: 0.7rem;
+}
+
+.fa-trash-alt:hover {
+    color: hsl(0, 100%, 30%);
+}
+
+.fa-comment-dots:hover {
+    color: rgb(0, 90, 112);
+}
+
+.fa-edit {
+    margin-bottom: 0.8rem;
+}
+
+.fa-edit:hover {
+    color: rgb(26, 126, 1);
+}
+
+.fas.fa-envelope-square {
+    color: #000;
+}
+
+.fas.fa-envelope-square:hover {
+    opacity: 0.5;
+}
+
+.far.fa-times-circle {
+    display: none;
+    position: absolute;
+}
+
+.far.fa-times-circle:hover {
+    opacity: 0.5;
+}
+
+.far.fa-times-circle.post_clear {
+    top: 47%;
+    right: 74%;
+    font-size: 2rem;
+}
+
+.far.fa-times-circle.comment_clear {
+    top: 53%;
+    right: 74%;
+    font-size: 2rem;
+}
+
+.far.fa-times-circle.edit_clear {
+    top: 47%;
+    right: 74%;
+    font-size: 2rem;
+}
+
+
+/* ///////////////////////// */
+
+
+/*    ユーザー新規登録画面    */
+
+
+/* ///////////////////////// */
+
+.user_name_input {
+    width: 60%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+.user_pass_input {
+    width: 60%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+.image_select {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+
+/* ///////////////////////// */
+
+
+/*     ユーザー詳細画面      */
+
+
+/* ///////////////////////// */
+
+.profile {
+    padding: 1rem;
+}
+
+.profile .comment {
+    white-space: pre-wrap;
+}
+
+.profile .profile_img {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+    display: inline-block;
+}
+
+.profile .edit_profile_img {
+    width: 12rem;
+    height: 12rem;
+    display: none;
+}
+
+.profile .editing_profile_img {
+    border-radius: 10rem;
+    opacity: 0.3;
+    width: 11rem;
+    height: 11rem;
+}
+
+.edit_profile_img {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+    display: none;
+}
+
+.edit_profile_img .far.fa-image {
+    position: absolute;
+    top: 34%;
+    right: 33%;
+    z-index: 10;
+    color: rgb(0, 0, 0);
+}
+
+.edit_profile_img .far.fa-times-circle {
+    top: 4%;
+    right: 26%;
+    z-index: 10;
+    font-size: 3rem;
+    color: black;
+}
+
+.edit_profile_img .fa-image_range {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: 20%;
+    right: 44%;
+    border-radius: 1rem;
+}
+
+.edit_profile_img .fa-image_range:hover {
+    background-color: rgb(182, 182, 182);
+}
+
+
+/* ///////////////////////// */
+
+
+/*           */
+
+
+/* ///////////////////////// */
+
+img.mypage {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+}
+
+.profile_count {
+    margin-right: -3rem;
+}
+
+.profile_count .col-4.offset-1 {
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.profile_count .col-4.offset-1 a {
+    color: rgb(0, 0, 0);
+}
+
+.profile_count .col-4.offset-1 a p {
+    margin: 0;
+}
+
+.profile_count .col-4.offset-1:hover {
+    background-color: rgb(172, 172, 172);
+    padding: 0;
+    border-radius: 1rem;
+}
+
+.col-10.offset-1 .far.fa-times-circle {
+    top: 62%;
+    right: 29%;
+    font-size: 2rem;
 }
 
 .btn_flex {
@@ -784,18 +895,6 @@ nav.navbar.navbar-light.mb-2 {
     display: flex;
 }
 
-.user_name_input {
-    width: 60%;
-    margin: 1rem 0;
-    padding: 0.5rem;
-}
-
-.user_pass_input {
-    width: 60%;
-    margin: 1rem 0;
-    padding: 0.5rem;
-}
-
 .editing {
     z-index: 15;
     position: relative;
@@ -811,35 +910,6 @@ nav.navbar.navbar-light.mb-2 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-}
-
-.profile {
-    padding: 1rem;
-}
-
-.profile .comment {
-    white-space: pre-wrap;
-}
-
-.profile .profile_img {
-    border-radius: 10rem;
-    border: solid 0.3rem;
-    width: 12rem;
-    height: 12rem;
-    display: inline-block;
-}
-
-.profile .edit_profile_img {
-    width: 12rem;
-    height: 12rem;
-    display: none;
-}
-
-.profile .editing_profile_img {
-    border-radius: 10rem;
-    opacity: 0.3;
-    width: 11rem;
-    height: 11rem;
 }
 
 #comment_image,
@@ -929,32 +999,6 @@ img.preview {
 #profile_clear,
 #process_clear {
     display: none;
-}
-
-.margin_top {
-    margin-top: 1rem;
-}
-
-.margin_bottom {
-    margin-bottom: 1rem;
-}
-
-.margin_top_bottom {
-    margin: 1rem 0;
-}
-
-.left {
-    text-align: left;
-}
-
-.left .says img {
-    width: 7rem;
-    height: 7rem;
-    padding: 0.5rem;
-}
-
-.right {
-    text-align: right;
 }
 
 .message_process .message_title {
@@ -1110,10 +1154,6 @@ img.preview {
     font-size: 0.9rem;
 }
 
-.center {
-    text-align: center;
-}
-
 .destination_user_list {
     border: solid;
     border-radius: 3rem;
@@ -1185,11 +1225,6 @@ img.preview {
     height: 0.01rem;
     font-weight: bold;
     margin-left: 2rem;
-}
-
-.image_select {
-    margin-top: 1rem;
-    font-size: 1rem;
 }
 
 .narrow_disp {
