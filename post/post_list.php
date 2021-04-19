@@ -1,8 +1,12 @@
 <?php
+//_debug($posts)
+$block=array();
 $block=pagination_block($posts);
 
 if(isset($block[0])):
+    //_debug($block);
 foreach($block[$_SESSION[$i]] as $post):
+    
 $post_user = get_user($post['user_id']);
 ?>
 <div class="post">

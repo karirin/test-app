@@ -31,7 +31,7 @@ function get_user($user_id){
     $dbh = dbConnect();
     $sql = "SELECT id,name,password,profile,image
             FROM user
-            WHERE id = :id AND delete_flg = 0 ";
+            WHERE id = :id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':id' => $user_id));
     return $stmt->fetch();
@@ -50,7 +50,6 @@ function get_users($type,$query){
       case 'all':
       $sql = "SELECT id
               FROM user
-              WHERE delete_flg = 0
               ORDER BY id DESC";
       $stmt = $dbh->prepare($sql);
       break;
@@ -58,7 +57,7 @@ function get_users($type,$query){
       case 'search':
         $sql = "SELECT id
                 FROM user
-                WHERE name LIKE CONCAT('%',:input,'%') AND delete_flg = 0
+                WHERE name LIKE CONCAT('%',:input,'%')
                 ORDER BY id DESC";
         $stmt = $dbh->prepare($sql);
         $stmt->bindValue(':input', $query);
@@ -112,7 +111,7 @@ function get_user_count($object,$user_id){
     case 'favorite':
     $sql ="SELECT COUNT(post_id)
           FROM favorite
-          WHERE user_id = :id AND delete_flg = 0";
+          WHERE user_id = :id";
     break;
 
     case 'post':
@@ -215,7 +214,7 @@ function get_posts($user_id,$type,$query){
       case 'my_post':
       $sql = "SELECT *
               FROM user INNER JOIN post ON user.id = post.user_id
-              WHERE user_id = :id AND delete_flg = 0
+              WHERE user_id = :id
               ORDER BY created_at DESC";
               //inner join ～ on でテーブル同士をくっつけている
               //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
@@ -533,24 +532,6 @@ function check_favolite_duplicate($user_id,$post_id){
                        ':post_id' => $post_id));
   $favorite = $stmt->fetch();
   return $favorite;
-}
-
-//  
-function change_delete_flg($id,$flg){
-  try {
-    $dbh = dbConnect();
-    $dbh->beginTransaction();
-    $sql = 'UPDATE user SET delete_flg = :flg WHERE id = :id';
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':flg' => $flg , ':id' => $id));
-    
-    $dbh->commit();
-  } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
-    $dbh->rollback();
-    reload();
-  }
 }
 
 //  ページネーション

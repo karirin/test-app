@@ -129,8 +129,16 @@ require('user_list.php');
         <div class="col-4">
             <h2 class="left">タイムライン</h2>
             <?php
-$posts=get_posts($page_user['id'],'follow','');
-_debug('///////////////////////////////////////////////////////////////////////////////////');
+$posts= array();
+// _debug($posts);
+$post_array=get_posts($page_user['id'],'follow','');
+if(isset($post_array[0])){
+$k=0;
+for($j=0;$j<5;$j++){
+    $posts[$k]=$post_array[$j];
+    $k++;
+}
+}
 _debug($posts);
 require('../post/post_list.php');
 ?>

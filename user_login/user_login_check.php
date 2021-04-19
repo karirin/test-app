@@ -15,7 +15,7 @@ $date = new DateTime();
 $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
 
 $dbh = dbConnect();
-$sql='SELECT name,delete_flg,id FROM user WHERE name=? AND password=?';
+$sql='SELECT name,id FROM user WHERE name=? AND password=?';
 $stmt=$dbh->prepare($sql);
 
 $data[]=$user_name;
@@ -38,10 +38,6 @@ if($rec==false)
 	header('Location:user_login.php');
 }
 else {
-if($rec['delete_flg']){
-	change_delete_flg($rec['id'],0);
-	set_flash('sucsess','登録されていたユーザーを復元しました');
-}
 {
 	if(isset($rec['image'])){
 		$_SESSION['user_image']=$rec['image'];
