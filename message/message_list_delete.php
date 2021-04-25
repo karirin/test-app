@@ -12,9 +12,7 @@ if(isset($_SESSION['flash'])){
     unset($_SESSION['flash']);
   
   $error_messages = array();
-  
-set_flash('sucsess','メッセージリストを削除しました');
-reload();
+
 ?>
 
 <body>
@@ -22,17 +20,31 @@ reload();
 try
 {
 
-$message_id = $_POST['id'];
-
+$user_id = $_POST['user_id'];
+$destination_user_id = $_POST['destination_user_id'];
 $dbh = dbConnect();
-$sql = 'DELETE FROM message_relation WHERE id=?';
-$stmt = $dbh -> prepare($sql);
-$data[] = $message_id;
-$stmt -> execute($data);
+if(check_relation_delete_message($user_id,$destination_user_id)){
+  $sql = 'DELETE FROM message_relation WHERE user_id=?';
+  $stmt = $dbh -> prepare($sql);
+  $data[] = $user_id;
+  $stmt -> execute($data);
+  $dbh = null;
+}else{
+ _debug($user_id);
+  $sql = 'DELETE FROM message_relation WHERE user_id=?';
+  $stmt = $dbh -> prepare($sql);
+  $data[] = $user_id;
+  $stmt -> execute($data);
+  $sql = 'DELETE FROM message WHERE  (user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)';
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute(array(':user_id' => $user_id,
+                       ':destination_user_id' => $destination_user_id));
+  $dbh = null;
+}
 
-$dbh = null;
-
-}   
+set_flash('sucsess','メッセージリストを削除しました');
+reload();
+  
 catch (Exception $e)
 {
 print'ただいま障害により大変ご迷惑をお掛けしております。';

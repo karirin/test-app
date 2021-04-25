@@ -53,7 +53,7 @@ try {
     $stmt->execute($data);
     $dbh = null;
 
-    if (!check_relation_message($user_id, $destination_user_id)) {
+    if(!check_relation_message($user_id, $destination_user_id)) {
         insert_message($user_id, $destination_user_id);
     }
     insert_message_count($user_id,$destination_user_id);

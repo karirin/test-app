@@ -478,6 +478,22 @@ function check_relation_message($user_id,$destination_user_id){
   }
 }
 
+function check_relation_delete_message($user_id,$destination_user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT user_id,destination_user_id
+            FROM message_relation
+            WHERE user_id = :destination_user_id and destination_user_id = :user_id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
 //  メッセージ数を０にする
 function reset_message_count($user_id,$destination_user_id){
   try {

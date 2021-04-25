@@ -1,0 +1,8 @@
+Array
+(
+    [user_id] => 43
+    [0] => 43
+    [destination_user_id] => 42
+    [1] => 42
+)
+test01test02test02test02test02test024243424242424242

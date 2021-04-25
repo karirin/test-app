@@ -10,7 +10,8 @@ $destination_user=get_user($message_relation['user_id']);
 $destination_user=get_user($message_relation['destination_user_id']);
 }
 $new_message=get_new_message($current_user['id'],$destination_user['id']);
-$new_message_count=current(new_message_count($current_user['id'],$destination_user['id']));
+$new_message_count=new_message_count($current_user['id'],$destination_user['id']);
+
 ?>
 
 <body>
@@ -26,8 +27,8 @@ $new_message_count=current(new_message_count($current_user['id'],$destination_us
                                     class="destination_user_text"><?= $new_message['text'] ?></span>
                                 <span id="message_count">
                                     <?php
-            if($new_message_count!=0){    
-            print''.$new_message_count.'';
+            if($new_message_count['message_count']!=0){    
+            print''.$new_message_count['message_count'].'';
             }?>
                                 </span>
                             </div>
@@ -45,7 +46,8 @@ $new_message_count=current(new_message_count($current_user['id'],$destination_us
                 <p class="modal_title">こちらのユーザーとのメッセージを削除しますか？</p>
                 <p class="post_content"><?= nl2br($destination_user['name']) ?></p>
                 <form action="message_list_delete.php" method="post">
-                    <input type="hidden" name="id" value="<?= $message_relation['id']?>">
+                    <input type="hidden" name="user_id" value="<?= $current_user['id']?>">
+                    <input type="hidden" name="destination_user_id" value="<?= $destination_user['id']?>">                   
                     <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
                     <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                 </form>
