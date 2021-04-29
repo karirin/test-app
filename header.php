@@ -17,7 +17,11 @@
             <li class="header_menu_narrow"><a class="post_modal" href="#">投稿</a></li>
             <li class="header_menu_wide"><a href="../post/post_index.php?type=all">投稿一覧</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
-                    メッセージ<?php if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';} ?>
+                    メッセージ<?php
+                    if(current(get_user_count('message_relation',$_SESSION['user_id']))!=0){ 
+                    if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';} 
+                    }
+                    ?>
                 </a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php">ログアウト</a></li>
             <li class="header_menu_wide"><a class="withdraw" href="#">退会</a></li>
@@ -35,7 +39,10 @@
                         </a>
                         <a href="../message/message_top.php">
                             <li class="slide_menu_message">
-                                メッセージ<?php if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';} ?>
+                                メッセージ<?php
+                                if(current(get_user_count('message_relation',$_SESSION['user_id']))!=0){ 
+                                 if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';
+                                } }?>                          
                             </li>
                         </a>
                         <a href="../user_login/user_logout.php">

@@ -94,7 +94,6 @@ function get_user_count($object,$user_id){
     break;
 
     case 'post':
-      _debug('$object');
       $sql ="SELECT COUNT(id)
             FROM post
             WHERE user_id = :id";
@@ -428,13 +427,30 @@ function new_message_count($user_id,$destination_user_id){
   }
 }
 
-//  メッセージを新規登録する
+//  メッセージリストを新規登録する
 function insert_message($user_id,$destination_user_id){
   try {
     $dbh = dbConnect();
     $sql = "INSERT INTO
             message_relation(user_id,destination_user_id)
             VALUES (:user_id,:destination_user_id),(:destination_user_id,:user_id)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+//  ログインユーザーのメッセージリストを新規登録する
+function insert_user_message($user_id,$destination_user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "INSERT INTO
+            message_relation(user_id,destination_user_id)
+            VALUES (:user_id,:destination_user_id)";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));
@@ -486,6 +502,23 @@ function check_relation_message($user_id,$destination_user_id){
             FROM message_relation
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
                   or (user_id = :destination_user_id and destination_user_id = :user_id)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':user_id' => $user_id,
+                         ':destination_user_id' => $destination_user_id));
+    return $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+    set_flash('error',ERR_MSG1);
+  }
+}
+
+//  ログインユーザーのメッセージリストがあるか確認する
+function check_relation_user_message($user_id,$destination_user_id){
+  try {
+    $dbh = dbConnect();
+    $sql = "SELECT user_id,destination_user_id
+            FROM message_relation
+            WHERE user_id = :user_id and destination_user_id = :destination_user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id,
                          ':destination_user_id' => $destination_user_id));

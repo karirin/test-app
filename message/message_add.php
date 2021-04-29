@@ -55,6 +55,8 @@ try {
 
     if(!check_relation_message($user_id, $destination_user_id)) {
         insert_message($user_id, $destination_user_id);
+    }elseif(!check_relation_user_message($user_id, $destination_user_id)){
+        insert_user_message($user_id, $destination_user_id);
     }
     insert_message_count($user_id,$destination_user_id);
     set_flash('sucsess', 'メッセージを送信しました');

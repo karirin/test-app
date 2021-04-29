@@ -47,7 +47,9 @@ else {
 	$_SESSION['user_id']=$rec['id'];
 	$_SESSION['user_name']=$rec['name'];
 	if(current(message_count($_SESSION['user_id']))!=0){
+	if(current(get_user_count('message_relation',$_SESSION['user_id']))!=0){ 
 	set_flash('sucsess','ログインしました		メッセージが'.current(message_count($_SESSION['user_id'])).'件届いています');
+	}
 	}else{
 	set_flash('sucsess','ログインしました');
 	}

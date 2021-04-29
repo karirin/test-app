@@ -43,7 +43,7 @@ if(check_relation_delete_message($user_id,$destination_user_id)){
 
 set_flash('sucsess','メッセージリストを削除しました');
 reload();
-  
+}
 catch (Exception $e)
 {
 print'ただいま障害により大変ご迷惑をお掛けしております。';
