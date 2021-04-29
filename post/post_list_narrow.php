@@ -1,5 +1,9 @@
 <?php
-foreach($posts as $post):
+$block=pagination_block($posts);
+
+if(isset($block[0])):
+foreach($block[$_SESSION[$i]] as $post):
+
 $post_user = get_user($post['user_id']);
 ?>
 <div class="post narrow">
@@ -7,7 +11,7 @@ $post_user = get_user($post['user_id']);
         <div class="post_list">
             <div class="post_user">
                 <object><a
-                        href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=all">
+                        href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
                         <img src="/user/image/<?= $post_user['image'] ?>">
                         <?php print''.$post_user['name'].''; ?>
                     </a></object>
@@ -66,6 +70,7 @@ endif;
                 </div>
             </form>
         </div>
+        <?php if($post['user_id']==$current_user['id']): ?>
         <button class="btn modal_btn" data-target="#edit_modal<?= $post['id'] ?>_narrow" type="button"
             data-toggle="edit" title="編集"><i class="fas fa-edit"></i></button>
         <div class="post_edit" id="edit_modal<?= $post['id'] ?>_narrow">
@@ -82,7 +87,11 @@ endif;
                         <input type="file" name="image_name" id="edit_image_narrow" accept="image/*" multiple>
                     </label>
                     <p><img class="edit_preview"></p>
+                    <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
+                    <i class="far fa-times-circle edit_clear" style="top: 44%;"></i>
+                    <?php else: ?>
                     <i class="far fa-times-circle edit_clear"></i>
+                    <?php endif; ?>
                 </div>
                 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
                 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">
@@ -104,9 +113,12 @@ endif;
                 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
         </div>
+        <?php endif; ?>
     </div>
     <p class="post_created_at"><?php print''.convert_to_fuzzy_time($post['created_at']).''; ?></p>
 </div>
 </div>
 
 <?php endforeach ?>
+<?php endif?>
+<?php require('../pagination.php');?>

@@ -82,7 +82,7 @@ function get_newuser($name,$password){
   }
 }
 
-//  ユーザー数を取得する
+//  ユーザーIDから個数を取得する
 function get_user_count($object,$user_id){
   $dbh = dbConnect();
   switch ($object) {
@@ -94,8 +94,15 @@ function get_user_count($object,$user_id){
     break;
 
     case 'post':
+      _debug('$object');
       $sql ="SELECT COUNT(id)
             FROM post
+            WHERE user_id = :id";
+    break;
+
+    case 'comment':
+      $sql ="SELECT COUNT(id)
+            FROM comment
             WHERE user_id = :id";
     break;
 
@@ -109,9 +116,20 @@ function get_user_count($object,$user_id){
     $sql ="SELECT COUNT(follow_id)
           FROM relation
           WHERE follower_id = :id";
-      break;
-  }
+    break;
 
+    case 'message':
+    $sql ="SELECT COUNT(id)
+          FROM message
+          WHERE user_id = :id";
+    break;
+
+    case 'message_relation':
+    $sql ="SELECT COUNT(id)
+          FROM message_relation
+          WHERE user_id = :id";
+    break;
+  }
   $stmt = $dbh->prepare($sql);
   $stmt->execute(array(':id' => $user_id));
   return $stmt->fetch();

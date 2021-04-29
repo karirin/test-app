@@ -30,7 +30,6 @@ if(check_relation_delete_message($user_id,$destination_user_id)){
   $stmt -> execute($data);
   $dbh = null;
 }else{
- _debug($user_id);
   $sql = 'DELETE FROM message_relation WHERE user_id=?';
   $stmt = $dbh -> prepare($sql);
   $data[] = $user_id;
