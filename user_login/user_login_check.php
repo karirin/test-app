@@ -1,4 +1,10 @@
 <?php
+if($_POST['test_login']){
+	session_start();
+	@session_regenerate_id(true);
+	require('../db_connect.php');
+	require('../function.php');
+}
 try
 {
 $user_name=$_POST['name'];

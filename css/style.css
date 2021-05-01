@@ -18,6 +18,14 @@ a:hover {
     text-decoration-line: none;
 }
 
+body.top {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../image/背景.jpg");
+    background-repeat: no-repeat;
+}
+
 body.fixed {
     position: fixed;
     width: 100%;
@@ -217,6 +225,31 @@ nav.navbar.navbar-light.mb-2 {
     font-size: 2rem;
 }
 
+.description {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Font Awesome 5 Free';
+    line-height: 3rem;
+    margin-left: 3rem;
+    padding: 3rem 1rem;
+}
+
+.test_login {
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    width: 16rem;
+    height: 4rem;
+    font-size: 1.5rem;
+}
+
+.test_login_description {
+    position: absolute;
+    bottom: 11%;
+    font-size: 1.5rem;
+    right: 16%;
+}
+
 
 /* ///////////////////////// */
 
@@ -322,7 +355,84 @@ nav.navbar.navbar-light.mb-2 {
 /* ///////////////////////// */
 
 
-/*           */
+/*      ユーザー一覧画面      */
+
+
+/* ///////////////////////// */
+
+.col-4 .col-8.offset-2 .user_link .user {
+    border-radius: 1rem;
+    border: solid 0.1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    color: rgb(0, 0, 0);
+}
+
+.user_link .user .user_info .user_name {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.user_link .user .user_info .user_name i {
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    margin-top: 0.68rem;
+}
+
+.user_link .user .user_info.top .user_name i {
+    font-size: 1rem;
+    position: absolute;
+    right: 0;
+    margin-top: 0.4rem;
+}
+
+.user .user_info {
+    display: inline-block;
+    text-align: center;
+    margin: 0 2rem;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    width: 80%;
+}
+
+.user .user_info img {
+    border-radius: 10rem;
+    border: solid 0.2rem;
+    width: 8rem;
+    height: 8rem;
+}
+
+.user .user_info.top img {
+    border-radius: 10rem;
+    border: solid 0.2rem;
+    width: 5rem;
+    height: 5rem;
+}
+
+.user .user_info .user_name {
+    font-size: 1.5rem;
+}
+
+.user .user_info.top .user_name {
+    font-size: 1rem;
+}
+
+.user .user_profile {
+    display: inline-block;
+    text-align: center;
+    white-space: pre-wrap;
+    width: 74%;
+    vertical-align: top;
+    margin-top: 2rem;
+}
+
+
+/* ///////////////////////// */
+
+
+/*      ユーザー一覧画面      */
 
 
 /* ///////////////////////// */
@@ -598,76 +708,8 @@ img.mypage {
     transform: translateX(0px);
 }
 
-.col-4 .col-8.offset-2 .user_link .user {
-    border-radius: 1rem;
-    border: solid 0.1rem;
-    padding: 2rem;
-    margin: 2rem 0;
-    color: rgb(0, 0, 0);
-}
-
-.user .user_info {
-    display: inline-block;
-    text-align: center;
-    margin: 0 2rem;
-    color: rgb(0, 0, 0);
-    margin: 0;
-    width: 80%;
-}
-
-.user_link .user .user_info .user_name {
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.user_link .user .user_info .user_name i {
-    font-size: 20px;
-    position: absolute;
-    right: 0;
-    margin-top: 0.68rem;
-}
-
-.user_link .user .user_info.top .user_name i {
-    font-size: 1rem;
-    position: absolute;
-    right: 0;
-    margin-top: 0.4rem;
-}
-
 .user:hover {
     opacity: 0.5;
-}
-
-.user .user_info img {
-    border-radius: 10rem;
-    border: solid 0.2rem;
-    width: 8rem;
-    height: 8rem;
-}
-
-.user .user_info.top img {
-    border-radius: 10rem;
-    border: solid 0.2rem;
-    width: 5rem;
-    height: 5rem;
-}
-
-.user .user_info .user_name {
-    font-size: 1.5rem;
-}
-
-.user .user_info.top .user_name {
-    font-size: 1rem;
-}
-
-.user .user_profile {
-    display: inline-block;
-    text-align: center;
-    white-space: pre-wrap;
-    width: 74%;
-    vertical-align: top;
-    margin-top: 2rem;
 }
 
 .delete_confirmation {

@@ -7,8 +7,8 @@ require_once('../config.php');
 ?>
 
 <body>
-    <div class="col-8 offset-2">
         <?php if(basename($_SERVER['PHP_SELF']) === 'user_list.php'): ?>
+        <div class="col-6 offset-3">
         <h2 class="center margin_top_bottom">ユーザー一覧</h2>
         <form method="post" action="#" class="search_container">
             <div class="input-group mb-2">
@@ -18,8 +18,9 @@ require_once('../config.php');
                 </div>
             </div>
         </form>
+        </div>
         <?php endif; ?>
-
+        <div class="col-8 offset-2">
         <?php
     $page_type = $_GET['type'];
     if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
