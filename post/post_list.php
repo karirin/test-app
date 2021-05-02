@@ -107,7 +107,7 @@ endif;
                 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
         </div>
-<?php endif; ?>
+        <?php endif; ?>
     </div>
     <p class="post_created_at"><?php print''.convert_to_fuzzy_time($post['created_at']).''; ?></p>
 </div>
