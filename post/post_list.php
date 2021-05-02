@@ -59,11 +59,7 @@ endif;
                         <input type="file" name="image_name" id="comment_image" accept="image/*" multiple>
                     </label>
                     <p><img class="comment_preview"></p>
-                    <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'):?>
-                    <i class="far fa-times-circle comment_clear" style="top: 50%;"></i>
-                    <?php else:?>
                     <i class="far fa-times-circle comment_clear"></i>
-                    <?php endif;?>
                 </div>
                 <input type="hidden" name="id" value="<?= $post['id'] ?>">
                 <div class="post_btn">
@@ -89,11 +85,7 @@ endif;
                         <input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
                     </label>
                     <p><img class="edit_preview"></p>
-                    <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-                    <i class="far fa-times-circle edit_clear" style="top: 44%;"></i>
-                    <?php else: ?>
                     <i class="far fa-times-circle edit_clear"></i>
-                    <?php endif; ?>
                 </div>
                 <input type="hidden" name="id" value="<?php print $post['id']; ?>">
                 <input type="hidden" name="image_name_old" value="<?php print $post['image']; ?>">

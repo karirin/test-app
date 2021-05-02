@@ -170,7 +170,7 @@ require_once('../config.php');
                                             multiple>
                                     </label>
                                     <p><img class="reply_comment_preview"></p>
-                                    <i class="far fa-times-circle edit_clear"></i>
+                                    <i class="far fa-times-circle reply_comment_clear"></i>
                                 </div>
                                 <input type="hidden" name="id" value="<?= $post['id'] ?>">
                                 <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">

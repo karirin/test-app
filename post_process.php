@@ -13,11 +13,7 @@
                 <input type="file" name="image_name" id="post_image" accept="image/*" multiple>
             </label>
             <p><img class="post_preview"></p>
-            <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-            <i class="far fa-times-circle post_clear" style="top: 43%;"></i>
-            <?php else:?>
             <i class="far fa-times-circle post_clear"></i>
-            <?php endif; ?>
         </div>
         <div class="post_btn">
             <button class="btn btn-outline-danger" type="submit" name="post" value="post" id="post">投稿</button>

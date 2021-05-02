@@ -219,6 +219,12 @@ nav.navbar.navbar-light.mb-2 {
     font-size: 2rem;
 }
 
+.far.fa-times-circle.reply_comment_clear {
+    top: 53%;
+    right: 74%;
+    font-size: 2rem;
+}
+
 .far.fa-times-circle.edit_clear {
     top: 47%;
     right: 74%;
@@ -432,62 +438,10 @@ nav.navbar.navbar-light.mb-2 {
 /* ///////////////////////// */
 
 
-/*      ユーザー一覧画面      */
+/*     投稿一覧、詳細画面     */
 
 
 /* ///////////////////////// */
-
-img.mypage {
-    border-radius: 10rem;
-    border: solid 0.3rem;
-    width: 12rem;
-    height: 12rem;
-}
-
-.profile_count {
-    margin-right: -3rem;
-}
-
-.profile_count .col-4.offset-1 {
-    padding: 0;
-    margin-bottom: 1rem;
-}
-
-.profile_count .col-4.offset-1 a {
-    color: rgb(0, 0, 0);
-}
-
-.profile_count .col-4.offset-1 a p {
-    margin: 0;
-}
-
-.profile_count .col-4.offset-1:hover {
-    background-color: rgb(172, 172, 172);
-    padding: 0;
-    border-radius: 1rem;
-}
-
-.col-10.offset-1 .far.fa-times-circle {
-    top: 62%;
-    right: 29%;
-    font-size: 2rem;
-}
-
-.btn_flex {
-    display: none;
-    justify-content: space-around;
-    padding-top: 1rem;
-}
-
-.edit_comment.border_white {
-    display: block;
-}
-
-.comment .comment_text {
-    text-align: left;
-    display: block;
-    margin: 1rem;
-}
 
 .post {
     display: block;
@@ -507,6 +461,21 @@ img.mypage {
     text-align: right;
     margin: 0;
     font-size: 1rem;
+}
+
+.post .post_list .post_img {
+    width: 10rem;
+    height: 10rem;
+    border: 0.01rem solid rgb(221, 221, 221);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.post .post_list .post_info {
+    display: flex;
+    justify-content: space-around;
+    vertical-align: top;
 }
 
 .post .post_list .comment {
@@ -546,17 +515,6 @@ img.mypage {
     display: block;
 }
 
-.user_newimage {
-    border-radius: 10rem;
-    border: solid 0.3rem;
-    width: 12rem;
-    height: 12rem;
-}
-
-.user_newname {
-    font-size: 1.75rem;
-}
-
 .post .post_list .comment .user_info {
     text-align: left;
     color: rgb(0, 0, 0);
@@ -572,19 +530,10 @@ img.mypage {
     margin-right: 0.5rem;
 }
 
-.post .post_list .post_img {
-    width: 10rem;
-    height: 10rem;
-    border: 0.01rem solid rgb(221, 221, 221);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
-.post .post_list .post_info {
-    display: flex;
-    justify-content: space-around;
-    vertical-align: top;
+.post .post_list .comment .comment_text {
+    text-align: left;
+    display: block;
+    margin: 1rem;
 }
 
 .post .post_list .post_info .comment_btn {
@@ -662,6 +611,174 @@ img.mypage {
     color: #b8b8b8;
     border-color: #b8b8b8;
     cursor: default;
+}
+
+.post_edit {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.post_btn {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.post_btn .far.fa-image {
+    margin-top: 0.7rem;
+}
+
+.post_btn .far.fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
+.post .post_list .post_info .fa-image:hover {
+    color: rgb(26, 126, 1);
+}
+
+.post_image {
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.post_image p .post_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
+.post img.edit_preview {
+    display: none;
+    width: 7rem;
+    height: 7rem;
+    border: solid 0.1rem;
+    padding: 0.5rem;
+}
+
+.narrow_disp {
+    display: none;
+    text-align: center;
+}
+
+.narrower_disp {
+    display: none;
+    text-align: center;
+}
+
+
+/* ///////////////////////// */
+
+
+/*      コメント詳細画面      */
+
+
+/* ///////////////////////// */
+
+.comment_confirmation {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+.reply_comment_confirmation {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+    color: #fff;
+    font-size: 1.3rem;
+    border: 0.3rem solid #fff;
+}
+
+
+/* ///////////////////////// */
+
+img.mypage {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+}
+
+.profile_count {
+    margin-right: -3rem;
+}
+
+.profile_count .col-4.offset-1 {
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.profile_count .col-4.offset-1 a {
+    color: rgb(0, 0, 0);
+}
+
+.profile_count .col-4.offset-1 a p {
+    margin: 0;
+}
+
+.profile_count .col-4.offset-1:hover {
+    background-color: rgb(172, 172, 172);
+    padding: 0;
+    border-radius: 1rem;
+}
+
+.col-10.offset-1 .far.fa-times-circle {
+    top: 62%;
+    right: 29%;
+    font-size: 2rem;
+}
+
+.btn_flex {
+    display: none;
+    justify-content: space-around;
+    padding-top: 1rem;
+}
+
+.edit_comment.border_white {
+    display: block;
+}
+
+.user_newimage {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+}
+
+.user_newname {
+    font-size: 1.75rem;
 }
 
 .user {
@@ -747,57 +864,6 @@ img.mypage {
     text-align: center;
 }
 
-.comment_confirmation {
-    display: none;
-    position: fixed;
-    z-index: 15;
-    top: 30%;
-    left: 50%;
-    width: 600px;
-    padding: 10px;
-    background-color: #121212;
-    border-radius: 8px;
-    -webkit-transform: translate(-50%, -10%);
-    transform: translate(-50%, -10%);
-    color: #fff;
-    font-size: 1.3rem;
-    border: 0.3rem solid #fff;
-}
-
-.reply_comment_confirmation {
-    display: none;
-    position: fixed;
-    z-index: 15;
-    top: 30%;
-    left: 50%;
-    width: 600px;
-    padding: 10px;
-    background-color: #121212;
-    border-radius: 8px;
-    -webkit-transform: translate(-50%, -10%);
-    transform: translate(-50%, -10%);
-    color: #fff;
-    font-size: 1.3rem;
-    border: 0.3rem solid #fff;
-}
-
-.post_edit {
-    display: none;
-    position: fixed;
-    z-index: 15;
-    top: 30%;
-    left: 50%;
-    width: 600px;
-    padding: 10px;
-    background-color: #121212;
-    border-radius: 8px;
-    -webkit-transform: translate(-50%, -10%);
-    transform: translate(-50%, -10%);
-    color: #fff;
-    font-size: 1.3rem;
-    border: 0.3rem solid #fff;
-}
-
 .withdraw_process {
     display: none;
     position: fixed;
@@ -852,19 +918,6 @@ img.mypage {
     justify-content: space-evenly;
     display: flex;
     margin-top: 2rem;
-}
-
-.post_btn {
-    justify-content: space-evenly;
-    display: flex;
-}
-
-.post_btn .far.fa-image {
-    margin-top: 0.7rem;
-}
-
-.post_btn .far.fa-image:hover {
-    color: rgb(26, 126, 1);
 }
 
 .modal,
@@ -928,10 +981,6 @@ img.mypage {
     margin-right: 0.5rem;
 }
 
-.post .post_list .post_info .fa-image:hover {
-    color: rgb(26, 126, 1);
-}
-
 .flex_btn {
     justify-content: space-evenly;
     display: flex;
@@ -971,19 +1020,6 @@ img.mypage {
     display: none;
 }
 
-.post_image {
-    margin-left: 1rem;
-    text-align: left;
-}
-
-.post_image p .post_preview {
-    display: none;
-    width: 7rem;
-    height: 7rem;
-    border: solid 0.1rem;
-    padding: 0.5rem;
-}
-
 .myImage {
     display: none;
 }
@@ -1004,14 +1040,6 @@ img.preview {
     border: solid 0.1rem rgb(163, 163, 163);
     padding: 0.5rem;
     margin-top: 1rem;
-}
-
-.post img.edit_preview {
-    display: none;
-    width: 7rem;
-    height: 7rem;
-    border: solid 0.1rem;
-    padding: 0.5rem;
 }
 
 .post img.comment_preview {
@@ -1269,16 +1297,6 @@ img.preview {
     margin-left: 2rem;
 }
 
-.narrow_disp {
-    display: none;
-    text-align: center;
-}
-
-.narrower_disp {
-    display: none;
-    text-align: center;
-}
-
 .pagination.justify-content-center .page-item {
     padding: 0;
     margin-bottom: 3rem;
@@ -1373,5 +1391,17 @@ img.preview {
 @media screen and (min-width: 701px) {
     .modal_prof {
         background-color: transparent;
+    }
+}
+
+@-moz-document url-prefix() {
+    .far.fa-times-circle.comment_clear {
+        top: 55%;
+    }
+    .far.fa-times-circle.edit_clear {
+        top: 50%;
+    }
+    .far.fa-times-circle.reply_comment_clear {
+        top: 55%;
     }
 }

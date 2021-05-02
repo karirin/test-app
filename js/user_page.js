@@ -311,8 +311,8 @@ $(document).on('change', '#comment_image,#comment_image_narrow,#comment_image_na
     });
 });
 $(document).on('change', '#reply_comment_image', function() {
-    $('.far.fa-times-circle.edit_clear').show();
-    $(document).on('click', '.far.fa-times-circle.edit_clear', function() {
+    $('.far.fa-times-circle.reply_comment_clear').show();
+    $(document).on('click', '.far.fa-times-circle.reply_comment_clear', function() {
         $('#reply_comment_image').val('');
         $(this).hide();
         $('.reply_comment_preview').hide();
