@@ -134,7 +134,9 @@ require_once('../config.php');
                 print '<p class="comment_image"><img src="../comment/image/' . $comment['image'] . '"></p>';
               }
               ?>
+              
                     <div class="comment_info">
+                    <?php if($post['user_id']==$current_user['id']):?>
                         <button class="btn modal_btn" data-target="#delete_modal<?= $comment['id'] ?>" type="button"
                             data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>
                         <div class="delete_confirmation" id="delete_modal<?= $comment['id'] ?>">
@@ -150,6 +152,7 @@ require_once('../config.php');
                                 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                             </form>
                         </div>
+                        <?php endif;?>
                         <div class="reply_comment_count">
                             <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button"
                                 data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
@@ -208,6 +211,7 @@ require_once('../config.php');
                     if (!empty($reply_comment['image'])) {
                       print '<p class="comment_image"><img src="../comment/image/' . $reply_comment['image'] . '"></p>';
                     }
+                    if($post['user_id']==$current_user['id']):
                     ?>
                             <div class="comment_info">
                                 <button class="btn modal_btn" data-target="#delete_modal<?= $reply_comment['id'] ?>"
@@ -226,6 +230,7 @@ require_once('../config.php');
                                     </form>
                                 </div>
                             </div>
+                            <?php endif;?>
                             <span
                                 class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at']) ?></span>
 
