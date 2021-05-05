@@ -26,16 +26,14 @@ if(isset($_SESSION['flash'])){
 
         $dbh = dbConnect();
         $sql = 'DELETE FROM comment WHERE id=?';
-        _debug('        '.$sql.'        ');
-        _debug('        '.$comment_id.'        ');
+        _debug($comment_id);
+        _debug($sql);
         $stmt = $dbh->prepare($sql);
         $data[] = $comment_id;
         $stmt->execute($data);
         if(!empty(get_reply_comments($post_id,$comment_id))){
         $reply_comment=get_reply_comments($post_id,$comment_id);
         $sql = 'DELETE FROM comment WHERE comment_id=?';
-        _debug('        '.$sql.'        ');
-        _debug('        '.$comment_id.'        ');
         $stmt = $dbh->prepare($sql);
         $data[] = $reply_comment['id'];
         $stmt->execute($data);

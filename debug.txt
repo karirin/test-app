@@ -1,1 +1,1 @@
-        DELETE FROM comment WHERE id OR comment_id=?                128                DELETE FROM comment WHERE id=?                134                DELETE FROM comment WHERE id=?                135                DELETE FROM comment WHERE id=?                133                DELETE FROM comment WHERE id=?                132        
+0
