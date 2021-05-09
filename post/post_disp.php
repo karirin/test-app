@@ -21,10 +21,8 @@ require_once('../config.php');
                         </a>
                     </object>
                 </div>
-            <div class="post_text ellipsis" id="post_text"><?php print''.$post['text'].''; ?></div>
-            <?php if (substr_count($post['text'],"\n") +1 > 10): ?>
-            <object><a href="#" class="show_all">続きを表示する</a></object>
-            <?php endif;
+            <div class="post_text" id="post_text"><?php print''.$post['text'].''; ?></div>
+            <?php
         if (!empty($post['image'])){
           print '<img src="/post/image/' . $post['image'] . '" class="post_img" >';
         }
@@ -34,10 +32,14 @@ require_once('../config.php');
                 <?php
         $comments = get_comments($post['id']);
         foreach ($comments as $comment) :
-          if (empty($comment['comment_id'])) :
+            $reply_comments = get_reply_comments($post['id'], $comment['id']);
+            if(empty($comment['comment_id'])):
+            ?>
+          <div class="comment">
+          <?php
             $comment_user = get_user($comment['user_id']);
         ?>
-                <div class="comment">
+
                     <object><a
                             href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $comment_user['id'] ?>&type=all">
                             <div class="user_info">
@@ -106,10 +108,6 @@ require_once('../config.php');
                     </div>
                     <?php
             print '<span class="comment_created_at margin_bottom">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
-          endif;
-          $reply_comments = get_reply_comments($post['id'], $comment['id']);
-            ?>
-                    <?php
               foreach ($reply_comments as $reply_comment) :
                 if ($reply_comment['comment_id'] == $comment['id']) :
                   $reply_comment_user = get_user($reply_comment['user_id']);
@@ -156,21 +154,18 @@ require_once('../config.php');
                     </div>   
 
                     </div>
- 
+
                          <?php endif;?>
-
+                         
                         <?php endforeach; ?>
-
                         </div>
+                        <?php _debug('test01');?>
+<?php endif ?>
                     <?php endforeach; ?>
-
-      
-                  
-
                         </div>
                         </div>
-                        </div>
-
+                         </div>
+                         </div>
 
 
   
