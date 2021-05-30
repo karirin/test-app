@@ -30,14 +30,7 @@ try {
         }
     }
 
-    if ($message_image['size'] > 0) {
-        if ($message_image['size'] > 1000000) {
-            set_flash('danger', '画像が大きすぎます');
-            reload();
-        } else {
-            move_uploaded_file($message_image['tmp_name'], './image/' . $message_image['name']);
-        }
-    }
+    image_check($message_image);
 
     $message_text = htmlspecialchars($message_text, ENT_QUOTES, 'UTF-8');
     $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');

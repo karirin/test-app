@@ -1,9 +1,9 @@
 <?php
 
-class UserClass
+class User
 {
 //プロパティの宣言
-public get_user(){
+public function get_user(){
 try {
 $dbh = dbConnect();
 $sql = "SELECT id,name,password,profile,image
@@ -19,7 +19,7 @@ set_flash('error',ERR_MSG1);
 }
 
 //インスタンスの生成
-$User = new UserClass();
+$user = new User();
 
-echo $User->get_user();
+echo $user->get_user();
 ?>

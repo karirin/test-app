@@ -34,19 +34,7 @@ if($comment_text=='')
     reload();
 } 
 
-if($comment_image_name['size']>0)
-{
-    if($comment_image_name['size']>1000000)
-    {
-        set_flash('danger','画像が大きすぎます');
-        reload();
-    }
-    else
-    {
-        move_uploaded_file($comment_image_name['tmp_name'],'./image/'.$comment_image_name['name']);
-
-    }
-}
+image_check($comment_image_name);
 
 $comment_text=htmlspecialchars($comment_text,ENT_QUOTES,'UTF-8');
 $user_id=htmlspecialchars($user_id,ENT_QUOTES,'UTF-8');

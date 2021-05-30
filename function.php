@@ -562,6 +562,22 @@ function reset_message_count($user_id,$destination_user_id){
 //  その他
 //================================
 
+function image_check($image){
+  if($image['size']>0)
+{
+    if($image['size']>10)
+    {
+        set_flash('danger','画像が大きすぎます');
+        reload();
+    }
+    else
+    {
+        move_uploaded_file($image['tmp_name'],'./image/'.$image['name']);
+
+    }
+}
+}
+
 //  お気に入りの重複を確認する
 function check_favolite_duplicate($user_id,$post_id){
   $dbh = db_connect();

@@ -30,19 +30,7 @@ if($post_text=='')
     reload();
 }
 
-if($post_image_name['size']>0)
-{
-    if($post_image_name['size']>1000000)
-    {
-        set_flash('danger','画像が大きすぎます');
-        reload();
-    }
-    else
-    {
-        move_uploaded_file($post_image_name['tmp_name'],'./image/'.$post_image_name['name']);
-
-    }
-}
+image_check($post_image_nam);
 
 $post_text=htmlspecialchars($post_text,ENT_QUOTES,'UTF-8');
 $user_id=htmlspecialchars($user_id,ENT_QUOTES,'UTF-8');
