@@ -3,7 +3,7 @@ require_once('config.php');
 // post送信されていた場合
 if(!empty($_POST['withdraw'])){
     $user_id=$_SESSION['user_id'];
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $argument=["post","favorite","comment","follow","follower","message","message_relation"];
     for($i=0;$i<7;$i++){
         $count[$i]=get_user_count($argument[$i],$user_id);

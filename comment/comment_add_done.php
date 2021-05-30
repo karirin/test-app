@@ -51,7 +51,7 @@ if($comment_image_name['size']>0)
 $comment_text=htmlspecialchars($comment_text,ENT_QUOTES,'UTF-8');
 $user_id=htmlspecialchars($user_id,ENT_QUOTES,'UTF-8');
 
-$dbh = dbConnect();
+$dbh = db_connect();
 $sql = 'INSERT INTO comment(text,image,user_id,created_at,post_id,comment_id) VALUES (?,?,?,?,?,?)';
 $stmt = $dbh -> prepare($sql);
 $data[] = $comment_text;

@@ -47,7 +47,7 @@ if($post_image_name['size']>0)
 $post_text=htmlspecialchars($post_text,ENT_QUOTES,'UTF-8');
 $user_id=htmlspecialchars($user_id,ENT_QUOTES,'UTF-8');
 
-$dbh = dbConnect();
+$dbh = db_connect();
 $sql = 'INSERT INTO post(text,image,user_id,created_at) VALUES (?,?,?,?)';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_text;

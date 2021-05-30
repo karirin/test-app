@@ -21,7 +21,7 @@ require_once('../config.php');
             $disp_image = '<img src="./image/' . $comment['image'] . '">';
         }
 
-        $dbh = dbConnect();
+        $dbh = db_connect();
         $sql = 'DELETE FROM comment WHERE id=?';
         $stmt = $dbh->prepare($sql);
         $data[] = $comment_id;

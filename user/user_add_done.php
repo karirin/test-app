@@ -10,7 +10,7 @@ $user_image = $_POST['image_name'];
 $user_name=htmlspecialchars($user_name,ENT_QUOTES,'UTF-8');
 $user_pass=htmlspecialchars($user_pass,ENT_QUOTES,'UTF-8');
 
-$dbh = dbConnect();
+$dbh = db_connect();
 $sql = 'INSERT INTO user(name,password,image) VALUES (?,?,?)';
 $stmt = $dbh -> prepare($sql);
 $data[] = $user_name;

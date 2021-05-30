@@ -20,7 +20,7 @@ $user_pass2=md5($user_pass2);
 $date = new DateTime();
 $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
 
-$dbh = dbConnect();
+$dbh = db_connect();
 $sql='SELECT name,id FROM user WHERE name=? AND password=?';
 $stmt=$dbh->prepare($sql);
 

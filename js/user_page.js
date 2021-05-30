@@ -1,3 +1,4 @@
+// 変数定義
 var user_comment = $('.comment').text(),
     user_name = $('.profile_name').text(),
     user_comment_narrow = $('.comment_narrow').text(),
@@ -9,15 +10,9 @@ var user_comment = $('.comment').text(),
 // getパラメータ取得
 function get_param(name, url) {
     if (!url) url = window.location.href;
-    //window.location.hrefは現在のURLを取得
     name = name.replace(/[\[\]]/g, "\\$&");
-    //replaceは文字の置換を行う
-    //`//g`は//の中の文字をすべて第二引数の文字に変換する
-    // []はその中の文字があるかを判断
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        //RegExpは引数の値があったときにtureを返す
         results = regex.exec(url);
-    //regexp.exec(url)でregexとurlがマッチしている値をresultsに返しています
     if (!results) return null;
     if (!results[2]) return false;
     return decodeURIComponent(results[2].replace(/\+/g, " "));
@@ -267,36 +262,29 @@ $(document).on('click', '.edit_btn', function() {
 // モーダル画面出力ボタン押下時の処理
 $(document).on('click', '.modal_btn', function() {
     var $target_modal = $(this).data("target")
-        //背景をスクロールできないように　&　スクロール場所を維持
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
-    // モーダルウィンドウを開く
     $($target_modal).fadeIn();
     $('.modal').fadeIn();
 });
 
 // 投稿モーダル画面出力処理
 $(document).on('click', '.post_modal', function() {
-    //背景をスクロールできないように　&　スクロール場所を維持
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
-    // モーダルウィンドウを開く
     $('.post_process').fadeIn();
     $('.modal_post').fadeIn();
 });
 
 $(document).on('click', '.prof_modal', function() {
-    //背景をスクロールできないように　&　スクロール場所を維持
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
-    // モーダルウィンドウを開く
     $('.slide_prof').fadeIn();
     $('.modal_prof').fadeIn();
     $('.slide_prof').addClass('open');
 });
 
 $(document).on('click', '.withdraw', function() {
-    //背景をスクロールできないように　&　スクロール場所を維持
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
     // モーダルウィンドウを開く

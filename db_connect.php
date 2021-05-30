@@ -1,5 +1,5 @@
 <?php 
-function dbConnect()
+function db_connect()
 {
   $dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
   $user = 'root';

@@ -20,7 +20,7 @@ if(isset($_POST)){
               VALUES(:follow_id,:follower_id)";
     }
     try {
-      $dbh = dbConnect();
+      $dbh = db_connect();
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(':follow_id' => $current_user_id , ':follower_id' => $user_id));
       $return = array('action' => $action,

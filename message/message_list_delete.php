@@ -22,7 +22,7 @@ try
 
 $user_id = $_POST['user_id'];
 $destination_user_id = $_POST['destination_user_id'];
-$dbh = dbConnect();
+$dbh = db_connect();
 if(check_relation_delete_message($user_id,$destination_user_id)){
   $sql = 'DELETE FROM message_relation WHERE user_id=?';
   $stmt = $dbh -> prepare($sql);

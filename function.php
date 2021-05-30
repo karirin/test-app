@@ -7,7 +7,7 @@
 //  ユーザーを取得する
 function get_user($user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT id,name,password,profile,image
             FROM user
             WHERE id = :id";
@@ -23,7 +23,7 @@ function get_user($user_id){
 //  複数のユーザーを取得する
 function get_users($type,$query){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
 
     switch ($type) {
       case 'all':
@@ -69,7 +69,7 @@ function get_users($type,$query){
 //  ユーザー新規登録の際、既にユーザーIDとパスワードがないか確認する
 function get_newuser($name,$password){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT id,name,password,profile,image
             FROM user
             WHERE name = :name and password = :password";
@@ -84,7 +84,7 @@ function get_newuser($name,$password){
 
 //  ユーザーIDから個数を取得する
 function get_user_count($object,$user_id){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   switch ($object) {
 
     case 'favorite':
@@ -137,7 +137,7 @@ function get_user_count($object,$user_id){
 //  ユーザーのログイン時刻を更新する
 function update_login_time($date,$id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $dbh->beginTransaction();
     $sql = 'UPDATE user SET login_time = :date WHERE id = :id';
     $stmt = $dbh->prepare($sql);
@@ -153,7 +153,7 @@ function update_login_time($date,$id){
 
 //  フォロー中かどうか確認する
 function check_follow($follow_user,$follower_user){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $sql = "SELECT follow_id,follower_id
           FROM relation
           WHERE :follower_id = follower_id AND :follow_id = follow_id";
@@ -164,7 +164,7 @@ function check_follow($follow_user,$follower_user){
 }
 
 function check_user($user_name){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $sql = "SELECT name
           FROM user
           WHERE :name = name";
@@ -180,7 +180,7 @@ function check_user($user_name){
 // 投稿を取得する
 function get_post($post_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT *
             FROM post
             WHERE id = :id";
@@ -196,10 +196,8 @@ function get_post($post_id){
 //　投稿を複数取得する
 function get_posts($user_id,$type,$query){
   try {
-      $dbh = dbConnect();
-    //　ページに合わせてSQLを変える
+      $dbh = db_connect();
     switch ($type) {
-      //  すべての投稿を取得する
       case 'all':
       $sql = "SELECT *
               FROM post
@@ -212,9 +210,6 @@ function get_posts($user_id,$type,$query){
               FROM user INNER JOIN post ON user.id = post.user_id
               WHERE user_id = :id
               ORDER BY created_at DESC";
-              //inner join ～ on でテーブル同士をくっつけている
-              //from xxx inner join xxx にはxxxには結合するテーブル名を指定する
-              //on xxx ではxxxに結合するためのカラムの共通の値を指定する
               $stmt = $dbh->prepare($sql);
               $stmt->bindValue(':id', $user_id);
       break;
@@ -257,7 +252,7 @@ function get_posts($user_id,$type,$query){
 
 //　お気に入りの投稿数を取得する
 function get_post_favorite_count($post_id){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $sql = "SELECT COUNT(user_id)
           FROM favorite
           WHERE post_id = :post_id";
@@ -268,7 +263,7 @@ function get_post_favorite_count($post_id){
 
 //　投稿IDからコメントを取得する
 function get_post_comment_count($post_id){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $sql = "SELECT COUNT(id)
           FROM comment
           WHERE post_id = :post_id";
@@ -284,7 +279,7 @@ function get_post_comment_count($post_id){
 //　コメントを取得する
 function get_comment($comment_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT *
             FROM comment
             WHERE id = :id";
@@ -300,7 +295,7 @@ function get_comment($comment_id){
 //  複数のコメントを取得する
 function get_comments($post_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT *
             FROM comment
             WHERE post_id = :id";
@@ -315,7 +310,7 @@ function get_comments($post_id){
 
 //  コメントがある投稿か確認する
 function check_comment($post_id){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $sql = "SELECT *
           FROM comment
           WHERE post_id = :post_id";
@@ -328,7 +323,7 @@ function check_comment($post_id){
 //  コメントへの返信コメントを取得する
 function get_reply_comments($post_id,$comment_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT *
             FROM comment
             WHERE post_id = :id AND comment_id = :comment_id";
@@ -344,7 +339,7 @@ function get_reply_comments($post_id,$comment_id){
 
 //　コメントへの返信コメント数を取得する
 function get_reply_comment_count($comment_id){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $sql = "SELECT COUNT(id)
           FROM comment
           WHERE comment_id = :comment_id";
@@ -360,7 +355,7 @@ function get_reply_comment_count($comment_id){
 //　メッセージ数を取得する
 function message_count($user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT SUM(message_count)
             FROM message_relation
             WHERE destination_user_id = :user_id";
@@ -376,7 +371,7 @@ function message_count($user_id){
 //  複数のメッセージを取得する
 function get_messages($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT *
             FROM message
             WHERE (user_id = :id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :id)
@@ -394,7 +389,7 @@ function get_messages($user_id,$destination_user_id){
 //　最新のメッセージを取得する
 function get_new_message($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT *
             FROM message
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
@@ -413,7 +408,7 @@ function get_new_message($user_id,$destination_user_id){
 //  新規メッセージ数を取得する
 function new_message_count($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT message_count
             FROM message_relation
             WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :destination_user_id";
@@ -430,7 +425,7 @@ function new_message_count($user_id,$destination_user_id){
 //  メッセージリストを新規登録する
 function insert_message($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "INSERT INTO
             message_relation(user_id,destination_user_id)
             VALUES (:user_id,:destination_user_id),(:destination_user_id,:user_id)";
@@ -447,7 +442,7 @@ function insert_message($user_id,$destination_user_id){
 //  ログインユーザーのメッセージリストを新規登録する
 function insert_user_message($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "INSERT INTO
             message_relation(user_id,destination_user_id)
             VALUES (:user_id,:destination_user_id)";
@@ -464,7 +459,7 @@ function insert_user_message($user_id,$destination_user_id){
 //  メッセージ数を更新する
 function insert_message_count($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "UPDATE message_relation
             SET message_count = message_count + 1
             WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :user_id";
@@ -481,7 +476,7 @@ function insert_message_count($user_id,$destination_user_id){
 //  メッセージリストを取得する
 function get_message_relations($user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT *
             FROM message_relation
             WHERE user_id = :user_id";
@@ -497,7 +492,7 @@ function get_message_relations($user_id){
 //  メッセージリストがあるか確認する
 function check_relation_message($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT user_id,destination_user_id
             FROM message_relation
             WHERE (user_id = :user_id and destination_user_id = :destination_user_id)
@@ -515,7 +510,7 @@ function check_relation_message($user_id,$destination_user_id){
 //  ログインユーザーのメッセージリストがあるか確認する
 function check_relation_user_message($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT user_id,destination_user_id
             FROM message_relation
             WHERE user_id = :user_id and destination_user_id = :destination_user_id";
@@ -531,7 +526,7 @@ function check_relation_user_message($user_id,$destination_user_id){
 
 function check_relation_delete_message($user_id,$destination_user_id){
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "SELECT user_id,destination_user_id
             FROM message_relation
             WHERE user_id = :destination_user_id and destination_user_id = :user_id";
@@ -548,7 +543,7 @@ function check_relation_delete_message($user_id,$destination_user_id){
 //  メッセージ数を０にする
 function reset_message_count($user_id,$destination_user_id){
   try {
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $dbh->beginTransaction();
   $sql = 'UPDATE message_relation SET message_count = 0 WHERE ((user_id = :user_id and destination_user_id = :destination_user_id) or (user_id = :destination_user_id and destination_user_id = :user_id)) and user_id = :destination_user_id';
   $stmt = $dbh->prepare($sql);
@@ -569,7 +564,7 @@ function reset_message_count($user_id,$destination_user_id){
 
 //  お気に入りの重複を確認する
 function check_favolite_duplicate($user_id,$post_id){
-  $dbh = dbConnect();
+  $dbh = db_connect();
   $sql = "SELECT *
           FROM favorite
           WHERE user_id = :user_id AND post_id = :post_id";

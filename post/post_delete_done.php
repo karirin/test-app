@@ -18,7 +18,7 @@ $post_id = $_POST['id'];
 $post_image_name = $_POST['image_name'];
 $comment=get_post($post_id);
 
-$dbh = dbConnect();
+$dbh = db_connect();
 if(check_comment($post_id)){
 $sql = 'DELETE post,comment FROM post INNER JOIN comment ON post.id = comment.post_id WHERE post.id=?';
 }else{

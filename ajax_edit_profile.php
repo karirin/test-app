@@ -36,7 +36,7 @@ if($image['size']>0)
 }
 
   try {
-    $dbh = dbConnect();
+    $dbh = db_connect();
     $sql = "UPDATE user
             SET profile = :comment_data,name = :name,image = :image
             WHERE id = :user_id";

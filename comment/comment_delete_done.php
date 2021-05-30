@@ -24,7 +24,7 @@ if(isset($_SESSION['flash'])){
         $user_id = $_POST['user_id'];
         $post_id = $_POST['post_id'];
 
-        $dbh = dbConnect();
+        $dbh = db_connect();
         $sql = 'DELETE FROM comment WHERE id=?';
         _debug($comment_id);
         _debug($sql);

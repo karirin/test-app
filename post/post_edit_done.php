@@ -43,7 +43,7 @@ if($post_image_name['size']>0)
 $post_text=htmlspecialchars($post_text,ENT_QUOTES,'UTF-8');
 $post_id=htmlspecialchars($post_id,ENT_QUOTES,'UTF-8');
 
-$dbh = dbConnect();
+$dbh = db_connect();
 $sql = 'UPDATE post SET text=?,image=? WHERE id=?';
 $stmt = $dbh -> prepare($sql);
 $data[] = $post_text;
