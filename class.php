@@ -1,25 +1,34 @@
 <?php
 
+function db_connect()
+{
+  $dsn = 'mysql:dbname=db;host=localhost;charset=utf8';
+  $user = 'root';
+  $password = '';
+  $dbh = new PDO($dsn,$user,$password);
+  $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  return $dbh;
+}
+
+function _debug( $data, $clear_log = false ) {
+    $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+    if( $clear_log ){
+      file_put_contents($uri_debug_file, print_r('', true));
+    }
+    file_put_contents($uri_debug_file, print_r($data,true), FILE_APPEND);
+  }
+
 class User
 {
+    private $user_id;
+    public function __construct($user_id) {
+        $this->$user_id = $user_id;
+    }
+  }
 //プロパティの宣言
-public function get_user(){
-try {
-$dbh = dbConnect();
-$sql = "SELECT id,name,password,profile,image
-FROM user
-WHERE id = :id";
-$stmt = $dbh->prepare($sql);
-$stmt->execute(array(':id' => 0));
-return $stmt->fetch();
-} catch (\Exception $e) {
-error_log('エラー発生:' . $e->getMessage());
-set_flash('error',ERR_MSG1);
-}
-}
 
 //インスタンスの生成
-$user = new User();
+$user = new User(0);
 
-echo $user->get_user();
+_debug($user);
 ?>

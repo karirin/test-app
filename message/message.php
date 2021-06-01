@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once('../config_1.php');
 
 $current_user = get_user($_SESSION['user_id']);
 $destination_user = get_user($_GET['user_id']);

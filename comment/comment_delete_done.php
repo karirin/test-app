@@ -1,17 +1,5 @@
 <?php
-session_start();
-@session_regenerate_id(true);
-
-require_once('../db_connect.php');
-require_once('../function.php');
-
-if(isset($_SESSION['flash'])){
-    $flash_messages = $_SESSION['flash']['message'];
-    $flash_type = $_SESSION['flash']['type'];
-    }
-    unset($_SESSION['flash']);
-  
-  $error_messages = array();
+require_once('../config_2.php');
 ?>
 
 <body>
@@ -26,8 +14,6 @@ if(isset($_SESSION['flash'])){
 
         $dbh = db_connect();
         $sql = 'DELETE FROM comment WHERE id=?';
-        _debug($comment_id);
-        _debug($sql);
         $stmt = $dbh->prepare($sql);
         $data[] = $comment_id;
         $stmt->execute($data);

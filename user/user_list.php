@@ -3,7 +3,7 @@ if (!empty($_POST['search_user'])) {
   $hoge = $_POST['search_input'];
   header("Location:user_list.php?type=search&query=${hoge}");
 }
-require_once('../config.php');
+require_once('../config_1.php');
 ?>
 
 <body>

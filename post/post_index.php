@@ -3,7 +3,7 @@ if (!empty($_POST['search_post'])){
     $hoge = $_POST['search_input'];
     header("Location:post_index.php?type=search&query=${hoge}");
   }
-require_once('../config.php'); 
+require_once('../config_1.php'); 
 ?>
 <div class="col-6 offset-3">
     <h2 class="center margin_top">投稿一覧</h2>

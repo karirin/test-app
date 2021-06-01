@@ -1,7 +1,7 @@
 <body>
 
     <?php
-require_once('../config.php');
+require_once('../config_1.php');
 
 $user_name=$_POST['name'];
 $user_pass=$_POST['pass'];

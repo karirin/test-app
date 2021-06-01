@@ -1,5 +1,5 @@
 <?php
-require_once('../config.php');
+require_once('../config_1.php');
 
 $post_id = $_GET['post_id'];
 $comment_id = $_GET['comment_id'];
