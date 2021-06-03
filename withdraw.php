@@ -1,58 +1,58 @@
 <?php
 require_once('config_1.php');
 // post送信されていた場合
-if(!empty($_POST['withdraw'])){
-    $user_id=$_SESSION['user_id'];
+if (!empty($_POST['withdraw'])) {
+    $user_id = $_SESSION['user_id'];
     $dbh = db_connect();
-    $argument=["post","favorite","comment","follow","follower","message","message_relation"];
-    for($i=0;$i<7;$i++){
-        $count[$i]=get_user_count($argument[$i],$user_id);
+    $argument = ["post", "favorite", "comment", "follow", "follower", "message", "message_relation"];
+    for ($i = 0; $i < 7; $i++) {
+        $count[$i] = get_user_count($argument[$i], $user_id);
     }
-    $sql='DELETE FROM user where id = :user_id';
+    $sql = 'DELETE FROM user where id = :user_id';
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':user_id' => $user_id));
-    if($count[0][0]==1){
-        $sql='DELETE FROM post where user_id = :user_id';
+    if ($count[0][0] == 1) {
+        $sql = 'DELETE FROM post where user_id = :user_id';
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':user_id' => $user_id));
     }
-    if($count[1][0]==1){
-        $sql='DELETE FROM favorite where user_id = :user_id';
+    if ($count[1][0] == 1) {
+        $sql = 'DELETE FROM favorite where user_id = :user_id';
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':user_id' => $user_id));
     }
-    if($count[2][0]==1){
-        $sql='DELETE FROM comment where user_id = :user_id';
+    if ($count[2][0] == 1) {
+        $sql = 'DELETE FROM comment where user_id = :user_id';
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':user_id' => $user_id));
     }
-    if($count[3][0]==1){
-        $sql='DELETE FROM follow where user_id = :user_id';
+    if ($count[3][0] == 1) {
+        $sql = 'DELETE FROM follow where user_id = :user_id';
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':user_id' => $user_id));
     }
-    if($count[4][0]==1){
-        $sql='DELETE FROM follower where user_id = :user_id';
+    if ($count[4][0] == 1) {
+        $sql = 'DELETE FROM follower where user_id = :user_id';
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':user_id' => $user_id));
     }
-    if($count[5][0]==1){
-        $sql='DELETE FROM message where user_id = :user_id';
+    if ($count[5][0] == 1) {
+        $sql = 'DELETE FROM message where user_id = :user_id';
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':user_id' => $user_id));
     }
-    if($count[6][0]==1){
-        $sql='DELETE FROM message_relation where user_id = :user_id';
+    if ($count[6][0] == 1) {
+        $sql = 'DELETE FROM message_relation where user_id = :user_id';
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':user_id' => $user_id));
     }
     $dbh = null;
 
-  // セッション削除
-  session_destroy();
-  $_SESSION = array();
-  header("Location:/user_login/user_top.php");
-  exit();
+    // セッション削除
+    session_destroy();
+    $_SESSION = array();
+    header("Location:/user_login/user_top.php");
+    exit();
 }
 ?>
 <div class="modal_withdraw"></div>

@@ -1,14 +1,14 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="modal"></div>
-    <?php if(isset($_SESSION['login'])==false): ?>
+    <?php if (isset($_SESSION['login']) == false) : ?>
     <ul class="main_ul">
         <li class="top_link"><a href="../user_login/user_top.php">app</a></li>
         <li><a href="../user_login/user_login.php">ログイン</a></li>
         <li><a href="../user/user_add.php">新規登録</a></li>
-        <?php 
-    else:
-    $current_user=get_user($_SESSION['user_id']);
-?>
+        <?php
+    else :
+        $current_user = get_user($_SESSION['user_id']);
+        ?>
         <ul class="main_ul">
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">app</a></li>
             <li class="top_link prof_page"><a class="prof_modal" href="#"><img
@@ -18,10 +18,12 @@
             <li class="header_menu_wide"><a href="../post/post_index.php?type=all">投稿一覧</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
                     メッセージ<?php
-                    if(current(get_user_count('message_relation',$_SESSION['user_id']))!=0){ 
-                    if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';} 
-                    }
-                    ?>
+                                if (current(get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
+                                    if (current(message_count(($_SESSION['user_id']))) != 0) {
+                                        print '' . current(message_count(($_SESSION['user_id']))) . '';
+                                    }
+                                }
+                                ?>
                 </a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php">ログアウト</a></li>
             <li class="header_menu_wide"><a class="withdraw" href="#">退会</a></li>
@@ -40,9 +42,11 @@
                         <a href="../message/message_top.php">
                             <li class="slide_menu_message">
                                 メッセージ<?php
-                                if(current(get_user_count('message_relation',$_SESSION['user_id']))!=0){ 
-                                 if(current(message_count(($_SESSION['user_id'])))!=0){print''.current(message_count(($_SESSION['user_id']))).'';
-                                } }?>                          
+                                            if (current(get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
+                                                if (current(message_count(($_SESSION['user_id']))) != 0) {
+                                                    print '' . current(message_count(($_SESSION['user_id']))) . '';
+                                                }
+                                            } ?>
                             </li>
                         </a>
                         <a href="../user_login/user_logout.php">
@@ -57,14 +61,14 @@
         </ul>
         <?php
     endif;
-?>
+        ?>
 </nav>
 <p class="flash">
     <?php
-if (isset($flash_messages)):
-foreach ((array)$flash_messages as $message):
-print'<span class="flash_message">'.$message.'</span>';
-endforeach;
-endif;
-?>
+    if (isset($flash_messages)) :
+        foreach ((array)$flash_messages as $message) :
+            print '<span class="flash_message">' . $message . '</span>';
+        endforeach;
+    endif;
+    ?>
 </p>

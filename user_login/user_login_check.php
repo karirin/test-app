@@ -1,9 +1,6 @@
 <?php
 if($_POST['test_login']){
-	session_start();
-	@session_regenerate_id(true);
-	require('../db_connect.php');
-	require('../function.php');
+require_once('../config_2.php');
 }
 try
 {
@@ -66,10 +63,8 @@ else {
 }
 catch(Exception $e)
 {
-	print 'ただいま障害により大変ご迷惑をお掛けしております。';
+	_debug('ログイン失敗');
 	exit();
 }
 
 set_flash('error',$error_messages);
-
-?>

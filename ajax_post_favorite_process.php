@@ -1,29 +1,29 @@
 <?php
 require_once('config_1.php');
 
-if(isset($_POST)){
+if (isset($_POST)) {
 
   $current_user = get_user($_SESSION['user_id']);
   $post_id = $_POST['post_id'];
 
   //既に登録されているか確認
-  if(check_favolite_duplicate($current_user['id'],$post_id)){
+  if (check_favolite_duplicate($current_user['id'], $post_id)) {
     $action = '解除';
     $sql = "DELETE
             FROM favorite
             WHERE :user_id = user_id AND :post_id = post_id";
-  }else{
+  } else {
     $action = '登録';
     $sql = "INSERT INTO favorite(user_id,post_id)
             VALUES(:user_id,:post_id)";
   }
-  try{
+  try {
     $dbh = db_connect();
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':user_id' => $current_user['id'] , ':post_id' => $post_id));
+    $stmt->execute(array(':user_id' => $current_user['id'], ':post_id' => $post_id));
   } catch (\Exception $e) {
     error_log('エラー発生:' . $e->getMessage());
-    set_flash('error',ERR_MSG1);
+    _debug('投稿お気に入り失敗');
     echo json_encode("error");
   }
 }

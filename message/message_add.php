@@ -1,6 +1,6 @@
 <?php
 require_once('../config_2.php');
-  
+
 try {
 
     $date = new DateTime();
@@ -34,16 +34,16 @@ try {
     $stmt->execute($data);
     $dbh = null;
 
-    if(!check_relation_message($user_id, $destination_user_id)) {
+    if (!check_relation_message($user_id, $destination_user_id)) {
         insert_message($user_id, $destination_user_id);
-    }elseif(!check_relation_user_message($user_id, $destination_user_id)){
+    } elseif (!check_relation_user_message($user_id, $destination_user_id)) {
         insert_user_message($user_id, $destination_user_id);
     }
-    insert_message_count($user_id,$destination_user_id);
+    insert_message_count($user_id, $destination_user_id);
     set_flash('sucsess', 'メッセージを送信しました');
     reload();
 } catch (Exception $e) {
-    print 'ただいま障害により大変ご迷惑をお掛けしております。';
+    _debug("メッセージ送信失敗");
     exit();
 }
 

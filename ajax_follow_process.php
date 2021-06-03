@@ -30,10 +30,9 @@ if(isset($_POST)){
     }    
     catch (\Exception $e) {
       error_log('エラー発生:' . $e->getMessage());
-      set_flash('error',ERR_MSG1);
+      _debug('フォロー失敗');
       echo json_encode("error");
 
     }
   }
   require_once('footer.php');
-?>

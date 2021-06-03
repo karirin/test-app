@@ -36,7 +36,7 @@ if($post_image_name_old!='' && $post_image_name_old!=$post_image_name['name'])
 }
 catch (Exception $e)
 {
-    print'ただいま障害により大変ご迷惑をお掛けしております。';
+    _debug('投稿更新失敗');
     exit();
 }
 

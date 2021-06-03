@@ -12,4 +12,3 @@ switch ($_SESSION['image']['type']) {
     break;
     }
 echo $_SESSION['image']['data'];
-?>

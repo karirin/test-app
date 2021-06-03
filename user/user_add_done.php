@@ -30,9 +30,8 @@ header('Location:../user_login/user_top.php?page_id='.$current_user['id'].'&type
 }   
 catch (Exception $e)
 {
-print'ただいま障害により大変ご迷惑をお掛けしております。';
+_debug('ユーザー追加失敗');
 exit();
 }
 
-require_once('../footer.php'); 
-?>
+require_once('../footer.php');

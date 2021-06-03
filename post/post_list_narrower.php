@@ -1,6 +1,6 @@
 <?php
-foreach($posts as $post):
-$post_user = get_user($post['user_id']); 
+foreach ($posts as $post) :
+    $post_user = get_user($post['user_id']);
 ?>
 <div class="post narrower">
     <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
@@ -9,17 +9,17 @@ $post_user = get_user($post['user_id']);
                 <object><a
                         href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=all">
                         <img src="/user/image/<?= $post_user['image'] ?>">
-                        <?php print''.$post_user['name'].''; ?>
+                        <?php print '' . $post_user['name'] . ''; ?>
                     </a></object>
             </div>
-            <div class="post_text ellipsis" id="post_text"><?php print''.$post['text'].''; ?></div>
-            <?php if (substr_count($post['text'],"\n") +1 > 10): ?>
+            <div class="post_text ellipsis" id="post_text"><?php print '' . $post['text'] . ''; ?></div>
+            <?php if (substr_count($post['text'], "\n") + 1 > 10) : ?>
             <object><a href="#" class="show_all">続きを表示する</a></object>
-            <?php endif; 
-if (!empty($post['image'])):
-  print'<img src="/post/image/'.$post['image'].'" class="post_img" >';
-endif;
-?>
+            <?php endif;
+                if (!empty($post['image'])) :
+                    print '<img src="/post/image/' . $post['image'] . '" class="post_img" >';
+                endif;
+                ?>
     </a>
     <div class="post_info">
         <form class="favorite_count" action="#" method="post">
@@ -94,14 +94,14 @@ endif;
             <p class="modal_title">こちらの投稿を削除しますか？</p>
             <p class="post_content"><?= nl2br($post['text']) ?></p>
             <form action="../post/post_delete_done.php" method="post">
-                <input type="hidden" name="id" value="<?= $post['id']?>">
-                <input type="hidden" name="image_name" value="<?= $post['image']?>">
+                <input type="hidden" name="id" value="<?= $post['id'] ?>">
+                <input type="hidden" name="image_name" value="<?= $post['image'] ?>">
                 <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
                 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
             </form>
         </div>
     </div>
-    <p class="post_created_at"><?php print''.convert_to_fuzzy_time($post['created_at']).''; ?></p>
+    <p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
 </div>
 </div>
 

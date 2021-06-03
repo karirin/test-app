@@ -36,4 +36,3 @@ switch($_POST['block']){
   break;
 }
 }
-?>

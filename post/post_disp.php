@@ -4,11 +4,11 @@ require_once('../config_1.php');
 
 <body>
     <?php
-  $post_id = $_GET['post_id'];
-  $post = get_post($post_id);
-  $post_user = get_user($post['user_id']);
-  $current_user = get_user($_SESSION['user_id']);
-  ?>
+    $post_id = $_GET['post_id'];
+    $post = get_post($post_id);
+    $post_user = get_user($post['user_id']);
+    $current_user = get_user($_SESSION['user_id']);
+    ?>
     <div class="col-8 offset-2">
         <div class="post">
             <div class="post_list">
@@ -21,24 +21,24 @@ require_once('../config_1.php');
                         </a>
                     </object>
                 </div>
-            <div class="post_text" id="post_text"><?php print''.$post['text'].''; ?></div>
-            <?php
-        if (!empty($post['image'])){
-          print '<img src="/post/image/' . $post['image'] . '" class="post_img" >';
-        }
-        ?>
-<?php require('post_info.php');?>
+                <div class="post_text" id="post_text"><?php print '' . $post['text'] . ''; ?></div>
+                <?php
+                if (!empty($post['image'])) {
+                    print '<img src="/post/image/' . $post['image'] . '" class="post_img" >';
+                }
+                ?>
+                <?php require('post_info.php'); ?>
                 　<p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
                 <?php
-        $comments = get_comments($post['id']);
-        foreach ($comments as $comment) :
-            $reply_comments = get_reply_comments($post['id'], $comment['id']);
-            if(empty($comment['comment_id'])):
-            ?>
-          <div class="comment">
-          <?php
-            $comment_user = get_user($comment['user_id']);
-        ?>
+                $comments = get_comments($post['id']);
+                foreach ($comments as $comment) :
+                    $reply_comments = get_reply_comments($post['id'], $comment['id']);
+                    if (empty($comment['comment_id'])) :
+                ?>
+                <div class="comment">
+                    <?php
+                            $comment_user = get_user($comment['user_id']);
+                            ?>
 
                     <object><a
                             href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $comment_user['id'] ?>&type=all">
@@ -49,13 +49,13 @@ require_once('../config_1.php');
                         </a></object>
                     <span class="comment_text"><?= $comment['text'] ?></span>
                     <?php
-              if (!empty($comment['image'])) {
-                print '<p class="comment_image"><img src="../comment/image/' . $comment['image'] . '"></p>';
-              }
-              ?>
-              
+                            if (!empty($comment['image'])) {
+                                print '<p class="comment_image"><img src="../comment/image/' . $comment['image'] . '"></p>';
+                            }
+                            ?>
+
                     <div class="comment_info">
-                    <?php if($post['user_id']==$current_user['id']):?>
+                        <?php if ($post['user_id'] == $current_user['id']) : ?>
                         <button class="btn modal_btn" data-target="#delete_modal<?= $comment['id'] ?>" type="button"
                             data-toggle="delete" title="削除"><i class="far fa-trash-alt"></i></button>
                         <div class="delete_confirmation" id="delete_modal<?= $comment['id'] ?>">
@@ -71,7 +71,7 @@ require_once('../config_1.php');
                                 <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                             </form>
                         </div>
-                        <?php endif;?>
+                        <?php endif; ?>
                         <div class="reply_comment_count">
                             <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button"
                                 data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
@@ -107,11 +107,11 @@ require_once('../config_1.php');
                         </div>
                     </div>
                     <?php
-            print '<span class="comment_created_at margin_bottom">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
-              foreach ($reply_comments as $reply_comment) :
-                if ($reply_comment['comment_id'] == $comment['id']) :
-                  $reply_comment_user = get_user($reply_comment['user_id']);
-              ?>
+                            print '<span class="comment_created_at margin_bottom">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
+                            foreach ($reply_comments as $reply_comment) :
+                                if ($reply_comment['comment_id'] == $comment['id']) :
+                                    $reply_comment_user = get_user($reply_comment['user_id']);
+                            ?>
 
                     <div class="reply">
                         <div class="reply_comment">
@@ -123,12 +123,12 @@ require_once('../config_1.php');
                                     </div>
                             </object></a>
                             <?php
-                    print '<span class="comment_text">' . $reply_comment['text'] . '</span>';
-                    if (!empty($reply_comment['image'])) {
-                      print '<p class="comment_image"><img src="../comment/image/' . $reply_comment['image'] . '"></p>';
-                    }
-                    if($post['user_id']==$current_user['id']):
-                    ?>
+                                            print '<span class="comment_text">' . $reply_comment['text'] . '</span>';
+                                            if (!empty($reply_comment['image'])) {
+                                                print '<p class="comment_image"><img src="../comment/image/' . $reply_comment['image'] . '"></p>';
+                                            }
+                                            if ($post['user_id'] == $current_user['id']) :
+                                            ?>
                             <div class="comment_info">
                                 <button class="btn modal_btn" data-target="#delete_modal<?= $reply_comment['id'] ?>"
                                     type="button"><i class="far fa-trash-alt"></i></button>
@@ -146,27 +146,27 @@ require_once('../config_1.php');
                                     </form>
                                 </div>
                             </div>
-                            
-                            <?php endif;?>
+
+                            <?php endif; ?>
                             <span
                                 class="comment_created_at"><?= convert_to_fuzzy_time($reply_comment['created_at']) ?></span>
-  
-                    </div>   
+
+                        </div>
 
                     </div>
 
-                         <?php endif;?>
-                         
-                        <?php endforeach; ?>
-                        </div>
-                        <?php _debug('test01');?>
-<?php endif ?>
+                    <?php endif; ?>
+
                     <?php endforeach; ?>
-                        </div>
-                        </div>
-                         </div>
-                         </div>
+                </div>
+                <?php _debug('test01'); ?>
+                <?php endif ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
-  
+
     <?php require_once('../footer.php'); ?>

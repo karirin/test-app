@@ -20,15 +20,15 @@ function _debug( $data, $clear_log = false ) {
 
 class User
 {
-    private $user_id;
     public function __construct($user_id) {
-        $this->$user_id = $user_id;
+      $this->id = $user_id;
     }
+    $id=$this->id;
+
   }
-//プロパティの宣言
 
 //インスタンスの生成
 $user = new User(0);
 
-_debug($user);
+_debug($user->id);
 ?>

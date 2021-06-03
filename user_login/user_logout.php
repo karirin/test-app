@@ -6,4 +6,3 @@ if(isset($_COOKIE[session_name()])==true)
 }
 session_destroy();
 header('Location:user_top.php');
-?>
