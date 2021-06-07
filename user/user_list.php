@@ -7,8 +7,8 @@ require_once('../config_1.php');
 ?>
 
 <body>
-        <?php if(basename($_SERVER['PHP_SELF']) === 'user_list.php'): ?>
-        <div class="col-6 offset-3">
+    <?php if (basename($_SERVER['PHP_SELF']) === 'user_list.php') : ?>
+    <div class="col-6 offset-3">
         <h2 class="center margin_top_bottom">ユーザー一覧</h2>
         <form method="post" action="#" class="search_container">
             <div class="input-group mb-2">
@@ -18,21 +18,21 @@ require_once('../config_1.php');
                 </div>
             </div>
         </form>
-        </div>
-        <?php endif; ?>
-        <div class="col-8 offset-2">
+    </div>
+    <?php endif; ?>
+    <div class="col-8 offset-2">
         <?php
     $page_type = $_GET['type'];
-    if(basename($_SERVER['PHP_SELF']) === 'user_list.php'){
-    $current_user = get_user($_SESSION['user_id']);
-    }else{
-    $page_id = $_GET['page_id'];
-    $current_user = get_user($page_id); 
+    if (basename($_SERVER['PHP_SELF']) === 'user_list.php') {
+      $current_user = get_user($_SESSION['user_id']);
+    } else {
+      $page_id = $_GET['page_id'];
+      $current_user = get_user($page_id);
     }
     switch ($page_type) {
       case 'all';
         $users = get_users('all', '');
-        _debug($users);
+        //_debug($users);
         break;
 
       case 'search':
@@ -47,21 +47,21 @@ require_once('../config_1.php');
         $users = get_users('followers', $current_user['id']);
         break;
     }
-    $block=pagination_block($users);
-    if(isset($block[0])):
-        
-    foreach ($block[$_SESSION[$i]] as $user) :
-      $user = current($user);
-      $user = get_user($user);
+    $block = pagination_block($users);
+    if (isset($block[0])) :
+
+      foreach ($block[$_SESSION[$i]] as $user) :
+        $user = current($user);
+        $user = get_user($user);
     ?>
         <a href="/user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
             class="user_link">
             <div class="user">
-                <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
+                <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>
                 <div class="user_info top">
-                    <?php else:?>
+                    <?php else : ?>
                     <div class="user_info" style="width: 25%;">
-                        <?php endif;?>
+                        <?php endif; ?>
                         <?php if (!empty($user['image'])) : ?>
                         <img src="/user/image/<?= $user['image'] ?>">
                         <?php endif; ?>
@@ -74,10 +74,11 @@ require_once('../config_1.php');
                             <?php endif; ?>
                         </div>
                     </div>
-                    <?php if(!empty($user['profile'])):?>
-                    <?php if(basename($_SERVER['PHP_SELF']) === 'user_top.php'): ?>
-                    <div class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;"><?= $user['profile'] ?></div>
-                    <?php else:?>
+                    <?php if (!empty($user['profile'])) : ?>
+                    <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>
+                    <div class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;">
+                        <?= $user['profile'] ?></div>
+                    <?php else : ?>
                     <div class="user_profile"><?= $user['profile'] ?></div>
                     <?php endif; ?>
                     <?php endif; ?>
@@ -86,6 +87,6 @@ require_once('../config_1.php');
         <?php endforeach ?>
         <?php endif ?>
     </div>
-    <?php require('../pagination.php');?>
+    <?php require('../pagination.php'); ?>
 </body>
 <?php require_once('../footer.php'); ?>

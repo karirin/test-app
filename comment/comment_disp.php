@@ -66,10 +66,10 @@ $current_user = get_user($_SESSION['user_id']);
                         投稿内容を編集する
                         <input type="text" name="text" value="<?php print $post['text']; ?>">
                         <?php
-            if (!empty($disp)) {
-              print $disp_image;
-            }
-            ?>
+                        if (!empty($disp)) {
+                            print $disp_image;
+                        }
+                        ?>
                         画像を選んでください<br />
                         <input type="file" name="image_name" style="width:400px">
                         <input type="hidden" name="id" value="<?php print $post['id']; ?>">
@@ -93,11 +93,11 @@ $current_user = get_user($_SESSION['user_id']);
             </div>
             <p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
             <?php
-      $reply_comments = get_reply_comments($post_id, $comment_id);
-      foreach ($reply_comments as $reply_comment) :
-        if ($reply_comment['comment_id'] == $comment_id) :
-          $reply_comment_user = get_user($reply_comment['user_id']);
-      ?>
+            $reply_comments = get_reply_comments($post_id, $comment_id);
+            foreach ($reply_comments as $reply_comment) :
+                if ($reply_comment['comment_id'] == $comment_id) :
+                    $reply_comment_user = get_user($reply_comment['user_id']);
+            ?>
             <object><a
                     href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>">
                     <div class="user_info">

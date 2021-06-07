@@ -1,3 +1,5 @@
+<?php require_once('class.php');
+?>
 <nav class="navbar navbar-dark bg-dark">
     <div class="modal"></div>
     <?php if (isset($_SESSION['login']) == false) : ?>
@@ -7,7 +9,9 @@
         <li><a href="../user/user_add.php">新規登録</a></li>
         <?php
     else :
-        $current_user = get_user($_SESSION['user_id']);
+        //$current_user = get_user($_SESSION['user_id']);
+        $user = new User($_SESSION['user_id']);
+        $current_user = $user->get_user();
         ?>
         <ul class="main_ul">
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">app</a></li>
@@ -18,9 +22,15 @@
             <li class="header_menu_wide"><a href="../post/post_index.php?type=all">投稿一覧</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
                     メッセージ<?php
-                                if (current(get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
-                                    if (current(message_count(($_SESSION['user_id']))) != 0) {
-                                        print '' . current(message_count(($_SESSION['user_id']))) . '';
+                                // if (current(get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
+                                //     if (current(message_count(($_SESSION['user_id']))) != 0) {
+                                //         print '' . current(message_count(($_SESSION['user_id']))) . '';
+                                //     }
+                                // }
+
+                                if (current($user->get_user_count('message_relation')) != 0) {
+                                    if (current(message_count(($user->id))) != 0) {
+                                        print '' . current(message_count(($user->id))) . '';
                                     }
                                 }
                                 ?>
@@ -42,11 +52,18 @@
                         <a href="../message/message_top.php">
                             <li class="slide_menu_message">
                                 メッセージ<?php
-                                            if (current(get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
-                                                if (current(message_count(($_SESSION['user_id']))) != 0) {
-                                                    print '' . current(message_count(($_SESSION['user_id']))) . '';
+                                            // if (current(get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
+                                            //     if (current(message_count(($_SESSION['user_id']))) != 0) {
+                                            //         print '' . current(message_count(($_SESSION['user_id']))) . '';
+                                            //     }
+                                            // } 
+
+                                            if (current($user->get_user_count('message_relation')) != 0) {
+                                                if (current(message_count(($user->id))) != 0) {
+                                                    print '' . current(message_count(($user->id))) . '';
                                                 }
-                                            } ?>
+                                            }
+                                            ?>
                             </li>
                         </a>
                         <a href="../user_login/user_logout.php">
