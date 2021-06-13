@@ -1,13 +1,17 @@
 <?php
 require_once('../config_1.php');
 
-$current_user = get_user($_SESSION['user_id']);
+$user = new User($_SESSION['user_id']);
+$current_user = $user->get_user();
+
 $message_relations = get_message_relations($current_user['id']);
 foreach ($message_relations as $message_relation) :
     if ($message_relation['destination_user_id'] == $current_user['id']) {
-        $destination_user = get_user($message_relation['user_id']);
+        $user = new User($message_relation['user_id']);
+        $destination_user = $user->get_user();
     } else {
-        $destination_user = get_user($message_relation['destination_user_id']);
+        $user = new User($message_relation['destination_user_id']);
+        $destination_user = $user->get_user();
     }
     $new_message = get_new_message($current_user['id'], $destination_user['id']);
     $new_message_count = new_message_count($current_user['id'], $destination_user['id']);

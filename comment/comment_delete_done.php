@@ -8,13 +8,15 @@ try {
     $user_id = $_POST['user_id'];
     $post_id = $_POST['post_id'];
 
+    $comment = new Comment($comment_id);
+
     $dbh = db_connect();
     $sql = 'DELETE FROM comment WHERE id=?';
     $stmt = $dbh->prepare($sql);
     $data[] = $comment_id;
     $stmt->execute($data);
-    if (!empty(get_reply_comments($post_id, $comment_id))) {
-        $reply_comment = get_reply_comments($post_id, $comment_id);
+    if (!empty($comment->get_reply_comments($post_id))) {
+        $reply_comment = $comment->get_reply_comments($post_id);
         $sql = 'DELETE FROM comment WHERE comment_id=?';
         $stmt = $dbh->prepare($sql);
         $data[] = $reply_comment['id'];

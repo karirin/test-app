@@ -4,7 +4,7 @@ require('../head.php');
 require('../header.php');
 
 if (!empty($_POST)) {
-    require_once('user_login_check.php');
+    require_once('user_login_done.php');
 }
 ?>
 

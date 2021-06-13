@@ -32,7 +32,6 @@ require_once('../config_1.php');
     switch ($page_type) {
       case 'all';
         $users = get_users('all', '');
-        //_debug($users);
         break;
 
       case 'search':

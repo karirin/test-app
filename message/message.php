@@ -1,8 +1,10 @@
 <?php
 require_once('../config_1.php');
 
-$current_user = get_user($_SESSION['user_id']);
-$destination_user = get_user($_GET['user_id']);
+$user = new User($_SESSION['user_id']);
+$current_user = $user->get_user();
+$user = new User($_GET['user_id']);
+$destination_user = $user->get_user();
 $messages = get_messages($current_user['id'], $destination_user['id']);
 $bottom_message = get_new_message($current_user['id'], $destination_user['id']);
 reset_message_count($current_user['id'], $destination_user['id']);
@@ -44,7 +46,7 @@ reset_message_count($current_user['id'], $destination_user['id']);
 
                     <div class="message_process">
                         <h2 class="message_title">メッセージ</h2>
-                        <form method="post" action="../message/message_add.php" enctype="multipart/form-data">
+                        <form method="post" action="../message/message_add_done.php" enctype="multipart/form-data">
                             <div class="message_text">
                                 <textarea id="message_counter" class="textarea form-control" placeholder="メッセージを入力ください"
                                     name="text"></textarea>
@@ -61,7 +63,8 @@ reset_message_count($current_user['id'], $destination_user['id']);
                                     </label>
                                 </div>
                                 <button class="btn btn-outline-primary" type="submit" name="post" value="post"
-                                    id="post">投稿</button>
+                                    id="post">送信</button>
+                                <input type="hidden" name="message_id" value="<?= $message['id'] ?>">
                             </div>
                             <div class="message_image_detail">
                                 <div><img class="my_preview"></div>

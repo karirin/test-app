@@ -1,5 +1,6 @@
 <?php
 require_once('../config_2.php');
+require_once('../class.php');
 
 try {
 
@@ -10,6 +11,7 @@ try {
     $message_image = $_FILES['image'];
     $user_id = $_SESSION['user_id'];
     $destination_user_id = $_POST['destination_user_id'];
+    $message_id = $_POST['message_id'];
 
     if ($message_text == '') {
         if ($message_image['name'] == '') {
@@ -33,16 +35,17 @@ try {
     $data[] = $date->format('Y-m-d H:i:s');
     $stmt->execute($data);
     $dbh = null;
-
-    if (!check_relation_message($user_id, $destination_user_id)) {
-        insert_message($user_id, $destination_user_id);
-    } elseif (!check_relation_user_message($user_id, $destination_user_id)) {
-        insert_user_message($user_id, $destination_user_id);
+    $message = new Message($message_id);
+    if (!$message->check_relation_message($user_id, $destination_user_id)) {
+        $message->insert_message($user_id, $destination_user_id);
+    } elseif (!$message->check_relation_user_message($user_id, $destination_user_id)) {
+        $message->insert_user_message($user_id, $destination_user_id);
     }
-    insert_message_count($user_id, $destination_user_id);
+    $message->insert_message_count($user_id, $destination_user_id);
     set_flash('sucsess', 'メッセージを送信しました');
     reload();
 } catch (Exception $e) {
+    error_log($e, 3, "../../php/error.log");
     _debug("メッセージ送信失敗");
     exit();
 }

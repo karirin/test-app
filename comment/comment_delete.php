@@ -7,7 +7,8 @@ try {
     $user_id = $_GET['user_id'];
     $post_id = $_GET['post_id'];
 
-    $comment = get_comment($comment_id);
+    $comment = new Comment($comment_id);
+    $comment = $comment->get_comment();
 
     $dbh = null;
 

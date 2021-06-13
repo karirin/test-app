@@ -40,7 +40,7 @@
     <div class="row center">
         <div class="col-8 offset-2">
             <h2 class="margin_top_bottom">こちらのユーザーを追加しますか</h2>
-            <img src="image.php" class="user_newimage">
+            <img src="user_add_check_image.php" class="user_newimage">
             <h3 class="margin_top_bottom"><?= $user_name ?></h3>
             <form method="post" action="user_add_done.php">
                 <input type="hidden" name="name" value="<?= $user_name ?>">

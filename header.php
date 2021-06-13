@@ -9,9 +9,13 @@
         <li><a href="../user/user_add.php">新規登録</a></li>
         <?php
     else :
-        //$current_user = get_user($_SESSION['user_id']);
-        $user = new User($_SESSION['user_id']);
-        $current_user = $user->get_user();
+        if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
+            $user = new User($_GET['page_id']);
+            $current_user = $user->get_user();
+        } else {
+            $user = new User($_SESSION['user_id']);
+            $current_user = $user->get_user();
+        }
         ?>
         <ul class="main_ul">
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">app</a></li>

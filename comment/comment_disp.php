@@ -4,9 +4,12 @@ require_once('../config_1.php');
 $post_id = $_GET['post_id'];
 $comment_id = $_GET['comment_id'];
 
-$post = get_post($post_id);
-$post_user = get_user($post['user_id']);
-$current_user = get_user($_SESSION['user_id']);
+$post = new Post($post_id);
+$post = $post->get_post();
+$user = new User($post['user_id']);
+$post_user = $user->get_user();
+$user = new User($_SESSION['user_id']);
+$current_user = $user->get_user();
 ?>
 
 <div class="col-8 offset-2">
@@ -37,12 +40,12 @@ $current_user = get_user($_SESSION['user_id']);
                         <i class="fas fa-star"></i>
                         <?php endif; ?>
                     </button>
-                    <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
+                    <span class="post_count"><?= current($post->get_post_favorite_count()) ?></span>
                 </form>
                 <div class="post_comment_count">
                     <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>" type="button"><i
                             class="fas fa-comment-dots"></i></button>
-                    <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
+                    <span class="post_comment_count"><?= current($post->get_post_favorite_count()) ?></span>
                 </div>
                 <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
                     <p class="modal_title">この投稿にコメントしますか？</p>
@@ -93,10 +96,11 @@ $current_user = get_user($_SESSION['user_id']);
             </div>
             <p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
             <?php
-            $reply_comments = get_reply_comments($post_id, $comment_id);
+            $reply_comments = $comment->get_reply_comments($post_id);
             foreach ($reply_comments as $reply_comment) :
                 if ($reply_comment['comment_id'] == $comment_id) :
-                    $reply_comment_user = get_user($reply_comment['user_id']);
+                    $user = new User($reply_comment['user_id']);
+                    $reply_comment_user = $user->get_user();
             ?>
             <object><a
                     href="/user/user_disp.php?user_id=<?= $reply_comment_user['id'] ?>&page_id=<?= $reply_comment_user['id'] ?>">

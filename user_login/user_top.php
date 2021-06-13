@@ -9,7 +9,7 @@ if (isset($_SESSION['login']) == false) :
         ユーザー同士でコミュニケーションが取れるＳＮＳとなっています。</br>
         共感できる投稿をお気に入りにしたり、お話したい相手とメッセージのやり取りなどが行えます。
     </div>
-    <form method="post" action="user_login_check.php">
+    <form method="post" action="user_login_done.php">
         <div class="flex_btn margin_top">
             <input type="hidden" name="name" class="user_name_input" value="test_user">
             <input type="hidden" name="pass" class="user_pass_input" value="pass">
