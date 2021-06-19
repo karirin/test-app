@@ -1,6 +1,5 @@
 <?php
 require_once('../config_1.php');
-
 $page_type = $_GET['type'];
 if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
   $user = new User($_GET['page_id']);
@@ -9,32 +8,33 @@ if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
   $user = new User($_SESSION['user_id']);
   $current_user = $user->get_user();
 }
+$post = new Post(0);
 switch ($page_type) {
   case 'all':
-    $posts = get_posts($current_user['id'], 'all', 0);
+    $posts = $post->get_posts($current_user['id'], 'all', 0);
     break;
 
   case 'main':
-    $posts = get_posts($current_user['id'], 'my_post', 0);
+    $posts = $post->get_posts($current_user['id'], 'my_post', 0);
     break;
 
   case 'favorites':
-    $posts = get_posts($current_user['id'], 'favorite', 0);
+    $posts = $post->get_posts($current_user['id'], 'favorite', 0);
     break;
 
   case 'follow':
-    $users = get_users('follows', $current_user['id']);
+    $users = $user->get_users('follows');
     break;
 
   case 'follower':
-    $users = get_users('followers', $current_user['id']);
+    $users = $user->get_users('followers');
     break;
 }
 
-$post_count = get_user_count('post', $current_user['id']);
-$favorite_count = get_user_count('favorite', $current_user['id']);
-$follow_count = get_user_count('follow', $current_user['id']);
-$follower_count = get_user_count('follower', $current_user['id']);
+$post_count = $user->get_user_count('post');
+$favorite_count = $user->get_user_count('favorite');
+$follow_count = $user->get_user_count('follow');
+$follower_count = $user->get_user_count('follower');
 ?>
 
 <body>
@@ -72,30 +72,30 @@ $follower_count = get_user_count('follower', $current_user['id']);
             <div class="row profile_count">
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=main">投稿数<p>
-                            <?= current(get_user_count('post', $current_user['id'])) ?></p></a>
+                            <?= current($user->get_user_count('post')) ?></p></a>
                 </div>
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=favorites">お気に入り投稿<p>
-                            <?= current(get_user_count('favorite', $current_user['id'])) ?></p></a>
+                            <?= current($user->get_user_count('favorite')) ?></p></a>
                 </div>
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=follow">フォロー数<p>
-                            <?= current(get_user_count('follow', $current_user['id'])) ?></p></a>
+                            <?= current($user->get_user_count('follow')) ?></p></a>
                 </div>
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=follower">フォロワー数<p>
-                            <?= current(get_user_count('follower', $current_user['id'])) ?></p></a>
+                            <?= current($user->get_user_count('follower')) ?></p></a>
                 </div>
             </div>
-            <?php if ($current_user == get_user($_SESSION['user_id'])) : ?>
+            <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
             <button class="btn btn btn-outline-dark edit_btn" type="button" name="follow">プロフィール編集</button>
             <?php endif; ?>
 
-            <?php if ($current_user != get_user($_SESSION['user_id'])) : ?>
+            <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
             <form action="#" method="post">
                 <input type="hidden" class="current_user_id" value="<?= $_SESSION['user_id'] ?>">
                 <input type="hidden" name="follow_user_id" value="<?= $current_user['id'] ?>">
-                <?php if (check_follow($_SESSION['user_id'], $current_user['id'])) : ?>
+                <?php if ($user->check_follow($_SESSION['user_id'], $current_user['id'])) : ?>
                 <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
                 <?php else : ?>
                 <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>
@@ -130,7 +130,7 @@ $follower_count = get_user_count('follower', $current_user['id']);
             <h2 class="left">タイムライン</h2>
             <?php
       $posts = array();
-      $post_array = get_posts($current_user['id'], 'follow', '');
+      $post_array = $post->get_posts($current_user['id'], 'follow', '');
       if (isset($post_array[0])) {
         $k = 0;
         for ($j = 0; $j < 5; $j++) {
@@ -150,23 +150,23 @@ $follower_count = get_user_count('follower', $current_user['id']);
   $posts = array();
   switch ($page_type) {
     case 'all':
-      $posts = get_posts($current_user['id'], 'all', 0);
+      $posts = $post->get_posts($current_user['id'], 'all', 0);
       break;
 
     case 'main':
-      $posts = get_posts($current_user['id'], 'my_post', 0);
+      $posts = $post->get_posts($current_user['id'], 'my_post', 0);
       break;
 
     case 'favorites':
-      $posts = get_posts($current_user['id'], 'favorite', 0);
+      $posts = $post->get_posts($current_user['id'], 'favorite', 0);
       break;
 
     case 'follow':
-      $users = get_users('follows', $current_user['id']);
+      $users = $current_user->get_users('follows');
       break;
 
     case 'follower':
-      $users = get_users('followers', $current_user['id']);
+      $users = $current_user->get_users('followers');
       break;
   }
   ?>
@@ -204,22 +204,22 @@ $follower_count = get_user_count('follower', $current_user['id']);
             <div class="row profile_count">
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=main">投稿数<p>
-                            <?= current(get_user_count('post', $current_user['id'])) ?></p></a>
+                            <?= current($current_user->get_user_count('post')) ?></p></a>
                 </div>
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=favorites">お気に入り投稿<p>
-                            <?= current(get_user_count('favorite', $current_user['id'])) ?></p></a>
+                            <?= current($current_user->get_user_count('favorite')) ?></p></a>
                 </div>
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=follow">フォロー数<p>
-                            <?= current(get_user_count('follow', $current_user['id'])) ?></p></a>
+                            <?= current($current_user->get_user_count('follow')) ?></p></a>
                 </div>
                 <div class="col-4 offset-1">
                     <a href="user_top.php?page_id=<?= $current_user['id'] ?>&type=follower">フォロワー数<p>
-                            <?= current(get_user_count('follower', $current_user['id'])) ?></p></a>
+                            <?= current($current_user->get_user_count('follower')) ?></p></a>
                 </div>
             </div>
-            <?php if ($current_user == get_user($_SESSION['user_id'])) : ?>
+            <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
             <button class="btn btn btn-outline-dark edit_btn" type="button" name="follow">プロフィール編集</button>
             <?php endif; ?>
         </div>
@@ -246,23 +246,23 @@ $follower_count = get_user_count('follower', $current_user['id']);
   $posts = array();
   switch ($page_type) {
     case 'all':
-      $posts = get_posts($current_user['id'], 'all', 0);
+      $posts = $post->get_posts($current_user['id'], 'all', 0);
       break;
 
     case 'main':
-      $posts = get_posts($current_user['id'], 'my_post', 0);
+      $posts = $post->get_posts($current_user['id'], 'my_post', 0);
       break;
 
     case 'favorites':
-      $posts = get_posts($current_user['id'], 'favorite', 0);
+      $posts = $post->get_posts($current_user['id'], 'favorite', 0);
       break;
 
     case 'follow':
-      $users = get_users('follows', $current_user['id']);
+      $users = $current_user->get_users('follows');
       break;
 
     case 'follower':
-      $users = get_users('followers', $current_user['id']);
+      $users = $current_user->get_users('followers');
       break;
   } ?>
     <div class="row narrower_disp">

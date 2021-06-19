@@ -3,6 +3,7 @@ session_start();
 @session_regenerate_id(true);
 require('db_connect.php');
 require('function.php');
+require('class.php');
 require('head.php');
 require('post_process.php');
 require('withdraw.php');

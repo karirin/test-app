@@ -16,7 +16,7 @@ try {
         reload();
     }
 
-    image_check($post_image_nam);
+    image_check($post_image_name);
 
     $post_text = htmlspecialchars($post_text, ENT_QUOTES, 'UTF-8');
     $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');

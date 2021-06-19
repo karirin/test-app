@@ -4,8 +4,8 @@ $block = pagination_block($posts);
 
 if (isset($block[0])) :
     foreach ($block[$_SESSION[$i]] as $post) :
-
-        $post_user = get_user($post['user_id']);
+        $user = new User($post['user_id']);
+        $post_user = $user->get_user();
 ?>
 <div class="post">
     <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">

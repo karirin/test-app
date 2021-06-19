@@ -24,14 +24,15 @@ require_once('../config_1.php');
         <?php
     $page_type = $_GET['type'];
     if (basename($_SERVER['PHP_SELF']) === 'user_list.php') {
-      $current_user = get_user($_SESSION['user_id']);
+      $user = new User($_SESSION['user_id']);
+      $current_user = $user->get_user();
     } else {
-      $page_id = $_GET['page_id'];
-      $current_user = get_user($page_id);
+      $user = new User($_GET['page_id']);
+      $current_user = $user->get_user();
     }
     switch ($page_type) {
       case 'all';
-        $users = get_users('all', '');
+        $users = $user->get_users('all', '');
         break;
 
       case 'search':
@@ -39,19 +40,17 @@ require_once('../config_1.php');
         break;
 
       case 'follow':
-        $users = get_users('follows', $current_user['id']);
+        $users = $user->get_users('follows');
         break;
 
       case 'follower':
-        $users = get_users('followers', $current_user['id']);
+        $users = $user->get_users('followers');
         break;
     }
     $block = pagination_block($users);
     if (isset($block[0])) :
 
       foreach ($block[$_SESSION[$i]] as $user) :
-        $user = current($user);
-        $user = get_user($user);
     ?>
         <a href="/user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
             class="user_link">

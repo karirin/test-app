@@ -1,4 +1,0 @@
-testINSERT INTO message(text,image,user_id,destination_user_id,created_at) VALUES (?,?,?,?,?)PDOStatement Object
-(
-    [queryString] => INSERT INTO message(text,image,user_id,destination_user_id,created_at) VALUES (?,?,?,?,?)
-)

@@ -8,12 +8,15 @@
             <i class="fas fa-star"></i>
             <?php endif; ?>
         </button>
-        <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
+        <?php
+        $post = new Post($post['id']);
+        ?>
+        <span class="post_count"><?= current($post->get_post_favorite_count()) ?></span>
     </form>
     <div class="post_comment_count">
         <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>" type="button" data-toggle="post"
             title="投稿"><i class="fas fa-comment-dots"></i></button>
-        <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
+        <span class="post_comment_count"><?= current($post->get_post_comment_count()) ?></span>
     </div>
     <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
         <p class="modal_title">この投稿にコメントしますか？</p>

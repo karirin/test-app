@@ -3,8 +3,8 @@ $block = pagination_block($posts);
 
 if (isset($block[0])) :
     foreach ($block[$_SESSION[$i]] as $post) :
-
-        $post_user = get_user($post['user_id']);
+        $user = new User($post['user_id']);
+        $post_user = $user->get_user();
 ?>
 <div class="post narrow">
     <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
@@ -35,12 +35,15 @@ if (isset($block[0])) :
                 <i class="fas fa-star"></i>
                 <?php endif; ?>
             </button>
-            <span class="post_count"><?= current(get_post_favorite_count($post['id'])) ?></span>
+            <?php
+                    $post = new Post($post['id']);
+                    ?>
+            <span class="post_count"><?= current($post->get_post_favorite_count()) ?></span>
         </form>
         <div class="post_favorite">
             <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>_narrow" type="button" data-toggle="post"
                 title="投稿"><i class="fas fa-comment-dots"></i></button>
-            <span class="post_comment_count"><?= current(get_post_comment_count($post['id'])) ?></span>
+            <span class="post_comment_count"><?= current($post->get_post_favorite_count()) ?></span>
         </div>
         <div class="comment_confirmation" id="modal<?= $post['id'] ?>_narrow">
             <p class="modal_title">この投稿にコメントしますか？</p>

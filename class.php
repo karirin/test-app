@@ -339,19 +339,6 @@ class Comment
     }
   }
 
-  //  コメントがある投稿か確認する
-  function check_comment($post_id)
-  {
-    $dbh = db_connect();
-    $sql = "SELECT *
-          FROM comment
-          WHERE post_id = :post_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':post_id' => $post_id));
-    $favorite = $stmt->fetch();
-    return $favorite;
-  }
-
   //  コメントへの返信コメントを取得する
   function get_reply_comments($post_id)
   {
@@ -372,10 +359,6 @@ class Comment
 
 class Message
 {
-  public function __construct($message_id)
-  {
-    $this->id = $message_id;
-  }
   //　メッセージ数を取得する
   function message_count($user_id)
   {

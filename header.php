@@ -26,15 +26,10 @@
             <li class="header_menu_wide"><a href="../post/post_index.php?type=all">投稿一覧</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
                     メッセージ<?php
-                                // if (current(get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
-                                //     if (current(message_count(($_SESSION['user_id']))) != 0) {
-                                //         print '' . current(message_count(($_SESSION['user_id']))) . '';
-                                //     }
-                                // }
-
+                                $message = new Message();
                                 if (current($user->get_user_count('message_relation')) != 0) {
-                                    if (current(message_count(($user->id))) != 0) {
-                                        print '' . current(message_count(($user->id))) . '';
+                                    if (current($message->message_count(($user->id))) != 0) {
+                                        print '' . current($message->message_count(($user->id))) . '';
                                     }
                                 }
                                 ?>
