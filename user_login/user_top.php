@@ -22,7 +22,6 @@ if (isset($_SESSION['login']) == false) :
     <?php else : ?>
 
     <body>
-        <?php _debug('testetete'); ?>
         <?php require_once("../user/user_disp.php"); ?>
         <?php endif; ?>
 

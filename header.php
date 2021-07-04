@@ -56,10 +56,10 @@
                                             //         print '' . current(message_count(($_SESSION['user_id']))) . '';
                                             //     }
                                             // } 
-
+                                            $message = new Message();
                                             if (current($user->get_user_count('message_relation')) != 0) {
-                                                if (current(message_count(($user->id))) != 0) {
-                                                    print '' . current(message_count(($user->id))) . '';
+                                                if (current($message->message_count(($user->id))) != 0) {
+                                                    print '' . current($message->message_count(($user->id))) . '';
                                                 }
                                             }
                                             ?>

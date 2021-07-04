@@ -37,7 +37,7 @@ class User
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log('エラー発生:' . $e->getMessage());
+      error_log($e, 3, "../../php/error.log");
       set_flash('error', ERR_MSG1);
     }
   }
@@ -56,17 +56,17 @@ class User
           break;
 
         case 'follows':
-          $sql = "SELECT follower_id
-                FROM relation
-                WHERE follow_id = :follow_id";
+          $sql = "SELECT *
+          FROM user INNER JOIN relation ON user.id = relation.follower_id
+          WHERE relation.follow_id = :follow_id";
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':follow_id', $this->id);
           break;
 
         case 'followers':
-          $sql = "SELECT follow_id
-                FROM relation
-                WHERE follower_id = :follower_id";
+          $sql = "SELECT *
+          FROM user INNER JOIN relation ON user.id = relation.follow_id
+          WHERE relation.follower_id = :follower_id";
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':follower_id', $this->id);
           break;
@@ -74,62 +74,68 @@ class User
       $stmt->execute();
       return $stmt->fetchAll();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('複数ユーザー取得失敗');
     }
   }
 
   public function get_user_count($object)
   {
-    $dbh = db_connect();
-    switch ($object) {
+    try {
+      $dbh = db_connect();
+      switch ($object) {
 
-      case 'favorite':
-        $sql = "SELECT COUNT(post_id)
+        case 'favorite':
+          $sql = "SELECT COUNT(post_id)
           FROM favorite
           WHERE user_id = :id";
-        break;
+          break;
 
-      case 'post':
-        $sql = "SELECT COUNT(id)
+        case 'post':
+          $sql = "SELECT COUNT(id)
             FROM post
             WHERE user_id = :id";
-        break;
+          break;
 
-      case 'comment':
-        $sql = "SELECT COUNT(id)
+        case 'comment':
+          $sql = "SELECT COUNT(id)
             FROM comment
             WHERE user_id = :id";
-        break;
+          break;
 
-      case 'follow':
-        $sql = "SELECT COUNT(follower_id)
+        case 'follow':
+          $sql = "SELECT COUNT(follower_id)
           FROM relation
           WHERE follow_id = :id";
-        break;
+          break;
 
-      case 'follower':
-        $sql = "SELECT COUNT(follow_id)
+        case 'follower':
+          $sql = "SELECT COUNT(follow_id)
           FROM relation
           WHERE follower_id = :id";
-        break;
+          break;
 
-      case 'message':
-        $sql = "SELECT COUNT(id)
+        case 'message':
+          $sql = "SELECT COUNT(id)
           FROM message
           WHERE user_id = :id";
-        break;
+          break;
 
-      case 'message_relation':
-        $sql = "SELECT COUNT(id)
+        case 'message_relation':
+          $sql = "SELECT COUNT(id)
           FROM message_relation
           WHERE user_id = :id";
-        break;
+          break;
+      }
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':id' => $this->id));
+      return $stmt->fetch();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('ユーザー数取得失敗');
     }
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':id' => $this->id));
-    return $stmt->fetch();
   }
-  //  ユーザー新規登録の際、既にユーザーIDとパスワードがないか確認する
+
   function get_newuser($name, $password)
   {
     try {
@@ -145,7 +151,7 @@ class User
     }
   }
 
-  public function update_login_time($date)
+  function update_login_time($date)
   {
     try {
       $dbh = db_connect();
@@ -155,6 +161,7 @@ class User
       $stmt->execute(array(':date' => $date->format('Y-m-d H:i:s'), ':id' => $this->id));
       $dbh->commit();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('ログイン時刻更新失敗');
       $dbh->rollback();
       reload();
@@ -164,27 +171,37 @@ class User
   //  フォロー中かどうか確認する
   function check_follow($follow_user, $follower_user)
   {
-    $dbh = db_connect();
-    $sql = "SELECT follow_id,follower_id
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT follow_id,follower_id
           FROM relation
           WHERE :follower_id = follower_id AND :follow_id = follow_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(
-      ':follow_id' => $follow_user,
-      ':follower_id' => $follower_user
-    ));
-    return  $stmt->fetch();
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(
+        ':follow_id' => $follow_user,
+        ':follower_id' => $follower_user
+      ));
+      return  $stmt->fetch();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('フォロー確認失敗');
+    }
   }
 
   function check_user($user_name)
   {
-    $dbh = db_connect();
-    $sql = "SELECT name
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT name
           FROM user
           WHERE :name = name";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':name' => $user_name));
-    return  $stmt->fetch();
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':name' => $user_name));
+      return  $stmt->fetch();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('ユーザー確認失敗');
+    }
   }
 }
 
@@ -206,32 +223,44 @@ class Post
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('投稿取得失敗');
     }
   }
   //　お気に入りの投稿数を取得する
   function get_post_favorite_count()
   {
-    $dbh = db_connect();
-    $sql = "SELECT COUNT(user_id)
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT COUNT(user_id)
           FROM favorite
           WHERE post_id = :post_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':post_id' => $this->id));
-    return $stmt->fetch();
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':post_id' => $this->id));
+      return $stmt->fetch();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('お気に入り投稿数取得失敗');
+    }
   }
 
   //　投稿IDからコメントを取得する
   function get_post_comment_count()
   {
-    $dbh = db_connect();
-    $sql = "SELECT COUNT(id)
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT COUNT(id)
           FROM comment
           WHERE post_id = :post_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':post_id' => $this->id));
-    return $stmt->fetch();
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':post_id' => $this->id));
+      return $stmt->fetch();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('投稿からコメント取得失敗');
+    }
   }
+
   //　投稿を複数取得する
   function get_posts($user_id, $type, $query)
   {
@@ -285,6 +314,7 @@ class Post
       $stmt->execute();
       return $stmt->fetchAll();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('複数の投稿取得失敗');
     }
   }
@@ -308,6 +338,7 @@ class Comment
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('コメント取得失敗');
     }
   }
@@ -315,13 +346,18 @@ class Comment
   //　コメントへの返信コメント数を取得する
   function get_reply_comment_count()
   {
-    $dbh = db_connect();
-    $sql = "SELECT COUNT(id)
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT COUNT(id)
           FROM comment
           WHERE comment_id = :comment_id";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':comment_id' => $this->id));
-    return $stmt->fetch();
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':comment_id' => $this->id));
+      return $stmt->fetch();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('返信コメント取得失敗');
+    }
   }
   //  複数のコメントを取得する
   function get_comments($post_id)
@@ -335,6 +371,7 @@ class Comment
       $stmt->execute(array(':id' => $post_id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('複数コメント取得失敗');
     }
   }
@@ -351,6 +388,7 @@ class Comment
       $stmt->execute(array(':id' => $post_id, ':comment_id' => $this->id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('返信コメント取得失敗');
     }
   }
@@ -371,6 +409,7 @@ class Message
       $stmt->execute(array(':user_id' => $user_id));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('メッセージ取得失敗');
     }
   }
@@ -391,6 +430,7 @@ class Message
       ));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('複数メッセージ取得失敗');
     }
   }
@@ -412,6 +452,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('最新メッセージ取得失敗');
     }
   }
@@ -431,6 +472,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('複数の最新メッセージ取得失敗');
     }
   }
@@ -457,7 +499,6 @@ class Message
   //  ログインユーザーのメッセージリストを新規登録する
   function insert_user_message($user_id, $destination_user_id)
   {
-    _debug('@@');
     try {
       $dbh = db_connect();
       $sql = "INSERT INTO
@@ -470,6 +511,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('ログインユーザーのメッセージリスト新規登録失敗');
     }
   }
@@ -505,6 +547,7 @@ class Message
       $stmt->execute(array(':user_id' => $user_id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('メッセージリスト取得失敗');
     }
   }
@@ -525,6 +568,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('メッセージリスト確認失敗');
     }
   }
@@ -544,6 +588,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('ログインユーザーのメッセージリスト確認失敗');
     }
   }
@@ -563,6 +608,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('メッセージリスト削除確認失敗');
     }
   }
@@ -581,6 +627,7 @@ class Message
       ));
       $dbh->commit();
     } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
       _debug('メッセージ数リセット失敗');
       $dbh->rollback();
       reload();

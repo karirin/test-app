@@ -11,12 +11,13 @@
     $user_name = htmlspecialchars($user_name, ENT_QUOTES, 'UTF-8');
     $user_pass = htmlspecialchars($user_pass, ENT_QUOTES, 'UTF-8');
     $user_pass2 = htmlspecialchars($user_pass2, ENT_QUOTES, 'UTF-8');
+    $user = new User(0);
 
     if (empty($user_name) && empty($user_pass) && empty($user_pass2)) {
         $error_messages[] = "ユーザー名とパスワードを入力してください";
     } else if (empty($user_name)) {
         $error_messages[] = "ユーザー名を入力してください";
-    } else if (check_user($user_name)) {
+    } else if ($user->check_user($user_name)) {
         $error_messages[] = 'このユーザー名は既に使用されています';
     } else if (empty($user_pass)) {
         $error_messages[] = "パスワードを入力してください";

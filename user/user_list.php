@@ -24,15 +24,15 @@ require_once('../config_1.php');
         <?php
     $page_type = $_GET['type'];
     if (basename($_SERVER['PHP_SELF']) === 'user_list.php') {
-      $user = new User($_SESSION['user_id']);
-      $current_user = $user->get_user();
+      $user_class = new User($_SESSION['user_id']);
+      $current_user = $user_class->get_user();
     } else {
-      $user = new User($_GET['page_id']);
-      $current_user = $user->get_user();
+      $user_class = new User($_GET['page_id']);
+      $current_user = $user_class->get_user();
     }
     switch ($page_type) {
       case 'all';
-        $users = $user->get_users('all', '');
+        $users = $user_class->get_users('all', '');
         break;
 
       case 'search':
@@ -40,11 +40,11 @@ require_once('../config_1.php');
         break;
 
       case 'follow':
-        $users = $user->get_users('follows');
+        $users = $user_class->get_users('follows');
         break;
 
       case 'follower':
-        $users = $user->get_users('followers');
+        $users = $user_class->get_users('followers');
         break;
     }
     $block = pagination_block($users);

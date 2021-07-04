@@ -59,6 +59,7 @@ try {
 		}
 	}
 } catch (Exception $e) {
+	error_log($e, 3, "../../php/error.log");
 	_debug('ログイン失敗');
 	exit();
 }

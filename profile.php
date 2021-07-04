@@ -1,6 +1,5 @@
 <?php
 if (isset($_SESSION['login']) == true) {
-    //$current_user = get_user($_SESSION['user_id']);
     if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
         $user = new User($_GET['page_id']);
         $current_user = $user->get_user();
@@ -62,11 +61,11 @@ if (isset($_SESSION['login']) == true) {
     <?php if ($current_user == $user->get_user($user->id)) : ?>
     <button class="btn btn btn-outline-dark edit_btn" type="button" name="follow">プロフィール編集</button>
     <?php endif; ?>
-    <?php if ($current_user != $user->get_user($user->id)) : ?>
+    <?php if ($current_user != $user->get_user()) : ?>
     <form action="#" method="post">
         <input type="hidden" class="current_user_id" value="<?= $user->id ?>">
         <input type="hidden" name="follow_user_id" value="<?= $page_user['id'] ?>">
-        <?php if (check_follow($user->id, $page_user['id'])) : ?>
+        <?php if ($user->check_follow($user->id, $page_user['id'])) : ?>
         <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
         <?php else : ?>
         <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>

@@ -24,6 +24,7 @@ function get_users($type, $query)
     $stmt->execute();
     return $stmt->fetchAll();
   } catch (\Exception $e) {
+    error_log($e, 3, "../../php/error.log");
     _debug('複数ユーザー取得失敗');
   }
 }
@@ -45,7 +46,7 @@ function check_comment($post_id)
 function image_check($image)
 {
   if ($image['size'] > 0) {
-    if ($image['size'] > 10) {
+    if ($image['size'] > 1000000) {
       set_flash('danger', '画像が大きすぎます');
       reload();
     } else {

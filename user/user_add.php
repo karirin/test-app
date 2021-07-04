@@ -15,17 +15,21 @@ require_once('../config_1.php');
                 <div class="post_btn margin_top">
                     <label>
                         <i class="far fa-image"></i>
+
                         <input type="file" name="image" id="my_image" accept="image/*" multiple>
                     </label>
                 </div>
                 <p class="preview_img"><img class="my_preview"></p>
                 <input type="button" id="my_clear" value="ファイルをクリアする">
                 <div class="flex_btn margin_top">
+
+
                     <input class="btn btn-outline-dark" type="submit" value="登録">
                     <input class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">
                 </div>
             </form>
 </body>
+<?php _debug('53535'); ?>
 <?php require_once('../footer.php'); ?>
 
 </html>

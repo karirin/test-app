@@ -34,6 +34,7 @@ try {
     set_flash('sucsess', '投稿しました');
     header('Location:../user_login/user_top.php?type=main&page_id=current_user');
 } catch (Exception $e) {
+    error_log($e, 3, "../../php/error.log");
     _debug('投稿失敗しました');
     exit();
 }

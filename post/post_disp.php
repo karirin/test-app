@@ -5,11 +5,12 @@ require_once('../config_1.php');
 <body>
     <?php
     $post_id = $_GET['post_id'];
-    $post = new Post($post_id);
-    $user = new User($post['user_id']);
-    $post_user = $user->get_user();
-    $user = new User($_SESSION['user_id']);
-    $current_user = $user->get_user();
+    $post_class = new Post($post_id);
+    $post = $post_class->get_post();
+    $user_class = new User($post['user_id']);
+    $post_user = $user_class->get_user();
+    $user_class = new User($_SESSION['user_id']);
+    $current_user = $user_class->get_user();
     ?>
     <div class="col-8 offset-2">
         <div class="post">
@@ -32,17 +33,17 @@ require_once('../config_1.php');
                 <?php require('post_info.php'); ?>
                 　<p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
                 <?php
-                $comment = new Comment($post['id']);
-                $comments = $comment->get_comments($post['id']);
+                $comment_class = new Comment($post['id']);
+                $comments = $comment_class->get_comments($post['id']);
                 foreach ($comments as $comment) :
-                    $comment = new Comment($comment['id']);
-                    $reply_comments = $comment->get_reply_comments($post['id']);
+                    $comment_class = new Comment($comment['id']);
+                    $reply_comments = $comment_class->get_reply_comments($post['id']);
                     if (empty($comment['comment_id'])) :
                 ?>
                 <div class="comment">
                     <?php
-                            $user = new User($comment['user_id']);
-                            $comment_user = $user->get_user();
+                            $user_class = new User($comment['user_id']);
+                            $comment_user = $user_class->get_user();
                             ?>
 
                     <object><a
@@ -80,7 +81,8 @@ require_once('../config_1.php');
                         <div class="reply_comment_count">
                             <button class="btn modal_btn" data-target="#reply_modal<?= $comment['id'] ?>" type="button"
                                 data-toggle="reply" title="返信"><i class="fas fa-reply"></i></button>
-                            <span class="post_comment_count"><?= current($comment->get_reply_comment_count()) ?></span>
+                            <span
+                                class="post_comment_count"><?= current($comment_class->get_reply_comment_count()) ?></span>
                         </div>
                         <div class="reply_comment_confirmation" id="reply_modal<?= $comment['id'] ?>">
                             <p class="modal_title">このコメントに返信しますか？</p>
@@ -114,8 +116,8 @@ require_once('../config_1.php');
                             print '<span class="comment_created_at margin_bottom">' . convert_to_fuzzy_time($comment['created_at']) . '</span>';
                             foreach ($reply_comments as $reply_comment) :
                                 if ($reply_comment['comment_id'] == $comment['id']) :
-                                    $user = new User($reply_comment['user_id']);
-                                    $reply_comment_user = $user->get_user();
+                                    $user_class = new User($reply_comment['user_id']);
+                                    $reply_comment_user = $user_class->get_user();
                             ?>
 
                     <div class="reply">

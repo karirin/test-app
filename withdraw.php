@@ -2,11 +2,12 @@
 require_once('config_1.php');
 // post送信されていた場合
 if (!empty($_POST['withdraw'])) {
-    $user_id = $_SESSION['user_id'];
+    $user = new User($_SESSION['user_id']);
+    $current_user = $user->get_user();
     $dbh = db_connect();
     $argument = ["post", "favorite", "comment", "follow", "follower", "message", "message_relation"];
     for ($i = 0; $i < 7; $i++) {
-        $count[$i] = get_user_count($argument[$i], $user_id);
+        $count[$i] = $user->get_user_count($argument[$i]);
     }
     $sql = 'DELETE FROM user where id = :user_id';
     $stmt = $dbh->prepare($sql);

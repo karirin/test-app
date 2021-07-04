@@ -13,16 +13,19 @@ require_once('../config_1.php');
             <div class="input-group-append">
                 <input type="submit" name="search_post" class="btn btn-outline-secondary">
                 <?php
-                $current_user = get_user($_SESSION['user_id']);
+
+                $user_class = new User($_SESSION['user_id']);
+                $current_user = $user_class->get_user();
+                $post_class = new Post(0);
                 $page_type = $_GET['type'];
 
                 switch ($page_type) {
                     case 'all':
-                        $posts = get_posts('', 'all', 0);
+                        $posts = $post_class->get_posts('', 'all', 0);
                         break;
 
                     case 'search':
-                        $posts = get_posts('', 'search', $_GET['query']);
+                        $posts = $post_class->get_posts('', 'search', $_GET['query']);
                         break;
                 }
                 ?>

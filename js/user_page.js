@@ -270,6 +270,7 @@ $(document).on('click', '.modal_btn', function() {
 
 // 投稿モーダル画面出力処理
 $(document).on('click', '.post_modal', function() {
+    console.log('test');
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.post_process').fadeIn();

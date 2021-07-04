@@ -1,7 +1,11 @@
 <?php
-foreach ($posts as $post) :
-    // $post_user = get_user($post['user_id']);
-    $post_user = new User($post['user_id']);
+//_debug($posts);
+$block = pagination_block($posts);
+
+if (isset($block[0])) :
+    foreach ($block[$_SESSION[$i]] as $post) :
+        $user = new User($post['user_id']);
+        $post_user = $user->get_user();
 
 ?>
 <div class="post narrower">
@@ -18,10 +22,10 @@ foreach ($posts as $post) :
             <?php if (substr_count($post['text'], "\n") + 1 > 10) : ?>
             <object><a href="#" class="show_all">続きを表示する</a></object>
             <?php endif;
-                if (!empty($post['image'])) :
-                    print '<img src="/post/image/' . $post['image'] . '" class="post_img" >';
-                endif;
-                ?>
+                    if (!empty($post['image'])) :
+                        print '<img src="/post/image/' . $post['image'] . '" class="post_img" >';
+                    endif;
+                    ?>
     </a>
     <div class="post_info">
         <form class="favorite_count" action="#" method="post">
@@ -34,14 +38,15 @@ foreach ($posts as $post) :
                 <?php endif; ?>
             </button>
             <?php
-                $post = new Post($post['id']);
-                ?>
-            <span class="post_count"><?= current($post->get_post_favorite_count()) ?></span>
+                    $post_class = new Post($post['id']);
+                    $post = $post_class->get_post();
+                    ?>
+            <span class="post_count"><?= current($post_class->get_post_favorite_count()) ?></span>
         </form>
         <div class="post_favorite">
             <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>_narrower" type="button"
                 data-toggle="post" title="投稿"><i class="fas fa-comment-dots"></i></button>
-            <span class="post_comment_count"><?= current($post->get_post_comment_count()) ?></span>
+            <span class="post_comment_count"><?= current($post_class->get_post_comment_count()) ?></span>
         </div>
         <div class="comment_confirmation" id="modal<?= $post['id'] ?>_narrower">
             <p class="modal_title">この投稿にコメントしますか？</p>
@@ -110,4 +115,6 @@ foreach ($posts as $post) :
 </div>
 </div>
 
-<?php endforeach ?>
+<?php endforeach; ?>
+<?php endif; ?>
+<?php require('../pagination.php'); ?>

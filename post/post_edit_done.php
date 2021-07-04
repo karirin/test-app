@@ -36,6 +36,7 @@ if($post_image_name_old!='' && $post_image_name_old!=$post_image_name['name'])
 }
 catch (Exception $e)
 {
+    error_log($e, 3, "../../php/error.log");
     _debug('投稿更新失敗');
     exit();
 }
@@ -44,4 +45,3 @@ set_flash('sucsess','更新しました');
 reload();
 
 require_once('../footer.php');
-?>

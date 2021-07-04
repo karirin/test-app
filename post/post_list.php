@@ -23,6 +23,7 @@ if (isset($block[0])) :
                     if (!empty($post['image'])) :
                         print '<img src="/post/image/' . $post['image'] . '" class="post_img" >';
                     endif;
+
                     ?>
     </a>
     <?php require('post_info.php'); ?>

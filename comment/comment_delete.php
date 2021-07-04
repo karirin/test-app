@@ -30,6 +30,7 @@ try {
         unlink('./image/' . $comment['image']);
     }
 } catch (Exception $e) {
+    error_log($e, 3, "../../php/error.log");
     _debug('コメント削除確認失敗');
     exit();
 }

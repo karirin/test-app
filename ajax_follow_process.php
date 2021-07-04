@@ -4,10 +4,11 @@ require_once('config_1.php');
 if (isset($_POST)) {
 
   $user_id = $_POST['user_id'];
+  $user = new User($user_id);
   $current_user_id = $_POST['current_user_id'];
 
   // すでに登録されているか確認して登録、削除のSQL切り替え
-  if (check_follow($current_user_id, $user_id)) {
+  if ($user->check_follow($current_user_id, $user_id)) {
     $action = '解除';
     $flash_type = 'error';
     $sql = "DELETE
@@ -25,12 +26,12 @@ if (isset($_POST)) {
     $stmt->execute(array(':follow_id' => $current_user_id, ':follower_id' => $user_id));
     $return = array(
       'action' => $action,
-      'follow_count' => current(get_user_count('follow', $current_user_id)),
-      'follower_count' => current(get_user_count('follower', $current_user_id))
+      'follow_count' => current($user->get_user_count('follow')),
+      'follower_count' => current($user->get_user_count('follower'))
     );
     echo json_encode($return);
   } catch (\Exception $e) {
-    error_log('エラー発生:' . $e->getMessage());
+    error_log($e, 3, "../../php/error.log");
     _debug('フォロー失敗');
     echo json_encode("error");
   }

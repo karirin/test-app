@@ -9,14 +9,15 @@
             <?php endif; ?>
         </button>
         <?php
-        $post = new Post($post['id']);
+        $post_class = new Post($post['id']);
+        $post = $post_class->get_post();
         ?>
-        <span class="post_count"><?= current($post->get_post_favorite_count()) ?></span>
+        <span class="post_count"><?= current($post_class->get_post_favorite_count()) ?></span>
     </form>
     <div class="post_comment_count">
         <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>" type="button" data-toggle="post"
             title="投稿"><i class="fas fa-comment-dots"></i></button>
-        <span class="post_comment_count"><?= current($post->get_post_comment_count()) ?></span>
+        <span class="post_comment_count"><?= current($post_class->get_post_comment_count()) ?></span>
     </div>
     <div class="comment_confirmation" id="modal<?= $post['id'] ?>">
         <p class="modal_title">この投稿にコメントしますか？</p>
@@ -74,7 +75,7 @@
     <div class="delete_confirmation" id="delete_modal<?= $post['id'] ?>">
         <p class="modal_title">こちらの投稿を削除しますか？</p>
         <p class="post_content"><?= nl2br($post['text']) ?></p>
-        <form action="post_delete_done.php" method="post">
+        <form action="../post/post_delete_done.php" method="post">
             <input type="hidden" name="id" value="<?= $post['id'] ?>">
             <input type="hidden" name="image_name" value="<?= $post['image'] ?>">
             <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>

@@ -1,4 +1,5 @@
 <?php
+//_debug($posts);
 $block = pagination_block($posts);
 
 if (isset($block[0])) :
@@ -36,14 +37,15 @@ if (isset($block[0])) :
                 <?php endif; ?>
             </button>
             <?php
-                    $post = new Post($post['id']);
+                    $post_class = new Post($post['id']);
+                    $post = $post_class->get_post();
                     ?>
-            <span class="post_count"><?= current($post->get_post_favorite_count()) ?></span>
+            <span class="post_count"><?= current($post_class->get_post_favorite_count()) ?></span>
         </form>
         <div class="post_favorite">
             <button class="btn modal_btn" data-target="#modal<?= $post['id'] ?>_narrow" type="button" data-toggle="post"
                 title="投稿"><i class="fas fa-comment-dots"></i></button>
-            <span class="post_comment_count"><?= current($post->get_post_favorite_count()) ?></span>
+            <span class="post_comment_count"><?= current($post_class->get_post_favorite_count()) ?></span>
         </div>
         <div class="comment_confirmation" id="modal<?= $post['id'] ?>_narrow">
             <p class="modal_title">この投稿にコメントしますか？</p>
@@ -113,7 +115,6 @@ if (isset($block[0])) :
     <p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
 </div>
 </div>
-
 <?php endforeach ?>
 <?php endif ?>
 <?php require('../pagination.php'); ?>

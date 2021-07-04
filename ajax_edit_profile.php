@@ -1,9 +1,9 @@
 <?php
-require_once('config_1.php');
+require_once('config_2.php');
 
 if (isset($_POST)) {
-
-  $current_user = get_user($_SESSION['user_id']);
+  $user = new User($_SESSION['user_id']);
+  $current_user = $user->get_user();
   $name = $_POST['user_name'];
   $comment_data = $_POST['user_comment'];
   if (empty($_FILES['image_name']['name'])) {
@@ -45,6 +45,7 @@ if (isset($_POST)) {
     set_flash('sucsess', 'プロフィールを更新しました');
     reload();
   } catch (\Exception $e) {
+    error_log($e, 3, "../../php/error.log");
     _debug('プロフィール更新失敗');
   }
 }
