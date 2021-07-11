@@ -36,7 +36,7 @@ require_once('../config_1.php');
         break;
 
       case 'search':
-        $users = get_users('search', $_GET['query']);
+        $users = get_users($_GET['query']);
         break;
 
       case 'follow':
@@ -52,7 +52,7 @@ require_once('../config_1.php');
 
       foreach ($block[$_SESSION[$i]] as $user) :
     ?>
-        <a href="/user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
+        <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
             class="user_link">
             <div class="user">
                 <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>
@@ -65,7 +65,7 @@ require_once('../config_1.php');
                         <?php endif; ?>
                         <div class="user_name">
                             <?= $user['name'] ?>
-                            <?php if (!($current_user == $user)) : ?>
+                            <?php if ($current_user != $user) : ?>
                             <object><a href="../message/message.php?user_id=<?= $user['id'] ?>">
                                     <i class="fas fa-envelope-square"></i>
                                 </a></object>

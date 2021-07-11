@@ -11,7 +11,7 @@ function _debug($data, $clear_log = false)
 }
 
 //  複数のユーザーを取得する
-function get_users($type, $query)
+function get_users($query)
 {
   try {
     $dbh = db_connect();

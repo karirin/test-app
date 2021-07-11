@@ -30,7 +30,7 @@ class User
   {
     try {
       $dbh = db_connect();
-      $sql = "SELECT id,name,password,profile,image
+      $sql = "SELECT *
     FROM user
     WHERE id = :id";
       $stmt = $dbh->prepare($sql);
@@ -284,7 +284,7 @@ class Post
           break;
           //　お気に入り登録した投稿を取得する
         case 'favorite':
-          $sql = "SELECT *
+          $sql = "SELECT post.id,post.text,post.image,post.user_id,post.created_at
               FROM post INNER JOIN favorite ON post.id = favorite.post_id
               INNER JOIN user ON user.id = post.user_id
               WHERE favorite.user_id = :id

@@ -9,11 +9,11 @@ if (isset($block[0])) :
 
 ?>
 <div class="post narrower">
-    <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
+    <a href="../post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
         <div class="post_list">
             <div class="post_user">
                 <object><a
-                        href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=all">
+                        href="../user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=all">
                         <img src="/user/image/<?= $post_user['image'] ?>">
                         <?php print '' . $post_user['name'] . ''; ?>
                     </a></object>

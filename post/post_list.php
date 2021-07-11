@@ -8,12 +8,12 @@ if (isset($block[0])) :
         $post_user = $user->get_user();
 ?>
 <div class="post">
-    <a href="/post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
+    <a href="../post/post_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
 
         <div class="post_list">
             <div class="post_user">
                 <object><a
-                        href="/user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
+                        href="../user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
                         <img src="/user/image/<?= $post_user['image'] ?>">
                         <?php print '' . $post_user['name'] . ''; ?>
                     </a></object>

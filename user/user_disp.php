@@ -244,7 +244,6 @@ $follower_count = $user->get_user_count('follower');
         </div>
     </div>
     <?php
-  _debug('test');
   $posts = array();
   switch ($page_type) {
     case 'all':
