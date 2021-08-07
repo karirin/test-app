@@ -71,6 +71,21 @@ function check_favolite_duplicate($user_id, $post_id)
   return $favorite;
 }
 
+//  チャットを取得する
+function get_chats()
+{
+  try {
+    $dbh = db_connect();
+    $sql = "SELECT *
+            FROM chat";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+  }
+}
+
 //  ページネーション
 function pagination_block($data)
 {

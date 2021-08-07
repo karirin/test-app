@@ -5,7 +5,7 @@ var user_comment = $('.comment').text(),
     user_name_narrow = $('.profile_name_narrow').text(),
     user_comment_narrower = $('.comment_narrower').text(),
     user_name_narrower = $('.profile_name_narrower').text(),
-    user_id = $('.user_id').val();
+    user = $('.user').val();
 
 // getパラメータ取得
 function get_param(name, url) {
@@ -415,6 +415,10 @@ $(document).on('click', '.thread_btn', function() {
     $($target_modal).fadeIn();
     $(this).parent().height(omit_height);
 });
+
+$(document).on('click', '.chat_btn', function() {
+    $('.chat_btn')
+})
 
 // 各種ツールチップ処理
 $('[data-toggle="favorite"]').tooltip();
