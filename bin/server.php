@@ -1,9 +1,10 @@
 <?php
 
 use Ratchet\Server\IoServer;
+use MyApp\Chat;
 use Ratchet\Http\HttpServer;
 use Ratchet\WebSocket\WsServer;
-use htdocs\Chat;
+
 
 require_once 'C:\xampp\htdocs\vendor\autoload.php';
 
