@@ -421,8 +421,8 @@ $(document).on('click', '.chat_btn', function() {
 })
 
 // 各種ツールチップ処理
-$('[data-toggle="favorite"]').tooltip();
-$('[data-toggle="post"]').tooltip();
-$('[data-toggle="edit"]').tooltip();
-$('[data-toggle="delete"]').tooltip();
-$('[data-toggle="reply"]').tooltip();
+// $('[data-toggle="favorite"]').tooltip();
+// $('[data-toggle="post"]').tooltip();
+// $('[data-toggle="edit"]').tooltip();
+// $('[data-toggle="delete"]').tooltip();
+// $('[data-toggle="reply"]').tooltip();

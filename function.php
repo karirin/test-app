@@ -151,3 +151,17 @@ function set_flash($type, $message)
   $_SESSION['flash']['type'] = "flash_${type}";
   $_SESSION['flash']['message'] = $message;
 }
+
+function get_message()
+{
+  try {
+    $dbh = db_connect();
+    $sql = "SELECT *
+      FROM message";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  } catch (\Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+  }
+}

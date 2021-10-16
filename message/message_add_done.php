@@ -11,7 +11,6 @@ try {
     $message_image = $_FILES['image'];
     $user_id = $_SESSION['user_id'];
     $destination_user_id = $_POST['destination_user_id'];
-    $message_id = $_POST['message_id'];
 
     if ($message_text == '') {
         if ($message_image['name'] == '') {
@@ -35,7 +34,7 @@ try {
     $data[] = $date->format('Y-m-d H:i:s');
     $stmt->execute($data);
     $dbh = null;
-    $message = new Message($message_id);
+    $message = new Message();
     if (!$message->check_relation_message($user_id, $destination_user_id)) {
         $message->insert_message($user_id, $destination_user_id);
     } elseif (!$message->check_relation_user_message($user_id, $destination_user_id)) {

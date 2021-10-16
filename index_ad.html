@@ -34,18 +34,28 @@
 
         var methods = {
             init: function(options) {
+                //$.extend：複数のオブジェクトをマージ
+                //https://www.tam-tam.co.jp/tipsnote/javascript/post3853.html
+                //optionsとsettingsをマージしているが、optionsがわからない
+                //ログにはoptions = {uri: "ws://localhost:8080", message: "#message", display: "#chat"}と表示された
                 settings = $.extend({
                     'uri': 'ws://localhost:8080',
                     'conn': null,
                     'message': '#message',
                     'display': '#display'
                 }, options);
+                //keypress：入力された文字のキーコードを取得するイベント
                 $(settings['message']).keypress(methods['checkEvent']);
                 $(this).chat('connect');
             },
 
             checkEvent: function(event) {
+                //event.which：押されたボタンに紐づけられたキーコードを取得する
+                //13のキーコードはEnterキー
                 if (event && event.which == 13) {
+                    //if (document.getElementById('message').onsubmit) {
+                    //ここで送信の動きをしてるぽい
+                    //変数『message』に入力フォームの文字を渡す
                     var message = $(settings['message']).val();
                     if (message && settings['conn']) {
                         settings['conn'].send(message + '');
@@ -86,18 +96,27 @@
             },
 
             drawText: function(message, align = 'left') {
+                //.text(message)：div要素に引数のメッセージ文字を渡している
                 if (align === 'left') {
                     var inner = $('<div class="left"></div>').text(message);
                 } else {
                     var inner = $('<div class="right"></div>').text(message);
                 }
+                //.html：指定した要素にHTMLを挿入する
                 var box = $('<div class="box"></div>').html(inner);
+                //.prepend：指定の要素内に文字列やHTML要素を追加することができる
                 $('#chat').prepend(box);
             },
         }; // end of methods
 
+        //$.fn：メソッドの追加
+        //ここではchat()を追加している
+        //chat()は引数の配列を別の配列に追加している
         $.fn.chat = function(method) {
                 if (methods[method]) {
+                    //apply：配列を別の配列に追加する
+                    //Array.prototype.slice.call()：引数（arguments）を配列に変換しているコード
+                    //https://lealog.hateblo.jp/entry/2014/02/07/012014
                     return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
                 } else if (typeof method === 'object' || !method) {
                     return methods.init.apply(this, arguments);
@@ -118,8 +137,11 @@
 </head>
 
 <body>
-    <input type="text" id="message" size="50" />
-    <div id="chat" class="container"></div>
+    <form method="post" action="../message/message_add_done.php" enctype="multipart/form-data">
+        <input type="text" id="message" size="50" />
+        <button class="btn btn-outline-primary" type="submit" name="post" value="post" id="post">送信</button>
+        <div id="chat" class="container"></div>
+    </form>
 </body>
 
 </html>
