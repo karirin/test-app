@@ -1193,63 +1193,14 @@ img.my_preview {
 /* ///////////////////////// */
 
 
-/*        チャット画面        */
+/*        マッチ画面        */
 
 
 /* ///////////////////////// */
 
-.chat {
-    display: relative;
-}
-
-.chat_01 {
-    position: absolute;
-    border-radius: 20px;
-    width: 50px;
-    height: 50px;
-    border: 3px solid #000;
-    top: 21%;
-    left: 17%;
-}
-
-.chat_02 {
-    position: absolute;
-    border-radius: 20px;
-    width: 50px;
-    height: 50px;
-    border: 3px solid #000;
-    top: 38%;
-    left: 25%;
-}
-
-.chat_03 {
-    position: absolute;
-    border-radius: 20px;
-    width: 50px;
-    height: 50px;
-    border: 3px solid #000;
-    top: 56%;
-    left: 17%;
-}
-
-.chat_04 {
-    position: absolute;
-    border-radius: 20px;
-    width: 50px;
-    height: 50px;
-    border: 3px solid #000;
-    top: 38%;
-    left: 9%;
-}
-
-.table {
-    position: absolute;
-    border-radius: 20px;
-    width: 100px;
-    height: 100px;
-    border: 3px solid #000;
-    top: 34%;
-    left: 15%;
+.matching_card {
+    width: 50%;
+    height: 50%;
 }
 
 
