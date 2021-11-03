@@ -991,7 +991,7 @@ img.mypage {
 }
 
 .message_image_detail .far.fa-times-circle.my_clear {
-    top: 66%;
+    top: 90%;
     right: 41.5%;
     font-size: 2rem;
 }
@@ -1131,6 +1131,10 @@ img.mypage {
     border-right: 18px solid #edf1ee;
     -webkit-transform: rotate(35deg);
     transform: rotate(35deg);
+}
+
+#chat {
+    padding: 0;
 }
 
 #chat div {

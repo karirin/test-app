@@ -13,17 +13,12 @@ require_once('config_1.php');
 
     var methods = {
         init: function(options) {
-            //$.extend：複数のオブジェクトをマージ
-            //https://www.tam-tam.co.jp/tipsnote/javascript/post3853.html
-            //optionsとsettingsをマージしているが、optionsがわからない
-            //ログにはoptions = {uri: "ws://localhost:8080", message: "#message", display: "#chat"}と表示された
             settings = $.extend({
                 'uri': 'ws://localhost:8080',
                 'conn': null,
                 'message': '#message',
                 'display': '#display'
             }, options);
-            //keypress：入力された文字のキーコードを取得するイベント
             $(settings['message']).keypress(methods['checkEvent']);
             $(this).chat('connect');
         },
@@ -34,7 +29,6 @@ require_once('config_1.php');
                 if (message && settings['conn']) {
                     settings['conn'].send(message + '');
                     $(this).chat('drawText', message, 'right');
-                    //$(settings['message']).val('');
                 }
             }
         },
@@ -49,14 +43,9 @@ require_once('config_1.php');
             }
         },
 
-        // onOpen: function(event) {
-        //     $(this).chat('drawText', 'サーバに接続', 'left');
-        // },
-
         onMessage: function(event) {
             if (event && event.data) {
                 $(this).chat('drawText', event.data, 'left');
-                console.log(event);
             }
         },
 
@@ -64,23 +53,13 @@ require_once('config_1.php');
             $(this).chat('drawText', 'エラー発生!', 'left');
         },
 
-        // onClose: function(event) {
-        //     $(this).chat('drawText', 'サーバと切断', 'left');
-        //     settings['conn'] = null;
-        //     setTimeout(methods['connect'], 1000);
-        // },
-
         drawText: function(message, align = 'left') {
-            //.text(message)：div要素に引数のメッセージ文字を渡している
             var box = $('<p class="box"></p>').text(message);
             var message_box = $('<p class="box"></p>');
-            //console.log(message_box[0]);
             var destination_user_image = $('.destination_user_image').val();
             var message_image = $('.my_preview').attr('src');
             var newelm = document.createElement('img');
             newelm.setAttribute('src', message_image);
-            // var $destination_user = document.getElementById("destination_user").value;
-            // console.log($destination_user);
             if (align === 'left') {
                 var inner = $('<div class="left"></div>').html(box);
                 if (message_image != null) {
@@ -96,57 +75,28 @@ require_once('config_1.php');
                 inner.append(
                     "<img src='../user/image/<?= $current_user['image'] ?>' class='message_user_img'>");
             }
-            //.html：指定した要素にHTMLを挿入する
-            //.prepend：指定の要素内に文字列やHTML要素を追加することができる
             $('#chat').append(inner);
             $('.my_preview').attr('src', null);
         },
-    }; // end of methods
+    };
 
-    //$.fn：メソッドの追加
-    //ここではchat()を追加している
-    //chat()は引数の配列を別の配列に追加している
     $.fn.chat = function(method) {
         if (methods[method]) {
-            //apply：配列を別の配列に追加する
-            //Array.prototype.slice.call()：引数（arguments）を配列に変換しているコード
-            //https://lealog.hateblo.jp/entry/2014/02/07/012014
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
         } else if (typeof method === 'object' || !method) {
             return methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' does not exist');
         }
-    } // end of function
+    }
 
-    // checkEvent: function(event) {
-    //         //event.which：押されたボタンに紐づけられたキーコードを取得する
-    //         //13のキーコードはEnterキー
-    //         //checkEvent: function callback(form) {
-    //         //this.onsubmit();
-    //         if (event && event.which == 13) {
-    //             //ここで送信の動きをしてるぽい
-    //             //変数『message』に入力フォームの文字を渡す
-    //             var message = $(settings['message']).val();
-    //             if (message && settings['conn']) {
-    //                 settings['conn'].send(message + '');
-    //                 $(this).chat('drawText', message, 'right');
-    //                 //$(settings['message']).val('');
-    //             }
-    //         }
-    //     },
-
-    // メッセージ機能処理
-    //$(document).on('click', '.message_btn', function(e) {
     $(document).keypress(function(e) {
         e.stopPropagation();
         if (e.which == 13) {
             var message = document.getElementById("message").value,
-                //image = document.getElementById("my_image"),
                 destination_user_id = document.getElementById("destination_user_id").value;
-            //var formdata = new FormData($('#my_image').get(0)); //これを入れると動きがfailになる
             var formdata = new FormData();
-            var formdata = new FormData(document.getElementById('image')); //これを入れると動きがfailになる
+            var formdata = new FormData(document.getElementById('image'));
             formdata.append('message', message);
             formdata.append('destination_user_id', destination_user_id);
             $.ajax({
@@ -162,17 +112,7 @@ require_once('config_1.php');
                 $('.far.fa-times-circle.my_clear').hide();
                 $('.my_preview').hide();
                 $('#my_image').val('');
-                //$('.my_preview').attr('src', image);
-                // document.getElementsByClassName("left").append(
-                //     "<img src='../user/image/" + destination_user_image +
-                //     "' class='message_user_img'>"
-                // );
-            }).fail(function(data) {
-                // }).fail(function(jqXHR, textStatus, errorThrown) {
-                //     console.log(jqXHR);
-                //     console.log(textStatus);
-                //     console.log(errorThrown);
-            });
+            }).fail(function(data) {});
         }
     });
 

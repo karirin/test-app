@@ -101,6 +101,7 @@ $(document).on('change', '#my_image', function() {
         $('#my_image').val('');
         $('.far.fa-times-circle.my_clear').hide();
         $('.my_preview').hide();
+        $('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').val('');
     });
 });
 
