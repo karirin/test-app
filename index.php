@@ -7,6 +7,35 @@ require_once('config_1.php');
 <title>Chat</title>
 <script src="http://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
+//=====================================================
+// <img>要素 → Base64形式の文字列に変換
+//   img       : HTMLImageElement
+//   mime_type : string "image/png", "image/jpeg" など
+//=====================================================
+function ImageToBase64(img, mime_type) {
+    // New Canvas
+    var canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    // Draw Image
+    var ctx = canvas.getContext('2d');
+    ctx[0].drawImage(img, 0, 0);
+    // To Base64
+    return canvas.toDataURL(mime_type);
+}
+
+//=====================================================
+// Base64形式の文字列 → <img>要素に変換
+//   base64img: Base64形式の文字列
+//   callback : 変換後のコールバック。引数は<img>要素
+//=====================================================
+function Base64ToImage(base64img, callback) {
+    var img = new Image();
+    img.onload = function() {
+        callback(img);
+    };
+    img.src = base64img;
+}
 (function($) {
     var destination_user_image = $('.destination_user_image').val();
     var settings = {};
@@ -20,7 +49,7 @@ require_once('config_1.php');
             settings = $.extend({
                 'uri': 'ws://localhost:8080',
                 'conn': null,
-                'message': '#message',
+                'message': '#messag',
                 'display': '#display'
             }, options);
             //keypress：入力された文字のキーコードを取得するイベント
@@ -56,7 +85,7 @@ require_once('config_1.php');
         onMessage: function(event) {
             if (event && event.data) {
                 $(this).chat('drawText', event.data, 'left');
-                console.log(event);
+
             }
         },
 
@@ -135,7 +164,6 @@ require_once('config_1.php');
     //             }
     //         }
     //     },
-
     // メッセージ機能処理
     //$(document).on('click', '.message_btn', function(e) {
     $(document).keypress(function(e) {
@@ -158,7 +186,7 @@ require_once('config_1.php');
                 processData: false,
                 contentType: false
             }).done(function(data) {
-                document.getElementById("message").value = '';
+                //document.getElementById("message").value = '';
                 $('.far.fa-times-circle.my_clear').hide();
                 $('.my_preview').hide();
                 $('#my_image').val('');
@@ -259,6 +287,7 @@ if (isset($_SESSION['login']) == true) {
     require('profile.php');
 }
 ?>
+
 <script src="/js/user_page.js"></script>
 
 </html>

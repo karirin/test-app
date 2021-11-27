@@ -414,6 +414,10 @@ img.mypage {
     height: 12rem;
 }
 
+.myprofile {
+    text-align: center;
+}
+
 
 /* ///////////////////////// */
 
@@ -1199,8 +1203,40 @@ img.my_preview {
 /* ///////////////////////// */
 
 .matching_card {
-    width: 50%;
-    height: 50%;
+    text-align: center;
+}
+
+.card {
+    width: 40%;
+    border: solid 0.1rem;
+    display: inline-block;
+    padding: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.card .fas.fa-times-circle {
+    font-size: 40px;
+}
+
+.card .fas.fa-times-circle:hover {
+    opacity: 0.5;
+}
+
+.card .fas.fa-heart {
+    font-size: 40px;
+}
+
+.card .fas.fa-heart:hover {
+    opacity: 0.5;
+}
+
+.card .matching_btn {
+    display: flex;
+    justify-content: space-around;
+    vertical-align: top;
 }
 
 

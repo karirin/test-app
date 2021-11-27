@@ -165,3 +165,24 @@ function get_message()
     error_log('エラー発生:' . $e->getMessage());
   }
 }
+
+function check_match($user_id, $current_user_id)
+{
+  try {
+    $dbh = db_connect();
+    $sql = "SELECT user_id,match_user_id
+        FROM `match`
+        WHERE :user_id = user_id AND :match_user_id = match_user_id";
+    $stmt = $dbh->prepare($sql);
+    _debug($user_id);
+    _debug($current_user_id);
+    $stmt->execute(array(
+      ':user_id' => $current_user_id,
+      ':match_user_id' => $user_id
+    ));
+    return  $stmt->fetch();
+  } catch (\Exception $e) {
+    error_log($e, 3, "../../php/error.log");
+    _debug('フォロー確認失敗');
+  }
+}

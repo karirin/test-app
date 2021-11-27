@@ -39,6 +39,12 @@ $('#my_image').on('change', function(e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
+$('#my_image').on('change', function(e) {
+    //画像を選択した際に、メッセージテキストに画像情報を追加する
+    var img = document.getElementById('my_image');
+    $('#message').val = ImageToBase64(img, "image/jpeg");
+});
+
 $('#edit_image,#edit_image_narrow,#edit_image_narrower').on('change', function(e) {
     var reader = new FileReader();
     $(".edit_preview").fadeIn();
@@ -73,25 +79,6 @@ $('#edit_profile_img,#edit_profile_img_narrow,#edit_profile_img_narrower').on('c
         $(".editing_profile_img").attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
-});
-
-$('#post_image').on('change', function(e) {
-    var reader = new FileReader();
-    $(".post_preview").fadeIn();
-    reader.onload = function(e) {
-        $(".post_preview").attr('src', e.target.result);
-    }
-    reader.readAsDataURL(e.target.files[0]);
-});
-
-$(document).on('change', '#post_image', function() {
-    $('.far.fa-times-circle.post_clear').show();
-    $(document).on('click', '.far.fa-times-circle.post_clear', function() {
-        $('#post_image').val('');
-        $(this).hide();
-        $('.post_preview').hide();
-        $('#post_clear').hide();
-    });
 });
 
 $(document).on('change', '#my_image', function() {
@@ -196,6 +183,27 @@ $(document).on('click', '.follow_btn', function(e) {
     });
 });
 
+// マッチ機能処理
+$(document).on('click', '#match_btn', function(e) {
+    e.stopPropagation();
+    var current_user_id = $('.match_user_id').val(),
+        target_modal = $(this).data("target"),
+        user_id = $('' + target_modal + '_userid').val();
+
+    console.log('target_modal' + user_id);
+    console.log('current_user_id' + current_user_id);
+    console.log('user_id' + user_id);
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_match_process.php',
+        dataType: 'json',
+        data: {
+            current_user_id: current_user_id,
+            user_id: user_id
+        }
+    }).done(function() {}).fail(function() {});
+});
+
 //================================
 // モーダルウィンドウ処理
 //================================
@@ -271,7 +279,6 @@ $(document).on('click', '.modal_btn', function() {
 
 // 投稿モーダル画面出力処理
 $(document).on('click', '.post_modal', function() {
-    console.log('test');
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.post_process').fadeIn();
@@ -417,9 +424,19 @@ $(document).on('click', '.thread_btn', function() {
     $(this).parent().height(omit_height);
 });
 
-$(document).on('click', '.chat_btn', function() {
-    $('.chat_btn')
-})
+$(document).on('click', '#match_btn', function() {
+    var $target_modal = $(this).data("target");
+    $($target_modal).animate({
+        "marginLeft": "758px"
+    }).fadeOut();
+});
+
+$(document).on('click', '#unmatch_btn', function() {
+    var $target_modal = $(this).data("target");
+    $($target_modal).animate({
+        "marginRight": "758px"
+    }).fadeOut();
+});
 
 // 各種ツールチップ処理
 // $('[data-toggle="favorite"]').tooltip();
