@@ -8,8 +8,6 @@ $users = $user->get_users("all");
 foreach ($users as $user) :
     if ($user['id'] != $current_user['id']) :
         if (!check_match($user['id'], $current_user['id'])) :
-
-
 ?>
 <div class="matching_card">
     <div class="card" id="modal<?= $user['id'] ?>">
@@ -43,7 +41,7 @@ foreach ($users as $user) :
     </div>
 
 </div>
-<?php
+<?php require('../matching.php');
         endif;
     endif;
 endforeach;

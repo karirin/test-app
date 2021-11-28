@@ -190,9 +190,6 @@ $(document).on('click', '#match_btn', function(e) {
         target_modal = $(this).data("target"),
         user_id = $('' + target_modal + '_userid').val();
 
-    console.log('target_modal' + user_id);
-    console.log('current_user_id' + current_user_id);
-    console.log('user_id' + user_id);
     $.ajax({
         type: 'POST',
         url: '../ajax_match_process.php',
