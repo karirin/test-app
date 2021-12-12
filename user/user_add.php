@@ -29,7 +29,6 @@ require_once('../config_1.php');
                 </div>
             </form>
 </body>
-<?php _debug('53535'); ?>
 <?php require_once('../footer.php'); ?>
 
 </html>

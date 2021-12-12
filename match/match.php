@@ -3,8 +3,6 @@ require_once("../config_1.php");
 $user = new User($current_user);
 $users = $user->get_users("all");
 
-?>
-<?php
 foreach ($users as $user) :
     if ($user['id'] != $current_user['id']) :
         if (!check_match($user['id'], $current_user['id'])) :
@@ -32,11 +30,11 @@ foreach ($users as $user) :
                 <div class="fa-image_range">
                     <i class="fas fa-heart"></i>
                 </div>
-                <input type="button" id="match_btn" data-target="#modal<?= $user['id'] ?>" style="display:none;">
+                <input type="button" id="match_btn" data-target="#modal<?= $user['id'] ?>"
+                    data-match="#match<?= $user['id'] ?>" style="display:none;">
                 <input type="hidden" id="modal<?= $user['id'] ?>_userid" value="<?= $user['id'] ?>">
                 <input type="hidden" class="match_user_id" value="<?= $current_user['id'] ?>">
             </label>
-
         </div>
     </div>
 
@@ -45,5 +43,6 @@ foreach ($users as $user) :
         endif;
     endif;
 endforeach;
+print '<input type="button" id="del_match_btn" class="btn btn-outline-danger">';
 require_once("../footer.php");
 ?>

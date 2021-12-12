@@ -19,6 +19,7 @@ if (isset($_SESSION['login']) == false) :
             ※お試しでログインできます
         </div>
     </form>
+
     <?php else : ?>
 
     <body>

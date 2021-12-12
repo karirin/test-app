@@ -27,9 +27,6 @@ if (isset($_POST)) {
     $data[] = $date->format('Y-m-d H:i:s');
 
     $stmt->execute($data);
-    _debug("aaaaaa");
-    _debug($data);
-    _debug("aaaaaa");
     $dbh = null;
     // $message = new Message();
     // if (!$message->check_relation_message($user_id, $destination_user_id)) {

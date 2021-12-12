@@ -1,6 +1,7 @@
 <?php
 session_start();
 @session_regenerate_id(true);
+
 require('db_connect.php');
 require('function.php');
 require('class.php');
