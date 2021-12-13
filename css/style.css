@@ -237,6 +237,14 @@ nav.navbar.navbar-light.mb-2 {
     font-size: 2rem;
 }
 
+.far.fa-times-circle.match_clear {
+    top: 20%;
+    right: 24%;
+    font-size: 4rem;
+    z-index: 20;
+    color: white;
+}
+
 .description {
     font-size: 1.5rem;
     font-weight: bold;
@@ -1237,6 +1245,17 @@ img.my_preview {
     display: flex;
     justify-content: space-around;
     vertical-align: top;
+}
+
+.matching_img {
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    width: 12rem;
+    height: 12rem;
+}
+
+.match_process {
+    text-align: center;
 }
 
 

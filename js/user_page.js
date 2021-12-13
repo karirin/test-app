@@ -216,28 +216,17 @@ $(document).on('click', '#match_btn', function(e) {
         for (var c of cookiesArray) {
             var cArray = c.split('=');
             if (cArray[0] == ' username') {
-                $('.modal_post').fadeIn();
+                $('.modal_match').fadeIn();
                 $(match_modal).fadeIn();
+                $('.match_clear').fadeIn();
+                $(document).on('click', '.far.fa-times-circle.match_clear', function() {
+                    $('.modal_match').hide();
+                    $(match_modal).hide();
+                    $('.far.fa-times-circle.match_clear').hide();
+                });
             }
         }
     }).fail(function() {});
-});
-
-// マッチ機能処理
-$(document).on('click', '#del_match_btn', function(e) {
-    e.stopPropagation();
-    var current_user_id = $('.match_user_id').val(),
-        target_modal = $(this).data("target"),
-        user_id = $('' + target_modal + '_userid').val();
-    $.ajax({
-        type: 'POST',
-        url: '../ajax_match_process_delete.php',
-        dataType: 'json',
-        data: {
-            current_user_id: current_user_id,
-            user_id: user_id
-        }
-    }).done(function() {}).fail(function() {});
 });
 
 //================================
@@ -458,23 +447,6 @@ $(document).on('click', '.thread_btn', function() {
     $(this).remove();
     $($target_modal).fadeIn();
     $(this).parent().height(omit_height);
-});
-
-$(document).on('click', '#match_btn', function() {
-    var $target_modal = $(this).data("target");
-    $($target_modal).animate({
-        "marginLeft": "758px"
-    }).fadeOut();
-    var cookies = document.cookie; //全てのcookieを取り出して
-    var cookiesArray = cookies.split(';'); // ;で分割し配列に
-
-    for (var c of cookiesArray) { //一つ一つ取り出して
-        var cArray = c.split('='); //さらに=で分割して配列に
-        if (cArray[0] == ' username') { // 取り出したいkeyと合致したら
-            $('.post_process').fadeIn();
-            $('.modal_post').fadeIn();
-        }
-    }
 });
 
 $(document).on('click', '#unmatch_btn', function() {

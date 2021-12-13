@@ -43,6 +43,5 @@ foreach ($users as $user) :
         endif;
     endif;
 endforeach;
-print '<input type="button" id="del_match_btn" class="btn btn-outline-danger">';
 require_once("../footer.php");
 ?>

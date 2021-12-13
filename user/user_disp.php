@@ -3,11 +3,11 @@ require_once('../config_1.php');
 
 $page_type = $_GET['type'];
 if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
-  $user = new User($_GET['page_id']);
-  $current_user = $user->get_user();
+    $user = new User($_GET['page_id']);
+    $current_user = $user->get_user();
 } else {
-  $user = new User($_SESSION['user_id']);
-  $current_user = $user->get_user();
+    $user = new User($_SESSION['user_id']);
+    $current_user = $user->get_user();
 }
 
 $favorite_count = $user->get_user_count('favorite');
@@ -48,9 +48,6 @@ $follower_count = $user->get_user_count('follower');
                         </div>
                     </form>
                 </div>
-                <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
-                <button class="btn btn btn-outline-dark edit_btn" type="button" name="follow">プロフィール編集</button>
-                <?php endif; ?>
 
                 <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
                 <form action="#" method="post">
@@ -128,21 +125,21 @@ $follower_count = $user->get_user_count('follower');
 
     </div>
     <?php
-  switch ($page_type) {
+    switch ($page_type) {
 
-    case 'follow':
-      $users = $user->get_users('follows');
-      break;
+        case 'follow':
+            $users = $user->get_users('follows');
+            break;
 
-    case 'follower':
-      $users = $user->get_users('followers');
-      break;
-  } ?>
+        case 'follower':
+            $users = $user->get_users('followers');
+            break;
+    } ?>
     <div class="row narrower_disp">
         <div class="col-8 offset-2">
             <?php
-      if ($page_type === 'main') :
-      ?>
+            if ($page_type === 'main') :
+            ?>
             <h2><?= $current_user['name'] ?>さんの投稿</h2>
             <?php elseif ($page_type === 'favorites') : ?>
             <h2>お気に入りの投稿</h2>
@@ -152,11 +149,11 @@ $follower_count = $user->get_user_count('follower');
             <h2>フォロワー</h2>
             <?php endif;
 
-      require('user_list.php');
-      ?>
+            require('user_list.php');
+            ?>
         </div>
     </div>
 
     <?php
 
-  require_once('../footer.php'); ?>
+    require_once('../footer.php'); ?>
