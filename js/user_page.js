@@ -163,11 +163,7 @@ $(document).on('click', '.favorite_btn', function(e) {
         data: {
             post_id: post_id
         }
-    }).done(function(data) {
-        location.reload();
-    }).fail(function() {
-        location.reload();
-    });
+    }).done(function() {}).fail(function() {});
 });
 
 // フォロー機能処理
@@ -184,11 +180,7 @@ $(document).on('click', '.follow_btn', function(e) {
             current_user_id: current_user_id,
             user_id: user_id
         }
-    }).done(function() {
-        location.reload();
-    }).fail(function() {
-        location.reload();
-    });
+    }).done(function() {}).fail(function() {});
 });
 
 // マッチ機能処理
@@ -274,6 +266,7 @@ $(document).on('click', ".modal_close", function() {
     $('.profile').removeClass('editing');
     $('.edit_btn').fadeIn();
     $('.slide_menu').removeClass('open');
+    $('.skill_form').fadeOut();
 });
 
 // 編集ボタン押下時の処理
@@ -291,6 +284,7 @@ $(document).on('click', '.edit_btn', function() {
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
     $('.profile').addClass('editing');
+    $('.skill_form').css('display', 'inline-block');
 });
 
 // モーダル画面出力ボタン押下時の処理
@@ -407,6 +401,217 @@ $(document).on('input', '.textarea', function() {
 });
 
 //================================
+// スキルタグ処理
+//================================
+
+const list = new Array(
+    'AWS',
+    'Bootstrap',
+    'C',
+    'CakePHP',
+    'C#',
+    'C++',
+    'COBOL',
+    'CSS',
+    'Docker',
+    'Go',
+    'Git',
+    'HTTP',
+    'iOS',
+    'Java',
+    'JavaScript',
+    'JIRA',
+    'Kotlin',
+    'Laravel',
+    'MATLAB',
+    'MySQL',
+    'Oracle Database',
+    'Perl',
+    'PHP',
+    'PostgreSQL',
+    'Python',
+    'R',
+    'React',
+    'Ruby',
+    'Ruby on Rails',
+    'Rust',
+    'SVN',
+    'SSL',
+    'SQLite',
+    'TypeScript',
+    'Vue.js'
+);
+$(function() {
+    $("#skill_input").autocomplete({
+        source: "../autocomplete.php"
+    });
+});
+
+let reviewArea = document.getElementById('skill_input');
+reviewArea.addEventListener('change', inputChange);
+
+for (i = 0; i < document.getElementById("skill").getElementsByTagName("span").length; i++) {
+    skills[i] = document.getElementById("skill").getElementsByTagName("span")[i].textContent;
+}
+
+var skill = document.getElementById("skill"),
+    spans = skill.getElementsByTagName("span");
+
+if (spans.length > 3) {
+    skill_count_val = spans.length % 3;
+    switch (skill_count_val) {
+        case 0:
+            document.getElementById('skill_count').val = 3;
+            break;
+
+        case 1:
+            document.getElementById('skill_count').val = 1;
+            break;
+        case 2:
+            document.getElementById('skill_count').val = 2;
+            break;
+
+        default:
+    }
+}
+
+console.log(document.getElementById('skill_count').val);
+
+function inputChange() {
+    var fome_x_name = $(this).val(),
+        skills = new Array(),
+        skill = document.getElementById("skill"),
+        spans = skill.getElementsByTagName("span");
+
+    for (i = 0; i < spans.length; i++) {
+        skills[i] = spans[i].textContent;
+    }
+
+    skills = skills.join('');
+    if (skills.indexOf(fome_x_name) != -1) {
+        return false;
+    }
+    if (list.indexOf(fome_x_name) != -1) {
+
+        var span_element = document.createElement("span"),
+            label_element = document.createElement("label"),
+            i_element = document.createElement("i"),
+            input_element = document.createElement("input"),
+            newContent = document.createTextNode(fome_x_name),
+            skill = document.getElementById("skill"),
+            div_element = document.createElement("div"),
+            parentDiv = document.getElementById("skill"),
+            skill_count = document.getElementById('skill_count').val;
+
+        span_element.appendChild(newContent);
+        span_element.setAttribute("id", "child-span" + i + "");
+        span_element.setAttribute("class", "skill_tag");
+        span_element.setAttribute("style", "margin-right:4px;");
+        div_element.setAttribute("id", "span" + i + "");
+        i_element.setAttribute("class", "far fa-times-circle tag");
+        input_element.setAttribute("type", "button");
+
+        if (0 < document.getElementById('skill_count').val) {
+            i--;
+            skills = new Array();
+            for (k = 0; k < skill_count; k++) {
+                skills[k] = spans[i].textContent;
+                i--;
+            }
+            spans = '';
+            skills = skills.join('');
+            switch (skill_count) {
+                case 2:
+                    i += 1;
+                    spans = '@@';
+                    break;
+
+                case 3:
+                    i += 2;
+                    spans = '@@@';
+                    break;
+                case 4:
+                    i += 3;
+                    spans = '@@@@';
+                    break;
+
+                case 5:
+                    i += 4;
+                    spans = '@@@@@';
+                    break;
+                default:
+            }
+
+            i++;
+            document.getElementById('skill_count').val += 1;
+        }
+
+        if (3 <= spans.length || 9 <= skills.length) {　　
+            i--;
+            if (document.getElementById('child-span' + i + '') !== null) {
+                parentDiv.appendChild(div_element, document.getElementById('child-span' + i + ''));
+            }
+            i++;
+
+            document.getElementById('skill_count').val = 1;
+        }
+        i++;
+
+        parentDiv.appendChild(span_element, parentDiv.firstChild);
+        span_element.appendChild(label_element, span_element.firstChild);
+        label_element.insertBefore(i_element, label_element.firstChild);
+        label_element.insertBefore(input_element, label_element.firstChild);
+        $(this).val('');
+    }
+}
+
+$(document).on('click', '.far.fa-times-circle', function() {
+    var k = 0,
+        skills = new Array(),
+        skill = document.getElementById("skill"),
+        spans = skill.getElementsByTagName("span"),
+        span = $(this).parents(".skill_tag")[0].textContent;
+
+    switch (document.getElementById('skill_count').val) {
+        case 1:
+            var spans_count = spans.length - 1;
+            break;
+
+        case 2:
+            var spans_count = spans.length - 2;
+            break;
+        case 3:
+            var spans_count = spans.length - 3;
+            break;
+
+        default:
+    }
+    for (i = spans_count; i < spans.length; i++) {
+        skills[k] = spans[i].textContent;
+        k++;
+    }
+    $(this).parents(".skill_tag").remove();
+
+    skills = skills.join('');
+    if (skills.indexOf(span) != -1) {
+        document.getElementById('skill_count').val -= 1;
+    }
+});
+
+$(document).on('click', '.edit_done', function() {
+    var skill = document.getElementById("skill"),
+        skill_div = document.getElementById("skills"),
+        spans = skill.getElementsByTagName("span"),
+        skills = new Array();
+
+    for (i = 0; i < spans.length; i++) {
+        skills[i] = spans[i].textContent;
+    }
+    skills = skills.join(' ');
+    skill_div.value = skills;
+});
+
+//================================
 // フラッシュメッセージ処理
 //================================
 
@@ -450,8 +655,8 @@ $(document).on('click', '.thread_btn', function() {
 });
 
 $(document).on('click', '#unmatch_btn', function() {
-    var $target_modal = $(this).data("target");
-    $($target_modal).animate({
+    var target_modal = $(this).data("target");
+    $(target_modal).animate({
         "marginRight": "758px"
     }).fadeOut();
 });

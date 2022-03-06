@@ -403,7 +403,7 @@ nav.navbar.navbar-light.mb-2 {
     width: 3rem;
     height: 3rem;
     top: 20%;
-    right: 44%;
+    right: 70%;
     border-radius: 1rem;
 }
 
@@ -424,6 +424,31 @@ img.mypage {
 
 .myprofile {
     text-align: center;
+}
+
+.detail_profile {
+    display: inline-block;
+}
+
+
+/* 
+#skill {
+    width: 200px;
+} */
+
+.skill_form {
+    display: inline-block;
+    vertical-align: top;
+    display: none;
+    padding-left: 50px;
+}
+
+.skill_form #skill {
+    text-align: left;
+}
+
+.skill_tittle {
+    text-align: left;
 }
 
 
@@ -1223,6 +1248,7 @@ img.my_preview {
     left: 0;
     right: 0;
     margin: auto;
+    text-align: center;
 }
 
 .card .fas.fa-times-circle {
@@ -1256,6 +1282,29 @@ img.my_preview {
 
 .match_process {
     text-align: center;
+}
+
+.skill_tag {
+    font-size: 1px;
+    padding: 1px;
+    border: 1px solid #b2cdde;
+    border-radius: 3px;
+    background-image: linear-gradient( 180deg, #cae2f0 0, #c3d9e7);
+    color: #545b67;
+    padding: 1px 8px 0px;
+}
+
+.far.fa-times-circle.tag {
+    display: inline;
+    position: relative;
+    padding-left: 6px;
+}
+
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content {
+    width: 183px;
+    position: absolute;
+    top: 391px;
+    left: 468px;
 }
 
 

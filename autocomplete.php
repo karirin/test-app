@@ -1,4 +1,13 @@
 <?php
+function _debug($data, $clear_log = false)
+{
+    $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
+    if ($clear_log) {
+        file_put_contents($uri_debug_file, print_r('', true));
+    }
+    file_put_contents($uri_debug_file, print_r($data, true), FILE_APPEND);
+}
+
 // 単語のリスト
 $list = array(
     'AWS',
@@ -21,7 +30,7 @@ $list = array(
     'Laravel',
     'MATLAB',
     'MySQL',
-    'Oracle Database',
+    'Oracle Database',
     'Perl',
     'PHP',
     'PostgreSQL',
@@ -29,7 +38,7 @@ $list = array(
     'R',
     'React',
     'Ruby',
-    'Ruby on Rails',
+    'Ruby on Rails',
     'Rust',
     'SVN',
     'SSL',
@@ -49,6 +58,5 @@ foreach ($list as $word) {
         $words[] = $word;
     }
 }
-
 header("Content-Type: application/json; charset=utf-8");
 echo json_encode($words);
