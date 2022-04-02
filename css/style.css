@@ -7,7 +7,7 @@
 /* ///////////////////////// */
 
 * {
-    font-family: Palatino Linotype;
+    font-family: monospace;
 }
 
 a {
@@ -22,8 +22,9 @@ body.top {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("../image/background.jpg");
+    background-image: url("../image/background.png");
     background-repeat: no-repeat;
+    background-size: 800px;
 }
 
 body.fixed {
@@ -60,7 +61,7 @@ ul li.top_link {
 }
 
 ul li a {
-    color: #fff;
+    color: #000;
 }
 
 ul li a:hover {
@@ -248,19 +249,22 @@ nav.navbar.navbar-light.mb-2 {
 .description {
     font-size: 1.5rem;
     font-weight: bold;
-    font-family: 'Font Awesome 5 Free';
     line-height: 3rem;
     margin-left: 3rem;
     padding: 3rem 1rem;
+    width: 500px;
+    font-size: 18px;
+    margin: 0 89px 0 auto;
 }
 
 .test_login {
     position: absolute;
     bottom: 20%;
     right: 20%;
-    width: 16rem;
-    height: 4rem;
-    font-size: 1.5rem;
+    width: 13rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    border-radius: 2rem;
 }
 
 .test_login_description {
@@ -430,24 +434,22 @@ img.mypage {
     display: inline-block;
 }
 
-
-/* 
-#skill {
-    width: 200px;
-} */
-
-.skill_form {
+.form {
     display: inline-block;
     vertical-align: top;
     display: none;
     padding-left: 50px;
 }
 
-.skill_form #skill {
+.form #licence {
     text-align: left;
 }
 
-.skill_tittle {
+.form #skill {
+    text-align: left;
+}
+
+.tag_tittle {
     text-align: left;
 }
 
@@ -1294,7 +1296,23 @@ img.my_preview {
     padding: 1px 8px 0px;
 }
 
-.far.fa-times-circle.tag {
+.far.fa-times-circle.skill {
+    display: inline;
+    position: relative;
+    padding-left: 6px;
+}
+
+.licence_tag {
+    font-size: 1px;
+    padding: 1px;
+    border: 1px solid #b2cdde;
+    border-radius: 3px;
+    background-image: linear-gradient( 180deg, #cae2f0 0, #c3d9e7);
+    color: #545b67;
+    padding: 1px 8px 0px;
+}
+
+.far.fa-times-circle.licence {
     display: inline;
     position: relative;
     padding-left: 6px;

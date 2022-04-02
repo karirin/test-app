@@ -1,15 +1,6 @@
 <?php
-function _debug($data, $clear_log = false)
-{
-    $uri_debug_file = $_SERVER['DOCUMENT_ROOT'] . '/debug.txt';
-    if ($clear_log) {
-        file_put_contents($uri_debug_file, print_r('', true));
-    }
-    file_put_contents($uri_debug_file, print_r($data, true), FILE_APPEND);
-}
-
 // 単語のリスト
-$list = array(
+$skill_list = array(
     'AWS',
     'Bootstrap',
     'C',
@@ -53,7 +44,7 @@ $words = array();
 $term = (isset($_GET['term']) && is_string($_GET['term'])) ? $_GET['term'] : '';
 
 // 部分一致で検索
-foreach ($list as $word) {
+foreach ($skill_list as $word) {
     if (mb_stripos($word, $term) !== FALSE) {
         $words[] = $word;
     }

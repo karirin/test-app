@@ -53,14 +53,14 @@ $follower_count = $user->get_user_count('follower');
                     $skills_len = "";
                     $skills_delspace = str_replace(" ", "", $current_user['skill']);
                     ?>
-                    <div class="skill_form">
+                    <div class="form">
                         <div id="skill">
-                            <p class="skill_tittle">スキル</p>
+                            <p class="tag_tittle">スキル</p>
                             <?php
                             foreach ($skills as $skill) :
                                 if ($current_user['skill'] != '' && $skill != '') : ?>
                             <span id="child-span" class="skill_tag"><?= $skill ?><label><input type="button"><i
-                                        class="far  fa-times-circle tag"></i></label></span>
+                                        class="far  fa-times-circle skill"></i></label></span>
                             <?php
                                     if (!isset($skill_tag)) {
                                         $skill_tag = array();
@@ -83,6 +83,41 @@ $follower_count = $user->get_user_count('follower');
                         <input type="hidden" name="skills" id="skills">
                         <input type="hidden" name="skill_count" id="skill_count">
                         <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
+
+                        <?php
+                        $licences = explode(" ", $current_user['licence']);
+                        $licences_len = "";
+                        $licencs_delspace = str_replace(" ", "", $current_user['licence']);
+                        ?>
+                        <div id="licence">
+                            <p class="tag_tittle">取得資格</p>
+                            <?php
+                            foreach ($licences as $licence) :
+                                if ($current_user['licence'] != '' && $licence != '') : ?>
+                            <span id="child-span" class="licence_tag"><?= $licence ?><label><input type="button"><i
+                                        class="far fa-times-circle licence"></i></label></span>
+                            <?php
+                                    if (!isset($licence_tag)) {
+                                        $licence_tag = array();
+                                    }
+                                    array_push($licence_tag, $licence);
+                                    $licences_len .= $licence;
+
+                                    if (2 <= count($licence_tag) || 9 <= strlen($licences_len)) {
+                                        print '<div></div>';
+                                        $licence_tag = array();
+                                        $licence_len = "";
+                                    }
+                                endif;
+
+                            endforeach;
+                            ?>
+                        </div>
+
+                        <input placeholder="licence Stack" name="name" id="licence_input" />
+                        <input type="hidden" name="licences" id="licences">
+                        <input type="hidden" name="licence_count" id="licence_count">
+                        <input type="hidden" name="mylicences" value="<?= $current_user['licence'] ?>">
                     </div>
             </div>
             </form>

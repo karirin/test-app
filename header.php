@@ -1,12 +1,12 @@
 <?php require_once('class.php');
 ?>
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark">
     <div class="modal"></div>
     <?php if (isset($_SESSION['login']) == false) : ?>
     <ul class="main_ul">
-        <li class="top_link"><a href="../user_login/user_top.php">app</a></li>
-        <li><a href="../user_login/user_login.php">ログイン</a></li>
-        <li><a href="../user/user_add.php">新規登録</a></li>
+        <li class="top_link"><a href="../user_login/user_top.php">Pair Code</a></li>
+        <li><a href="../user_login/user_login.php">login</a></li>
+        <li><a href="../user/user_add.php">sign up</a></li>
         <?php
     else :
         if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {

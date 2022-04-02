@@ -266,7 +266,7 @@ $(document).on('click', ".modal_close", function() {
     $('.profile').removeClass('editing');
     $('.edit_btn').fadeIn();
     $('.slide_menu').removeClass('open');
-    $('.skill_form').fadeOut();
+    $('.form').fadeOut();
 });
 
 // 編集ボタン押下時の処理
@@ -284,7 +284,7 @@ $(document).on('click', '.edit_btn', function() {
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
     $('.profile').addClass('editing');
-    $('.skill_form').css('display', 'inline-block');
+    $('.form').css('display', 'inline-block');
 });
 
 // モーダル画面出力ボタン押下時の処理
@@ -404,7 +404,7 @@ $(document).on('input', '.textarea', function() {
 // スキルタグ処理
 //================================
 
-const list = new Array(
+const skill_list = new Array(
     'AWS',
     'Bootstrap',
     'C',
@@ -441,46 +441,45 @@ const list = new Array(
     'TypeScript',
     'Vue.js'
 );
+
 $(function() {
     $("#skill_input").autocomplete({
-        source: "../autocomplete.php"
+        source: "../autocomplete_skill.php"
     });
 });
 
-let reviewArea = document.getElementById('skill_input');
-reviewArea.addEventListener('change', inputChange);
-
-for (i = 0; i < document.getElementById("skill").getElementsByTagName("span").length; i++) {
-    skills[i] = document.getElementById("skill").getElementsByTagName("span")[i].textContent;
-}
+let skill_input = document.getElementById('skill_input');
+skill_input.addEventListener('change', inputChange);
 
 var skill = document.getElementById("skill"),
     spans = skill.getElementsByTagName("span");
 
-if (spans.length > 3) {
-    skill_count_val = spans.length % 3;
-    switch (skill_count_val) {
-        case 0:
-            document.getElementById('skill_count').val = 3;
-            break;
+// 初期状態のタグ数でskill_countの値を決める
+if (document.getElementById('skill_count').val === undefined) {
+    if (spans.length > 3) {
+        skill_count_val = spans.length % 3;
+        switch (skill_count_val) {
+            case 0:
+                document.getElementById('skill_count').val = 3;
+                break;
 
-        case 1:
-            document.getElementById('skill_count').val = 1;
-            break;
-        case 2:
-            document.getElementById('skill_count').val = 2;
-            break;
+            case 1:
+                document.getElementById('skill_count').val = 1;
+                break;
 
-        default:
+            case 2:
+                document.getElementById('skill_count').val = 2;
+                break;
+
+            default:
+        }
     }
 }
 
-console.log(document.getElementById('skill_count').val);
-
 function inputChange() {
     var fome_x_name = $(this).val(),
-        skills = new Array(),
         skill = document.getElementById("skill"),
+        skills = new Array(),
         spans = skill.getElementsByTagName("span");
 
     for (i = 0; i < spans.length; i++) {
@@ -488,17 +487,19 @@ function inputChange() {
     }
 
     skills = skills.join('');
+
+    // 既に入力済みのものはタグ追加しない
     if (skills.indexOf(fome_x_name) != -1) {
         return false;
     }
-    if (list.indexOf(fome_x_name) != -1) {
+    // 入力した文字列がlistと合えばタグ追加
+    if (skill_list.indexOf(fome_x_name) != -1) {
 
         var span_element = document.createElement("span"),
             label_element = document.createElement("label"),
             i_element = document.createElement("i"),
             input_element = document.createElement("input"),
             newContent = document.createTextNode(fome_x_name),
-            skill = document.getElementById("skill"),
             div_element = document.createElement("div"),
             parentDiv = document.getElementById("skill"),
             skill_count = document.getElementById('skill_count').val;
@@ -511,15 +512,20 @@ function inputChange() {
         i_element.setAttribute("class", "far fa-times-circle tag");
         input_element.setAttribute("type", "button");
 
+        // タグの改行があった場合
         if (0 < document.getElementById('skill_count').val) {
             i--;
-            skills = new Array();
+            var skills = new Array();
+
+            // 改行した列で再度文字数取得
             for (k = 0; k < skill_count; k++) {
                 skills[k] = spans[i].textContent;
                 i--;
             }
             spans = '';
             skills = skills.join('');
+
+            // skill_countの値で改行後のタグ数を決める
             switch (skill_count) {
                 case 2:
                     i += 1;
@@ -546,6 +552,7 @@ function inputChange() {
             document.getElementById('skill_count').val += 1;
         }
 
+        // タグ数が３つ以上または、タグの文字数が９文字以上は改行
         if (3 <= spans.length || 9 <= skills.length) {　　
             i--;
             if (document.getElementById('child-span' + i + '') !== null) {
@@ -565,13 +572,15 @@ function inputChange() {
     }
 }
 
-$(document).on('click', '.far.fa-times-circle', function() {
+// タグのバツ印がクリックされた場合
+$(document).on('click', '.far.fa-times-circle.skill', function() {
     var k = 0,
         skills = new Array(),
         skill = document.getElementById("skill"),
         spans = skill.getElementsByTagName("span"),
         span = $(this).parents(".skill_tag")[0].textContent;
 
+    // skill_countの値を元に最終行のタグ情報を取得
     switch (document.getElementById('skill_count').val) {
         case 1:
             var spans_count = spans.length - 1;
@@ -580,6 +589,7 @@ $(document).on('click', '.far.fa-times-circle', function() {
         case 2:
             var spans_count = spans.length - 2;
             break;
+
         case 3:
             var spans_count = spans.length - 3;
             break;
@@ -603,12 +613,212 @@ $(document).on('click', '.edit_done', function() {
         skill_div = document.getElementById("skills"),
         spans = skill.getElementsByTagName("span"),
         skills = new Array();
+    document.getElementById('skill_count').val = 4;
 
     for (i = 0; i < spans.length; i++) {
         skills[i] = spans[i].textContent;
     }
     skills = skills.join(' ');
     skill_div.value = skills;
+});
+
+//================================
+// 資格タグ処理
+//================================
+
+const licence_list = new Array(
+    'ITパスポート',
+    '基本情報技術者',
+    '応用情報技術者',
+    'ITストラテジスト',
+    'ITサービスマネージャー',
+    'プロジェクトマネージャー',
+    'システム監査技術者',
+    'エンベデッドシステムスペシャリスト',
+    'システムアーキテクト',
+    'データベーススペシャリスト',
+    'ネットワークスペシャリスト',
+    '情報セキュリティスペシャリスト'
+);
+
+$(function() {
+    $("#licence_input").autocomplete({
+        source: "../autocomplete_licence.php"
+    });
+});
+
+let licence_input = document.getElementById('licence_input');
+licence_input.addEventListener('change', inputChange);
+
+var licence = document.getElementById("licence"),
+    spans = licence.getElementsByTagName("span");
+
+// 初期状態のタグ数でlicence_countの値を決める
+if (document.getElementById('licence_count').val === undefined) {
+    if (spans.length > 3) {
+        licence_count_val = spans.length % 3;
+        switch (licence_count_val) {
+            case 0:
+                document.getElementById('licence_count').val = 3;
+                break;
+
+            case 1:
+                document.getElementById('licence_count').val = 1;
+                break;
+
+            case 2:
+                document.getElementById('licence_count').val = 2;
+                break;
+
+            default:
+        }
+    }
+}
+
+function inputChange() {
+    var fome_x_name = $(this).val(),
+        licence = document.getElementById("licence"),
+        licences = new Array(),
+        spans = licence.getElementsByTagName("span");
+
+    for (i = 0; i < spans.length; i++) {
+        licences[i] = spans[i].textContent;
+    }
+
+    licences = licences.join('');
+
+    // 既に入力済みのものはタグ追加しない
+    if (licences.indexOf(fome_x_name) != -1) {
+        return false;
+    }
+    // 入力した文字列がlistと合えばタグ追加
+    if (licence_list.indexOf(fome_x_name) != -1) {
+
+        var span_element = document.createElement("span"),
+            label_element = document.createElement("label"),
+            i_element = document.createElement("i"),
+            input_element = document.createElement("input"),
+            newContent = document.createTextNode(fome_x_name),
+            div_element = document.createElement("div"),
+            parentDiv = document.getElementById("licence"),
+            licence_count = document.getElementById('licence_count').val;
+
+        span_element.appendChild(newContent);
+        span_element.setAttribute("id", "child-span" + i + "");
+        span_element.setAttribute("class", "licence_tag");
+        span_element.setAttribute("style", "margin-right:4px;");
+        div_element.setAttribute("id", "span" + i + "");
+        i_element.setAttribute("class", "far fa-times-circle licence");
+        input_element.setAttribute("type", "button");
+
+        // タグの改行があった場合
+        if (0 < document.getElementById('licence_count').val) {
+            i--;
+            var licences = new Array();
+
+            // 改行した列で再度文字数取得
+            for (k = 0; k < licence_count; k++) {
+                licences[k] = spans[i].textContent;
+                i--;
+            }
+            spans = '';
+            licences = licences.join('');
+
+            // licence_countの値で改行後のタグ数を決める
+            switch (licence_count) {
+                case 2:
+                    i += 1;
+                    spans = '@@';
+                    break;
+
+                case 3:
+                    i += 2;
+                    spans = '@@@';
+                    break;
+                case 4:
+                    i += 3;
+                    spans = '@@@@';
+                    break;
+
+                case 5:
+                    i += 4;
+                    spans = '@@@@@';
+                    break;
+                default:
+            }
+
+            i++;
+            document.getElementById('licence_count').val += 1;
+        }
+
+        // タグ数が３つ以上または、タグの文字数が９文字以上は改行
+        if (3 <= spans.length || 9 <= licences.length) {　　
+            i--;
+            if (document.getElementById('child-span' + i + '') !== null) {
+                parentDiv.appendChild(div_element, document.getElementById('child-span' + i + ''));
+            }
+            i++;
+
+            document.getElementById('licence_count').val = 1;
+        }
+        i++;
+
+        parentDiv.appendChild(span_element, parentDiv.firstChild);
+        span_element.appendChild(label_element, span_element.firstChild);
+        label_element.insertBefore(i_element, label_element.firstChild);
+        label_element.insertBefore(input_element, label_element.firstChild);
+        $(this).val('');
+    }
+}
+
+// タグのバツ印がクリックされた場合
+$(document).on('click', '.far.fa-times-circle.licence', function() {
+    var k = 0,
+        licences = new Array(),
+        licence = document.getElementById("licence"),
+        spans = licence.getElementsByTagName("span"),
+        span = $(this).parents(".licence_tag")[0].textContent;
+
+    // skill_countの値を元に最終行のタグ情報を取得
+    switch (document.getElementById('licence_count').val) {
+        case 1:
+            var spans_count = spans.length - 1;
+            break;
+
+        case 2:
+            var spans_count = spans.length - 2;
+            break;
+
+        case 3:
+            var spans_count = spans.length - 3;
+            break;
+
+        default:
+    }
+    for (i = spans_count; i < spans.length; i++) {
+        licences[k] = spans[i].textContent;
+        k++;
+    }
+    $(this).parents(".licence_tag").remove();
+
+    licences = licences.join('');
+    if (licences.indexOf(span) != -1) {
+        document.getElementById('licence_count').val -= 1;
+    }
+});
+
+$(document).on('click', '.edit_done', function() {
+    var licence = document.getElementById("licence"),
+        licence_div = document.getElementById("licences"),
+        spans = licence.getElementsByTagName("span"),
+        licences = new Array();
+    document.getElementById('licence_count').val = 4;
+
+    for (i = 0; i < spans.length; i++) {
+        licences[i] = spans[i].textContent;
+    }
+    licences = licences.join(' ');
+    licence_div.value = licences;
 });
 
 //================================

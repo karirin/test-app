@@ -12,6 +12,7 @@ if (isset($_POST)) {
     $image = $_FILES['image_name'];
   }
   $user_skill = $_POST['skills'];
+  $user_licence = $_POST['licences'];
   $user_id = $_POST['id'];
 
   if ($name == '') {
@@ -33,7 +34,7 @@ if (isset($_POST)) {
   try {
     $dbh = db_connect();
     $sql = "UPDATE user
-            SET profile = :comment_data,name = :name,image = :image,skill = :skill
+            SET profile = :comment_data,name = :name,image = :image,skill = :skill,licence = :licence
             WHERE id = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(
@@ -41,7 +42,8 @@ if (isset($_POST)) {
       ':name' => $name,
       ':image' => $image['name'],
       ':user_id' => $user_id,
-      ':skill' => $user_skill
+      ':skill' => $user_skill,
+      ':licence' => $user_licence
     ));
     set_flash('sucsess', 'プロフィールを更新しました');
     reload();
