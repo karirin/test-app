@@ -267,6 +267,7 @@ $(document).on('click', ".modal_close", function() {
     $('.edit_btn').fadeIn();
     $('.slide_menu').removeClass('open');
     $('.form').fadeOut();
+    $('.tag').css('display', 'inline-block');
 });
 
 // 編集ボタン押下時の処理
@@ -285,6 +286,7 @@ $(document).on('click', '.edit_btn', function() {
     $('.btn_flex').css('display', 'flex');
     $('.profile').addClass('editing');
     $('.form').css('display', 'inline-block');
+    $('.tag').fadeOut();
 });
 
 // モーダル画面出力ボタン押下時の処理
@@ -449,7 +451,7 @@ $(function() {
 });
 
 let skill_input = document.getElementById('skill_input');
-skill_input.addEventListener('change', inputChange);
+skill_input.addEventListener('change', inputChange_skill);
 
 var skill = document.getElementById("skill"),
     spans = skill.getElementsByTagName("span");
@@ -476,7 +478,7 @@ if (document.getElementById('skill_count').val === undefined) {
     }
 }
 
-function inputChange() {
+function inputChange_skill() {
     var fome_x_name = $(this).val(),
         skill = document.getElementById("skill"),
         skills = new Array(),
@@ -509,7 +511,7 @@ function inputChange() {
         span_element.setAttribute("class", "skill_tag");
         span_element.setAttribute("style", "margin-right:4px;");
         div_element.setAttribute("id", "span" + i + "");
-        i_element.setAttribute("class", "far fa-times-circle tag");
+        i_element.setAttribute("class", "far fa-times-circle skill");
         input_element.setAttribute("type", "button");
 
         // タグの改行があった場合
@@ -648,7 +650,7 @@ $(function() {
 });
 
 let licence_input = document.getElementById('licence_input');
-licence_input.addEventListener('change', inputChange);
+licence_input.addEventListener('change', inputChange_licence);
 
 var licence = document.getElementById("licence"),
     spans = licence.getElementsByTagName("span");
@@ -675,7 +677,7 @@ if (document.getElementById('licence_count').val === undefined) {
     }
 }
 
-function inputChange() {
+function inputChange_licence() {
     var fome_x_name = $(this).val(),
         licence = document.getElementById("licence"),
         licences = new Array(),

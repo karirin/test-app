@@ -15,8 +15,6 @@ if (isset($_SESSION['login']) == false) :
             <input type="hidden" name="pass" class="user_pass_input" value="pass">
             <input class="test_login btn btn-outline-dark" type="submit" name="test_login" value="test login">
         </div>
-        <div class="test_login_description">
-        </div>
     </form>
 
     <?php else : ?>

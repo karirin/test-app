@@ -54,6 +54,13 @@ ul {
 ul li {
     padding: 0 2rem;
     font-size: 1.2rem;
+    -webkit-transition: all .3s;
+    transition: all 1s;
+}
+
+ul li:hover {
+    background-color: #dbe3f1;
+    border-radius: 1rem;
 }
 
 ul li.top_link {
@@ -65,16 +72,12 @@ ul li a {
 }
 
 ul li a:hover {
-    color: #fff;
+    color: #000;
 }
 
 ul.main_ul {
     display: -webkit-flex;
     display: flex;
-}
-
-ul.main_ul a:hover {
-    opacity: 0.5;
 }
 
 nav.navbar.navbar-light.mb-2 {
@@ -254,7 +257,7 @@ nav.navbar.navbar-light.mb-2 {
     padding: 3rem 1rem;
     width: 500px;
     font-size: 18px;
-    margin: 0 89px 0 auto;
+    margin: 35px 90px 0 auto;
 }
 
 .test_login {
@@ -267,11 +270,19 @@ nav.navbar.navbar-light.mb-2 {
     border-radius: 2rem;
 }
 
-.test_login_description {
-    position: absolute;
-    bottom: 11%;
-    font-size: 1.5rem;
-    right: 16%;
+.btn.btn-outline-info {
+    -webkit-transition: all .3s;
+    transition: all 1s;
+}
+
+.btn-outline-dark {
+    -webkit-transition: all .3s;
+    transition: all 1s;
+}
+
+.btn.btn-outline-secondary {
+    -webkit-transition: all .3s;
+    transition: all 1s;
 }
 
 .prof_page {
@@ -344,7 +355,8 @@ nav.navbar.navbar-light.mb-2 {
 /* ///////////////////////// */
 
 
-/*     ユーザー詳細画面      */
+/*     
+画面      */
 
 
 /* ///////////////////////// */
@@ -374,7 +386,7 @@ nav.navbar.navbar-light.mb-2 {
 .profile .editing_profile_img {
     border-radius: 10rem;
     opacity: 0.3;
-    width: 11rem;
+    width: 10rem;
     height: 11rem;
 }
 
@@ -396,7 +408,7 @@ nav.navbar.navbar-light.mb-2 {
 
 .edit_profile_img .far.fa-times-circle {
     top: 4%;
-    right: 26%;
+    right: 60%;
     z-index: 10;
     font-size: 3rem;
     color: black;
@@ -451,6 +463,18 @@ img.mypage {
 
 .tag_tittle {
     text-align: left;
+    margin-bottom: 0;
+}
+
+.tag.tag_tittle:nth-child(2) {
+    margin-top: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    padding-left: 50px;
 }
 
 
@@ -506,7 +530,7 @@ img.mypage {
 }
 
 .user .user_profile {
-    display: inline-block;
+    display: inline;
     text-align: center;
     white-space: pre-wrap;
     width: 74%;

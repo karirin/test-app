@@ -21,9 +21,9 @@
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">Pair Code</a></li>
             <li class="top_link prof_page"><a class="prof_modal" href="#"><img
                         src="/user/image/<?= $current_user['image'] ?>" class="user_image"></a></li>
-            <li class="header_menu_wide"><a href="../user/user_list.php?type=all">ユーザー一覧</a></li>
+            <li class="header_menu_wide"><a href="../user/user_list.php?type=all">userlist</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
-                    メッセージ<?php
+                    message<?php
                                 $message = new Message();
                                 if (current($user->get_user_count('message_relation')) != 0) {
                                     if (current($message->message_count(($user->id))) != 0) {
@@ -32,9 +32,9 @@
                                 }
                                 ?>
                 </a></li>
-            <li class="header_menu_wide"><a href="../match/match.php">マッチング</a></li>
-            <li class="header_menu_wide"><a href="../user_login/user_logout.php">ログアウト</a></li>
-            <li class="header_menu_wide"><a class="withdraw" href="#">退会</a></li>
+            <li class="header_menu_wide"><a href="../match/match.php">matching</a></li>
+            <li class="header_menu_wide"><a href="../user_login/user_logout.php">logout</a></li>
+            <li class="header_menu_wide"><a class="withdraw" href="#">withdrawal</a></li>
             <li class="show_menu">メニュー
                 <div class="slide_menu">
                     <a class="modal_close" href="#">
