@@ -5,6 +5,8 @@ var user_comment = $('.comment').text(),
     user_name_narrow = $('.profile_name_narrow').text(),
     user_comment_narrower = $('.comment_narrower').text(),
     user_name_narrower = $('.profile_name_narrower').text(),
+    user_educational = $('.educational').text(),
+    user_workhistory = $('.workhistory').text(),
     user = $('.user').val();
 
 // getパラメータ取得
@@ -260,6 +262,8 @@ $(document).on('click', ".modal_close", function() {
     $('.edit_name_narrow').replaceWith('<h2 class="profile_name">' + user_name_narrow + '</h2>');
     $('.edit_comment_narrower').replaceWith('<p class="comment">' + user_comment_narrower + '</p>');
     $('.edit_name_narrower').replaceWith('<h2 class="profile_name">' + user_name_narrower + '</h2>');
+    $('.edit_educational').replaceWith('<p class="educational">' + user_educational + '</p>');
+    $('.edit_workhistory').replaceWith('<p class="workhistory">' + user_workhistory + '</p>');
     $('.mypage').css('display', 'inline');
     $('.edit_profile_img').css('display', 'none');
     $('.btn_flex').css('display', 'none');
@@ -281,6 +285,8 @@ $(document).on('click', '.edit_btn', function() {
     $('.profile_name_narrow').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrow + '">');
     $('.comment_narrower').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrower);
     $('.profile_name_narrower').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrower + '">');
+    $('.educational').replaceWith('<textarea class="edit_educational form-control" type="text" name="user_educational" >' + user_educational);
+    $('.workhistory').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory);
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
@@ -450,30 +456,32 @@ $(function() {
     });
 });
 
-let skill_input = document.getElementById('skill_input');
-skill_input.addEventListener('change', inputChange_skill);
+if (document.getElementById('skill_input') != null) {
+    let skill_input = document.getElementById('skill_input');
+    skill_input.addEventListener('change', inputChange_skill);
 
-var skill = document.getElementById("skill"),
-    spans = skill.getElementsByTagName("span");
+    var skill = document.getElementById("skill"),
+        spans = skill.getElementsByTagName("span");
 
-// 初期状態のタグ数でskill_countの値を決める
-if (document.getElementById('skill_count').val === undefined) {
-    if (spans.length > 3) {
-        skill_count_val = spans.length % 3;
-        switch (skill_count_val) {
-            case 0:
-                document.getElementById('skill_count').val = 3;
-                break;
+    // 初期状態のタグ数でskill_countの値を決める
+    if (document.getElementById('skill_count').val === undefined) {
+        if (spans.length > 3) {
+            skill_count_val = spans.length % 3;
+            switch (skill_count_val) {
+                case 0:
+                    document.getElementById('skill_count').val = 3;
+                    break;
 
-            case 1:
-                document.getElementById('skill_count').val = 1;
-                break;
+                case 1:
+                    document.getElementById('skill_count').val = 1;
+                    break;
 
-            case 2:
-                document.getElementById('skill_count').val = 2;
-                break;
+                case 2:
+                    document.getElementById('skill_count').val = 2;
+                    break;
 
-            default:
+                default:
+            }
         }
     }
 }
@@ -648,31 +656,32 @@ $(function() {
         source: "../autocomplete_licence.php"
     });
 });
+if (document.getElementById('licence_input') != null) {
+    let licence_input = document.getElementById('licence_input');
+    licence_input.addEventListener('change', inputChange_licence);
 
-let licence_input = document.getElementById('licence_input');
-licence_input.addEventListener('change', inputChange_licence);
+    var licence = document.getElementById("licence"),
+        spans = licence.getElementsByTagName("span");
 
-var licence = document.getElementById("licence"),
-    spans = licence.getElementsByTagName("span");
+    // 初期状態のタグ数でlicence_countの値を決める
+    if (document.getElementById('licence_count').val === undefined) {
+        if (spans.length > 3) {
+            licence_count_val = spans.length % 3;
+            switch (licence_count_val) {
+                case 0:
+                    document.getElementById('licence_count').val = 3;
+                    break;
 
-// 初期状態のタグ数でlicence_countの値を決める
-if (document.getElementById('licence_count').val === undefined) {
-    if (spans.length > 3) {
-        licence_count_val = spans.length % 3;
-        switch (licence_count_val) {
-            case 0:
-                document.getElementById('licence_count').val = 3;
-                break;
+                case 1:
+                    document.getElementById('licence_count').val = 1;
+                    break;
 
-            case 1:
-                document.getElementById('licence_count').val = 1;
-                break;
+                case 2:
+                    document.getElementById('licence_count').val = 2;
+                    break;
 
-            case 2:
-                document.getElementById('licence_count').val = 2;
-                break;
-
-            default:
+                default:
+            }
         }
     }
 }

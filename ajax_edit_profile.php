@@ -13,8 +13,11 @@ if (isset($_POST)) {
   }
   $user_skill = $_POST['skills'];
   $user_licence = $_POST['licences'];
+  $user_educational = $_POST['user_educational'];
+  $user_workhistory = $_POST['user_workhistory'];
   $user_id = $_POST['id'];
 
+  _debug($user_workhistory . $user_educational);
   if ($name == '') {
     set_flash('danger', '名前が未記入です');
     reload();
@@ -34,7 +37,7 @@ if (isset($_POST)) {
   try {
     $dbh = db_connect();
     $sql = "UPDATE user
-            SET profile = :comment_data,name = :name,image = :image,skill = :skill,licence = :licence
+            SET profile = :comment_data,name = :name,image = :image,skill = :skill,licence = :licence,educational = :educational,workhistory = :workhistory
             WHERE id = :user_id";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(
@@ -43,7 +46,9 @@ if (isset($_POST)) {
       ':image' => $image['name'],
       ':user_id' => $user_id,
       ':skill' => $user_skill,
-      ':licence' => $user_licence
+      ':licence' => $user_licence,
+      ':educational' => $user_educational,
+      ':workhistory' => $user_workhistory
     ));
     set_flash('sucsess', 'プロフィールを更新しました');
     reload();

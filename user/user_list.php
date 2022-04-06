@@ -66,7 +66,7 @@ require_once('../config_1.php');
                         <div class="user_name">
                             <?= $user['name'] ?>
                             <?php if ($current_user != $user) : ?>
-                            <object><a href="../index_test.php?user_id=<?= $user['id'] ?>">
+                            <object><a href="../message/message.php?user_id=<?= $user['id'] ?>">
                                     <i class="fas fa-envelope-square"></i>
                                 </a></object>
                             <?php endif; ?>

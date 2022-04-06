@@ -355,8 +355,7 @@ nav.navbar.navbar-light.mb-2 {
 /* ///////////////////////// */
 
 
-/*     
-画面      */
+/*     ユーザー詳細画面      */
 
 
 /* ///////////////////////// */
@@ -400,8 +399,8 @@ nav.navbar.navbar-light.mb-2 {
 
 .edit_profile_img .far.fa-image {
     position: absolute;
-    top: 34%;
-    right: 33%;
+    top: 50%;
+    right: 226%;
     z-index: 10;
     color: rgb(0, 0, 0);
 }
@@ -463,7 +462,9 @@ img.mypage {
 
 .tag_tittle {
     text-align: left;
-    margin-bottom: 0;
+    text-decoration: underline;
+    text-decoration-color: #000;
+    margin-bottom: 5px;
 }
 
 .tag.tag_tittle:nth-child(2) {
@@ -475,6 +476,22 @@ img.mypage {
     text-align: left;
     vertical-align: top;
     padding-left: 50px;
+}
+
+.background {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 50px;
+}
+
+.workhistory {
+    white-space: break-spaces;
+    text-align: left;
+}
+
+.educational {
+    white-space: break-spaces;
+    text-align: left;
 }
 
 
@@ -533,9 +550,8 @@ img.mypage {
     display: inline;
     text-align: center;
     white-space: pre-wrap;
-    width: 74%;
     vertical-align: top;
-    margin-top: 2rem;
+    display: inline-block;
 }
 
 .col-4 .col-8.offset-2 .user_link .user {
@@ -1311,13 +1327,13 @@ img.my_preview {
 }
 
 .skill_tag {
-    font-size: 1px;
+    font-size: 15px;
     padding: 1px;
     border: 1px solid #b2cdde;
     border-radius: 3px;
     background-image: linear-gradient( 180deg, #cae2f0 0, #c3d9e7);
     color: #545b67;
-    padding: 1px 8px 0px;
+    padding: 3px 11px 3px;
 }
 
 .far.fa-times-circle.skill {
@@ -1327,19 +1343,23 @@ img.my_preview {
 }
 
 .licence_tag {
-    font-size: 1px;
+    font-size: 15px;
     padding: 1px;
     border: 1px solid #b2cdde;
     border-radius: 3px;
     background-image: linear-gradient( 180deg, #cae2f0 0, #c3d9e7);
     color: #545b67;
-    padding: 1px 8px 0px;
+    padding: 3px 11px 3px;
 }
 
 .far.fa-times-circle.licence {
     display: inline;
     position: relative;
     padding-left: 6px;
+}
+
+.tag div {
+    margin-top: 0.5rem;
 }
 
 .ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content {

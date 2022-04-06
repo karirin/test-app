@@ -159,7 +159,14 @@ $follower_count = $user->get_user_count('follower');
                         <input type="hidden" name="licence_count" id="licence_count">
                         <input type="hidden" name="mylicences" value="<?= $current_user['licence'] ?>">
                     </div>
+                    <div class="background">
+                        <p class="tag_tittle">学歴</p>
+                        <p class="educational"><?= $current_user['educational'] ?></p>
+                        <p class="tag_tittle" style="margin-top: 1rem;">職歴</p>
+                        <p class="workhistory"><?= $current_user['workhistory'] ?></p>
+                    </div>
                 </form>
+
 
                 <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
                 <form action="#" method="post">
