@@ -882,10 +882,27 @@ $(document).on('click', '#unmatch_btn', function() {
     }).fadeOut();
 });
 
+$(document).on('click', '#next', function() {
+    $('.man').animate({
+        "marginRight": "758px"
+    }).fadeIn();
+    $('.woman').animate({
+        "marginLeft": "758px"
+    }).fadeOut();
+});
+
+$(document).on('click', '#before', function() {
+    $('.man').animate({
+        "marginLeft": "758px"
+    }).fadeOut();
+    $('.woman').animate({
+        "marginRight": "758px"
+    }).fadeIn();
+});
 
 // 各種ツールチップ処理
-// $('[data-toggle="favorite"]').tooltip();
-// $('[data-toggle="post"]').tooltip();
-// $('[data-toggle="edit"]').tooltip();
-// $('[data-toggle="delete"]').tooltip();
-// $('[data-toggle="reply"]').tooltip();
+$('[data-toggle="favorite"]').tooltip();
+$('[data-toggle="post"]').tooltip();
+$('[data-toggle="edit"]').tooltip();
+$('[data-toggle="delete"]').tooltip();
+$('[data-toggle="reply"]').tooltip();

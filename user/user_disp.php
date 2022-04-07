@@ -166,7 +166,17 @@ $follower_count = $user->get_user_count('follower');
                         <p class="workhistory"><?= $current_user['workhistory'] ?></p>
                     </div>
                 </form>
-
+                <div>
+                    <div class="man" style="display:none">
+                        男
+                    </div>
+                    <div class="woman" style="display:none">
+                        女
+                    </div>
+                    <input type="button" name="next" alt="次へ" href="#example-2" class="btn btn-outline-dark" id="next">
+                    <input type="button" name="before" alt="前へ" href="#example-2" class="btn btn-outline-dark"
+                        id="before">
+                </div>
 
                 <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
                 <form action="#" method="post">

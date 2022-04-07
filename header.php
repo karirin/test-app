@@ -22,6 +22,7 @@
             <li class="top_link prof_page"><a class="prof_modal" href="#"><img
                         src="/user/image/<?= $current_user['image'] ?>" class="user_image"></a></li>
             <li class="header_menu_wide"><a href="../user/user_list.php?type=all">userlist</a></li>
+            <li class="header_menu_narrow"><a class="post_modal" href="#">post</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
                     message<?php
                                 $message = new Message();
