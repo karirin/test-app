@@ -9,7 +9,7 @@ require_once('../config_1.php');
 <body>
     <?php if (basename($_SERVER['PHP_SELF']) === 'user_list.php') : ?>
     <div class="col-6 offset-3">
-        <h2 class="center margin_top_bottom">ユーザー一覧</h2>
+        <h2 class="center margin_top_bottom">マッチユーザー一覧</h2>
         <form method="post" action="#" class="search_container">
             <div class="input-group mb-2">
                 <input type="text" name="search_input" class="form-control" placeholder="ユーザー検索">
@@ -30,27 +30,14 @@ require_once('../config_1.php');
       $user_class = new User($_GET['page_id']);
       $current_user = $user_class->get_user();
     }
-    switch ($page_type) {
-      case 'all';
-        $users = $user_class->get_users('all', '');
-        break;
 
-      case 'search':
-        $users = get_users($_GET['query']);
-        break;
+    $users = $user_class->get_users('all', '');
 
-      case 'follow':
-        $users = $user_class->get_users('follows');
-        break;
-
-      case 'follower':
-        $users = $user_class->get_users('followers');
-        break;
-    }
     $block = pagination_block($users);
     if (isset($block[0])) :
 
       foreach ($block[$_SESSION[$i]] as $user) :
+        if (count(check_matchs($user['id'], $current_user['id'])) == 2) :
     ?>
         <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
             class="user_link">
@@ -82,6 +69,7 @@ require_once('../config_1.php');
                     <?php endif; ?>
                 </div>
         </a>
+        <?php endif ?>
         <?php endforeach ?>
         <?php endif ?>
     </div>

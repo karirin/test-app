@@ -13,11 +13,9 @@ if (isset($_POST)) {
   }
   $user_skill = $_POST['skills'];
   $user_licence = $_POST['licences'];
-  $user_educational = $_POST['user_educational'];
   $user_workhistory = $_POST['user_workhistory'];
   $user_id = $_POST['id'];
 
-  _debug($user_workhistory . $user_educational);
   if ($name == '') {
     set_flash('danger', '名前が未記入です');
     reload();

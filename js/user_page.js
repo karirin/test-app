@@ -5,7 +5,6 @@ var user_comment = $('.comment').text(),
     user_name_narrow = $('.profile_name_narrow').text(),
     user_comment_narrower = $('.comment_narrower').text(),
     user_name_narrower = $('.profile_name_narrower').text(),
-    user_educational = $('.educational').text(),
     user_workhistory = $('.workhistory').text(),
     user = $('.user').val();
 
@@ -223,6 +222,25 @@ $(document).on('click', '#match_btn', function(e) {
     }).fail(function() {});
 });
 
+$(document).on('click', '#unmatch_btn', function(e) {
+    e.stopPropagation();
+    var current_user_id = $('.unmatch_user_id').val(),
+        target_modal = $(this).data("target"),
+        user_id = $('' + target_modal + '_userid').val();
+    $(target_modal).animate({
+        "marginRight": "758px"
+    }).fadeOut();
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_unmatch_process.php',
+        dataType: 'text',
+        data: {
+            current_user_id: current_user_id,
+            user_id: user_id
+        }
+    }).done(function() {}).fail(function() {});
+});
+
 //================================
 // モーダルウィンドウ処理
 //================================
@@ -262,7 +280,6 @@ $(document).on('click', ".modal_close", function() {
     $('.edit_name_narrow').replaceWith('<h2 class="profile_name">' + user_name_narrow + '</h2>');
     $('.edit_comment_narrower').replaceWith('<p class="comment">' + user_comment_narrower + '</p>');
     $('.edit_name_narrower').replaceWith('<h2 class="profile_name">' + user_name_narrower + '</h2>');
-    $('.edit_educational').replaceWith('<p class="educational">' + user_educational + '</p>');
     $('.edit_workhistory').replaceWith('<p class="workhistory">' + user_workhistory + '</p>');
     $('.mypage').css('display', 'inline');
     $('.edit_profile_img').css('display', 'none');
@@ -285,7 +302,6 @@ $(document).on('click', '.edit_btn', function() {
     $('.profile_name_narrow').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrow + '">');
     $('.comment_narrower').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrower);
     $('.profile_name_narrower').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrower + '">');
-    $('.educational').replaceWith('<textarea class="edit_educational form-control" type="text" name="user_educational" >' + user_educational);
     $('.workhistory').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory);
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
@@ -630,6 +646,8 @@ $(document).on('click', '.edit_done', function() {
     }
     skills = skills.join(' ');
     skill_div.value = skills;
+
+    //$('.workhistory').val() = $('.edit_workhistory').val;
 });
 
 //================================
@@ -830,6 +848,8 @@ $(document).on('click', '.edit_done', function() {
     }
     licences = licences.join(' ');
     licence_div.value = licences;
+
+    //$('.workhistory').val() = $('.edit_workhistory').val;
 });
 
 //================================
@@ -875,29 +895,14 @@ $(document).on('click', '.thread_btn', function() {
     $(this).parent().height(omit_height);
 });
 
-$(document).on('click', '#unmatch_btn', function() {
-    var target_modal = $(this).data("target");
-    $(target_modal).animate({
-        "marginRight": "758px"
-    }).fadeOut();
-});
-
 $(document).on('click', '#next', function() {
-    $('.man').animate({
-        "marginRight": "758px"
-    }).fadeIn();
-    $('.woman').animate({
-        "marginLeft": "758px"
-    }).fadeOut();
+    $('.my_post').fadeIn();
+    $('.woman').fadeOut();
 });
 
 $(document).on('click', '#before', function() {
-    $('.man').animate({
-        "marginLeft": "758px"
-    }).fadeOut();
-    $('.woman').animate({
-        "marginRight": "758px"
-    }).fadeIn();
+    $('.my_post').fadeOut();
+    $('.woman').fadeIn();
 });
 
 // 各種ツールチップ処理

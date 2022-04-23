@@ -5,7 +5,6 @@ if (isset($_POST)) {
 
   $current_user_id = $_POST['current_user_id'];
   $user_id = $_POST['user_id'];
-  $action = '登録';
   $flash_type = 'sucsess';
   $sql = "INSERT INTO `match`(user_id,match_user_id)
   VALUES(:user_id,:matched_user_id)";
