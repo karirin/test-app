@@ -189,9 +189,11 @@ function check_unmatch($user_id, $current_user_id)
 {
   try {
     $dbh = db_connect();
-    $sql = "SELECT user_id,match_user_id
+    _debug("qqq");
+    _debug($user_id . "   " . $current_user_id);
+    $sql = "SELECT user_id,match_user_id,`unmatch_flg`
         FROM `match`
-        WHERE :user_id = 0 or :match_user_id = 0";
+        WHERE ((user_id = :user_id and match_user_id = :match_user_id) or (user_id = :match_user_id and match_user_id = :user_id)) and unmatch_flg = 1";
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(
       ':user_id' => $current_user_id,
@@ -200,7 +202,7 @@ function check_unmatch($user_id, $current_user_id)
     return  $stmt->fetch();
   } catch (\Exception $e) {
     error_log($e, 3, "../../php/error.log");
-    _debug('フォロー確認失敗');
+    _debug('アンマッチ確認失敗');
   }
 }
 

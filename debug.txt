@@ -1,16 +1,1 @@
-Array
-(
-    [current_user_id] => 7
-    [user_id] => 12
-)
-アンマッチ失敗Array
-(
-    [current_user_id] => 7
-    [user_id] => 12
-)
-アンマッチ失敗Array
-(
-    [current_user_id] => 7
-    [user_id] => 12
-)
-アンマッチ失敗
+16   1215   1214   127   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7
