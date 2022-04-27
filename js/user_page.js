@@ -6,6 +6,7 @@ var user_comment = $('.comment').text(),
     user_comment_narrower = $('.comment_narrower').text(),
     user_name_narrower = $('.profile_name_narrower').text(),
     user_workhistory = $('.workhistory').text(),
+    user_workhistory_narrow = $('.workhistory_narrow').text(),
     user = $('.user').val();
 
 // getパラメータ取得
@@ -281,6 +282,7 @@ $(document).on('click', ".modal_close", function() {
     $('.edit_comment_narrower').replaceWith('<p class="comment">' + user_comment_narrower + '</p>');
     $('.edit_name_narrower').replaceWith('<h2 class="profile_name">' + user_name_narrower + '</h2>');
     $('.edit_workhistory').replaceWith('<p class="workhistory">' + user_workhistory + '</p>');
+    $('.edit_workhistory_narrow').replaceWith('<p class="workhistory_narrow">' + user_workhistory_narrow + '</p>');
     $('.mypage').css('display', 'inline');
     $('.edit_profile_img').css('display', 'none');
     $('.btn_flex').css('display', 'none');
@@ -295,7 +297,7 @@ $(document).on('click', ".modal_close", function() {
 $(document).on('click', '.edit_btn', function() {
     scroll_position = $(window).scrollTop();
     $('.edit_btn').fadeOut();
-    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    //$('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name + '">');
     $('.comment_narrow').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrow);
@@ -303,6 +305,7 @@ $(document).on('click', '.edit_btn', function() {
     $('.comment_narrower').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrower);
     $('.profile_name_narrower').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrower + '">');
     $('.workhistory').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory);
+    $('.workhistory_narrow').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory_narrow);
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
@@ -425,7 +428,7 @@ $(document).on('input', '.textarea', function() {
 });
 
 //================================
-// スキルタグ処理
+// スキルタグ処理（大画面）
 //================================
 
 const skill_list = new Array(
@@ -472,28 +475,41 @@ $(function() {
     });
 });
 
-if (document.getElementById('skill_input') != null) {
+$(function() {
+    $("#skill_input_narrow").autocomplete({
+        source: "../autocomplete_skill.php"
+    });
+});
+
+if (document.getElementById('skill_input') != null || document.getElementById('skill_input_narrow') != null) {
     let skill_input = document.getElementById('skill_input');
+    let skill_input_narrow = document.getElementById('skill_input_narrow');
     skill_input.addEventListener('change', inputChange_skill);
+    skill_input_narrow.addEventListener('change', inputChange_skill);
 
     var skill = document.getElementById("skill"),
-        spans = skill.getElementsByTagName("span");
+        skill_narrow = document.getElementById("skill_narrow"),
+        spans = skill.getElementsByTagName("span"),
+        spans_narrow = skill_narrow.getElementsByTagName("span_narrow");
 
     // 初期状態のタグ数でskill_countの値を決める
-    if (document.getElementById('skill_count').val === undefined) {
+    if (document.getElementById('skill_count').val === undefined && document.getElementById('skill_count_narrow').val === undefined) {
         if (spans.length > 3) {
             skill_count_val = spans.length % 3;
             switch (skill_count_val) {
                 case 0:
                     document.getElementById('skill_count').val = 3;
+                    document.getElementById('skill_count_narrow').val = 3;
                     break;
 
                 case 1:
                     document.getElementById('skill_count').val = 1;
+                    document.getElementById('skill_count_narrow').val = 1;
                     break;
 
                 case 2:
                     document.getElementById('skill_count').val = 2;
+                    document.getElementById('skill_count_narrow').val = 2;
                     break;
 
                 default:
@@ -504,52 +520,85 @@ if (document.getElementById('skill_input') != null) {
 
 function inputChange_skill() {
     var fome_x_name = $(this).val(),
+        fome_x_name_narrow = $(this).val(),
         skill = document.getElementById("skill"),
+        skill_narrow = document.getElementById("skill_narrow"),
         skills = new Array(),
-        spans = skill.getElementsByTagName("span");
+        skills_narrow = new Array(),
+        spans = skill.getElementsByTagName("span"),
+        spans_narrow = skill_narrow.getElementsByTagName("span");
 
     for (i = 0; i < spans.length; i++) {
         skills[i] = spans[i].textContent;
     }
 
+    for (i = 0; i < spans_narrow.length; i++) {
+        skills_narrow[i] = spans_narrow[i].textContent;
+    }
+
     skills = skills.join('');
+    skills_narrow = skills_narrow.join('');
 
     // 既に入力済みのものはタグ追加しない
-    if (skills.indexOf(fome_x_name) != -1) {
+    if (skills.indexOf(fome_x_name) != -1 || skills_narrow.indexOf(fome_x_name_narrow) != -1) {
         return false;
     }
     // 入力した文字列がlistと合えばタグ追加
-    if (skill_list.indexOf(fome_x_name) != -1) {
+    if (skill_list.indexOf(fome_x_name) != -1 || skill_list.indexOf(fome_x_name_narrow) != -1) {
 
         var span_element = document.createElement("span"),
+            span_element_narrow = document.createElement("span"),
             label_element = document.createElement("label"),
+            label_element_narrow = document.createElement("label"),
             i_element = document.createElement("i"),
+            i_element_narrow = document.createElement("i"),
             input_element = document.createElement("input"),
+            input_element_narrow = document.createElement("input"),
             newContent = document.createTextNode(fome_x_name),
+            newContent_narrow = document.createTextNode(fome_x_name_narrow),
             div_element = document.createElement("div"),
+            div_element_narrow = document.createElement("div"),
             parentDiv = document.getElementById("skill"),
-            skill_count = document.getElementById('skill_count').val;
+            parentDiv_narrow = document.getElementById("skill_narrow"),
+            skill_count = document.getElementById('skill_count').val,
+            skill_count_narrow = document.getElementById('skill_count_narrow').val;
 
         span_element.appendChild(newContent);
+        span_element_narrow.appendChild(newContent_narrow);
         span_element.setAttribute("id", "child-span" + i + "");
+        span_element_narrow.setAttribute("id", "child-span_narrow" + i + "");
         span_element.setAttribute("class", "skill_tag");
+        span_element_narrow.setAttribute("class", "skill_tag");
         span_element.setAttribute("style", "margin-right:4px;");
+        span_element_narrow.setAttribute("style", "margin-right:4px;");
         div_element.setAttribute("id", "span" + i + "");
+        div_element_narrow.setAttribute("id", "span_narrow" + i + "");
         i_element.setAttribute("class", "far fa-times-circle skill");
+        i_element_narrow.setAttribute("class", "far fa-times-circle skill");
         input_element.setAttribute("type", "button");
+        input_element_narrow.setAttribute("type", "button");
 
         // タグの改行があった場合
-        if (0 < document.getElementById('skill_count').val) {
+        if (0 < document.getElementById('skill_count').val || 0 < document.getElementById('skill_count_narrow').val) {
             i--;
             var skills = new Array();
+            var skills_narrow = new Array();
 
             // 改行した列で再度文字数取得
             for (k = 0; k < skill_count; k++) {
                 skills[k] = spans[i].textContent;
                 i--;
             }
+
+            // 改行した列で再度文字数取得
+            for (k = 0; k < skill_count_narrow; k++) {
+                skills_narrow[k] = spans[i].textContent;
+                i--;
+            }
             spans = '';
-            skills = skills.join('');
+            spans_narrow = '';
+            skills = skills.join('')
+            skills_narrow = skills_narrow.join('');
 
             // skill_countの値で改行後のタグ数を決める
             switch (skill_count) {
@@ -574,26 +623,55 @@ function inputChange_skill() {
                 default:
             }
 
+            // skill_countの値で改行後のタグ数を決める
+            switch (skill_count_narrow) {
+                case 2:
+                    i += 1;
+                    spans_narrow = '@@';
+                    break;
+
+                case 3:
+                    i += 2;
+                    spans_narrow = '@@@';
+                    break;
+                case 4:
+                    i += 3;
+                    spans_narrow = '@@@@';
+                    break;
+
+                case 5:
+                    i += 4;
+                    spans_narrow = '@@@@@';
+                    break;
+                default:
+            }
+
             i++;
             document.getElementById('skill_count').val += 1;
+            document.getElementById('skill_count_narrow').val += 1;
         }
 
         // タグ数が３つ以上または、タグの文字数が９文字以上は改行
-        if (3 <= spans.length || 9 <= skills.length) {　　
+        if ((3 <= spans.length || 9 <= skills.length) || (3 <= spans_narrow.length || 9 <= skills_narrow.length)) {　　
             i--;
-            if (document.getElementById('child-span' + i + '') !== null) {
+            if (document.getElementById('child-span' + i + '') !== null || document.getElementById('child-span_narrow' + i + '') !== null) {
                 parentDiv.appendChild(div_element, document.getElementById('child-span' + i + ''));
+                parentDiv_narrow.appendChild(div_element_narrow, document.getElementById('child-span_narrow' + i + ''));
             }
             i++;
-
             document.getElementById('skill_count').val = 1;
+            document.getElementById('skill_count_narrow').val = 1;
         }
         i++;
 
         parentDiv.appendChild(span_element, parentDiv.firstChild);
+        parentDiv_narrow.appendChild(span_element_narrow, parentDiv_narrow.firstChild);
         span_element.appendChild(label_element, span_element.firstChild);
+        span_element_narrow.appendChild(label_element_narrow, span_element_narrow.firstChild);
         label_element.insertBefore(i_element, label_element.firstChild);
+        label_element_narrow.insertBefore(i_element_narrow, label_element_narrow.firstChild);
         label_element.insertBefore(input_element, label_element.firstChild);
+        label_element_narrow.insertBefore(input_element_narrow, label_element_narrow.firstChild);
         $(this).val('');
     }
 }
@@ -634,9 +712,46 @@ $(document).on('click', '.far.fa-times-circle.skill', function() {
     }
 });
 
+// タグのバツ印がクリックされた場合
+$(document).on('click', '.far.fa-times-circle.skill_narrow', function() {
+    var k = 0,
+        skills_narrow = new Array(),
+        skill_narrow = document.getElementById("skill_narrow"),
+        spans_narrow = skill_narrow.getElementsByTagName("span"),
+        span_narrow = $(this).parents(".skill_tag")[0].textContent;
+
+    // skill_countの値を元に最終行のタグ情報を取得
+    switch (document.getElementById('skill_count').val) {
+        case 1:
+            var spans_count = spans_narrow.length - 1;
+            break;
+
+        case 2:
+            var spans_count = spans_narrow.length - 2;
+            break;
+
+        case 3:
+            var spans_count = spans_narrow.length - 3;
+            break;
+
+        default:
+    }
+    for (i = spans_count; i < spans.length; i++) {
+        skills_narrow[k] = spans_narrow[i].textContent;
+        k++;
+    }
+    $(this).parents(".skill_tag").remove();
+
+    skills_narrow = skills_narrow.join('');
+    if (skills_narrow.indexOf(span_narrow) != -1) {
+        document.getElementById('skill_count_narrow').val -= 1;
+    }
+});
+
 $(document).on('click', '.edit_done', function() {
     var skill = document.getElementById("skill"),
         skill_div = document.getElementById("skills"),
+        skill_div_narrow = document.getElementById("skills_narrow"),
         spans = skill.getElementsByTagName("span"),
         skills = new Array();
     document.getElementById('skill_count').val = 4;
@@ -646,8 +761,8 @@ $(document).on('click', '.edit_done', function() {
     }
     skills = skills.join(' ');
     skill_div.value = skills;
+    skill_div_narrow.value = skills;
 
-    //$('.workhistory').val() = $('.edit_workhistory').val;
 });
 
 //================================

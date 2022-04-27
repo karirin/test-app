@@ -1,1 +1,187 @@
-16   1215   1214   127   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   12qqq16   1215   12qqq15   1214   12qqq14   127   12qqq7   1216   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => 
+    [skill_count] => 
+    [myskills] => AWS Docker
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 基本情報技術者 応用情報技術者
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => 
+    [licences] => 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 基本情報技術者 応用情報技術者
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 基本情報技術者 応用情報技術者
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああ
+)
+Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああ
+)
+16   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7Array
+(
+    [user_name] => test_user
+    [user_comment] => ああああ
+aaaa
+aaa
+aa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap CakePHP Java
+    [skill_count] => 
+    [myskills] => AWS Bootstrap CakePHP
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => ああああああああ
+)

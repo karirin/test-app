@@ -190,14 +190,26 @@ $follower_count = $user->get_user_count('follower');
         </div>
     </form>
     </div>
+    <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
+    <form action="#" method="post">
+        <input type="hidden" class="current_user_id" value="<?= $_SESSION['user_id'] ?>">
+        <input type="hidden" name="follow_user_id" value="<?= $current_user['id'] ?>">
+        <?php if ($user->check_follow($_SESSION['user_id'], $current_user['id'])) : ?>
+        <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
+        <?php else : ?>
+        <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>
+        <?php endif; ?>
+    </form>
+    <?php endif; ?>
     </div>
     </div>
 
-    <div class="row narrow_disp">
-        <div>
-            <div class="myprofile">
+    <form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
+        <div class="row narrow_disp">
+            <div class="myprofile col-6">
                 <div class="profile">
-                    <form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
+
+                    <div class="detail_profile">
                         <div class="edit_profile_img">
                             <label>
                                 <div class="fa-image_range">
@@ -213,22 +225,150 @@ $follower_count = $user->get_user_count('follower');
                                 <input type="button" id="profile_clear">
                             </label>
                         </div>
-                        <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
-                        <h4 class="profile_name_narrow"><?= $current_user['name'] ?></h4>
-                        <p class="comment_narrow"><?= $current_user['profile'] ?></p>
-                        <input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
-                        <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>"
-                            style="display:none;">
-                        <div class="btn_flex">
-                            <input type="submit" class="btn btn-outline-dark" value="編集完了">
-                            <button class="btn btn-outline-info modal_close" type="button">キャンセル</button>
+                        <div class="profile_detail">
+                            <div class="profile_detail_user">
+                                <img src="/user/image/<?= $current_user['image'] ?>" class="mypage">
+                                <h2 class="profile_name_narrow"><?= $current_user['name'] ?></h2>
+                                <p class="comment_narrow"><?= $current_user['profile'] ?></p>
+                            </div>
+                            <input type="hidden" name="id" class="user_id" value="<?= $current_user['id'] ?>">
+                            <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>"
+                                style="display:none;">
+                            <div class="btn_flex">
+                                <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
+                                <button class="btn btn-outline-info modal_close" type="button">キャンセル</button>
+                            </div>
+                            <div class="myprofile_btn">
+                                <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
+                                <button class="btn btn btn-outline-dark edit_btn" type="button"
+                                    name="follow">プロフィール編集</button>
+                                <?php endif; ?>
+                            </div>
                         </div>
-                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tag col-6">
+                <div class="tags">
+                    <div class="tag_skill">
+                        <p class="tag_tittle">スキル</p>
+                        <?php
+                        foreach ($skills as $skill) :
+                            if ($current_user['skill'] != '' && $skill != '') : ?>
+                        <span id="child-span_narrow" class="skill_tag"><?= $skill ?></span>
+                        <?php
+                                if (!isset($skill_tag)) {
+                                    $skill_tag = array();
+                                }
+                                array_push($skill_tag, $skill);
+                                $skills_len .= $skill;
+
+                                if (3 <= count($skill_tag) || 9 <= strlen($skills_len)) {
+                                    print '<div></div>';
+                                    $skill_tag = array();
+                                    $skills_len = "";
+                                }
+                            endif;
+
+                        endforeach;
+                        ?>
+                    </div>
+                    <div class="tag_licence">
+                        <p class="tag_tittle">取得資格</p>
+                        <?php
+                        foreach ($licences as $licence) :
+                            if ($current_user['licence'] != '' && $licence != '') : ?>
+                        <span id="child-span" class="licence_tag"><?= $licence ?></span>
+                        <?php
+                                if (!isset($licence_tag)) {
+                                    $licence_tag = array();
+                                }
+                                array_push($licence_tag, $licence);
+                                $licences_len .= $licence;
+
+                                if (2 <= count($licence_tag) || 9 <= strlen($licences_len)) {
+                                    print '<div></div>';
+                                    $licence_tag = array();
+                                    $licence_len = "";
+                                }
+                            endif;
+
+                        endforeach;
+                        ?>
+                    </div>
+                </div>
+                <div class="background">
+                    <p class="tag_tittle">職歴</p>
+                    <p class="user_workhistory"><?= $current_user['workhistory'] ?></p>
+                </div>
+            </div>
+            <div class="form">
+                <div id="skill_narrow">
+                    <p class="tag_tittle">スキル</p>
+                    <?php
+                    foreach ($skills as $skill) :
+                        if ($current_user['skill'] != '' && $skill != '') : ?>
+                    <span id="child-span_narrow" class="skill_tag"><?= $skill ?><label><input type="button"><i
+                                class="far  fa-times-circle skill"></i></label></span>
+                    <?php
+                            if (!isset($skill_tag)) {
+                                $skill_tag = array();
+                            }
+                            array_push($skill_tag, $skill);
+                            $skills_len .= $skill;
+
+                            if (3 <= count($skill_tag) || 9 <= strlen($skills_len)) {
+                                print '<div></div>';
+                                $skill_tag = array();
+                                $skills_len = "";
+                            }
+                        endif;
+
+                    endforeach;
+                    ?>
+                </div>
+
+                <input placeholder="skill Stack" name="name" id="skill_input_narrow" />
+                <input type="hidden" name="skills" id="skills_narrow">
+                <input type="hidden" name="skill_count" id="skill_count_narrow">
+                <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
+                <div id="licence">
+                    <p class="tag_tittle" style="margin-top: 1rem;">取得資格</p>
+                    <?php
+                    foreach ($licences as $licence) :
+                        if ($current_user['licence'] != '' && $licence != '') : ?>
+                    <span id="child-span" class="licence_tag"><?= $licence ?><label><input type="button"><i
+                                class="far fa-times-circle licence"></i></label></span>
+                    <?php
+                            if (!isset($licence_tag)) {
+                                $licence_tag = array();
+                            }
+                            array_push($licence_tag, $licence);
+                            $licences_len .= $licence;
+
+                            if (2 <= count($licence_tag) || 9 <= strlen($licences_len)) {
+                                print '<div></div>';
+                                $licence_tag = array();
+                                $licence_len = "";
+                            }
+                        endif;
+
+                    endforeach;
+                    ?>
+
+
+                </div>
+                <input placeholder="licence Stack" name="name" id="licence_input" />
+                <input type="hidden" name="licences" id="licences">
+                <input type="hidden" name="licence_count" id="licence_count">
+                <input type="hidden" name="mylicences" value="<?= $current_user['licence'] ?>">
+                <div class="background">
+                    <p class="tag_tittle">職歴</p>
+                    <p class="workhistory"><?= $current_user['workhistory'] ?></p>
                 </div>
             </div>
         </div>
-    </div>
-
+    </form>
 
     <div class="row narrower_disp">
         <div class="col-8 offset-2">

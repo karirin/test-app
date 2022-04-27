@@ -1,7 +1,7 @@
 <?php
 if (!empty($_POST['search_user'])) {
-  $hoge = $_POST['search_input'];
-  header("Location:user_list.php?type=search&query=${hoge}");
+    $hoge = $_POST['search_input'];
+    header("Location:user_list.php?type=search&query=${hoge}");
 }
 require_once('../config_1.php');
 ?>
@@ -22,23 +22,23 @@ require_once('../config_1.php');
     <?php endif; ?>
     <div class="col-8 offset-2">
         <?php
-    $page_type = $_GET['type'];
-    if (basename($_SERVER['PHP_SELF']) === 'user_list.php') {
-      $user_class = new User($_SESSION['user_id']);
-      $current_user = $user_class->get_user();
-    } else {
-      $user_class = new User($_GET['page_id']);
-      $current_user = $user_class->get_user();
-    }
+        $page_type = $_GET['type'];
+        if (basename($_SERVER['PHP_SELF']) === 'user_list.php') {
+            $user_class = new User($_SESSION['user_id']);
+            $current_user = $user_class->get_user();
+        } else {
+            $user_class = new User($_GET['page_id']);
+            $current_user = $user_class->get_user();
+        }
 
-    $users = $user_class->get_users('all', '');
+        $users = $user_class->get_users('all', '');
 
-    $block = pagination_block($users);
-    if (isset($block[0])) :
+        $block = pagination_block($users);
+        if (isset($block[0])) :
 
-      foreach ($block[$_SESSION[$i]] as $user) :
-        if (count(check_matchs($user['id'], $current_user['id'])) == 2) :
-    ?>
+            foreach ($block[$_SESSION[$i]] as $user) :
+                if (count(check_matchs($user['id'], $current_user['id'])) == 2) :
+        ?>
         <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
             class="user_link">
             <div class="user">

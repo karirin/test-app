@@ -360,9 +360,10 @@ nav.navbar.navbar-light.mb-2 {
 
 /* ///////////////////////// */
 
-.profile .comment {
+.profile .comment,
+.profile .comment_narrow {
     white-space: pre-wrap;
-    text-align: center;
+    text-align: left;
 }
 
 .profile .profile_img {
@@ -373,7 +374,8 @@ nav.navbar.navbar-light.mb-2 {
     display: inline-block;
 }
 
-.profile .profile_name {
+.profile .profile_name,
+.profile .profile_name_narrow {
     text-align: center;
 }
 
@@ -494,7 +496,8 @@ img.mypage {
     text-align: left;
 }
 
-.form #skill {
+.form #skill,
+.form #skill_narrow {
     text-align: left;
 }
 
@@ -519,6 +522,7 @@ img.mypage {
 .background {
     vertical-align: top;
     margin-top: 0.5rem;
+    text-align: left;
 }
 
 .workhistory {
@@ -615,7 +619,7 @@ img.mypage {
 
 .user .user_profile {
     display: inline;
-    text-align: center;
+    text-align: left;
     white-space: pre-wrap;
     vertical-align: top;
     display: inline-block;
@@ -1130,6 +1134,10 @@ img.mypage {
 
 /* ///////////////////////// */
 
+.message_process {
+    margin-top: 1rem;
+}
+
 .message_process .message_title {
     text-align: center;
 }
@@ -1422,7 +1430,8 @@ img.my_preview {
     padding: 3px 11px 3px;
 }
 
-.far.fa-times-circle.skill {
+.far.fa-times-circle.skill,
+.far.fa-times-circle.skill_narrow {
     display: inline;
     position: relative;
     padding-left: 6px;
