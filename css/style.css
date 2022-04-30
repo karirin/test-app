@@ -89,7 +89,6 @@ nav.navbar.navbar-light.mb-2 {
 
 .show_menu {
     display: none;
-    color: #fff;
 }
 
 .slide_menu {
@@ -131,8 +130,19 @@ nav.navbar.navbar-light.mb-2 {
     text-align: center;
 }
 
+.slide_menu ul li,
+.slide_menu .modal_close {
+    color: #fff;
+}
+
 .slide_menu ul li:hover {
-    opacity: 0.7;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    color: #000;
+}
+
+.slide_menu .modal_close .fas.fa-angle-left:hover {
+    color: rgb(184, 184, 184);
 }
 
 .margin_top {
@@ -361,7 +371,8 @@ nav.navbar.navbar-light.mb-2 {
 /* ///////////////////////// */
 
 .profile .comment,
-.profile .comment_narrow {
+.profile .comment_narrow,
+.profile .comment_narrower {
     white-space: pre-wrap;
     text-align: left;
 }
@@ -375,7 +386,8 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .profile .profile_name,
-.profile .profile_name_narrow {
+.profile .profile_name_narrow,
+.profile .profile_name_narrower {
     text-align: center;
 }
 
@@ -492,12 +504,15 @@ img.mypage {
     padding-left: 50px;
 }
 
-.form #licence {
+.form #licence,
+.form #licence_narrow,
+.form #licence_narrower {
     text-align: left;
 }
 
 .form #skill,
-.form #skill_narrow {
+.form #skill_narrow,
+.form #skill_narrower {
     text-align: left;
 }
 
@@ -1431,13 +1446,16 @@ img.my_preview {
 }
 
 .far.fa-times-circle.skill,
-.far.fa-times-circle.skill_narrow {
+.far.fa-times-circle.skill_narrow,
+.far.fa-times-circle.skill_narrower {
     display: inline;
     position: relative;
     padding-left: 6px;
 }
 
-.licence_tag {
+.licence_tag,
+.licence_tag_narrow,
+.licence_tag_narrower {
     font-size: 15px;
     padding: 1px;
     border: 1px solid #b2cdde;
@@ -1447,7 +1465,9 @@ img.my_preview {
     padding: 3px 11px 3px;
 }
 
-.far.fa-times-circle.licence {
+.far.fa-times-circle.licence,
+.far.fa-times-circle.licence_narrow,
+.far.fa-times-circle.licence_narrower {
     display: inline;
     position: relative;
     padding-left: 6px;
@@ -1686,8 +1706,26 @@ img.preview {
 }
 
 @media screen and (max-width: 700px) {
+    .tag {
+        padding-left: 50px;
+        vertical-align: top;
+    }
+    .profile_detail img.mypage,
+    .profile .editing_profile_img {
+        width: 15rem;
+        height: 15rem;
+    }
+    .profile.editing .profile_detail {
+        padding-right: 50px;
+    }
     .slide_menu_message {
         display: block;
+    }
+    .myprofile {
+        display: inline-block;
+    }
+    .myprofile_btn {
+        margin-left: 45px;
     }
     .header_menu {
         display: none;
@@ -1696,7 +1734,7 @@ img.preview {
         display: none;
     }
     .narrower_disp {
-        display: block;
+        display: inline-block;
     }
     .prof_page {
         display: block;
@@ -1708,7 +1746,8 @@ img.preview {
         right: 13%;
     }
     .edit_profile_img .fa-image_range {
-        right: 40%;
+        right: 31%;
+        top: 20%;
     }
     .comment_confirmation {
         width: 400px;
@@ -1730,6 +1769,7 @@ img.preview {
     }
     .edit_btn {
         margin-bottom: 1rem;
+        width: 155px;
     }
 }
 

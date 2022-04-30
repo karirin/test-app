@@ -19,8 +19,6 @@
         ?>
         <ul class="main_ul">
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">Pair Code</a></li>
-            <li class="top_link prof_page"><a class="prof_modal" href="#"><img
-                        src="/user/image/<?= $current_user['image'] ?>" class="user_image"></a></li>
             <li class="header_menu_wide"><a href="../user/user_list.php?type=all">userlist</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
                     message<?php
@@ -35,18 +33,18 @@
             <li class="header_menu_wide"><a href="../match/match.php">matching</a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php">logout</a></li>
             <li class="header_menu_wide"><a class="withdraw" href="#">withdrawal</a></li>
-            <li class="show_menu">メニュー
+            <li class="show_menu">menu
                 <div class="slide_menu">
                     <a class="modal_close" href="#">
                         <p><i class="fas fa-angle-left"></i></p>
                     </a>
                     <ul>
                         <a href="../user/user_list.php?type=all">
-                            <li>ユーザー一覧</li>
+                            <li>userlist</li>
                         </a>
                         <a href="../message/message_top.php">
                             <li class="slide_menu_message">
-                                メッセージ<?php
+                                message<?php
                                             $message = new Message();
                                             if (current($user->get_user_count('message_relation')) != 0) {
                                                 if (current($message->message_count(($user->id))) != 0) {
@@ -57,10 +55,10 @@
                             </li>
                         </a>
                         <a href="../user_login/user_logout.php">
-                            <li>ログアウト</li>
+                            <li>logout</li>
                         </a>
                         <a href="/withdraw.php">
-                            <li>退会</li>
+                            <li>withdrawal</li>
                         </a>
                     </ul>
                 </div>
