@@ -1707,16 +1707,26 @@ img.preview {
 
 @media screen and (max-width: 700px) {
     .tag {
-        padding-left: 50px;
         vertical-align: top;
+        padding-left: 50px;
     }
     .profile_detail img.mypage,
+    .profile .edit_profile_img,
     .profile .editing_profile_img {
         width: 15rem;
         height: 15rem;
     }
+    .profile_detail .btn_flex .modal_close {
+        width: 110px;
+    }
+    .profile_detail .profile_detail_user {
+        padding-top: 20px;
+    }
     .profile.editing .profile_detail {
-        padding-right: 50px;
+        padding-right: 25px;
+    }
+    .profile.editing .detail_profile {
+        vertical-align: text-top;
     }
     .slide_menu_message {
         display: block;

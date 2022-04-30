@@ -26,4 +26,18 @@ test_userArray
     [mylicences] => 基本情報技術者 情報セキュリティスペシャリスト 応用情報技術者
     [user_workhistory] => あああaa
 )
-test_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_user16   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7test_usertest_usertest_usertest_usertest_usertest_usertest_user16   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7test_user
+test_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_user16   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7test_usertest_usertest_usertest_usertest_usertest_usertest_user16   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7test_usertest_usertest_usertest_usertest_userArray
+(
+    [user_name] => test_user
+    [user_comment] => aaa
+    [id] => 7
+    [name] => 
+    [skills] => AWS Bootstrap
+    [skill_count] => 
+    [myskills] => AWS Bootstrap
+    [licences] => 情報セキュリティスペシャリスト 応用情報技術者
+    [licence_count] => 
+    [mylicences] => 情報セキュリティスペシャリスト 応用情報技術者
+    [user_workhistory] => あああaa
+)
+test_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_usertest_user16   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7test_usertest_usertest_usertest_user16   7qqq16   715   7qqq15   714   7qqq14   712   7qqq12   7test_user
