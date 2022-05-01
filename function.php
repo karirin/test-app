@@ -189,8 +189,6 @@ function check_unmatch($user_id, $current_user_id)
 {
   try {
     $dbh = db_connect();
-    _debug("qqq");
-    _debug($user_id . "   " . $current_user_id);
     $sql = "SELECT user_id,match_user_id,`unmatch_flg`
         FROM `match`
         WHERE ((user_id = :user_id and match_user_id = :match_user_id) or (user_id = :match_user_id and match_user_id = :user_id)) and unmatch_flg = 1";
