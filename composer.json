@@ -6,6 +6,7 @@
     },
     "require": {
         "cboden/ratchet": "*",
-        "ext-exif": "*"
+        "ext-exif": "*",
+        "ext-mbstring": "*"
     }
 }
