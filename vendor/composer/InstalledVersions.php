@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'e32b6f6a9a045cc23ef6213e74941a948c3854eb',
+    'reference' => 'db17b1f0280cb3b3f996c65c1d864502b1f09ec7',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,16 +44,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'e32b6f6a9a045cc23ef6213e74941a948c3854eb',
+      'reference' => 'db17b1f0280cb3b3f996c65c1d864502b1f09ec7',
     ),
     'cboden/ratchet' => 
     array (
-      'pretty_version' => 'v0.4.3',
-      'version' => '0.4.3.0',
+      'pretty_version' => 'v0.4.4',
+      'version' => '0.4.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '466a0ecc83209c75b76645eb823401b5c52e5f21',
+      'reference' => '5012dc954541b40c5599d286fd40653f5716a38f',
     ),
     'evenement/evenement' => 
     array (
@@ -66,12 +66,28 @@ private static $installed = array (
     ),
     'guzzlehttp/psr7' => 
     array (
-      'pretty_version' => '1.8.2',
-      'version' => '1.8.2.0',
+      'pretty_version' => '2.2.1',
+      'version' => '2.2.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'dc960a912984efb74d0a90222870c72c87f10c91',
+      'reference' => 'c94a94f120803a18554c1805ef2e539f8285f9a2',
+    ),
+    'psr/http-factory' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
+    ),
+    'psr/http-factory-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
     ),
     'psr/http-message' => 
     array (
@@ -100,12 +116,12 @@ private static $installed = array (
     ),
     'ratchet/rfc6455' => 
     array (
-      'pretty_version' => 'v0.3',
-      'version' => '0.3.0.0',
+      'pretty_version' => 'v0.3.1',
+      'version' => '0.3.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c8651c7938651c2d55f5d8c2422ac5e57a183341',
+      'reference' => '7c964514e93456a52a99a20fcfa0de242a43ccdb',
     ),
     'react/cache' => 
     array (
@@ -118,48 +134,48 @@ private static $installed = array (
     ),
     'react/dns' => 
     array (
-      'pretty_version' => 'v1.8.0',
-      'version' => '1.8.0.0',
+      'pretty_version' => 'v1.9.0',
+      'version' => '1.9.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '2a5a74ab751e53863b45fb87e1d3913884f88248',
+      'reference' => '6d38296756fa644e6cb1bfe95eff0f9a4ed6edcb',
     ),
     'react/event-loop' => 
     array (
-      'pretty_version' => 'v1.2.0',
-      'version' => '1.2.0.0',
+      'pretty_version' => 'v1.3.0',
+      'version' => '1.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'be6dee480fc4692cec0504e65eb486e3be1aa6f2',
+      'reference' => '187fb56f46d424afb6ec4ad089269c72eec2e137',
     ),
     'react/promise' => 
     array (
-      'pretty_version' => 'v2.8.0',
-      'version' => '2.8.0.0',
+      'pretty_version' => 'v2.9.0',
+      'version' => '2.9.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f3cff96a19736714524ca0dd1d4130de73dbbbc4',
+      'reference' => '234f8fd1023c9158e2314fa9d7d0e6a83db42910',
     ),
     'react/promise-timer' => 
-    array (
-      'pretty_version' => 'v1.7.0',
-      'version' => '1.7.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '607dd79990e32fcb402cb0a176b4a4be12f97e7c',
-    ),
-    'react/socket' => 
     array (
       'pretty_version' => 'v1.8.0',
       'version' => '1.8.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '92fb72d8e58fff94da84ea86ebda26788ddd672f',
+      'reference' => '0bbbcc79589e5bfdddba68a287f1cb805581a479',
+    ),
+    'react/socket' => 
+    array (
+      'pretty_version' => 'v1.11.0',
+      'version' => '1.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f474156aaab4f09041144fa8b57c7d70aed32a1c',
     ),
     'react/stream' => 
     array (
@@ -172,48 +188,48 @@ private static $installed = array (
     ),
     'symfony/deprecation-contracts' => 
     array (
-      'pretty_version' => 'v2.4.0',
-      'version' => '2.4.0.0',
+      'pretty_version' => 'v2.5.1',
+      'version' => '2.5.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '5f38c8804a9e97d23e0c8d63341088cd8a22d627',
+      'reference' => 'e8b495ea28c1d97b5e0c121748d6f9b53d075c66',
     ),
     'symfony/http-foundation' => 
     array (
-      'pretty_version' => 'v5.3.3',
-      'version' => '5.3.3.0',
+      'pretty_version' => 'v5.4.8',
+      'version' => '5.4.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0e45ab1574caa0460d9190871a8ce47539e40ccf',
+      'reference' => 'ff2818d1c3d49860bcae1f2cbb5eb00fcd3bf9e2',
     ),
     'symfony/polyfill-mbstring' => 
     array (
-      'pretty_version' => 'v1.23.0',
-      'version' => '1.23.0.0',
+      'pretty_version' => 'v1.25.0',
+      'version' => '1.25.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '2df51500adbaebdc4c38dea4c89a2e131c45c8a1',
+      'reference' => '0abb51d2f102e00a4eefcf46ba7fec406d245825',
     ),
     'symfony/polyfill-php80' => 
     array (
-      'pretty_version' => 'v1.23.0',
-      'version' => '1.23.0.0',
+      'pretty_version' => 'v1.25.0',
+      'version' => '1.25.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'eca0bf41ed421bed1b57c4958bab16aa86b757d0',
+      'reference' => '4407588e0d3f1f52efb65fbe92babe41f37fe50c',
     ),
     'symfony/routing' => 
     array (
-      'pretty_version' => 'v5.3.0',
-      'version' => '5.3.0.0',
+      'pretty_version' => 'v5.4.8',
+      'version' => '5.4.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => '368e81376a8e049c37cb80ae87dbfbf411279199',
+      'reference' => 'e07817bb6244ea33ef5ad31abc4a9288bef3f2f7',
     ),
   ),
 );
