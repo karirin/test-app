@@ -36,6 +36,14 @@ class User
           $stmt = $dbh->prepare($sql);
           break;
 
+        case 'match':
+          $sql = "SELECT *
+                FROM user INNER JOIN `match` ON user.id = match.match_user_id
+          WHERE match.user_id = :user_id";
+          $stmt = $dbh->prepare($sql);
+          $stmt->bindValue(':user_id', $this->id);
+          break;
+
         case 'follows':
           $sql = "SELECT *
           FROM user INNER JOIN relation ON user.id = relation.follower_id

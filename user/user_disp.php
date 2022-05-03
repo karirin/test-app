@@ -190,17 +190,6 @@ $follower_count = $user->get_user_count('follower');
         </div>
     </form>
     </div>
-    <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
-    <form action="#" method="post">
-        <input type="hidden" class="current_user_id" value="<?= $_SESSION['user_id'] ?>">
-        <input type="hidden" name="follow_user_id" value="<?= $current_user['id'] ?>">
-        <?php if ($user->check_follow($_SESSION['user_id'], $current_user['id'])) : ?>
-        <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
-        <?php else : ?>
-        <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>
-        <?php endif; ?>
-    </form>
-    <?php endif; ?>
     </div>
     </div>
 
@@ -544,17 +533,6 @@ $follower_count = $user->get_user_count('follower');
             </div>
     </form>
     </div>
-    <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
-    <form action="#" method="post">
-        <input type="hidden" class="current_user_id" value="<?= $_SESSION['user_id'] ?>">
-        <input type="hidden" name="follow_user_id" value="<?= $current_user['id'] ?>">
-        <?php if ($user->check_follow($_SESSION['user_id'], $current_user['id'])) : ?>
-        <button class="follow_btn border_white btn following" type="button" name="follow">フォロー中</button>
-        <?php else : ?>
-        <button class="follow_btn border_white btn" type="button" name="follow">フォロー</button>
-        <?php endif; ?>
-    </form>
-    <?php endif; ?>
     </div>
     </div>
 

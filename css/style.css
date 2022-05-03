@@ -1703,6 +1703,9 @@ img.preview {
     .narrow_disp {
         display: flex;
     }
+    .edit_profile_img .fa-image_range {
+        right: 36%;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -1756,8 +1759,8 @@ img.preview {
         right: 13%;
     }
     .edit_profile_img .fa-image_range {
-        right: 31%;
-        top: 10%;
+        right: 36%;
+        top: 27%;
     }
     .comment_confirmation {
         width: 400px;
@@ -1807,5 +1810,8 @@ img.preview {
     }
     .far.fa-times-circle.reply_comment_clear {
         top: 55%;
+    }
+    .myprofile .profile.editing .profile_detail {
+        margin-top: 40px;
     }
 }

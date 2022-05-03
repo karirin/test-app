@@ -31,13 +31,13 @@ require_once('../config_1.php');
             $current_user = $user_class->get_user();
         }
 
-        $users = $user_class->get_users('all', '');
+        $users = $user_class->get_users('match', '');
 
         $block = pagination_block($users);
+
         if (isset($block[0])) :
 
             foreach ($block[$_SESSION[$i]] as $user) :
-                if (count(check_matchs($user['id'], $current_user['id'])) == 2) :
         ?>
         <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
             class="user_link">
@@ -69,7 +69,6 @@ require_once('../config_1.php');
                     <?php endif; ?>
                 </div>
         </a>
-        <?php endif ?>
         <?php endforeach ?>
         <?php endif ?>
     </div>

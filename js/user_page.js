@@ -299,7 +299,7 @@ $(document).on('click', ".modal_close", function() {
 $(document).on('click', '.edit_btn', function() {
     scroll_position = $(window).scrollTop();
     $('.edit_btn').fadeOut();
-    //$('body').addClass('fixed').css({ 'top': -scroll_position });
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name + '">');
     $('.comment_narrow').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrow);
@@ -1260,7 +1260,8 @@ function inputChange_licence() {
 }
 
 $(document).on('click', '.far.fa-times-circle.licence', function() {
-    var licences = new Array(),
+    var k = 0,
+        licences = new Array(),
         licence = document.getElementById("licence"),
         spans = licence.getElementsByTagName("span"),
         span = $(this).parents(".licence_tag")[0].textContent;
@@ -1280,24 +1281,27 @@ $(document).on('click', '.far.fa-times-circle.licence', function() {
             break;
 
         default:
+    }
 
-            for (i = spans_count; i < spans.length; i++) {
-                licences[k] = spans[i].textContent;
-                k++;
-            }
+    for (i = spans_count; i < spans.length; i++) {
+        licences[k] = spans[i].textContent;
+        k++;
+    }
 
-            $(this).parents(".licence_tag").remove();
+    $(this).parents(".licence_tag").remove();
+    console.log("test");
 
-            licences = licences.join('');
+    licences = licences.join('');
 
-            if (licences.indexOf(span) != -1) {
-                document.getElementById('licence_count').val -= 1;
-            }
+    if (licences.indexOf(span) != -1) {
+        document.getElementById('licence_count').val -= 1;
     }
 });
 
+
 $(document).on('click', '.far.fa-times-circle.licence_narrow', function() {
-    var licences_narrow = new Array(),
+    var k = 0,
+        licences_narrow = new Array(),
         licence_narrow = document.getElementById("licence_narrow"),
         spans_narrow = licence_narrow.getElementsByTagName("span"),
         span_narrow = $(this).parents(".licence_tag_narrow")[0].textContent;
@@ -1317,24 +1321,26 @@ $(document).on('click', '.far.fa-times-circle.licence_narrow', function() {
             break;
 
         default:
+    }
 
-            for (i = spans_count_narrow; i < spans_narrow.length; i++) {
-                licences_narrow[k] = spans_narrow[i].textContent;
-                k++;
-            }
+    for (i = spans_count_narrow; i < spans_narrow.length; i++) {
+        licences_narrow[k] = spans_narrow[i].textContent;
+        k++;
+    }
 
-            $(this).parents(".licence_tag_narrow").remove();
+    $(this).parents(".licence_tag_narrow").remove();
 
-            licences_narrow = licences_narrow.join('');
+    licences_narrow = licences_narrow.join('');
 
-            if (licences_narrow.indexOf(span_narrow) != -1) {
-                document.getElementById('licence_count_narrow').val -= 1;
-            }
+    if (licences_narrow.indexOf(span_narrow) != -1) {
+        document.getElementById('licence_count_narrow').val -= 1;
     }
 });
 
+
 $(document).on('click', '.far.fa-times-circle.licence_narrower', function() {
-    var licences_narrower = new Array(),
+    var k = 0,
+        licences_narrower = new Array(),
         licence_narrower = document.getElementById("licence_narrower"),
         spans_narrower = licence_narrower.getElementsByTagName("span"),
         span_narrower = $(this).parents(".licence_tag_narrower")[0].textContent;
@@ -1359,16 +1365,16 @@ $(document).on('click', '.far.fa-times-circle.licence_narrower', function() {
                 licences_narrower[k] = spans_narrower[i].textContent;
                 k++;
             }
+    }
+    $(this).parents(".licence_tag_narrower").remove();
 
-            $(this).parents(".licence_tag_narrower").remove();
+    licences_narrower = licences_narrower.join('');
 
-            licences_narrower = licences_narrower.join('');
-
-            if (licences_narrower.indexOf(span_narrower) != -1) {
-                document.getElementById('licence_count_narrower').val -= 1;
-            }
+    if (licences_narrower.indexOf(span_narrower) != -1) {
+        document.getElementById('licence_count_narrower').val -= 1;
     }
 });
+
 
 $(document).on('click', '.edit_done', function() {
     var licence = document.getElementById("licence"),

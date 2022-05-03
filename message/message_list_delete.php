@@ -2,14 +2,15 @@
 require_once('../config_2.php');
 $user = new User($_POST['user_id']);
 $user = $user->get_user();
+$message = new Message();
 
 try {
 
   $user_id = $_POST['user_id'];
   $destination_user_id = $_POST['destination_user_id'];
   $dbh = db_connect();
-  if ($user->check_relation_delete_message($user_id, $destination_user_id)) {
-    $sql = 'DELETE FROM message_relation WHERE user_id=? AND destination_user_id=?';
+  if ($message->check_relation_delete_message($user_id, $destination_user_id)) {
+    $sql = 'DELETE FROM message_relation INNER JOIN message ON message.id WHERE user_id=? AND destination_user_id=?';
     $stmt = $dbh->prepare($sql);
     $data[] = $user_id;
     $data[] = $destination_user_id;
