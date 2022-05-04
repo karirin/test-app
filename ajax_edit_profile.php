@@ -15,7 +15,6 @@ if (isset($_POST)) {
   $user_licence = $_POST['licences'];
   $user_workhistory = $_POST['user_workhistory'];
   $user_id = $_POST['id'];
-  _debug($_POST);
 
   if ($name == '') {
     set_flash('danger', '名前が未記入です');

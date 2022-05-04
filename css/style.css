@@ -540,6 +540,11 @@ img.mypage {
     text-align: left;
 }
 
+.background .user_workhistory {
+    white-space: pre-wrap;
+    text-align: left;
+}
+
 .workhistory {
     white-space: break-spaces;
     text-align: left;
