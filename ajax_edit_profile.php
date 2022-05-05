@@ -6,11 +6,12 @@ if (isset($_POST)) {
   $current_user = $user->get_user();
   $name = $_POST['user_name'];
   $comment_data = $_POST['user_comment'];
-  if (empty($_FILES['image_name']['name'])) {
-    $image['name'] = $current_user['image'];
-  } else {
-    $image = $_FILES['image_name'];
-  }
+  $image = base64_encode(file_get_contents($_FILES['image_name']['tmp_name']));
+  // if (empty($_FILES['image_name']['name'])) {
+  //   $image['name'] = $current_user['image'];
+  // } else {
+  //   $image = $_FILES['image_name'];
+  // }
   $user_skill = $_POST['skills'];
   $user_licence = $_POST['licences'];
   $user_workhistory = $_POST['user_workhistory'];
@@ -22,12 +23,12 @@ if (isset($_POST)) {
   }
 
   if (!empty($_FILES['image_name']['name'])) {
-    if ($image['size'] > 0) {
-      if ($image['size'] > 1000000) {
+    if ($_FILES['image_name']['size'] > 0) {
+      if ($_FILES['image_name']['size'] > 1000000) {
         set_flash('danger', '画像が大きすぎます');
         reload();
       } else {
-        move_uploaded_file($image['tmp_name'], 'user/image/' . $image['name']);
+        move_uploaded_file($_FILES['image_name']['tmp_name'], 'user/image/' . $_FILES['image_name']['name']);
       }
     }
   }
@@ -41,7 +42,7 @@ if (isset($_POST)) {
     $stmt->execute(array(
       ':comment_data' => $comment_data,
       ':name' => $name,
-      ':image' => $image['name'],
+      ':image' => $image,
       ':user_id' => $user_id,
       ':skill' => $user_skill,
       ':licence' => $user_licence,
