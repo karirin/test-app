@@ -6,7 +6,7 @@
     $user_name = $_POST['name'];
     $user_pass = $_POST['pass'];
     $user_pass2 = $_POST['pass2'];
-    $user_image = $_FILES['image'];
+    $user_image = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
 
     $user_name = htmlspecialchars($user_name, ENT_QUOTES, 'UTF-8');
     $user_pass = htmlspecialchars($user_pass, ENT_QUOTES, 'UTF-8');
@@ -46,7 +46,7 @@
             <form method="post" action="user_add_done.php">
                 <input type="hidden" name="name" value="<?= $user_name ?>">
                 <input type="hidden" name="pass" value="<?= $user_pass ?>">
-                <input type="hidden" name="image_name" value="<?= $user_image['name'] ?>">
+                <input type="hidden" name="image_name" value="<?= $user_image ?>">
                 <div class="flex_btn">
                     <input type="submit" class="btn btn-outline-dark" value="登録">
                     <input type="button" class="btn btn-outline-info modal_close" onclick="history.back()" value="戻る">

@@ -20,7 +20,6 @@ try {
 
     $user = new User(0);
     $current_user = $user->get_newuser($user_name, $user_pass);
-    file_put_contents('./image/' . $user_image, $_SESSION['image']);
     $message = $user_name . 'さんを新規登録しました';
     set_flash('sucsess', $message);
     $_SESSION['login'] = 1;
