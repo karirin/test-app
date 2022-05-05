@@ -15,7 +15,7 @@ foreach ($users as $user) :
             <i class="far fa-times-circle profile_clear"></i>
             <input type="button" id="profile_clear">
         </label>
-        <img src="data:image/jpeg;base64,<?= $current_user['image']; ?>" class="mypage">
+        <img src="data:image/jpeg;base64,<?= $user['image']; ?>" class="mypage">
         <h3 class="profile_name"><?= $user['name'] ?></h3>
         <p class="comment"><?= $user['profile'] ?></p>
         <div class="matching_btn">
