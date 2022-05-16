@@ -6,12 +6,11 @@ if (isset($_POST)) {
   $current_user = $user->get_user();
   $name = $_POST['user_name'];
   $comment_data = $_POST['user_comment'];
-  $image = base64_encode(file_get_contents($_FILES['image_name']['tmp_name']));
-  // if (empty($_FILES['image_name']['name'])) {
-  //   $image['name'] = $current_user['image'];
-  // } else {
-  //   $image = $_FILES['image_name'];
-  // }
+  if (!empty($_FILES['image_name']['tmp_name'])) {
+    $image = base64_encode(file_get_contents($_FILES['image_name']['tmp_name']));
+  } else {
+    $image = $current_user['image'];
+  }
   $user_skill = $_POST['skills'];
   $user_licence = $_POST['licences'];
   $user_workhistory = $_POST['user_workhistory'];

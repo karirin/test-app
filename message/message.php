@@ -27,17 +27,17 @@ $message->reset_message_count($current_user['id'], $destination_user['id']);
                         </span>
                         <p><?= $message['text'] ?>
                             <?php if (!empty($message['image'])) : ?>
-                            <img src="../message/image/<?= $message['image'] ?>">
+                            <img src="data:image/jpeg;base64,<?= $message['image'] ?>">
                             <?php endif; ?>
-                        </p><img src="../user/image/<?= $current_user['image'] ?>" class="message_user_img">
+                        </p><img src="data:image/jpeg;base64,<?= $current_user['image']; ?>" class="message_user_img">
                     </div>
                     <?php else : ?>
 
-                    <div class="left"><img src="../user/image/<?= $destination_user['image'] ?>"
+                    <div class="left"><img src="data:image/jpeg;base64,<?= $destination_user['image'] ?>"
                             class="message_user_img">
                         <div class="says"><?= $message['text'] ?>
                             <?php if (!empty($message['image'])) : ?>
-                            <img src="../message/image/<?= $message['image'] ?>">
+                            <img src="data:image/jpeg;base64,<?= $message['image'] ?>">
                             <?php endif; ?>
                         </div><span
                             class="message_created_at"><?= convert_to_fuzzy_time($message['created_at']) ?></span>
@@ -64,7 +64,6 @@ $message->reset_message_count($current_user['id'], $destination_user['id']);
                                 </div>
                                 <button class="btn btn-outline-primary" type="submit" name="post" value="post"
                                     id="post">送信</button>
-                                <input type="hidden" name="message_id" value="<?= $message['id'] ?>">
                             </div>
                             <div class="message_image_detail">
                                 <div><img class="my_preview"></div>
@@ -75,8 +74,10 @@ $message->reset_message_count($current_user['id'], $destination_user['id']);
                 </div>
             </div>
         </div>
+    </div>
 </body>
-<?php require_once('../footer.php'); ?>
+<?php
+require('../footer.php'); ?>
 <script>
 $(window).on('load', function() {
     $('html, body').scrollTop($(document).height());

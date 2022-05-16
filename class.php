@@ -39,7 +39,7 @@ class User
         case 'match':
           $sql = "SELECT *
                 FROM user INNER JOIN `match` ON user.id = match.match_user_id
-          WHERE match.user_id = :user_id";
+          WHERE match.user_id = :user_id and match.unmatch_flg = 0";
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':user_id', $this->id);
           break;

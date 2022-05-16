@@ -1181,7 +1181,7 @@ img.mypage {
 }
 
 .message_image_detail .far.fa-times-circle.my_clear {
-    top: 90%;
+    top: 84%;
     right: 41.5%;
     font-size: 2rem;
 }
@@ -1721,6 +1721,9 @@ img.preview {
         top: 9%;
         right: 6%;
     }
+    .message_image_detail .far.fa-times-circle.my_clear {
+        right: 38%;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -1802,6 +1805,9 @@ img.preview {
     .edit_btn {
         margin-bottom: 1rem;
         width: 155px;
+    }
+    .message_image_detail .far.fa-times-circle.my_clear {
+        right: 33%;
     }
 }
 

@@ -14,6 +14,7 @@ foreach ($message_relations as $message_relation) :
         $destination_user = $user->get_user();
     }
     $new_message = $message->get_new_message($current_user['id'], $destination_user['id']);
+    _debug($new_message);
     $new_message_count = $message->new_message_count($current_user['id'], $destination_user['id']);
 
 ?>
@@ -24,11 +25,15 @@ foreach ($message_relations as $message_relation) :
             <a href='message.php?user_id= <?= $destination_user['id'] ?>' id="message_link">
                 <div class="destination_user_list">
                     <div class='col-11 destination_user_info'>
-                        <img src="../user/image/<?= $destination_user['image'] ?>" class="message_user_img">
+                        <img src="data:image/jpeg;base64,<?= $destination_user['image'] ?>" class="message_user_img">
                         <div class="destination_user_info_detail">
                             <div class="destination_user_name"><?= $destination_user['name'] ?></div>
-                            <div class="destination_user_message_info"><span
-                                    class="destination_user_text"><?= $new_message['text'] ?></span>
+                            <div class="destination_user_message_info">
+                                <?php
+                                    if ($message->get_new_message($current_user['id'], $destination_user['id']) != "") :
+                                    ?>
+                                <span class="destination_user_text"><?= $new_message['text'] ?></span>
+                                <?php endif; ?>
                                 <span id="message_count">
                                     <?php
                                         if ($new_message_count['message_count'] != 0) {
@@ -39,8 +44,12 @@ foreach ($message_relations as $message_relation) :
                         </div>
 
                         <div class="col-3">
+                            <?php
+                                if ($message->get_new_message($current_user['id'], $destination_user['id']) != "") :
+                                ?>
                             <span
                                 class="new_message_time"><?= convert_to_fuzzy_time($new_message['created_at']); ?></span>
+                            <?php endif; ?>
                         </div>
                     </div>
             </a>
