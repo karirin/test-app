@@ -7,6 +7,7 @@ require('function.php');
 require('class.php');
 require('head.php');
 require('withdraw.php');
+require('post_process.php');
 
 if (isset($_SESSION['flash'])) {
   $flash_messages = $_SESSION['flash']['message'];
@@ -21,19 +22,17 @@ require('header.php');
 //_debug('', true);
 //_debug($flash_messages);
 global $i;
-if (empty($_POST['block'])) {
-  $_SESSION[$i] = 0;
-}
+$_SESSION['page'] = 0;
 if (isset($_POST['block'])) {
   switch ($_POST['block']) {
     case '«':
-      $_SESSION[$i]--;
+      $_SESSION['page']--;
       break;
     case '»':
-      $_SESSION[$i]++;
+      $_SESSION['page']++;
       break;
     default:
-      $_SESSION[$i] = $_POST['block'] - 1;
+      $_SESSION['page'] = $_POST['block'] - 1;
       break;
   }
 }

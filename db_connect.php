@@ -2,7 +2,7 @@
 function db_connect()
 {
   if ($_SERVER["HTTP_HOST"] == "localhost") {
-    $dsn = 'mysql:dbname=chat;host=localhost;charset=utf8';
+    $dsn = 'mysql:dbname=test;host=localhost;charset=utf8';
     $user = 'root';
     $password = '';
     $dbh = new PDO($dsn, $user, $password);

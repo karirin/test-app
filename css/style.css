@@ -695,7 +695,7 @@ img.mypage {
 
 .post {
     display: block;
-    text-align: center;
+    text-align: left;
 }
 
 .post .post_list {
@@ -704,7 +704,7 @@ img.mypage {
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin: 0.3rem 0;
-    width: 150%;
+    width: 30%;
 }
 
 .post .post_list .post_created_at {

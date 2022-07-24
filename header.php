@@ -30,7 +30,7 @@
                                 }
                                 ?>
                 </a></li>
-            <li class="header_menu_wide"><a href="../match/match.php">matching</a></li>
+            <li class="header_menu_wide post_modal"><a href="#">post</a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php">logout</a></li>
             <li class="header_menu_wide"><a class="withdraw" href="#">withdrawal</a></li>
             <li class="show_menu">menu
