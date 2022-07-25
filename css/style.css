@@ -702,7 +702,6 @@ img.mypage {
     display: inline-block;
     border: 0.1rem solid rgb(163, 163, 163);
     border-radius: 0.5rem;
-    padding: 0.5rem;
     margin: 0.3rem 0;
     width: 30%;
 }
@@ -711,13 +710,13 @@ img.mypage {
     text-align: right;
     margin: 0;
     font-size: 0.8rem;
+    padding: 6px;
 }
 
 .post .post_list .post_img {
-    width: 10rem;
+    width: 100%;
     height: 10rem;
     border: 0.01rem solid rgb(221, 221, 221);
-    border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 1rem;
 }
@@ -821,6 +820,7 @@ img.mypage {
 
 .post .post_user {
     display: inline-block;
+    padding: 6px;
     text-align: left;
     width: 100%;
 }

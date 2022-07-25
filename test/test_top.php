@@ -15,7 +15,7 @@ $i = 0;
         $posts = $post->get_posts('', 'all', 0);
         ?>
         <?php
-        require('../post/post_list.php');
+        require('../test/test_list.php');
         ?>
     </div>
 </div>

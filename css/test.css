@@ -1,0 +1,26 @@
+.test_url {
+    margin-left: 5rem;
+    width: 40%;
+}
+
+ul.test_case {
+    padding: 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+ul.test_case li {
+    color: #404040;
+    border-bottom: solid 2px #dadada;
+    background: whitesmoke;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    padding: 0.5em;
+    list-style-type: none!important;
+    font-weight: bold;
+    width: 80%;
+    display: inline-block;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    text-align: left;
+}

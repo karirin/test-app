@@ -18,6 +18,7 @@ if (isset($block[0])) :
                         <?php print '' . $post_user['name'] . ''; ?>
                     </a></object>
             </div>
+            <img src="/post/image/PNG_transparency_demonstration_1.png" class="post_img">
             <div class="post_text ellipsis" id="post_text"><?php print '' . $post['text'] . ''; ?></div>
             <?php
                     if (!empty($post['image'])) :
