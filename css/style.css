@@ -240,9 +240,9 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .far.fa-times-circle.edit_clear {
-    top: 47%;
-    right: 74%;
-    font-size: 2rem;
+    top: 9%;
+    right: -3%;
+    font-size: 4rem;
 }
 
 .col-10.offset-1 .far.fa-times-circle {
@@ -899,6 +899,7 @@ img.mypage {
 
 .post_image {
     margin-left: 1rem;
+    margin-bottom: 1rem;
     text-align: left;
 }
 

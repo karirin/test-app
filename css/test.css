@@ -3,6 +3,24 @@
     width: 40%;
 }
 
+.test_post_url {
+    width: 60%;
+    margin-top: 2rem;
+}
+
+.test_explanation {
+    margin-bottom: 1rem;
+}
+
+.tag {
+    display: block;
+    padding-left: 0;
+}
+
+.tag .tags {
+    text-align: left;
+}
+
 ul.test_case {
     padding: 0;
     text-align: center;
@@ -22,5 +40,14 @@ ul.test_case li {
     display: inline-block;
     margin-bottom: 1rem;
     border-radius: 5px;
+    text-align: left;
+}
+
+img.edit_preview {
+    display: none;
+    width: 100%;
+}
+
+#skill {
     text-align: left;
 }
