@@ -309,6 +309,29 @@ class Post
   }
 }
 
+class Test
+{
+  public function __construct($test_id)
+  {
+    $this->id = $test_id;
+  }
+  function get_test()
+  {
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT *
+            FROM test
+            WHERE post_id = :id";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':id' => $this->id));
+      return $stmt->fetch();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('投稿取得失敗');
+    }
+  }
+}
+
 class Message
 {
   //　メッセージ数を取得する
@@ -321,7 +344,7 @@ class Message
             WHERE destination_user_id = :user_id";
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(':user_id' => $user_id));
-      return $stmt->fetch();
+      return $stmt->fetchAll();
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
       _debug('メッセージ取得失敗');

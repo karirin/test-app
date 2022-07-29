@@ -3,6 +3,16 @@
     width: 40%;
 }
 
+.testcase_text {
+    width: 50%;
+    text-align: left;
+    display: inline-block;
+}
+
+#test_url {
+    background-color: #fff;
+}
+
 .test_post_url {
     width: 60%;
     margin-top: 2rem;

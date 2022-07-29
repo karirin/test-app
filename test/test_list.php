@@ -9,7 +9,6 @@ if (isset($block[0])) :
 ?>
 <div class="post">
     <a href="../test/test_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
-
         <div class="post_list">
             <div class="post_user">
                 <object><a

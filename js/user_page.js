@@ -35,6 +35,21 @@ function sleep(waitMsec) {
     while (new Date() - startMsec < waitMsec);
 }
 
+// クリック時に
+function copyToClipboard() {
+    // コピー対象をJavaScript上で変数として定義する
+    var copyTarget = document.getElementById("test_url");
+
+    // コピー対象のテキストを選択する
+    copyTarget.select();
+
+    // 選択しているテキストをクリップボードにコピーする
+    document.execCommand("Copy");
+
+    // コピーをお知らせする
+    alert("コピーできました！ : " + copyTarget.value);
+}
+
 //================================
 // 画像処理
 //================================
