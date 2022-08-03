@@ -14,11 +14,10 @@ if (isset($block[0])) :
             <div class="post_user">
                 <object><a
                         href="../user/user_disp.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main">
-                        <img src="/user/image/<?= $post_user['image'] ?>">
+                        <img img src="data:image/jpeg;base64,<?= $post_user['image'] ?>'">
                         <?php print '' . $post_user['name'] . ''; ?>
                     </a></object>
             </div>
-            <img src="/post/image/PNG_transparency_demonstration_1.png" class="post_img">
             <div class="post_text ellipsis" id="post_text"><?php print '' . $post['text'] . ''; ?></div>
             <?php
                     if (!empty($post['image'])) :

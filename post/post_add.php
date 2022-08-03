@@ -15,10 +15,11 @@ $skills_delspace = str_replace("     ", "", $current_user['skill']);
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="text1a">URL</span>
                     </div>
-                    <input type="text" name="text" class="form-control" aria-describedby="text1a">
+                    <input type="text" name="url" class="form-control" aria-describedby="text1a">
                 </div>
                 <div class="test_explanation left">サービスのURLを記載してください</div>
                 <div class="post_image" style="margin: 0;">
+                    <p class="tag_tittle left">画像</p>
                     <label style="margin:0;">
                         <i class="far fa-image"></i>
                         <input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
@@ -28,8 +29,9 @@ $skills_delspace = str_replace("     ", "", $current_user['skill']);
                 </div>
                 <div class="test_explanation left">サービスがイメージできる画像をアップロードしてください</div>
                 <div>
+                    <p class="tag_tittle left">説明</p>
                     <div class="form-group left">
-                        <textarea id="textarea1" class="form-control" placeholder="説明を入力してください"></textarea>
+                        <textarea id="textarea1" class="form-control" name="text" placeholder="説明を入力してください"></textarea>
                     </div>
                 </div>
                 <p class="tag_tittle left">使用技術</p>
@@ -62,8 +64,7 @@ $skills_delspace = str_replace("     ", "", $current_user['skill']);
                 <input type="hidden" name="skill_count" id="skill_count">
                 <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
                 <div class="flex_btn margin_top">
-                    <input class="btn btn-outline-dark" type="submit" value="投稿">
-                    <input class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">
+                    <input class="btn btn-outline-dark" type="submit" value="送信">
                 </div>
             </form>
         </div>

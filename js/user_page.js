@@ -283,10 +283,12 @@ $(document).on('click', ".modal_close", function() {
     window.scrollTo(0, scroll_position);
     $('.modal').fadeOut();
     $('.modal_post').fadeOut();
+    $('.modal_testcase').fadeOut();
     $('.modal_prof').fadeOut();
     $('.modal_withdraw').fadeOut();
     $('.delete_confirmation').fadeOut();
     $('.post_process').fadeOut();
+    $('.testcase_process').fadeOut();
     $('.withdraw_process').fadeOut();
     $('.post_edit').fadeOut();
     $('.comment_confirmation').fadeOut();
@@ -347,6 +349,14 @@ $(document).on('click', '.post_modal', function() {
     $('body').addClass('fixed').css({ 'top': -scroll_position });
     $('.post_process').fadeIn();
     $('.modal_post').fadeIn();
+});
+
+// 投稿モーダル画面出力処理
+$(document).on('click', '.testcase_add', function() {
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    $('.testcase_process').fadeIn();
+    $('.modal_testcase').fadeIn();
 });
 
 $(document).on('click', '.prof_modal', function() {
@@ -1488,3 +1498,29 @@ $('[data-toggle="post"]').tooltip();
 $('[data-toggle="edit"]').tooltip();
 $('[data-toggle="delete"]').tooltip();
 $('[data-toggle="reply"]').tooltip();
+
+window.onload = function() {
+    // テストケースが優先度によって色が変わるようにする
+    for (i = 0; i < $('.priority').length - 1; i++) {
+        console.log($('.priority').length);
+        console.log($('.priority')[i]);
+        switch ($('.priority')[i].textContent) {
+            case "A":
+                // $('.priority')[i].addClass('badge badge-pill badge-primary');
+                $('.priority')[i].setAttribute("class", 'priority badge badge-pill badge-primary');
+                break;
+
+            case "B":
+                //$('.priority')[i].addClass('badge badge-pill badge-danger');
+                $('.priority')[i].setAttribute("class", 'priority badge badge-pill badge-danger');
+                break;
+
+            case "C":
+                //$('.priority')[i].addClass('badge badge-pill badge-info');
+                $('.priority')[i].setAttribute("class", 'priority badge badge-pill badge-info');
+                break;
+
+            default:
+        }
+    }
+}

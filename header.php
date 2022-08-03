@@ -4,7 +4,7 @@
     <div class="modal"></div>
     <?php if (isset($_SESSION['login']) == false) : ?>
     <ul class="main_ul">
-        <li class="top_link"><a href="../user_login/user_top.php">Pair Code</a></li>
+        <li class="top_link"><a href="../user_login/user_top.php">Test App</a></li>
         <li><a href="../user_login/user_login.php">login</a></li>
         <li><a href="../user/user_add.php">sign up</a></li>
         <?php
@@ -18,14 +18,14 @@
         }
         ?>
         <ul class="main_ul">
-            <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">Pair Code</a></li>
+            <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">Test App</a></li>
             <li class="header_menu_wide"><a href="../user/user_list.php?type=all">userlist</a></li>
             <li class="header_menu"><a href="../message/message_top.php">
                     message<?php
                                 $message = new Message();
                                 if (current($user->get_user_count('message_relation')) != 0) {
-                                    if (current($message->message_count(($user->id))) != 0) {
-                                        print '' . current($message->message_count(($user->id))) . '';
+                                    if ($message->message_count($user->id)[0]['SUM(message_count)'] != 0) {
+                                        print '' . $message->message_count($user->id)[0] . '';
                                     }
                                 }
                                 ?>

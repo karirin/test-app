@@ -324,7 +324,7 @@ class Test
             WHERE post_id = :id";
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(':id' => $this->id));
-      return $stmt->fetch();
+      return $stmt->fetchAll();
     } catch (\Exception $e) {
       error_log($e, 3, "../../php/error.log");
       _debug('投稿取得失敗');
@@ -346,7 +346,7 @@ class Message
       $stmt->execute(array(':user_id' => $user_id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "../php/error.log");
       _debug('メッセージ取得失敗');
     }
   }

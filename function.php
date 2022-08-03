@@ -42,19 +42,6 @@ function check_comment($post_id)
   return $favorite;
 }
 
-//　画像のサイズ確認
-function image_check($image)
-{
-  if ($image['size'] > 0) {
-    if ($image['size'] > 1000000) {
-      set_flash('danger', '画像が大きすぎます');
-      reload();
-    } else {
-      move_uploaded_file($image['tmp_name'], './image/' . $image['name']);
-    }
-  }
-}
-
 //  お気に入りの重複を確認する
 function check_favolite_duplicate($user_id, $post_id)
 {
