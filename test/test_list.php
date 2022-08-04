@@ -8,7 +8,7 @@ if (isset($block[0])) :
         $post_user = $user->get_user();
 ?>
 <div class="post">
-    <a href="../test/test_disp.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
+    <a href="../test/test_disp_2.php?post_id=<?= $post['id'] ?>&user_id=<?= $current_user['id'] ?>" class="post_link">
         <div class="post_list">
             <div class="post_user">
                 <object><a

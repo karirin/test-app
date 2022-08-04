@@ -1502,22 +1502,24 @@ $('[data-toggle="reply"]').tooltip();
 window.onload = function() {
     // テストケースが優先度によって色が変わるようにする
     for (i = 0; i < $('.priority').length - 1; i++) {
-        console.log($('.priority').length);
-        console.log($('.priority')[i]);
-        switch ($('.priority')[i].textContent) {
+        console.log($('.priority .priority_input')[i].value);
+        switch ($('.priority .priority_input')[i].value) {
             case "A":
                 // $('.priority')[i].addClass('badge badge-pill badge-primary');
-                $('.priority')[i].setAttribute("class", 'priority badge badge-pill badge-primary');
+                console.log("A");
+                $('.priority')[i].setAttribute("style", 'background-color: #ffcbcb;');
                 break;
 
             case "B":
                 //$('.priority')[i].addClass('badge badge-pill badge-danger');
-                $('.priority')[i].setAttribute("class", 'priority badge badge-pill badge-danger');
+                console.log("B");
+                $('.priority')[i].setAttribute("style", 'background-color: #dce8fe;');
                 break;
 
             case "C":
                 //$('.priority')[i].addClass('badge badge-pill badge-info');
-                $('.priority')[i].setAttribute("class", 'priority badge badge-pill badge-info');
+                console.log("C");
+                $('.priority')[i].setAttribute("style", 'background-color: whitesmoke;');
                 break;
 
             default:

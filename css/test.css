@@ -78,7 +78,7 @@ ul.test_case li {
     padding: 0.5em;
     list-style-type: none!important;
     font-weight: bold;
-    width: 80%;
+    width: 113%;
     display: inline-block;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -107,6 +107,7 @@ ul.test_case li .test_user_info {
 .tast_case_img {
     width: 90%;
     margin-top: 1rem;
+    margin-left: 1.5rem;
 }
 
 .tast_case_text {
