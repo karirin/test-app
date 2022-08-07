@@ -23,3 +23,16 @@
         </div>
     </form>
 </div>
+<div class="testcase_disp">
+    <span class="testcase_text"></span>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="display: inline-block;">
+            <img class="test_user_img" style="vertical-align: sub;">
+            <span class="testcase_name"></span>
+        </div>
+        <div>
+            <span class="testcase_created_at"></span>
+            <button class="btn btn-outline-secondary testcase_clear" type="button">キャンセル</button>
+        </div>
+    </div>
+</div>

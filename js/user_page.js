@@ -286,9 +286,11 @@ $(document).on('click', ".modal_close", function() {
     $('.modal_testcase').fadeOut();
     $('.modal_prof').fadeOut();
     $('.modal_withdraw').fadeOut();
+    $('.modal_help').fadeOut();
     $('.delete_confirmation').fadeOut();
     $('.post_process').fadeOut();
     $('.testcase_process').fadeOut();
+    $('.help_disp').fadeOut();
     $('.withdraw_process').fadeOut();
     $('.post_edit').fadeOut();
     $('.comment_confirmation').fadeOut();
@@ -365,6 +367,20 @@ $(document).on('click', '.prof_modal', function() {
     $('.slide_prof').fadeIn();
     $('.modal_prof').fadeIn();
     $('.slide_prof').addClass('open');
+});
+
+// ヘルプモーダル画面出力処理
+$(document).on('click', '.help_btn', function() {
+    scroll_position = $(window).scrollTop();
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    $('.help_disp').fadeIn();
+    $('.modal_help').fadeIn();
+    $('.far.fa-times-circle.help_clear').fadeIn();
+    $(document).on('click', '.far.fa-times-circle.help_clear', function() {
+        $('.help_disp').fadeOut();
+        $('.modal_help').fadeOut();
+        $('.far.fa-times-circle.help_clear').fadeOut();
+    });
 });
 
 $(document).on('click', '.withdraw', function() {
@@ -1505,24 +1521,38 @@ window.onload = function() {
         console.log($('.priority .priority_input')[i].value);
         switch ($('.priority .priority_input')[i].value) {
             case "A":
-                // $('.priority')[i].addClass('badge badge-pill badge-primary');
-                console.log("A");
-                $('.priority')[i].setAttribute("style", 'background-color: #ffcbcb;');
+                $('.priority')[i].setAttribute("style", 'background-color: #b2cdff;');
                 break;
 
             case "B":
-                //$('.priority')[i].addClass('badge badge-pill badge-danger');
-                console.log("B");
                 $('.priority')[i].setAttribute("style", 'background-color: #dce8fe;');
                 break;
 
             case "C":
-                //$('.priority')[i].addClass('badge badge-pill badge-info');
-                console.log("C");
-                $('.priority')[i].setAttribute("style", 'background-color: whitesmoke;');
                 break;
 
             default:
         }
     }
 }
+
+$(document).on('click', '.priority', function() {
+    var $target_modal = $(this).data("target");
+    $('.testcase_disp').fadeIn();
+    $('.modal_testcase').fadeIn();
+    $('.testcase_clear').fadeIn();
+    $('.testcase_disp .testcase_text').replaceWith('<span class="testcase_text">' + $($target_modal + ' > span')[0].textContent + '</span>');
+    $('.testcase_disp .test_user_img')[0].setAttribute('src', $($target_modal + ' > .test_user_info > span > img')[0].getAttribute('src'));
+    $('.testcase_disp .testcase_created_at').replaceWith('<span class="testcase_created_at">' + $($target_modal + ' > .test_user_info > .created_at')[0].textContent + '</span>');
+    $('.testcase_disp .testcase_name').replaceWith('<span class="testcase_name">' + $($target_modal + ' > .test_user_info > span > .testcase_name')[0].textContent + '</span>');
+    $(document).on('click', '.testcase_clear', function() {
+        $('.testcase_disp').fadeOut();
+        $('.modal_testcase').fadeOut();
+        $('.testcase_clear').fadeOut();
+    });
+    console.log($target_modal);
+    console.log($($target_modal + ' > span')[0].textContent);
+    console.log($($target_modal + ' > .test_user_info > span > img')[0].getAttribute('src'));
+    console.log($($target_modal + ' > .test_user_info > .created_at')[0].textContent);
+    console.log($($target_modal + ' > .test_user_info > span > .testcase_name')[0]);
+});

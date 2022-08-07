@@ -7,6 +7,9 @@
     width: 50%;
     text-align: left;
     display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #test_url {
@@ -31,10 +34,25 @@
     text-align: left;
 }
 
+.help {
+    text-align: left;
+    margin: 0.5rem 0;
+    display: inline-block;
+}
+
+.help .help_btn {
+    font-size: 1.5rem;
+    text-align: left;
+    display: inline-block;
+}
+
+.help .help_btn:hover {
+    opacity: 0.5;
+}
+
 ul.test_case {
     padding: 0;
     text-align: center;
-    margin-top: 3rem;
 }
 
 
@@ -73,9 +91,7 @@ ul.test_case li {
     color: #404040;
     border-bottom: solid 2px #dadada;
     background: whitesmoke;
-    margin-bottom: 5px;
     line-height: 1.5;
-    padding: 0.5em;
     list-style-type: none!important;
     font-weight: bold;
     width: 113%;
@@ -83,11 +99,14 @@ ul.test_case li {
     margin-bottom: 1rem;
     border-radius: 5px;
     text-align: left;
+    padding: 0 1rem;
 }
 
 ul.test_case li .testcase_text {
     width: 85%;
-    display: inline-block
+    display: inline-block;
+    vertical-align: baseline;
+    margin-bottom: 4px;
 }
 
 ul.test_case li .test_user_img {
@@ -102,16 +121,13 @@ ul.test_case li .test_user_info {
     font-size: 1rem;
     text-align: right;
     display: inline-block;
+    vertical-align: initial;
 }
 
 .tast_case_img {
     width: 90%;
     margin-top: 1rem;
     margin-left: 1.5rem;
-}
-
-.tast_case_text {
-    display: inline-block;
 }
 
 img.edit_preview {
@@ -137,10 +153,20 @@ img.edit_preview {
     opacity: 1;
 }
 
-.testcase_process {
+.testcase_process,
+.help_disp,
+.testcase_disp {
     background-color: #f0f7ff;
     color: #000;
     border: 0.1rem solid #212529;
+}
+
+.testcase_disp .test_user_img {
+    border-radius: 10rem;
+    border: solid 0.1rem;
+    margin-right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .testcase_process .test_title {
@@ -157,4 +183,51 @@ img.edit_preview {
 
 .testcase_process .priority {
     width: 28%;
+}
+
+.help_disp .testcase_add {
+    position: unset;
+    border: 1px solid;
+    margin-top: 7px;
+}
+
+.help_disp .testcase_a {
+    display: inline-block;
+    background-color: #b2cdff;
+    border: solid 1px #cbcbcb;
+    width: 5rem;
+    height: 3rem;
+}
+
+.help_disp .testcase_b {
+    display: inline-block;
+    background-color: #dce8fe;
+    border: solid 1px #cbcbcb;
+    width: 5rem;
+    height: 3rem;
+}
+
+.help_disp .testcase_c {
+    display: inline-block;
+    background: whitesmoke;
+    border: solid 1px #cbcbcb;
+    width: 5rem;
+    height: 3rem;
+}
+
+select.priority {
+    background-color: #fff;
+}
+
+.testcase_disp .far.fa-times-circle.testcase_clear {
+    top: -32%;
+    right: -5%;
+    font-size: 4rem;
+    z-index: 20;
+    color: black;
+}
+
+.testcase_disp .testcase_text {
+    width: 100%;
+    white-space: unset;
 }

@@ -245,6 +245,12 @@ nav.navbar.navbar-light.mb-2 {
     font-size: 4rem;
 }
 
+.far.fa-times-circle.help_clear {
+    top: -15%;
+    right: -5%;
+    font-size: 4rem;
+}
+
 .col-10.offset-1 .far.fa-times-circle {
     top: 62%;
     right: 29%;
@@ -1510,7 +1516,8 @@ img.my_preview {
 .modal_prof,
 .modal_withdraw,
 .modal_match,
-.modal_testcase {
+.modal_testcase,
+.modal_help {
     display: none;
     position: fixed;
     top: 0;
@@ -1570,7 +1577,9 @@ img.my_preview {
 .withdraw_process,
 .post_process,
 .testcase_process,
-.match_process {
+.testcase_disp,
+.match_process,
+.help_disp {
     display: none;
     position: fixed;
     z-index: 15;
