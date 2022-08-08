@@ -35,14 +35,14 @@
 }
 
 .help {
-    text-align: left;
+    text-align: right;
     margin: 0.5rem 0;
     display: inline-block;
 }
 
 .help .help_btn {
     font-size: 1.5rem;
-    text-align: left;
+    margin-left: 48rem;
     display: inline-block;
 }
 

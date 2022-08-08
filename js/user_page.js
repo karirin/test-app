@@ -1536,6 +1536,7 @@ window.onload = function() {
     }
 }
 
+// テストケースの詳細画面表示
 $(document).on('click', '.priority', function() {
     var $target_modal = $(this).data("target");
     $('.testcase_disp').fadeIn();
@@ -1550,9 +1551,15 @@ $(document).on('click', '.priority', function() {
         $('.modal_testcase').fadeOut();
         $('.testcase_clear').fadeOut();
     });
-    console.log($target_modal);
-    console.log($($target_modal + ' > span')[0].textContent);
-    console.log($($target_modal + ' > .test_user_info > span > img')[0].getAttribute('src'));
-    console.log($($target_modal + ' > .test_user_info > .created_at')[0].textContent);
-    console.log($($target_modal + ' > .test_user_info > span > .testcase_name')[0]);
+});
+
+// 
+$(document).on('click', '.testcase_btn', function() {
+    console.log($('#priority')[0]);
+    if ($('#priority').val() == '') {
+        //$('#priority')[0].style
+        $('#priority')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.priority_error').fadeIn();
+    }
+    return false;
 });

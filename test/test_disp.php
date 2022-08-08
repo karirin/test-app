@@ -58,14 +58,7 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
         </div>
     </div>
 </div>
-<div class="col-7" style="display: inline-block;margin-top: -2rem;text-align: left;">
-    <div class="form-group" style="display: inline-block;">
-        <select name="order" class="form-control">
-            <option value="">--</option>
-            <option value="updated">更新順</option>
-            <option value="priority">優先度</option>
-        </select>
-    </div>
+<div class="col-7" style="display: inline-block;margin-top: -2rem;text-align: right;">
     <div class="help"><i class="fas fa-question-circle help_btn"></i></div>
     <ul class="test_case">
         <?php foreach ($test as $test_case) :
