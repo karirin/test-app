@@ -1555,11 +1555,37 @@ $(document).on('click', '.priority', function() {
 
 // 
 $(document).on('click', '.testcase_btn', function() {
-    console.log($('#priority')[0]);
-    if ($('#priority').val() == '') {
-        //$('#priority')[0].style
+    if ($('#priority').val() == '' && $('#test_process_counter')[0].value == '') {
+        $('#priority')[0].setAttribute("style", "border-color: #dc3545;");
+        $('#test_process_counter')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.priority_error').fadeIn();
+        $('.testcase_error').fadeIn();
+        return false;
+    } else if ($('#priority').val() == '') {
         $('#priority')[0].setAttribute("style", "border-color: #dc3545;");
         $('.priority_error').fadeIn();
+        return false;
+    } else if ($('#test_process_counter')[0].value == '') {
+        $('#test_process_counter')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.testcase_error').fadeIn();
+        return false;
     }
-    return false;
+});
+
+$(document).ready(function() {
+    $('#priority').change(function() {
+        var str = $(this).val();
+        if (str.search(/[A-C]/g) != -1) {
+            $('#priority')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.priority_error').fadeOut();
+        }
+    });
+
+    $('#test_process_counter').change(function() {
+        var str = $(this).value;
+        if (str != '') {
+            $('#test_process_counter')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.testcase_error').fadeOut();
+        }
+    });
 });

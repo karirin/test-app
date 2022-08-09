@@ -53,6 +53,9 @@
 ul.test_case {
     padding: 0;
     text-align: center;
+    height: 30rem;
+    overflow: scroll;
+    width: 113%;
 }
 
 
@@ -94,7 +97,7 @@ ul.test_case li {
     line-height: 1.5;
     list-style-type: none!important;
     font-weight: bold;
-    width: 113%;
+    width: 98%;
     display: inline-block;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -230,4 +233,18 @@ select.priority {
 .testcase_disp .testcase_text {
     width: 100%;
     white-space: unset;
+}
+
+.test_case {
+    overflow-y: scroll;
+    width: 250px;
+    height: 150px;
+}
+
+.test_case::-webkit-scrollbar {
+    width: 10px;
+}
+
+.test_case::-webkit-scrollbar-thumb {
+    background-color: #40437c;
 }
