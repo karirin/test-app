@@ -8,7 +8,7 @@ $skills = explode(" ", $post['skill']);
 $skills_len = "";
 $skills_delspace = str_replace("     ", "", $post['skill']);
 ?>
-<div class="col-4" style="display: inline-block;vertical-align: top;text-align:left;">
+<div class="col-4 tested_app">
     <?php
     if (!empty($post['image'])) :
         print '<img src="data:image/jpeg;base64,' . $post['image'] . '" class="tast_case_img" >';
@@ -58,7 +58,7 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
         </div>
     </div>
 </div>
-<div class="col-7" style="display: inline-block;margin-top: -2rem;text-align: right;">
+<div class="col-7" style="display: inline-block;margin-top: -2rem;text-align: right;padding-left: 0;">
     <div class="help"><i class="fas fa-question-circle help_btn"></i></div>
     <ul class="test_case">
         <?php foreach ($test as $test_case) :

@@ -34,6 +34,10 @@
 </div>
 <div class="testcase_disp">
     <span class="testcase_text"></span>
+    <div style="height: 27px;">
+        <span class="testcase_error"
+            style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">テストケースを入力してください</span>
+    </div>
     <div style="display: flex;justify-content: space-between;">
         <div style="display: inline-block;">
             <img class="test_user_img" style="vertical-align: sub;">
@@ -41,6 +45,7 @@
         </div>
         <div>
             <span class="testcase_created_at"></span>
+            <input class="testcase_id" type="hidden">
             <button class="btn btn-outline-secondary testcase_clear" type="button">閉じる</button>
         </div>
     </div>

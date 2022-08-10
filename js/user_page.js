@@ -1538,7 +1538,8 @@ window.onload = function() {
 
 // テストケースの詳細画面表示
 $(document).on('click', '.priority', function() {
-    var $target_modal = $(this).data("target");
+    var $target_modal = $(this).data("target"),
+        test_id = $target_modal.substring(10);
     $('.testcase_disp').fadeIn();
     $('.modal_testcase').fadeIn();
     $('.testcase_clear').fadeIn();
@@ -1546,6 +1547,7 @@ $(document).on('click', '.priority', function() {
     $('.testcase_disp .test_user_img')[0].setAttribute('src', $($target_modal + ' > .test_user_info > span > img')[0].getAttribute('src'));
     $('.testcase_disp .testcase_created_at').replaceWith('<span class="testcase_created_at">' + $($target_modal + ' > .test_user_info > .created_at')[0].textContent + '</span>');
     $('.testcase_disp .testcase_name').replaceWith('<span class="testcase_name">' + $($target_modal + ' > .test_user_info > span > .testcase_name')[0].textContent + '</span>');
+    $('.testcase_disp .testcase_id').replaceWith('<input class="testcase_id" type="hidden" value="' + test_id + '">');
     $(document).on('click', '.testcase_clear', function() {
         $('.testcase_disp').fadeOut();
         $('.modal_testcase').fadeOut();
@@ -1587,5 +1589,42 @@ $(document).ready(function() {
             $('#test_process_counter')[0].setAttribute("style", "border-color: #ced4da;");
             $('.testcase_error').fadeOut();
         }
+    });
+
+    // $('.edit_testcase').change(function() {
+    //     var str = $(this).val();
+    //     if (str != '') {
+    //         $('.edit_testcase')[0].setAttribute("style", "border-color: #ced4da;");
+    //         $('.testcase_error').fadeOut();
+    //     }
+    // });
+});
+
+// テストケース入力処理
+$(document).on('click', '.testcase_disp .testcase_text', function() {
+    var $test_id = $('.testcase_disp .testcase_id')[0].value,
+        $test_text = $('.testcase_disp .testcase_text')[0].textContent;
+    $(this).replaceWith('<textarea type="text" name="text" id="edit_testcase_' + $test_id + '" class="edit_testcase" style="width: 100%;">' + $test_text);
+    $('#edit_testcase_' + $test_id).on('mouseout', function(e) {
+        e.stopPropagation();
+        var edit_test_text = $('#edit_testcase_' + $test_id).val();
+        if (edit_test_text == '') {
+            $('#edit_testcase_' + $test_id)[0].setAttribute("style", "border-color: #dc3545;border-style: solid;width: 100%;");
+            $('.testcase_disp .testcase_error').fadeIn();
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '../ajax_edit_test.php',
+            dataType: 'text',
+            data: {
+                test_id: $test_id,
+                test_text: edit_test_text
+            }
+        }).done(function() {
+            $('#edit_testcase_' + $test_id).replaceWith('<span class="testcase_text">' + edit_test_text + '</span>');
+            $('#testcase_' + $test_id + ' .testcase_text').replaceWith('<span class="testcase_text">' + edit_test_text + '</span>');
+            $('.testcase_error').fadeOut();
+        }).fail(function() {});
     });
 });

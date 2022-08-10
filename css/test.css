@@ -1,3 +1,11 @@
+.tested_app {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-left: 0.5rem;
+    padding-right: 0;
+}
+
 .test_url {
     margin-left: 5rem;
     width: 45%;
@@ -170,6 +178,10 @@ img.edit_preview {
     margin-right: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
+}
+
+.testcase_disp .testcase_created_at {
+    margin-right: 0.5rem;
 }
 
 .testcase_process .test_title {

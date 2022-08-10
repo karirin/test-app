@@ -321,7 +321,8 @@ class Test
       $dbh = db_connect();
       $sql = "SELECT *
             FROM test
-            WHERE post_id = :id";
+            WHERE post_id = :id
+            ORDER BY priority";
       $stmt = $dbh->prepare($sql);
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetchAll();
