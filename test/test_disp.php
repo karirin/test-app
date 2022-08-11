@@ -66,7 +66,9 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
             $test_user = $test_user->get_user(); ?>
         <li class="priority" data-target="#testcase_<?= $test_case['id'] ?>" data-toggle="testcase">
             <div id="testcase_<?= $test_case['id'] ?>">
-                <input type="hidden" class="priority_input" value="<?= $test_case['priority'] ?>"><span
+                <input type="hidden" class="priority_input" value="<?= $test_case['priority'] ?>">
+                <input type="hidden" class="priority_user_id" value="<?= $test_case['user_id'] ?>">
+                <input type="hidden" class="user_id" value="<?= $_SESSION['user_id'] ?>"><span
                     class="testcase_text"><?= $test_case['text'] ?></span><span class="test_user_info"
                     style="font-size:1rem;display:inline-block;"><span style="display:block;"><img
                             src="data:image/jpeg;base64,<?= $test_user['image'] ?>" class="test_user_img"><span
