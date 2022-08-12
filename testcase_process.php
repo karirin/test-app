@@ -34,6 +34,12 @@
 </div>
 <div class="testcase_disp">
     <span class="testcase_text"></span>
+    <select id="priority" name="priority" class="form-control">
+        <option value="">--進捗度を選択--</option>
+        <option value="未実施">未実施</option>
+        <option value="作業中">作業中</option>
+        <option value="実装完了">実装完了</option>
+    </select>
     <div style="height: 27px;">
         <span class="testcase_error"
             style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">テストケースを入力してください</span>

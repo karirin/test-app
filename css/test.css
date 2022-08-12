@@ -114,7 +114,7 @@ ul.test_case li {
 }
 
 ul.test_case li .testcase_text {
-    width: 85%;
+    width: 75%;
     display: inline-block;
     vertical-align: baseline;
     margin-bottom: 4px;
@@ -133,6 +133,26 @@ ul.test_case li .test_user_info {
     text-align: right;
     display: inline-block;
     vertical-align: initial;
+}
+
+ul.test_case li .delete_btn {
+    display: none;
+    width: 75px;
+    height: 45px;
+    background-color: #bd2a2a;
+    border-radius: 5px 0 0 5px;
+    margin-left: -16px;
+    text-align: center;
+    vertical-align: top;
+}
+
+ul.test_case li .progress {
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 20px;
+    border: 1px solid;
+    display: inline-block;
+    background-color: unset;
 }
 
 .tast_case_img {
@@ -196,10 +216,6 @@ img.edit_preview {
     color: rgb(26, 126, 1);
 }
 
-.testcase_process .priority {
-    width: 28%;
-}
-
 .help_disp .testcase_add {
     position: unset;
     border: 1px solid;
@@ -244,7 +260,13 @@ select.priority {
 
 .testcase_disp .testcase_text {
     width: 100%;
+    overflow-wrap: break-word;
     white-space: unset;
+}
+
+.testcase_disp #priority {
+    width: 28%;
+    display: none;
 }
 
 .test_case {
