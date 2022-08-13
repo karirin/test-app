@@ -67,8 +67,9 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
         <li class="priority" data-target="#testcase_<?= $test_case['id'] ?>" data-toggle="testcase">
             <div class="delete_btn"><i class="far fa-trash-alt" style="vertical-align: sub;"></i></div>
             <span class="progress"><?= $test_case['progress'] ?></span>
-            <div id="testcase_<?= $test_case['id'] ?>" style="width: 88%;display: inline-block;">
+            <div id="testcase_<?= $test_case['id'] ?>" style="width: 86%;display: inline-block;">
                 <input type="hidden" class="priority_input" value="<?= $test_case['priority'] ?>">
+                <input type="hidden" class="progress_input" value="<?= $test_case['progress'] ?>">
                 <input type="hidden" class="priority_user_id" value="<?= $test_case['user_id'] ?>">
                 <input type="hidden" class="post_user_id" value="<?= $post['user_id'] ?>">
                 <input type="hidden" class="user_id" value="<?= $_SESSION['user_id'] ?>"><span

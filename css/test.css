@@ -265,7 +265,9 @@ select.priority {
 }
 
 .testcase_disp #priority {
-    width: 28%;
+    width: 16%;
+    margin-bottom: 1rem;
+    background-color: unset;
     display: none;
 }
 
