@@ -31,6 +31,7 @@
 
 .test_explanation {
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .tag {
@@ -61,7 +62,7 @@
 ul.test_case {
     padding: 0;
     text-align: center;
-    height: 30rem;
+    height: 27rem;
     overflow: scroll;
     width: 113%;
 }
@@ -172,8 +173,8 @@ img.edit_preview {
 
 .testcase_add {
     position: fixed;
-    right: 75px;
-    bottom: 75px;
+    right: 40px;
+    bottom: 25px;
     transition: 1s;
     font-size: 1.25rem;
     opacity: 0.7;
@@ -216,6 +217,10 @@ img.edit_preview {
     color: rgb(26, 126, 1);
 }
 
+.help_disp {
+    width: 472px;
+}
+
 .help_disp .testcase_add {
     position: unset;
     border: 1px solid;
@@ -244,6 +249,17 @@ img.edit_preview {
     border: solid 1px #cbcbcb;
     width: 5rem;
     height: 3rem;
+}
+
+.help_disp .progress {
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 20px;
+    border: 1px solid;
+    display: inline-block;
+    background-color: unset;
+    margin-right: 1rem;
+    vertical-align: middle;
 }
 
 select.priority {

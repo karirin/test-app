@@ -18,9 +18,11 @@ if (isset($block[0])) :
                     </a></object>
             </div>
             <?php
-                    if (!empty($post['image'])) :
+                    if (!empty($post['image'])) {
                         print '<img src="data:image/jpeg;base64,' . $post['image'] . '" class="post_img" >';
-                    endif;
+                    } else {
+                        print '<img src="../post/image/noimage.jpg" class="post_img" >';
+                    }
                     ?>
             <div class="post_text ellipsis" id="post_text"><?php print '' . $post['text'] . ''; ?></div>
     </a>

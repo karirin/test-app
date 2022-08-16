@@ -8,9 +8,13 @@ try {
 
     $post_text = $_POST['text'];
     $post_url = $_POST['url'];
-    $post_image = base64_encode(file_get_contents($_FILES['image_name']['tmp_name']));
     $skills = $_POST['skills'];
     $user_id = $_SESSION['user_id'];
+    if (!empty($_FILES['image_name']['tmp_name'])) {
+        $post_image = base64_encode(file_get_contents($_FILES['image_name']['tmp_name']));
+    } else {
+        $post_image = '';
+    }
 
 
     if ($post_text == '') {

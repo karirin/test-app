@@ -15,7 +15,7 @@
                 style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">優先度を選択してください</span>
         </div>
         <h6>テストケース</h6>
-        <textarea id="test_process_counter" class="textarea form-control" placeholder="テストケースを入力ください"
+        <textarea id="test_process_counter" class="textarea form-control" placeholder="優先度を選択してください"
             name="text"></textarea>
         <div style="height: 27px;">
             <span class="testcase_error"

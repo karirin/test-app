@@ -8,9 +8,12 @@ require_once('../config_1.php');
         <div class="col-6 offset-3 center">
             <h2>新規登録</h2>
             <form method="post" action="user_add_check.php" enctype="multipart/form-data">
-                <input type="text" name="name" class="user_name_input" placeholder="ユーザー名">
-                <input type="password" name="pass" class="user_pass_input" placeholder="パスワード">
-                <input type="password" name="pass2" class="user_pass_input" placeholder="パスワードを再度入力してください">
+                <div class="user_title">ユーザー名</div>
+                <input type="text" name="name" class="user_name_input form-control">
+                <div class="user_title">パスワード</div>
+                <input type="password" name="pass" class="user_pass_input form-control">
+                <div class="user_title">パスワードを再入力</div>
+                <input type="password" name="pass2" class="user_pass_input form-control">
                 <div class="image_select">プロフィール画像を選んでください。</div>
                 <div class="post_btn margin_top">
                     <label>

@@ -11,14 +11,9 @@ $skills_delspace = str_replace("     ", "", $current_user['skill']);
     <div class="row">
         <div class="col-6 offset-3 center">
             <form method="post" action="post_add_done.php" enctype="multipart/form-data">
-                <div class="input-group test_post_url" style="margin-left:0;">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="text1a">URL</span>
-                    </div>
-                    <input type="text" name="url" class="form-control" aria-describedby="text1a">
-                </div>
-                <div class="test_explanation left">サービスのURLを記載してください</div>
-                <div class="post_image" style="margin: 0;">
+                <p class="tag_tittle left">URL</p>
+                <input type="text" name="url" class="form-control" placeholder="サービスのURLを記載してください">
+                <div class="post_image" style="margin: 1rem 0;">
                     <p class="tag_tittle left">画像</p>
                     <label style="margin:0;">
                         <i class="far fa-image"></i>

@@ -142,6 +142,25 @@ $(document).ready(function() {
     });
 });
 
+// テスト投稿の必須チェック
+$(document).on('click', '.post_process_btn', function() {
+    if ($('.url_form').val() == '' && $('.test_form')[0].value == '') {
+        $('.url_form')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.test_form')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.post_url_error').fadeIn();
+        $('.post_text_error').fadeIn();
+        return false;
+    } else if ($('.url_form').val() == '') {
+        $('.url_form')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.post_url_error').fadeIn();
+        return false;
+    } else if ($('.test_form')[0].value == '') {
+        $('.test_form')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.post_text_error').fadeIn();
+        return false;
+    }
+});
+
 // テストケース入力処理
 $(document).on('click', '.testcase_disp .testcase_text', function() {
     var $test_id = $('.testcase_disp .testcase_id')[0].value,
