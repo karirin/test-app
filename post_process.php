@@ -7,36 +7,26 @@
     $skills_len = "";
     $skills_delspace = str_replace("     ", "", $current_user['skill']);
     ?>
-    <div class="row" style="width: 100%;display: inline-block;">
-        <div class="center">
-            <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
+    <form method="post" action="../post/post_add_done.php" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-6">
                 <p class="tag_tittle left">URL</p>
                 <input type="text" name="url" class="form-control url_form" placeholder="URLを入力してください">
                 <div style="height: 27px;text-align:left;">
                     <span class="post_url_error"
                         style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">URLが入力されていません</span>
                 </div>
-                <div class="post_image" style="margin: 0;">
-                    <p class="tag_tittle left">画像</p>
-                    <label style="margin:0;">
-                        <i class="far fa-image"></i>
-                        <input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
-                    </label>
-                    <div><img class="edit_preview"></div>
-                    <i class="far fa-times-circle edit_clear"></i>
+                <p class="tag_tittle left">説明</p>
+                <div class="form-group left" style="margin-bottom:0;">
+                    <textarea id="textarea1" class="form-control test_form" name="text"
+                        placeholder="説明を入力してください"></textarea>
                 </div>
-                <div class="test_explanation left" style="margin-bottom: 1rem;">サービスがイメージできる画像をアップロードしてください</div>
-                <div>
-                    <p class="tag_tittle left">説明</p>
-                    <div class="form-group left" style="margin-bottom:0;">
-                        <textarea id="textarea1" class="form-control test_form" name="text"
-                            placeholder="説明を入力してください"></textarea>
-                    </div>
-                    <div style="height: 27px;text-align:left;">
-                        <span class="post_text_error"
-                            style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">説明が入力されていません</span>
-                    </div>
+                <div style="height: 27px;text-align:left;">
+                    <span class="post_text_error"
+                        style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">説明が入力されていません</span>
                 </div>
+            </div>
+            <div class="col-6">
                 <p class="tag_tittle left">使用技術</p>
                 <div id="skill">
                     <?php
@@ -66,12 +56,22 @@
                 <input type="hidden" name="skills" id="skills">
                 <input type="hidden" name="skill_count" id="skill_count">
                 <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
-                <div class="post_btn">
-                    <button class="btn btn-outline-secondary post_process_btn" type="submit" name="post" value="post"
-                        id="post">投稿</button>
-                    <button class="btn btn-outline-secondary modal_close" type="button">キャンセル</button>
+                <div class="post_image" style="margin: 0;">
+                    <p class="tag_tittle left">画像</p>
+                    <label style="margin:0;">
+                        <i class="far fa-image"></i>
+                        <input type="file" name="image_name" id="edit_image" accept="image/*" multiple>
+                    </label>
+                    <div style="display: inline-block;"><img class="edit_preview"></div>
+                    <i class="far fa-times-circle edit_clear"></i>
                 </div>
-            </form>
+                <div class="test_explanation">サービスの画像をアップロードしてください</div>
+            </div>
         </div>
-    </div>
+        <div class="post_btn">
+            <button class="btn btn-outline-secondary post_process_btn" type="submit" name="post" value="post"
+                id="post">投稿</button>
+            <button class="btn btn-outline-secondary modal_close" type="button">キャンセル</button>
+        </div>
+    </form>
 </div>

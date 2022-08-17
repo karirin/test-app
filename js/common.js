@@ -76,8 +76,12 @@ $('#edit_image,#edit_image_narrow,#edit_image_narrower').on('change', function(e
     $(".edit_preview").fadeIn();
     reader.onload = function(e) {
         $(".edit_preview").attr('src', e.target.result);
+        $(".far.fa-image").fadeOut();
     }
     reader.readAsDataURL(e.target.files[0]);
+    $('.edit_clear').on('click', function(e) {
+        $(".far.fa-image").fadeIn();
+    });
 });
 
 $('#comment_image,#comment_image_narrow,#comment_image_narrower').on('change', function(e) {
@@ -803,10 +807,10 @@ function inputChange_skill() {
         }
 
         // タグ数が３つ以上または、タグの文字数が９文字以上は改行
-        if ((3 <= spans.length || 9 <= skills.length)) { //|| (3 <= spans_narrow.length || 9 <= skills_narrow.length) || (3 <= spans_narrower.length || 9 <= skills_narrower.length)) {　　
+        if ((3 <= spans.length || 22 <= skills.length)) { //|| (3 <= spans_narrow.length || 9 <= skills_narrow.length) || (3 <= spans_narrower.length || 9 <= skills_narrower.length)) {　　
             i--;
             if (document.getElementById('child-span' + i + '') !== null || document.getElementById('child-span_narrow' + i + '') !== null | document.getElementById('child-span_narrower' + i + '') !== null) {
-                parentDiv.appendChild(div_element, document.getElementById('child-span' + i + ''));
+                parentDiv.insertBefore(div_element, document.getElementById('child-span' + i + ''));
                 // parentDiv_narrow.appendChild(div_element_narrow, document.getElementById('child-span_narrow' + i + ''));
                 // parentDiv_narrower.appendChild(div_element_narrower, document.getElementById('child-span_narrower' + i + ''));
             }
@@ -941,7 +945,7 @@ $(document).on('click', '.far.fa-times-circle.skill', function() {
 //     }
 // });
 
-$(document).on('click', '.edit_done', function() {
+$(document).on('click', '.post_process_btn', function() {
     var skill = document.getElementById("skill"),
         // skill = document.getElementById("skill_narrow"),
         // skill = document.getElementById("skill_narrower"),

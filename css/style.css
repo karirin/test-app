@@ -240,9 +240,10 @@ nav.navbar.navbar-light.mb-2 {
 }
 
 .far.fa-times-circle.edit_clear {
-    top: 9%;
-    right: -3%;
-    font-size: 4rem;
+    font-size: 2rem;
+    vertical-align: top;
+    margin-left: -1rem;
+    margin-top: -1rem;
 }
 
 .far.fa-times-circle.help_clear {
@@ -922,8 +923,8 @@ img.mypage {
 
 .post img.edit_preview {
     display: none;
-    width: 7rem;
-    height: 7rem;
+    width: 10rem;
+    height: 5rem;
     border: solid 0.1rem;
     padding: 0.5rem;
 }
@@ -1603,7 +1604,8 @@ img.my_preview {
     background-color: #f0f7ff;
     color: #000;
     border: 0.1rem solid #212529;
-    top: 15%;
+    top: 20%;
+    width: 800px;
 }
 
 .post_process .post_title {

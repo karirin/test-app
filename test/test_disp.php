@@ -10,9 +10,11 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
 ?>
 <div class="col-4 tested_app">
     <?php
-    if (!empty($post['image'])) :
+    if (!empty($post['image'])) {
         print '<img src="data:image/jpeg;base64,' . $post['image'] . '" class="tast_case_img" >';
-    endif;
+    } else {
+        print '<img src="../post/image/noimage.jpg" class="tast_case_img" style="width: 70%;" >';
+    }
     ?>
 
     <div>

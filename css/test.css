@@ -164,7 +164,8 @@ ul.test_case li .progress {
 
 img.edit_preview {
     display: none;
-    width: 100%;
+    width: 13rem;
+    height: 7rem;
 }
 
 #skill {
