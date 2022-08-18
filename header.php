@@ -23,9 +23,9 @@
             <li class="header_menu"><a href="../message/message_top.php">
                     message<?php
                                 $message = new Message();
-                                if (current($user->get_user_count('message_relation')) != 0) {
+                                if ($user->get_user_count('message_relation')[0] != 0) {
                                     if ($message->message_count($user->id)[0]['SUM(message_count)'] != 0) {
-                                        print '' . $message->message_count($user->id)[0] . '';
+                                        print '' . $message->message_count($user->id)[0]['SUM(message_count)'] . '';
                                     }
                                 }
                                 ?>
@@ -46,9 +46,9 @@
                             <li class="slide_menu_message">
                                 message<?php
                                             $message = new Message();
-                                            if (current($user->get_user_count('message_relation')) != 0) {
-                                                if (current($message->message_count(($user->id))) != 0) {
-                                                    print '' . current($message->message_count(($user->id))) . '';
+                                            if ($user->get_user_count('message_relation')[0] != 0) {
+                                                if ($message->message_count($user->id)[0]['SUM(message_count)'] != 0) {
+                                                    print '' . $message->message_count($user->id)[0]['SUM(message_count)'] . '';
                                                 }
                                             }
                                             ?>

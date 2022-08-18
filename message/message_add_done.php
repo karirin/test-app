@@ -9,12 +9,10 @@ try {
 
     $message_text = $_POST['text'];
     $message_image = "";
-    _debug($_FILES['image']);
     if ($_FILES['image']['tmp_name'] != "") {
         $message_image = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
         image_check($_FILES['image']);
     }
-    _debug($message_image); //空
     $user_id = $_SESSION['user_id'];
     $destination_user_id = $_POST['destination_user_id'];
 

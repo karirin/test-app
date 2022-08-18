@@ -78,7 +78,7 @@ function pagination_block($data)
 {
   global $block;
   $data_count = count($data);
-  $block_count = ceil($data_count / 5);
+  $block_count = ceil($data_count / 3);
   $k = 0;
   for ($i = 0; $i < $block_count; $i++) {
     for ($j = 0; $j < 3; $j++) {

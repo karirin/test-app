@@ -47,9 +47,9 @@ try {
 			$_SESSION['user_id'] = $rec['id'];
 			$_SESSION['user_name'] = $rec['name'];
 			$message = new Message();
-			if (current($message->message_count($_SESSION['user_id'])) != 0) {
-				if (current($user->get_user_count('message_relation', $_SESSION['user_id'])) != 0) {
-					set_flash('sucsess', 'ログインしました		メッセージが' . current($message->message_count($_SESSION['user_id'])) . '件届いています');
+			if ($message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] != 0) {
+				if ($user->get_user_count('message_relation', $_SESSION['user_id'])[0] != 0) {
+					set_flash('sucsess', 'ログインしました		メッセージが' . $message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] . '件届いています');
 				}
 			} else {
 				set_flash('sucsess', 'ログインしました');

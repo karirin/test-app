@@ -14,6 +14,7 @@ $i = 0;
         $post = new Post(0);
         $posts = $post->get_posts('', 'all', 0);
         ?>
+        <h2>自分の投稿</h2>
         <?php
         require('../test/test_list.php');
         ?>
