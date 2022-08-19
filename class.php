@@ -299,6 +299,15 @@ class Post
           $stmt = $dbh->prepare($sql);
           $stmt->bindValue(':input', $query);
           break;
+          //　テストケースを記載した投稿を取得
+        case 'testcase':
+          $sql = "SELECT *
+                FROM post INNER JOIN test ON post.id = test.post_id
+                WHERE test.user_id = :id
+                ORDER BY test.created_at DESC";
+          $stmt = $dbh->prepare($sql);
+          $stmt->bindValue(':id', $user_id);
+          break;
       }
       $stmt->execute();
       return $stmt->fetchAll();

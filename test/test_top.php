@@ -18,6 +18,14 @@ $i = 0;
         <?php
         require('../test/test_list.php');
         ?>
+        <?php
+        $post = new Post(0);
+        $posts = $post->get_posts($current_user['id'], 'testcase', 0);
+        ?>
+        <h2>自分の投稿</h2>
+        <?php
+        require('../test/test_list.php');
+        ?>
     </div>
 </div>
 <?php
