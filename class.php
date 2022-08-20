@@ -301,7 +301,7 @@ class Post
           break;
           //　テストケースを記載した投稿を取得
         case 'testcase':
-          $sql = "SELECT *
+          $sql = "SELECT DISTINCT post.*
                 FROM post INNER JOIN test ON post.id = test.post_id
                 WHERE test.user_id = :id
                 ORDER BY test.created_at DESC";

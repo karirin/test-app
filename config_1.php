@@ -24,6 +24,7 @@ require('header.php');
 //_debug($flash_messages);
 global $i;
 $_SESSION['page'] = 0;
+$_SESSION['page_testcase'] = 0;
 if (isset($_POST['block'])) {
   switch ($_POST['block']) {
     case '«':
@@ -34,6 +35,19 @@ if (isset($_POST['block'])) {
       break;
     default:
       $_SESSION['page'] = $_POST['block'] - 1;
+      break;
+  }
+}
+if (isset($_POST['block_testcase'])) {
+  switch ($_POST['block_testcase']) {
+    case '«':
+      $_SESSION['page_testcase']--;
+      break;
+    case '»':
+      $_SESSION['page_testcase']++;
+      break;
+    default:
+      $_SESSION['page_testcase'] = $_POST['block_testcase'] - 1;
       break;
   }
 }

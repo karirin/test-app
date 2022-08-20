@@ -24,7 +24,7 @@ $i = 0;
         ?>
         <h2>自分の投稿</h2>
         <?php
-        require('../test/test_list.php');
+        require('../test/test_list_testcase.php');
         ?>
     </div>
 </div>
