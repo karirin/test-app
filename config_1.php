@@ -23,8 +23,10 @@ require('header.php');
 //_debug('', true);
 //_debug($flash_messages);
 global $i;
-$_SESSION['page'] = 0;
-$_SESSION['page_testcase'] = 0;
+if (!isset($_SESSION['page']) || !isset($_SESSION['page_testcase'])) {
+  $_SESSION['page'] = 0;
+  $_SESSION['page_testcase'] = 0;
+}
 if (isset($_POST['block'])) {
   switch ($_POST['block']) {
     case '«':

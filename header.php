@@ -24,8 +24,8 @@
                     message<?php
                                 $message = new Message();
                                 if ($user->get_user_count('message_relation')[0] != 0) {
-                                    if ($message->message_count($user->id)[0]['SUM(message_count)'] != 0) {
-                                        print '' . $message->message_count($user->id)[0]['SUM(message_count)'] . '';
+                                    if ($message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] != 0) {
+                                        print '' . $message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] . '';
                                     }
                                 }
                                 ?>
@@ -47,8 +47,8 @@
                                 message<?php
                                             $message = new Message();
                                             if ($user->get_user_count('message_relation')[0] != 0) {
-                                                if ($message->message_count($user->id)[0]['SUM(message_count)'] != 0) {
-                                                    print '' . $message->message_count($user->id)[0]['SUM(message_count)'] . '';
+                                                if ($message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] != 0) {
+                                                    print '' . $message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] . '';
                                                 }
                                             }
                                             ?>

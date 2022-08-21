@@ -3,6 +3,10 @@ $block = array();
 $block = pagination_block($posts);
 
 if (isset($block[0])) :
+    _debug("|||");
+    _debug("page_testcase");
+    _debug($_SESSION['page_testcase']);
+    _debug("|||");
     foreach ($block[$_SESSION['page_testcase']] as $post) :
         $user = new User($post['user_id']);
         $post_user = $user->get_user();
