@@ -24,7 +24,9 @@
         <div class="counter">
             <span class="post_process_count">0</span><span>/300</span>
         </div>
+        <?php if (basename($_SERVER['PHP_SELF']) === 'test_disp.php') : ?>
         <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
+        <?php endif; ?>
         <div class="post_btn">
             <button class="btn btn-outline-secondary testcase_btn" type="submit" name="post" value="post"
                 id="post">送信</button>

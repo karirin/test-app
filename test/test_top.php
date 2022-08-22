@@ -14,6 +14,17 @@ $i = 0;
     <div class="col-3 center">
         <img src="data:image/jpeg;base64,<?= $current_user['image']; ?>" class="mypage">
         <h2><?= $current_user['name']; ?></h2>
+        <input type="hidden" class="current_user_id" value="<?= $_SESSION['user_id'] ?>">
+        <input type="hidden" value="<?= $current_user['id'] ?>">
+        <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
+        <?php if ($user->check_follow($_SESSION['user_id'], $current_user['id'])) : ?>
+        <button class="follow_btn border_white btn following" type="button" name="follow"><i
+                class="fas fa-user-plus"></i><span id="follow_label">フォロー解除</span></button>
+        <?php else : ?>
+        <button class="follow_btn border_white btn" type="button" name="follow"><i class="fas fa-user-plus"></i>
+            <span id="follow_label">フォローする</span></button>
+        <?php endif; ?>
+        <?php endif; ?>
     </div>
     <div class="col-9">
         <?php

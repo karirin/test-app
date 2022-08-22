@@ -197,12 +197,19 @@ $(document).on('click', '.follow_btn', function(e) {
     $.ajax({
         type: 'POST',
         url: '../ajax_follow_process.php',
-        dataType: 'json',
+        dataType: 'text',
         data: {
             current_user_id: current_user_id,
             user_id: user_id
         }
-    }).done(function() {}).fail(function() {});
+    }).done(function() {
+        console.log($this.children().next()[0].textContent);
+        if ($this.children().next()[0].textContent == 'フォロー解除') {
+            $('#follow_label').replaceWith('<span id="follow_label">フォローする</span>');
+        } else {
+            $('#follow_label').replaceWith('<span id="follow_label">フォロー解除</span>');
+        }
+    }).fail(function() {});
 });
 
 // マッチ機能処理

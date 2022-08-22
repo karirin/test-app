@@ -20,10 +20,10 @@ if (isset($_SESSION['login']) == false) :
     <?php else : ?>
 
     <body>
-        <?php require_once("../test/test_top.php"); ?>
+        <?php require("../test/test_top.php"); ?>
         <?php endif; ?>
 
     </body>
-    <?php require_once('../footer.php'); ?>
+    <?php require('../footer.php'); ?>
 
     </html>

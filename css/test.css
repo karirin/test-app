@@ -301,3 +301,7 @@ select.priority {
 .test_case::-webkit-scrollbar-thumb {
     background-color: #40437c;
 }
+
+.btn-twitter-follow {
+    color: #000;
+}
