@@ -91,9 +91,10 @@ $(document).on('dblclick', '.priority', function() {
     if ($current_user_id == $post_user_id) {
         $('.testcase_disp #priority').fadeIn();
     }
-    $('.testcase_disp .test_user_img')[0].setAttribute('src', $($target_modal + ' > .test_user_info > span > img')[0].getAttribute('src'));
+    console.log($($target_modal + ' > .test_user_info > a > span >.test_user_img')[0]);
+    $('.testcase_disp .test_user_img')[0].setAttribute('src', $($target_modal + ' > .test_user_info > a > span >.test_user_img')[0].getAttribute('src'));
     $('.testcase_disp .testcase_created_at').replaceWith('<span class="testcase_created_at">' + $($target_modal + ' > .test_user_info > .created_at')[0].textContent + '</span>');
-    $('.testcase_disp .testcase_name').replaceWith('<span class="testcase_name">' + $($target_modal + ' > .test_user_info > span > .testcase_name')[0].textContent + '</span>');
+    $('.testcase_disp .testcase_name').replaceWith('<span class="testcase_name">' + $($target_modal + ' > .test_user_info > a > span > .testcase_name')[0].textContent + '</span>');
     $('.testcase_disp .testcase_id').replaceWith('<input class="testcase_id" type="hidden" value="' + $test_id + '">');
     // セレクトボックスの初期値を指定
     $("#priority option[value='" + $test_progress + "']").prop('selected', true);

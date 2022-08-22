@@ -18,7 +18,7 @@ $i = 0;
     <div class="col-9">
         <?php
         $post = new Post(0);
-        $posts = $post->get_posts('', 'all', 0);
+        $posts = $post->get_posts($current_user['id'], 'my_post', 0);
         ?>
         <h2><?= $current_user['name'] ?>さんの投稿</h2>
         <?php
