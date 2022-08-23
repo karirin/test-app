@@ -1,5 +1,5 @@
 <?php
-require_once('../config_1.php');
+require_once('../config_2.php');
 
 try {
     $user_name = $_POST['name'];

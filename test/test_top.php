@@ -25,6 +25,19 @@ $i = 0;
             <span id="follow_label">フォローする</span></button>
         <?php endif; ?>
         <?php endif; ?>
+        <div class="row">
+            <div class="col-6">
+                フォロー<span class="follow_count"
+                    style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follow', $current_user['id'])) . ''; ?></span>
+            </div>
+            <div class="col-6">
+                フォロワー<span class="follower_count"
+                    style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follower', $current_user['id'])) . ''; ?></span>
+            </div>
+            <div>
+                <!-- いいね数を表示 -->
+            </div>
+        </div>
     </div>
     <div class="col-9">
         <?php

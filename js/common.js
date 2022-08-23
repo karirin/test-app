@@ -203,11 +203,12 @@ $(document).on('click', '.follow_btn', function(e) {
             user_id: user_id
         }
     }).done(function() {
-        console.log($this.children().next()[0].textContent);
         if ($this.children().next()[0].textContent == 'フォロー解除') {
             $('#follow_label').replaceWith('<span id="follow_label">フォローする</span>');
+            $('.follower_count')[0].textContent--;
         } else {
             $('#follow_label').replaceWith('<span id="follow_label">フォロー解除</span>');
+            $('.follower_count')[0].textContent++;
         }
     }).fail(function() {});
 });

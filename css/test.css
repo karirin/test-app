@@ -115,7 +115,7 @@ ul.test_case li {
 }
 
 ul.test_case li .testcase_text {
-    width: 75%;
+    width: 78%;
     display: inline-block;
     vertical-align: baseline;
     margin-bottom: 4px;
@@ -139,7 +139,7 @@ ul.test_case li .test_user_info {
 ul.test_case li .delete_btn {
     display: none;
     width: 75px;
-    height: 45px;
+    height: 52px;
     background-color: #bd2a2a;
     border-radius: 5px 0 0 5px;
     margin-left: -16px;
@@ -265,6 +265,11 @@ img.edit_preview {
 
 select.priority {
     background-color: #fff;
+}
+
+.priority div {
+    width: 665px;
+    display: inline-block;
 }
 
 .testcase_disp .far.fa-times-circle.testcase_clear {

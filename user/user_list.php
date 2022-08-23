@@ -9,7 +9,7 @@ require_once('../config_1.php');
 <body>
     <?php if (basename($_SERVER['PHP_SELF']) === 'user_list.php') : ?>
     <div class="col-6 offset-3">
-        <h2 class="center margin_top_bottom">マッチユーザー一覧</h2>
+        <h2 class="center margin_top_bottom">ユーザー一覧</h2>
         <form method="post" action="#" class="search_container">
             <div class="input-group mb-2">
                 <input type="text" name="search_input" class="form-control" placeholder="ユーザー検索">

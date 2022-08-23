@@ -37,17 +37,14 @@ $(document).on("mousedown touchstart", '.priority', function() {
         // $($target_modal).prev().animate({ width: 'toggle' }, 'slow');
         // $($target_modal).prev().css('display', 'inline-block');
         // $($target_modal + ' .testcase_text').css('width', '79%');
-
-        if ($($target_modal).prev().css('display') == 'none') {
-            $($target_modal)[0].setAttribute("style", "display:inline-block;width: 88%;");
-            $($target_modal).prev().animate({ width: 'toggle' }, 'slow');
-            $($target_modal).prev().css('display', 'inline-block');
-            $($target_modal + ' .testcase_text').css('width', '79%');
+        if ($($target_modal).prev().prev().css('display') == 'none') {
+            $($target_modal).animate({ width: '595px' }, 'slow');
+            $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
+            $($target_modal).prev().prev().css('display', 'inline-block');
         } else {
-            $($target_modal).prev().animate({ width: 'toggle' }, 'slow');
-            $($target_modal).prev().css('display', 'inline-block');
-            $($target_modal + ' .testcase_text').css('width', '83%');
-            $($target_modal)[0].setAttribute("style", "display:inline-block;width: 100%;");
+            $($target_modal).animate({ width: '665px' }, 'slow');
+            $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
+            $($target_modal).prev().prev().css('display', 'inline-block');
         }
         // if ($($target_modal).prev()[0].style.display == 'inline-block') {
         //     $($target_modal + ' .testcase_text').css('width', '83%');
