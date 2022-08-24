@@ -1,6 +1,5 @@
 window.onload = function() {
     // テストケースが優先度によって色が変わるようにする
-    console.log($('.priority .priority_input')[0].value);
     for (i = 0; i < $('.priority').length; i++) {
         switch ($('.priority .priority_input')[i].value) {
             case "A":
@@ -39,10 +38,13 @@ $(document).on("mousedown touchstart", '.priority', function() {
         // $($target_modal + ' .testcase_text').css('width', '79%');
         if ($($target_modal).prev().prev().css('display') == 'none') {
             $($target_modal).animate({ width: '595px' }, 'slow');
+            $($target_modal + ' .testcase_text').animate({ width: '76%' }, 'slow');
+            $($target_modal).animate({ height: '45px' }, 'slow');
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
         } else {
             $($target_modal).animate({ width: '665px' }, 'slow');
+            $($target_modal + ' .testcase_text').animate({ width: '78%' }, 'slow');
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
         }
@@ -75,7 +77,8 @@ $(document).on('dblclick', '.priority', function() {
         $test_id = $target_modal.substring(10),
         $user_id = $('' + $target_modal + ' .priority_user_id')[0].value,
         $post_user_id = $('' + $target_modal + ' .post_user_id')[0].value,
-        $test_progress = $('#testcase_' + $test_id).prev()[0].textContent,
+        $test_priority = $('#testcase_' + $test_id).prev()[0].textContent,
+        $test_progress = $('#testcase_' + $test_id + ' .priority_input')[0].value,
         $current_user_id = $('' + $target_modal + ' .user_id')[0].value;
     $('.testcase_disp').fadeIn();
     $('.modal_testcase').fadeIn();
@@ -87,14 +90,15 @@ $(document).on('dblclick', '.priority', function() {
     }
     if ($current_user_id == $post_user_id) {
         $('.testcase_disp #priority').fadeIn();
+        $('.testcase_disp #progress').fadeIn();
     }
-    console.log($($target_modal + ' > .test_user_info > a > span >.test_user_img')[0]);
     $('.testcase_disp .test_user_img')[0].setAttribute('src', $($target_modal + ' > .test_user_info > a > span >.test_user_img')[0].getAttribute('src'));
     $('.testcase_disp .testcase_created_at').replaceWith('<span class="testcase_created_at">' + $($target_modal + ' > .test_user_info > .created_at')[0].textContent + '</span>');
     $('.testcase_disp .testcase_name').replaceWith('<span class="testcase_name">' + $($target_modal + ' > .test_user_info > a > span > .testcase_name')[0].textContent + '</span>');
     $('.testcase_disp .testcase_id').replaceWith('<input class="testcase_id" type="hidden" value="' + $test_id + '">');
     // セレクトボックスの初期値を指定
-    $("#priority option[value='" + $test_progress + "']").prop('selected', true);
+    $("#priority option[value='" + $test_priority + "']").prop('selected', true);
+    $("#progress option[value='" + $test_progress + "']").prop('selected', true);
     $(document).on('click', '.testcase_clear', function() {
         $('.testcase_disp').fadeOut();
         $('.modal_testcase').fadeOut();
@@ -226,6 +230,38 @@ $(document).on('change', '.testcase_disp #priority', function() {
 
                 default:
             }
+        }
+    });
+});
+
+// 選択した優先度によってテストケースの色を変更
+$(document).on('change', '.testcase_disp #progress', function() {
+    var $test_val = $('.testcase_disp #progress')[0].value,
+        $test_id = $('.testcase_disp .testcase_id')[0].value,
+        $test_priority = $('#testcase_' + $test_id).parent()[0];
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_edit_test.php',
+        dataType: 'text',
+        data: {
+            test_id: $test_id,
+            test_val: $test_val,
+            progress_flg: 1
+        }
+    }).done(function() {
+        switch ($test_val) {
+            case "A":
+                $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #b2cdff;');
+                break;
+
+            case "B":
+                $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #dce8fe;');
+                break;
+
+            case "C":
+                $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: whitesmoke;');
+                break;
+            default:
         }
     });
 });

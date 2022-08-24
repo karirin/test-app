@@ -138,7 +138,7 @@ ul.test_case li .test_user_info {
 
 ul.test_case li .delete_btn {
     display: none;
-    width: 75px;
+    width: 50px;
     height: 52px;
     background-color: #bd2a2a;
     border-radius: 5px 0 0 5px;
@@ -288,6 +288,13 @@ select.priority {
 
 .testcase_disp #priority {
     width: 16%;
+    margin-bottom: 1rem;
+    background-color: unset;
+    display: none;
+}
+
+.testcase_disp #progress {
+    width: 6%;
     margin-bottom: 1rem;
     background-color: unset;
     display: none;

@@ -37,4 +37,22 @@ if (isset($_POST)) {
             _debug('メモ更新失敗');
         }
     }
+    if ($_POST["progress_flg"]) {
+        $test_id = $_POST["test_id"];
+        $test_val = $_POST["test_val"];
+        try {
+            $dbh = db_connect();
+            $sql = "UPDATE test
+                SET priority = :test_val
+                WHERE id = :test_id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+                ':test_id' => $test_id,
+                ':test_val' => $test_val
+            ));
+        } catch (\Exception $e) {
+            error_log($e, 3, "../../php/error.log");
+            _debug('メモ更新失敗');
+        }
+    }
 }
