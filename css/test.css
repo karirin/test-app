@@ -206,6 +206,10 @@ img.edit_preview {
     margin-right: 0.5rem;
 }
 
+.testcase_disp .comment {
+    display: none;
+}
+
 .testcase_process .test_title {
     text-align: center;
 }
@@ -268,7 +272,7 @@ select.priority {
 }
 
 .priority div {
-    width: 665px;
+    width: 652px;
     display: inline-block;
 }
 
@@ -316,4 +320,9 @@ select.priority {
 
 .btn-twitter-follow {
     color: #000;
+}
+
+.a_follow_count:hover,
+.a_follower_count:hover {
+    opacity: 0.5;
 }

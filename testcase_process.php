@@ -40,6 +40,12 @@
         <span class="testcase_error"
             style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">テストケースを入力してください</span>
     </div>
+    <input type="hidden" class="comment">
+    <div class="input-group mb-2 comment">
+        <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary comment_btn">送信</button>
+        </div>
+    </div>
     <select id="priority" name="priority" class="form-control">
         <option value="未実施">未実施</option>
         <option value="作業中">作業中</option>
@@ -57,6 +63,7 @@
         </div>
         <div>
             <span class="testcase_created_at"></span>
+            <input class="current_user_id" value="<?= $_SESSION['user_id']; ?>" type="hidden">
             <input class="testcase_id" type="hidden">
             <button class="btn btn-outline-secondary testcase_clear" type="button">閉じる</button>
         </div>

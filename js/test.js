@@ -43,7 +43,7 @@ $(document).on("mousedown touchstart", '.priority', function() {
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
         } else {
-            $($target_modal).animate({ width: '665px' }, 'slow');
+            $($target_modal).animate({ width: '652px' }, 'slow');
             $($target_modal + ' .testcase_text').animate({ width: '78%' }, 'slow');
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
@@ -69,6 +69,10 @@ $(document).on("mousedown touchstart", '.priority', function() {
 }).on("mouseup mouseleave touchend", function() {
     //alert("test");
     clearTimeout(timerId);
+});
+
+$(document).on('click', '.comment_btn', function() {
+    $('.comment').fadeIn().css('display', 'flex');
 });
 
 // テストケースの詳細画面表示
@@ -104,6 +108,8 @@ $(document).on('dblclick', '.priority', function() {
         $('.modal_testcase').fadeOut();
         $('.testcase_clear').fadeOut();
     });
+    // $('.testcase_disp .if_comment').replaceWith('<?php if($comments==0) ?>');
+    // $('.testcase_disp .end_comment').replaceWith('<?php endif; ?>');
 });
 
 // テストケースの必須チェック
@@ -263,5 +269,26 @@ $(document).on('change', '.testcase_disp #progress', function() {
                 break;
             default:
         }
+    });
+});
+
+// 選択した進捗度によってテストケースの色を変更
+$(document).on('click', '.comment_btn', function() {
+    var $test_id = $('.testcase_disp .testcase_id')[0].value,
+        $test_comment = $('.testcase_disp .testcase_comment')[0].value,
+        $user_id = $('.testcase_disp .current_user_id')[0].value
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_edit_test.php',
+        dataType: 'text',
+        data: {
+            test_id: $test_id,
+            test_comment: $test_comment,
+            user_id: $user_id,
+            comment_flg: 1
+        }
+    }).done(function() {
+        // 送信後、空に
+        $('.testcase_comment')[0].value = '';
     });
 });

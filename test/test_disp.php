@@ -1,8 +1,8 @@
 <?php
 require_once('../config_1.php');
 $post_class = new Post($_GET['post_id']);
-$test_class = new Test($_GET['post_id']);
 $post = $post_class->get_post();
+$test_class = new Test($_GET['post_id']);
 $test = $test_class->get_test();
 $skills = explode(" ", $post['skill']);
 $skills_len = "";

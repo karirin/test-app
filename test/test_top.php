@@ -27,12 +27,16 @@ $i = 0;
         <?php endif; ?>
         <div class="row">
             <div class="col-6">
-                フォロー<span class="follow_count"
-                    style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follow', $current_user['id'])) . ''; ?></span>
+                <a href="../user/user_list.php?type=follows" style="color: #000;" class="a_follow_count">
+                    フォロー<span class="follow_count"
+                        style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follow', $current_user['id'])) . ''; ?></span>
+                </a>
             </div>
             <div class="col-6">
-                フォロワー<span class="follower_count"
-                    style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follower', $current_user['id'])) . ''; ?></span>
+                <a href="../user/user_list.php?type=followers" style="color: #000;" class="a_follower_count">
+                    フォロワー<span class="follower_count"
+                        style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follower', $current_user['id'])) . ''; ?></span>
+                </a>
             </div>
             <div>
                 <!-- いいね数を表示 -->

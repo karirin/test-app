@@ -318,6 +318,30 @@ class Post
   }
 }
 
+class Comment
+{
+  public function __construct($comment_id)
+  {
+    $this->id = $comment_id;
+  }
+  function get_comments()
+  {
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT *
+            FROM comment";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+      return $stmt->fetchAll();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('投稿取得失敗');
+    }
+  }
+}
+
+
+
 class Test
 {
   public function __construct($test_id)

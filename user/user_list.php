@@ -4,12 +4,25 @@ if (!empty($_POST['search_user'])) {
     header("Location:user_list.php?type=search&query=${hoge}");
 }
 require_once('../config_1.php');
+$page_type = $_GET['type'];
 ?>
 
 <body>
     <?php if (basename($_SERVER['PHP_SELF']) === 'user_list.php') : ?>
     <div class="col-6 offset-3">
-        <h2 class="center margin_top_bottom">ユーザー一覧</h2>
+        <?php
+            switch ($page_type) {
+                case ('all'):
+                    print '<h2 class="center margin_top_bottom">ユーザー一覧</h2>';
+                    break;
+                case ('followers'):
+                    print '<h2 class="center margin_top_bottom">フォロワー一覧</h2>';
+                    break;
+                case ('follows'):
+                    print '<h2 class="center margin_top_bottom">フォロー一覧</h2>';
+                    break;
+            }
+            ?>
         <form method="post" action="#" class="search_container">
             <div class="input-group mb-2">
                 <input type="text" name="search_input" class="form-control" placeholder="ユーザー検索">
@@ -22,7 +35,6 @@ require_once('../config_1.php');
     <?php endif; ?>
     <div class="col-8 offset-2">
         <?php
-        $page_type = $_GET['type'];
         if (basename($_SERVER['PHP_SELF']) === 'user_list.php') {
             $user_class = new User($_SESSION['user_id']);
             $current_user = $user_class->get_user();
@@ -31,8 +43,7 @@ require_once('../config_1.php');
             $current_user = $user_class->get_user();
         }
 
-        $users = $user_class->get_users('all', '');
-
+        $users = $user_class->get_users($page_type, '');
         $block = pagination_block($users);
 
         if (isset($block[0])) :

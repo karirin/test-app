@@ -55,4 +55,28 @@ if (isset($_POST)) {
             _debug('メモ更新失敗');
         }
     }
+    if ($_POST["comment_flg"]) {
+        $test_id = $_POST["test_id"];
+        $test_comment = $_POST["test_comment"];
+        $date = new DateTime();
+        $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
+        $user_id = $_POST["user_id"];
+        // 重複追加防止
+        if ($test_comment != '') {
+            try {
+                $dbh = db_connect();
+                $sql =   $sql = "INSERT INTO comment(text,user_id,created_at,test_id) VALUES(:text,:user_id,:created_at,:test_id)";
+                $stmt = $dbh->prepare($sql);
+                $stmt->execute(array(
+                    ':text' => $test_comment,
+                    ':user_id' => $user_id,
+                    ':created_at' => $date->format('Y-m-d H:i:s'),
+                    ':test_id' => $test_id
+                ));
+            } catch (\Exception $e) {
+                error_log($e, 3, "../php/error.log");
+                _debug('メモ更新失敗');
+            }
+        }
+    }
 }
