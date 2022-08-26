@@ -56,6 +56,7 @@
         <option value="B">B</option>
         <option value="C">C</option>
     </select>
+    <i class="fab fa-tumblr t_btn" style="vertical-align: super;margin-left: 0.9rem;"></i>
     <div style="display: flex;justify-content: space-between;">
         <div style="display: inline-block;">
             <img class="test_user_img" style="vertical-align: sub;">

@@ -79,4 +79,20 @@ if (isset($_POST)) {
             }
         }
     }
+    if ($_POST["t_flg"]) {
+        $test_id = $_POST["test_id"];
+        try {
+            $dbh = db_connect();
+            $sql = "UPDATE test
+                SET rated = 1
+                WHERE id = :test_id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+                ':test_id' => $test_id
+            ));
+        } catch (\Exception $e) {
+            error_log($e, 3, "../../php/error.log");
+            _debug('メモ更新失敗');
+        }
+    }
 }

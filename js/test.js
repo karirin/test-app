@@ -37,13 +37,13 @@ $(document).on("mousedown touchstart", '.priority', function() {
         // $($target_modal).prev().css('display', 'inline-block');
         // $($target_modal + ' .testcase_text').css('width', '79%');
         if ($($target_modal).prev().prev().css('display') == 'none') {
-            $($target_modal).animate({ width: '595px' }, 'slow');
+            $($target_modal).animate({ width: '587px' }, 'slow');
             $($target_modal + ' .testcase_text').animate({ width: '76%' }, 'slow');
             $($target_modal).animate({ height: '45px' }, 'slow');
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
         } else {
-            $($target_modal).animate({ width: '652px' }, 'slow');
+            $($target_modal).animate({ width: '630px' }, 'slow');
             $($target_modal + ' .testcase_text').animate({ width: '78%' }, 'slow');
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
@@ -290,5 +290,20 @@ $(document).on('click', '.comment_btn', function() {
     }).done(function() {
         // 送信後、空に
         $('.testcase_comment')[0].value = '';
+    });
+});
+
+$(document).on('click', '.t_btn', function() {
+    $test_id = $('.testcase_disp .testcase_id')[0].value;
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_edit_test.php',
+        dataType: 'text',
+        data: {
+            test_id: $test_id,
+            t_flg: 1
+        }
+    }).done(function() {
+        $('#testcase_' + $test_id).parent().append('<i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;"></i>');
     });
 });

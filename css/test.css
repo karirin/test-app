@@ -115,7 +115,7 @@ ul.test_case li {
 }
 
 ul.test_case li .testcase_text {
-    width: 78%;
+    width: 77%;
     display: inline-block;
     vertical-align: baseline;
     margin-bottom: 4px;
@@ -272,7 +272,7 @@ select.priority {
 }
 
 .priority div {
-    width: 652px;
+    width: 630px;
     display: inline-block;
 }
 

@@ -83,6 +83,9 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
                                 class="testcase_name"><?= $test_user['name'] ?></span></span></a><span
                         class="created_at"><?= convert_to_fuzzy_time($test_case['created_at']) ?></span></span>
             </div>
+            <?php if ($test_case['rated'] == 1) : ?>
+            <i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;"></i>
+            <?php endif; ?>
         </li>
         <?php endforeach ?>
         <button class="btn btn-outline-secondary testcase_add"><i class="fas fa-plus"></i>　テストケース追加</button>
