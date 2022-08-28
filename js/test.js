@@ -304,6 +304,7 @@ $(document).on('click', '.t_btn', function() {
             t_flg: 1
         }
     }).done(function() {
-        $('#testcase_' + $test_id).parent().append('<i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;"></i>');
+        console.log($('#testcase_' + $test_id).next());
+        $('#testcase_' + $test_id).next().fadeIn(1000);
     });
 });

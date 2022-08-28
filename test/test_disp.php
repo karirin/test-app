@@ -85,6 +85,8 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
             </div>
             <?php if ($test_case['rated'] == 1) : ?>
             <i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;"></i>
+            <?php else : ?>
+            <i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;display: none;"></i>
             <?php endif; ?>
         </li>
         <?php endforeach ?>
