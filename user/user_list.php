@@ -14,12 +14,15 @@ $page_type = $_GET['type'];
             switch ($page_type) {
                 case ('all'):
                     print '<h2 class="center margin_top_bottom">ユーザー一覧</h2>';
+                    $u = $_SESSION['page_userlist'];
                     break;
                 case ('followers'):
                     print '<h2 class="center margin_top_bottom">フォロワー一覧</h2>';
+                    $u = $_SESSION['page_follow'];
                     break;
                 case ('follows'):
                     print '<h2 class="center margin_top_bottom">フォロー一覧</h2>';
+                    $u = $_SESSION['page_follower'];
                     break;
             }
             ?>
@@ -47,8 +50,7 @@ $page_type = $_GET['type'];
         $block = pagination_block($users);
 
         if (isset($block[0])) :
-
-            foreach ($block[$_SESSION['page']] as $user) :
+            foreach ($block[$u] as $user) :
         ?>
         <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
             class="user_link">
@@ -83,6 +85,18 @@ $page_type = $_GET['type'];
         <?php endforeach ?>
         <?php endif ?>
     </div>
-    <?php require('../pagination.php'); ?>
+    <?php
+    switch ($page_type) {
+        case ('all'):
+            require('../pagination_userlist.php');
+            break;
+        case ('followers'):
+            require('../pagination_follower.php');
+            break;
+        case ('follows'):
+            require('../pagination_follow.php');
+            break;
+    }
+    ?>
 </body>
 <?php require_once('../footer.php'); ?>

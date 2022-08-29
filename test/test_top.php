@@ -8,6 +8,8 @@ if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
     $user = new User($_SESSION['user_id']);
     $current_user = $user->get_user();
 }
+$test = new Test(0);
+$get_goodtest_count = $test->get_goodtest_count($current_user['id']);
 $i = 0;
 ?>
 <div class="row">
@@ -38,32 +40,29 @@ $i = 0;
                         style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follower', $current_user['id'])) . ''; ?></span>
                 </a>
             </div>
-            <div>
-                <!-- いいね数を表示 -->
+            <div style="text-align:center;width:100%;margin-top: 1rem;"><i class="fab fa-tumblr"
+                    style="margin-right:1rem;font-size:1.5rem;"></i><i class="fas fa-times"
+                    style="margin-right: 1rem;font-size: 1.3rem;"></i><span
+                    style="font-size: 1.5rem;"><?= $get_goodtest_count[0]['count(*)']; ?></span>
             </div>
         </div>
     </div>
-    <div class="col-9">
+    <div class="col-9" style="text-align: center;">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a href="../user_login/user_top.php?page_type=all"
+                    class="nav-link post_tab all active">すべての投稿</a></li>
+            <li class="nav-item"><a href="../user_login/user_top.php?page_type=my_post"
+                    class="nav-link post_tab my_post">自分の投稿</a></li>
+            <li class="nav-item"><a href="../user_login/user_top.php?page_type=testcase"
+                    class="nav-link post_tab testcase">テストケースを記載した投稿</a></li>
+        </ul>
         <?php
         $post = new Post(0);
-        $posts = $post->get_posts($current_user['id'], 'my_post', 0);
-        ?>
-        <h2><?= $current_user['name'] ?>さんの投稿</h2>
-        <?php
+        $posts = $post->get_posts($current_user['id'], $_GET['page_type'], 0);
         require('../test/test_list.php');
         ?>
-        <?php
-        $post = new Post(0);
-        $posts = $post->get_posts($current_user['id'], 'testcase', 0);
-        if ($current_user['id'] == $_SESSION['user_id']) :
-        ?>
-        <h2>テストケースを記載した投稿</h2>
-        <?php
-            require('../test/test_list_testcase.php');
-            ?>
+
     </div>
-    <?php endif; ?>
-</div>
-<?php
-require('../footer.php');
-?>
+    <?php
+    require('../footer.php');
+    ?>

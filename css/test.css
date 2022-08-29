@@ -326,3 +326,15 @@ select.priority {
 .a_follower_count:hover {
     opacity: 0.5;
 }
+
+.post_title {
+    padding: 0.1em 0.5em;
+    background: -webkit-linear-gradient(to right, rgb(255, 186, 115), transparent);
+    background: linear-gradient(to right, #dce8fe8a, transparent);
+    color: #545454;
+    border-radius: 0.3rem;
+}
+
+.post_tab {
+    font-size: 1.3rem;
+}

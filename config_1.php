@@ -23,10 +23,22 @@ require('header.php');
 //_debug('', true);
 //_debug($flash_messages);
 global $i;
-if (!isset($_SESSION['page']) || !isset($_SESSION['page_testcase'])) {
+if (!isset($_SESSION['page'])) {
   $_SESSION['page'] = 0;
+}
+if (!isset($_SESSION['page_testcase'])) {
   $_SESSION['page_testcase'] = 0;
 }
+if (!isset($_SESSION['page_userlist'])) {
+  $_SESSION['page_userlist'] = 0;
+}
+if (!isset($_SESSION['page_follow'])) {
+  $_SESSION['page_follow'] = 0;
+}
+if (!isset($_SESSION['page_follower'])) {
+  $_SESSION['page_follower'] = 0;
+}
+
 if (isset($_POST['block'])) {
   switch ($_POST['block']) {
     case '«':
@@ -40,6 +52,7 @@ if (isset($_POST['block'])) {
       break;
   }
 }
+
 if (isset($_POST['block_testcase'])) {
   switch ($_POST['block_testcase']) {
     case '«':
@@ -50,6 +63,47 @@ if (isset($_POST['block_testcase'])) {
       break;
     default:
       $_SESSION['page_testcase'] = $_POST['block_testcase'] - 1;
+      break;
+  }
+}
+if (isset($_POST['block_userlist'])) {
+  switch ($_POST['block_userlist']) {
+    case '«':
+      $_SESSION['page_userlist']--;
+      break;
+    case '»':
+      $_SESSION['page_userlist']++;
+      break;
+    default:
+      $_SESSION['page_userlist'] = $_POST['block_userlist'] - 1;
+      break;
+  }
+}
+
+if (isset($_POST['block_follow'])) {
+  switch ($_POST['block_follow']) {
+    case '«':
+      $_SESSION['page_follow']--;
+      break;
+    case '»':
+      $_SESSION['page_follow']++;
+      break;
+    default:
+      $_SESSION['page_follow'] = $_POST['block_follow'] - 1;
+      break;
+  }
+}
+
+if (isset($_POST['block_follower'])) {
+  switch ($_POST['block_follower']) {
+    case '«':
+      $_SESSION['page_follower']--;
+      break;
+    case '»':
+      $_SESSION['page_follower']++;
+      break;
+    default:
+      $_SESSION['page_follower'] = $_POST['block_follower'] - 1;
       break;
   }
 }

@@ -54,7 +54,7 @@ try {
 			} else {
 				set_flash('sucsess', 'ログインしました');
 			}
-			header('Location:user_top.php?page_id=' . $rec['id'] . '&type=main');
+			header('Location:user_top.php?page_id=' . $rec['id'] . '&type=main&page_type=all');
 			exit();
 		}
 	}

@@ -18,21 +18,24 @@
         }
         ?>
         <ul class="main_ul">
-            <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user">Test App</a></li>
-            <li class="header_menu_wide"><a href="../user/user_list.php?type=all">userlist</a></li>
+            <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user&page_type=all">Test
+                    App</a></li>
+            <li class="header_menu_wide"><a href="../user/user_list.php?type=all">ユーザー一覧</a>
+            </li>
             <li class="header_menu"><a href="../message/message_top.php">
-                    message<?php
-                                $message = new Message();
-                                if ($user->get_user_count('message_relation')[0] != 0) {
-                                    if ($message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] != 0) {
-                                        print '' . $message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] . '';
-                                    }
-                                }
-                                ?>
+                    <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>メッセージ<?php
+                                                                                            $message = new Message();
+                                                                                            if ($user->get_user_count('message_relation')[0] != 0) {
+                                                                                                if ($message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] != 0) {
+                                                                                                    print '' . $message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] . '';
+                                                                                                }
+                                                                                            }
+                                                                                            ?>
                 </a></li>
-            <li class="header_menu_wide post_modal"><a href="#">post</a></li>
-            <li class="header_menu_wide"><a href="../user_login/user_logout.php">logout</a></li>
-            <li class="header_menu_wide"><a class="withdraw" href="#">withdrawal</a></li>
+            <li class="header_menu_wide post_modal"><a href="#"><i class="fas fa-edit"
+                        style="margin-right: 0.5rem;"></i>投稿</a></li>
+            <li class="header_menu_wide"><a href="../user_login/user_logout.php"><i class="fas fa-sign-out-alt"
+                        style="margin-right: 0.5rem;"></i>ログアウト</a></li>
             <li class="show_menu">menu
                 <div class="slide_menu">
                     <a class="modal_close" href="#">
@@ -56,9 +59,6 @@
                         </a>
                         <a href="../user_login/user_logout.php">
                             <li>logout</li>
-                        </a>
-                        <a href="/withdraw.php">
-                            <li>withdrawal</li>
                         </a>
                     </ul>
                 </div>

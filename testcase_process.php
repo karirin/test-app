@@ -49,14 +49,14 @@
     <select id="priority" name="priority" class="form-control">
         <option value="未実施">未実施</option>
         <option value="作業中">作業中</option>
-        <option value="実装完了">実装完了</option>
+        <option value="完了">完了</option>
     </select>
     <select id="progress" name="priority" class="form-control">
         <option value="A">A</option>
         <option value="B">B</option>
         <option value="C">C</option>
     </select>
-    <i class="fab fa-tumblr t_btn" style="vertical-align: super;margin-left: 0.9rem;"></i>
+    <i class="fab fa-tumblr t_btn" style="vertical-align: unset;margin-left: 0.9rem;"></i>
     <div style="display: flex;justify-content: space-between;">
         <div style="display: inline-block;">
             <img class="test_user_img" style="vertical-align: sub;">

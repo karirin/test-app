@@ -87,6 +87,10 @@ nav.navbar.navbar-light.mb-2 {
     width: auto;
 }
 
+nav.navbar.navbar-dark {
+    height: 50px;
+}
+
 .show_menu {
     display: none;
 }

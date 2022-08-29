@@ -12,12 +12,30 @@ window.onload = function() {
 
             case "C":
                 break;
-
             default:
         }
-        if ($('.priority .progress_input')[i].value == '実装完了') {
+        if ($('.priority .progress_input')[i].value == '完了') {
             $('.priority')[i].setAttribute("style", 'background-color: #a49e9e;');
         }
+    }
+    console.log(location.search.substring(11));
+    switch (location.search.substring(11)) {
+        case "all":
+            $('.post_tab').removeClass('active');
+            $('.post_tab.all').addClass('active');
+            break;
+
+        case "my_post":
+            $('.post_tab').removeClass('active');
+            $('.post_tab.my_post').addClass('active');
+            break;
+
+        case "testcase":
+            console.log('testqqqq');
+            $('.post_tab').removeClass('active');
+            $('.post_tab.testcase').addClass('active');
+            break;
+        default:
     }
 }
 
@@ -44,7 +62,7 @@ $(document).on("mousedown touchstart", '.priority', function() {
             $($target_modal).prev().prev().css('display', 'inline-block');
         } else {
             $($target_modal).animate({ width: '630px' }, 'slow');
-            $($target_modal + ' .testcase_text').animate({ width: '78%' }, 'slow');
+            $($target_modal + ' .testcase_text').animate({ width: '77%' }, 'slow');
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
         }
@@ -89,8 +107,10 @@ $(document).on('dblclick', '.priority', function() {
     $('.testcase_clear').fadeIn();
     if ($current_user_id == $user_id) {
         $('.testcase_disp .testcase_text').replaceWith('<span class="testcase_text">' + $($target_modal + ' > span')[0].textContent + '</span>');
+        $('.t_btn').fadeOut();
     } else {
         $('.testcase_disp .testcase_text').replaceWith('<span class="testcase_text" style="pointer-events: none">' + $($target_modal + ' > span')[0].textContent + '</span>');
+        $('.t_btn').fadeIn();
     }
     if ($current_user_id == $post_user_id) {
         $('.testcase_disp #priority').fadeIn();
@@ -218,10 +238,10 @@ $(document).on('change', '.testcase_disp #priority', function() {
     }).done(function() {
         $test_progress.replaceWith('<span class="progress">' + $test_val + '</span>');
         // 選択した進捗度によってテストケースの色を変更
-        if ($test_val == '実装完了') {
+        if ($test_val == '完了') {
             $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #a49e9e;');
         } else {
-            switch ($('#testcase_' + $test_id + ' .priority_input')[0].value) {
+            switch ($('.testcase_disp #progress')[0].value) {
                 case "A":
                     $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #b2cdff;');
                     break;
@@ -242,54 +262,37 @@ $(document).on('change', '.testcase_disp #priority', function() {
 
 // 選択した優先度によってテストケースの色を変更
 $(document).on('change', '.testcase_disp #progress', function() {
-    var $test_val = $('.testcase_disp #progress')[0].value,
+    var $test_progres = $('.testcase_disp #progress')[0].value,
         $test_id = $('.testcase_disp .testcase_id')[0].value,
-        $test_priority = $('#testcase_' + $test_id).parent()[0];
+        $test_priority = $('.testcase_disp #priority')[0].value;
     $.ajax({
         type: 'POST',
         url: '../ajax_edit_test.php',
         dataType: 'text',
         data: {
             test_id: $test_id,
-            test_val: $test_val,
+            test_progress: $test_progres,
             progress_flg: 1
         }
     }).done(function() {
-        switch ($test_val) {
-            case "A":
-                $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #b2cdff;');
-                break;
+        if ($test_priority == '完了') {
+            $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #a49e9e;');
+        } else {
+            switch ($test_progres) {
+                case "A":
+                    $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #b2cdff;');
+                    break;
 
-            case "B":
-                $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #dce8fe;');
-                break;
+                case "B":
+                    $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #dce8fe;');
+                    break;
 
-            case "C":
-                $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: whitesmoke;');
-                break;
-            default:
+                case "C":
+                    $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: whitesmoke;');
+                    break;
+                default:
+            }
         }
-    });
-});
-
-// 選択した進捗度によってテストケースの色を変更
-$(document).on('click', '.comment_btn', function() {
-    var $test_id = $('.testcase_disp .testcase_id')[0].value,
-        $test_comment = $('.testcase_disp .testcase_comment')[0].value,
-        $user_id = $('.testcase_disp .current_user_id')[0].value
-    $.ajax({
-        type: 'POST',
-        url: '../ajax_edit_test.php',
-        dataType: 'text',
-        data: {
-            test_id: $test_id,
-            test_comment: $test_comment,
-            user_id: $user_id,
-            comment_flg: 1
-        }
-    }).done(function() {
-        // 送信後、空に
-        $('.testcase_comment')[0].value = '';
     });
 });
 
@@ -305,6 +308,21 @@ $(document).on('click', '.t_btn', function() {
         }
     }).done(function() {
         console.log($('#testcase_' + $test_id).next());
+        $('#testcase_' + $test_id).next().fadeIn(1000);
+    });
+});
+
+$(document).on('click', '.t_btn', function() {
+    $test_id = $('.testcase_disp .testcase_id')[0].value;
+    $.ajax({
+        type: 'POST',
+        url: '../ajax_edit_test.php',
+        dataType: 'text',
+        data: {
+            test_id: $test_id,
+            t_flg: 1
+        }
+    }).done(function() {
         $('#testcase_' + $test_id).next().fadeIn(1000);
     });
 });

@@ -364,6 +364,21 @@ class Test
       _debug('投稿取得失敗');
     }
   }
+  function get_goodtest_count($user_id)
+  {
+    try {
+      $dbh = db_connect();
+      $sql = "SELECT count(*)
+            FROM test
+            WHERE user_id = :user_id and rated = 1";
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute(array(':user_id' => $user_id));
+      return $stmt->fetchAll();
+    } catch (\Exception $e) {
+      error_log($e, 3, "../../php/error.log");
+      _debug('投稿取得失敗');
+    }
+  }
 }
 
 class Message
