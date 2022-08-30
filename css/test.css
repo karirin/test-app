@@ -338,3 +338,15 @@ select.priority {
 .post_tab {
     font-size: 1.3rem;
 }
+
+.follow_btn {
+    width: 9rem;
+}
+
+.users_img {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 10rem;
+    border: solid 0.1rem;
+    margin-right: 0.5rem;
+}

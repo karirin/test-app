@@ -52,7 +52,7 @@ $page_type = $_GET['type'];
         if (isset($block[0])) :
             foreach ($block[$u] as $user) :
         ?>
-        <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main"
+        <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main&page_type=all"
             class="user_link">
             <div class="user">
                 <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>

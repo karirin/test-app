@@ -26,6 +26,9 @@ global $i;
 if (!isset($_SESSION['page'])) {
   $_SESSION['page'] = 0;
 }
+if (!isset($_SESSION['page_mypost'])) {
+  $_SESSION['page_mypost'] = 0;
+}
 if (!isset($_SESSION['page_testcase'])) {
   $_SESSION['page_testcase'] = 0;
 }
@@ -104,6 +107,20 @@ if (isset($_POST['block_follower'])) {
       break;
     default:
       $_SESSION['page_follower'] = $_POST['block_follower'] - 1;
+      break;
+  }
+}
+
+if (isset($_POST['block_mypost'])) {
+  switch ($_POST['block_mypost']) {
+    case '«':
+      $_SESSION['page_mypost']--;
+      break;
+    case '»':
+      $_SESSION['page_mypost']++;
+      break;
+    default:
+      $_SESSION['page_mypost'] = $_POST['block_mypost'] - 1;
       break;
   }
 }

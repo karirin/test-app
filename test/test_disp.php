@@ -77,11 +77,11 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
                 <input type="hidden" class="user_id" value="<?= $_SESSION['user_id'] ?>"><span
                     class="testcase_text"><?= $test_case['text'] ?></span><span class="test_user_info"
                     style="font-size:1rem;display:inline-block;"><a
-                        href="../user/user_disp.php?user_id=<?= $test_case['user_id'] ?>&type=main"><span
-                            style="display:block;"><img src="data:image/jpeg;base64,<?= $test_user['image'] ?>"
-                                class="test_user_img"><span
-                                class="testcase_name"><?= $test_user['name'] ?></span></span></a><span
-                        class="created_at"><?= convert_to_fuzzy_time($test_case['created_at']) ?></span></span>
+                        href="../user_login/user_top.php?page_id=<?= $test_case['user_id'] ?>&type=main&page_type=all""><span
+                            style=" display:block;"><img src="data:image/jpeg;base64,<?= $test_user['image'] ?>"
+                            class="test_user_img"><span
+                            class="testcase_name"><?= $test_user['name'] ?></span></span></a><span
+                    class="created_at"><?= convert_to_fuzzy_time($test_case['created_at']) ?></span></span>
             </div>
             <?php if ($test_case['rated'] == 1) : ?>
             <i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;"></i>

@@ -120,7 +120,7 @@ class User
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "../php/error.log");
       _debug('ユーザー数取得失敗');
     }
   }
