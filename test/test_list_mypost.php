@@ -12,7 +12,7 @@ if (isset($block[0])) :
         <div class="post_list">
             <div class="post_user">
                 <object><a
-                        href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main&page_type=all">
+                        href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $post_user['id'] ?>&type=main&page_type=my_post">
                         <img src="data:image/jpeg;base64,<?= $post_user['image'] ?>">
                         <?php print '' . $post_user['name'] . ''; ?>
                     </a></object>

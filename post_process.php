@@ -29,27 +29,6 @@
             <div class="col-6">
                 <p class="tag_tittle left">使用技術</p>
                 <div id="skill">
-                    <?php
-                    foreach ($skills as $skill) :
-                        if ($current_user['skill'] != '' && $skill != '') : ?>
-                    <span id="child-span" class="skill_tag"><?= $skill ?><label><input type="button"><i
-                                class="far  fa-times-circle skill"></i></label></span>
-                    <?php
-                            if (!isset($skill_tag)) {
-                                $skill_tag = array();
-                            }
-                            array_push($skill_tag, $skill);
-                            $skills_len .= $skill;
-
-                            if (3 <= count($skill_tag) || 9 <= strlen($skills_len)) {
-                                print '<div></div>';
-                                $skill_tag = array();
-                                $skills_len = "";
-                            }
-                        endif;
-
-                    endforeach;
-                    ?>
                     <div><input placeholder="skill Stack" name="name" id="skill_input" />
                     </div>
                 </div>

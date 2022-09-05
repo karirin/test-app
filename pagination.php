@@ -1,7 +1,6 @@
 <?php
 if (isset($block[1])) :
     $block_count = count($block);
-    $block_count = 3;
 ?>
 
 <form method="post" action="#">

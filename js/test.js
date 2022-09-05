@@ -37,6 +37,14 @@ window.onload = function() {
             break;
         default:
     }
+
+    // 余分なタグが無い場合は(+)ボタンを非表示に
+    if ($('.skill_tag.extra')[0] == undefined) {
+        $('.skill_btn')[0].setAttribute('style', 'display:none;');
+    }
+    if ($('.licence_tag.extra')[0] == undefined) {
+        $('.licence_btn')[0].setAttribute('style', 'display:none;');
+    }
 }
 
 /// 長押しを検知する閾値
@@ -325,4 +333,48 @@ $(document).on('click', '.t_btn', function() {
     }).done(function() {
         $('#testcase_' + $test_id).next().fadeIn(1000);
     });
+});
+
+$('.skill_btn').on('click', function() {
+    $('.skill_tag').fadeIn(1000);
+    $('.skill_btn').off('click');
+    $('.skill_btn').attr('class', 'fas fa-minus skill_btn_close');
+    $('.skill_btn_close').on('click', function() {
+        $('.skill_tag.extra').fadeOut(1000);
+        $('.skill_btn_close').off('click');
+        $('.skill_btn_close').attr('class', 'fas fa-plus skill_btn');
+    });
+});
+
+$('.licence_btn').on('click', function() {
+    $('.licence_tag').fadeIn(1000);
+    $('.licence_btn').off('click');
+    $('.licence_btn').attr('class', 'fas fa-minus licence_btn_close');
+    $('.licence_btn_close').on('click', function() {
+        $('.licence_tag.extra').fadeOut(1000);
+        $('.licence_btn_close').off('click');
+        $('.licence_btn_close').attr('class', 'fas fa-plus licence_btn');
+    });
+});
+
+// 編集ボタン押下時の処理
+$(document).on('click', '.edit_btn', function() {
+    scroll_position = $(window).scrollTop();
+    $('.edit_btn').fadeOut();
+    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment);
+    $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name + '">');
+    $('.comment_narrow').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrow);
+    $('.profile_name_narrow').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrow + '">');
+    $('.comment_narrower').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrower);
+    $('.profile_name_narrower').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrower + '">');
+    $('.workhistory').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory);
+    $('.workhistory_narrow').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory_narrow);
+    $('.workhistory_narrower').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory_narrower);
+    $('.mypage').css('display', 'none');
+    $('.edit_profile_img').css('display', 'inline-block');
+    $('.btn_flex').css('display', 'flex');
+    $('.profile').addClass('editing');
+    $('.form').css('display', 'inline-block');
+    $('.tag').fadeOut();
 });

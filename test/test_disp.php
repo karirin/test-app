@@ -19,7 +19,8 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
 
     <div>
         <h6 style="font-weight:bold;">説明</h6>
-        <span class="tast_case_text ellipsis" id="post_text"><?php print '' . $post['text'] . ''; ?></span>
+        <span class="tast_case_text ellipsis" id="post_text"
+            style="margin-bottom: 1rem;"><?php print '' . $post['text'] . ''; ?></span>
         <h6 style="font-weight:bold;">URL</h6>
         <div class="input-group test_url" style="width: 100%;margin-left:0">
             <div class="input-group mb-2">
@@ -31,7 +32,7 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
                 </div>
             </div>
         </div>
-        <div class="tag">
+        <div class="tag" style="margin:0;">
             <div class="tags">
                 <div class="tag_skill">
                     <h6 style="font-weight:bold;">使用技術</h6>
@@ -46,7 +47,7 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
                             array_push($skill_tag, $skill);
                             $skills_len .= $skill;
 
-                            if (10 <= count($skill_tag) || 40 <= strlen($skills_len)) {
+                            if (10 <= count($skill_tag) || 16 <= strlen($skills_len)) {
                                 print '<div></div>';
                                 $skill_tag = array();
                                 $skills_len = "";
@@ -77,11 +78,11 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
                 <input type="hidden" class="user_id" value="<?= $_SESSION['user_id'] ?>"><span
                     class="testcase_text"><?= $test_case['text'] ?></span><span class="test_user_info"
                     style="font-size:1rem;display:inline-block;"><a
-                        href="../user_login/user_top.php?page_id=<?= $test_case['user_id'] ?>&type=main&page_type=all""><span
+                        href="../user_login/user_top.php?page_id=<?= $test_case['user_id'] ?>&type=main&page_type=my_post"><span
                             style=" display:block;"><img src="data:image/jpeg;base64,<?= $test_user['image'] ?>"
-                            class="test_user_img"><span
-                            class="testcase_name"><?= $test_user['name'] ?></span></span></a><span
-                    class="created_at"><?= convert_to_fuzzy_time($test_case['created_at']) ?></span></span>
+                                class="test_user_img"><span
+                                class="testcase_name"><?= $test_user['name'] ?></span></span></a><span
+                        class="created_at"><?= convert_to_fuzzy_time($test_case['created_at']) ?></span></span>
             </div>
             <?php if ($test_case['rated'] == 1) : ?>
             <i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;"></i>
