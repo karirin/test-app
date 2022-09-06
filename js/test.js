@@ -358,10 +358,10 @@ $('.licence_btn').on('click', function() {
 });
 
 // 編集ボタン押下時の処理
-$(document).on('click', '.edit_btn', function() {
+$(document).on('click', '.profile_edit_btn', function() {
     scroll_position = $(window).scrollTop();
-    $('.edit_btn').fadeOut();
-    $('body').addClass('fixed').css({ 'top': -scroll_position });
+    $('.profile_edit_btn').fadeOut();
+    $('.follow_user').fadeOut();
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name + '">');
     $('.comment_narrow').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrow);
@@ -377,4 +377,14 @@ $(document).on('click', '.edit_btn', function() {
     $('.profile').addClass('editing');
     $('.form').css('display', 'inline-block');
     $('.tag').fadeOut();
+    $('.col-3').css('margin-top', '-2rem');
+    $('.edit_btns').fadeIn();
+});
+
+// モーダル画面キャンセルボタン押下時の処理
+$(document).on('click', ".modal_close", function() {
+    $('.profile_edit_btn').fadeIn();
+    $('.follow_user').fadeIn();
+    $('.edit_btns').fadeOut();
+    $('.col-3').css('margin-top', '0rem');
 });

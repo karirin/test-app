@@ -354,3 +354,12 @@ select.priority {
 .skill_space {
     display: none;
 }
+
+.edit_profile_img .editing_profile_img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 10rem;
+    border: solid 0.3rem;
+    margin-right: 0.5rem;
+    opacity: 0.6;
+}

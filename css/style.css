@@ -440,8 +440,8 @@ nav.navbar.navbar-dark {
 }
 
 .edit_profile_img {
-    width: 12rem;
-    height: 12rem;
+    width: 8rem;
+    height: 8rem;
     display: none;
 }
 
@@ -471,7 +471,7 @@ nav.navbar.navbar-dark {
     width: 3rem;
     height: 3rem;
     top: 29%;
-    right: 22%;
+    right: 26%;
     border-radius: 1rem;
 }
 
@@ -521,7 +521,7 @@ img.mypage {
     display: inline-block;
     vertical-align: top;
     display: none;
-    padding-left: 50px;
+    margin-left: 1.5rem;
 }
 
 .form #licence,
@@ -1679,6 +1679,11 @@ img.my_preview {
 
 .editing .edit_name {
     margin-bottom: 1rem;
+}
+
+.edit_name {
+    margin-top: -1.3rem;
+    width: 118%;
 }
 
 img.preview {

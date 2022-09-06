@@ -48,8 +48,9 @@ $followers_count = 0;
                         <span id="follow_label">フォローする</span></button>
                     <?php endif; ?>
                     <?php endif; ?>
+
                 </div>
-                <div class="col-6" style="text-align: right;">
+                <div class="col-6 follow_user" style="text-align: right;">
                     <div style='display:inline-block;margin-right: 1rem;width: 8rem;'>
                         <a href="../user/user_list.php?type=follows" style="color: #000;" class="a_follow_count">
                             <div style="text-align: left;margin-left: 1rem;">
@@ -88,6 +89,12 @@ $followers_count = 0;
                             style="font-size: 1.5rem;"><?= $get_goodtest_count[0]['count(*)']; ?></span>
                     </div>
                 </div>
+                <div class="col-6 edit_btns"
+                    style="display:none;padding-top: 6rem;padding-right:0;padding-left: 0.5rem;padding-left: 2rem;">
+                    <input type="submit" class="btn btn-outline-dark edit_done" style="width: 100%;margin-bottom:1rem;"
+                        value="編集完了">
+                    <button class="btn btn-outline-info modal_close" type="button" style="width: 100%;">キャンセル</button>
+                </div>
             </div>
             <?php
             $skills = explode(" ", $current_user['skill']);
@@ -105,8 +112,8 @@ $followers_count = 0;
                         <p class="tag_tittle">スキル</p>
                         <?php
                         foreach ($skills as $skill) :
-                            if ($current_user['skill'] != '' && $skill != '') : ?>
-                        <?php
+                            if ($current_user['skill'] != '' && $skill != '') :
+
                                 array_push($skill_tag, $skill);
                                 $skills_len .= $skill;
                                 if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
@@ -124,6 +131,7 @@ $followers_count = 0;
                         <?php
                         foreach ($licences as $licence) :
                             if ($current_user['licence'] != '' && $licence != '') :
+
                                 array_push($licence_tag, $licence);
                                 $licences_len .= $licence;
                                 if (2 <= count($licence_tag) || 9 <= mb_strlen($licences_len)) {
@@ -142,105 +150,114 @@ $followers_count = 0;
                     <p class="tag_tittle">職歴</p>
                     <p class="user_workhistory"><?= $current_user['workhistory'] ?></p>
                 </div>
-                <div class="form">
-                    <div id="skill">
-                        <p class="tag_tittle">スキル</p>
-                        <?php
-                        foreach ($skills as $skill) :
-                            if ($current_user['skill'] != '' && $skill != '') : ?>
-                        <span id="child-span" class="skill_tag"><?= $skill ?><label><input type="button"><i
-                                    class="far  fa-times-circle skill"></i></label></span>
-                        <?php
-                                if (!isset($skill_tag)) {
-                                    $skill_tag = array();
-                                }
-                                array_push($skill_tag, $skill);
-                                $skills_len .= $skill;
+            </div>
+            <div class="myprofile_btn">
+                <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
+                <button class="btn btn btn-outline-dark profile_edit_btn" type="button" name="follow">プロフィール編集</button>
+                <?php endif; ?>
+            </div>
+            <div class="form">
+                <div id="skill">
+                    <p class="tag_tittle">スキル</p>
+                    <?php
+                    $skills = explode(" ", $current_user['skill']);
+                    $skills_len = "";
+                    $skill_tag = array();
+                    foreach ($skills as $skill) :
+                        if ($current_user['skill'] != '' && $skill != '') :
 
-                                if (3 <= count($skill_tag) || 9 <= strlen($skills_len)) {
-                                    print '<div></div>';
-                                    $skill_tag = array();
-                                    $skills_len = "";
-                                }
-                            endif;
+                            array_push($skill_tag, $skill);
+                            $skills_len .= $skill;
+                            if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
+                                print '<span id="child-span" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
+                                class="far  fa-times-circle skill"></i></label></span> ';
+                            } else {
+                                print '<span id="child-span" class="skill_tag">' . $skill . '<label><input type="button"><i
+                                class="far  fa-times-circle skill"></i></label></span> ';
+                            }
+                        endif;
 
-                        endforeach;
-                        ?>
-                    </div>
+                    endforeach;
+                    ?>
+                    <i class="fas fa-plus skill_btn"></i>
+                </div>
 
-                    <input placeholder="skill Stack" name="name" id="skill_input" />
-                    <input type="hidden" name="skills" id="skills">
-                    <input type="hidden" name="skill_count" id="skill_count">
-                    <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
-                    <div id="licence">
-                        <p class="tag_tittle" style="margin-top: 1rem;">取得資格</p>
-                        <?php
-                        foreach ($licences as $licence) :
-                            if ($current_user['licence'] != '' && $licence != '') : ?>
-                        <span id="child-span" class="licence_tag"><?= $licence ?><label><input type="button"><i
-                                    class="far fa-times-circle licence"></i></label></span>
-                        <?php
-                                if (!isset($licence_tag)) {
-                                    $licence_tag = array();
-                                }
-                                array_push($licence_tag, $licence);
-                                $licences_len .= $licence;
+                <input placeholder="skill Stack" name="name" id="skill_input" />
+                <input type="hidden" name="skills" id="skills">
+                <input type="hidden" name="skill_count" id="skill_count">
+                <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
+                <div id="licence">
+                    <p class="tag_tittle">取得資格</p>
+                    <?php
+                    $licences_len = "";
+                    $licencs_delspace = str_replace("     ", "", $current_user['licence']);
+                    $licence_tag = array();
+                    foreach ($licences as $licence) :
+                        if ($current_user['licence'] != '' && $licence != '') :
 
-                                if (2 <= count($licence_tag) || 9 <= strlen($licences_len)) {
-                                    print '<div></div>';
-                                    $licence_tag = array();
-                                    $licence_len = "";
-                                }
-                            endif;
+                            if (!isset($licence_tag)) {
+                                $licence_tag = array();
+                            }
+                            array_push($licence_tag, $licence);
+                            $licences_len .= $licence;
 
-                        endforeach;
-                        ?>
+                            if (2 <= count($licence_tag) || 9 <= mb_strlen($licences_len)) {
+                                print '<span id="child-span" class="licence_tag extra" style="display: none;">' . $licence . '<label><input type="button"><i
+                                class="far fa-times-circle licence"></i></label></span>';
+                            } else {
+                                print '<span id="child-span" class="licence_tag">' . $licence . '<label><input type="button"><i
+                                class="far fa-times-circle licence"></i></label></span>';
+                            }
+                        endif;
 
-
-                    </div>
-                    <input placeholder="licence Stack" name="name" id="licence_input" />
-                    <input type="hidden" name="licences" id="licences">
-                    <input type="hidden" name="licence_count" id="licence_count">
-                    <input type="hidden" name="mylicences" value="<?= $current_user['licence'] ?>">
-                    <div class="background">
-                        <p class="tag_tittle">職歴</p>
-                        <p class="workhistory"><?= $current_user['workhistory'] ?></p>
-                    </div>
+                    endforeach;
+                    ?>
+                    <i class="fas fa-plus licence_btn"></i>
+                </div>
+                <input placeholder="licence Stack" name="name" id="licence_input" />
+                <input type="hidden" name="licences" id="licences">
+                <input type="hidden" name="licence_count" id="licence_count">
+                <input type="hidden" name="mylicences" value="<?= $current_user['licence'] ?>">
+                <div class="background">
+                    <p class="tag_tittle">職歴</p>
+                    <p class="workhistory"><?= $current_user['workhistory'] ?></p>
                 </div>
             </div>
-            <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
-            <button class="btn btn btn-outline-dark edit_btn" type="button" name="follow">プロフィール編集</button>
-            <?php endif; ?>
         </div>
-        <div class="col-9" style="text-align: center;">
-            <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a href="../user_login/user_top.php?page_type=all"
-                        class="nav-link post_tab all active">すべての投稿</a></li>
-                <li class="nav-item"><a href="../user_login/user_top.php?page_type=my_post"
-                        class="nav-link post_tab my_post">自分の投稿</a></li>
-                <li class="nav-item"><a href="../user_login/user_top.php?page_type=testcase"
-                        class="nav-link post_tab testcase">テストケースを記載した投稿</a></li>
-            </ul>
-            <?php else : ?>
-            <h3 style="text-align:left;margin-left: 2.5rem;"><?= $current_user['name']  ?>さんの投稿</h3>
-            <?php endif; ?>
-            <?php
-            $post = new Post(0);
-            $posts = $post->get_posts($current_user['id'], $_GET['page_type'], 0);
-            switch ($_GET['page_type']) {
-                case ('all'):
-                    require('../test/test_list.php');
-                    break;
-                case ('my_post'):
-                    require('../test/test_list_mypost.php');
-                    break;
-                case ('testcase'):
-                    require('../test/test_list_testcase.php');
-                    break;
-            }
-            ?>
 
+
+        <div class="col-9" style="text-align: center;">
+
+            <div class="user_top_postlist">
+                <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a href="../user_login/user_top.php?page_type=all"
+                            class="nav-link post_tab all active">すべての投稿</a></li>
+                    <li class="nav-item"><a href="../user_login/user_top.php?page_type=my_post"
+                            class="nav-link post_tab my_post">自分の投稿</a></li>
+                    <li class="nav-item"><a href="../user_login/user_top.php?page_type=testcase"
+                            class="nav-link post_tab testcase">テストケースを記載した投稿</a></li>
+                </ul>
+                <?php else : ?>
+                <h3 style="text-align:left;margin-left: 2.5rem;"><?= $current_user['name']  ?>さんの投稿</h3>
+                <?php endif; ?>
+                <?php
+                $post = new Post(0);
+                $posts = $post->get_posts($current_user['id'], $_GET['page_type'], 0);
+                switch ($_GET['page_type']) {
+                    case ('all'):
+                        require('../test/test_list.php');
+                        break;
+                    case ('my_post'):
+                        require('../test/test_list_mypost.php');
+                        break;
+                    case ('testcase'):
+                        require('../test/test_list_testcase.php');
+                        break;
+                }
+                ?>
+
+            </div>
         </div>
 </form>
 <?php
