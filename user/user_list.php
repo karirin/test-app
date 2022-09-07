@@ -63,10 +63,10 @@ $page_type = $_GET['type'];
                     </div>
                     <?php if (!empty($user['profile'])) : ?>
                     <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>
-                    <div class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;">
-                        <?= $user['profile'] ?></div>
+                    <span class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;">
+                        <?= $user['workhistory'] ?></span>
                     <?php else : ?>
-                    <div class="user_profile"><?= $user['profile'] ?></div>
+                    <div class="user_profile"><?= $user['workhistory'] ?></div>
                     <?php endif; ?>
                     <?php endif; ?>
                 </div>

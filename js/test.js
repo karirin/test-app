@@ -18,7 +18,7 @@ window.onload = function() {
             $('.priority')[i].setAttribute("style", 'background-color: #a49e9e;');
         }
     }
-    console.log(location.search.substring(11));
+
     switch (location.search.substring(11)) {
         case "all":
             $('.post_tab').removeClass('active');
@@ -31,7 +31,6 @@ window.onload = function() {
             break;
 
         case "testcase":
-            console.log('testqqqq');
             $('.post_tab').removeClass('active');
             $('.post_tab.testcase').addClass('active');
             break;
@@ -379,6 +378,7 @@ $(document).on('click', '.profile_edit_btn', function() {
     $('.tag').fadeOut();
     $('.col-3').css('margin-top', '-2rem');
     $('.edit_btns').fadeIn();
+
 });
 
 // モーダル画面キャンセルボタン押下時の処理

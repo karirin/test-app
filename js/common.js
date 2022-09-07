@@ -1443,7 +1443,10 @@ $(document).on('click', '.edit_done', function() {
         spans_narrower = licence_narrower.getElementsByTagName("span"),
         licences = new Array(),
         licences_narrow = new Array(),
-        licences_narrower = new Array();
+        licences_narrower = new Array(),
+        workhistory_count = $('.edit_workhistory').val().length;
+    console.log(workhistory_count);
+
     document.getElementById('licence_count').val = 4;
     document.getElementById('licence_count_narrow').val = 4;
     document.getElementById('licence_count_narrower').val = 4;

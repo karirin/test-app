@@ -670,7 +670,11 @@ img.mypage {
     white-space: pre-wrap;
     vertical-align: top;
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
+    -webkit-box-orient: vertical;
+    width: 35rem;
+    height: 4.4rem;
+    overflow: hidden;
 }
 
 .col-4 .col-8.offset-2 .user_link .user {

@@ -90,10 +90,10 @@ $followers_count = 0;
                     </div>
                 </div>
                 <div class="col-6 edit_btns"
-                    style="display:none;padding-top: 6rem;padding-right:0;padding-left: 0.5rem;padding-left: 2rem;">
+                    style="display:none;padding-top: 4rem;padding-right:0;padding-left: 0.5rem;padding-left: 2rem;">
                     <input type="submit" class="btn btn-outline-dark edit_done" style="width: 100%;margin-bottom:1rem;"
                         value="編集完了">
-                    <button class="btn btn-outline-info modal_close" type="button" style="width: 100%;">キャンセル</button>
+                    <button class="btn btn-outline-dark modal_close" type="button" style="width: 100%;">キャンセル</button>
                 </div>
             </div>
             <?php
@@ -117,9 +117,9 @@ $followers_count = 0;
                                 array_push($skill_tag, $skill);
                                 $skills_len .= $skill;
                                 if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
-                                    print '<span id="child-span" class="skill_tag extra" style="display: none;">' . $skill . '</span>';
+                                    print '<span id="child-span" class="skill_tag extra" style="display: none;">' . $skill . '</span> ';
                                 } else {
-                                    print '<span id="child-span" class="skill_tag">' . $skill . '</span>';
+                                    print '<span id="child-span" class="skill_tag">' . $skill . '</span> ';
                                 }
                             endif;
                         endforeach;
@@ -135,9 +135,9 @@ $followers_count = 0;
                                 array_push($licence_tag, $licence);
                                 $licences_len .= $licence;
                                 if (2 <= count($licence_tag) || 9 <= mb_strlen($licences_len)) {
-                                    print '<span id="child-span" class="licence_tag extra" style="display: none;">' . $licence . '</span>';
+                                    print '<span id="child-span" class="licence_tag extra" style="display: none;">' . $licence . '</span> ';
                                 } else {
-                                    print '<span id="child-span" class="licence_tag">' . $licence . '</span>';
+                                    print '<span id="child-span" class="licence_tag">' . $licence . '</span> ';
                                 }
                             endif;
 
@@ -203,10 +203,10 @@ $followers_count = 0;
 
                             if (2 <= count($licence_tag) || 9 <= mb_strlen($licences_len)) {
                                 print '<span id="child-span" class="licence_tag extra" style="display: none;">' . $licence . '<label><input type="button"><i
-                                class="far fa-times-circle licence"></i></label></span>';
+                                class="far fa-times-circle licence"></i></label></span> ';
                             } else {
                                 print '<span id="child-span" class="licence_tag">' . $licence . '<label><input type="button"><i
-                                class="far fa-times-circle licence"></i></label></span>';
+                                class="far fa-times-circle licence"></i></label></span> ';
                             }
                         endif;
 
