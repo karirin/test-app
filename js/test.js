@@ -1,3 +1,15 @@
+// 変数定義
+var user_comment = $('.comment').text(),
+    user_name = $('.profile_name').text(),
+    user_comment_narrow = $('.comment_narrow').text(),
+    user_name_narrow = $('.profile_name_narrow').text(),
+    user_comment_narrower = $('.comment_narrower').text(),
+    user_name_narrower = $('.profile_name_narrower').text(),
+    user_workhistory = $('.workhistory').text(),
+    user_workhistory_narrow = $('.workhistory_narrow').text(),
+    user_workhistory_narrower = $('.workhistory_narrower').text(),
+    user = $('.user').val();
+
 window.onload = function() {
     // テストケースが優先度によって色が変わるようにする
     for (i = 0; i < $('.priority').length; i++) {
@@ -40,9 +52,11 @@ window.onload = function() {
     // 余分なタグが無い場合は(+)ボタンを非表示に
     if ($('.skill_tag.extra')[0] == undefined) {
         $('.skill_btn')[0].setAttribute('style', 'display:none;');
+        $('.myprofile_skill_btn')[0].setAttribute('style', 'display:none;');
     }
     if ($('.licence_tag.extra')[0] == undefined) {
         $('.licence_btn')[0].setAttribute('style', 'display:none;');
+        $('.myprofile_licence_btn')[0].setAttribute('style', 'display:none;');
     }
 }
 
@@ -92,7 +106,6 @@ $(document).on("mousedown touchstart", '.priority', function() {
         // }).fail(function() {});
     }, LONGPRESS);
 }).on("mouseup mouseleave touchend", function() {
-    //alert("test");
     clearTimeout(timerId);
 });
 
@@ -173,6 +186,22 @@ $(document).ready(function() {
         if (str != '') {
             $('#test_process_counter')[0].setAttribute("style", "border-color: #ced4da;");
             $('.testcase_error').fadeOut();
+        }
+    });
+
+    $('.url_form').change(function() {
+        var str = $(this).value;
+        if (str != '') {
+            $('.url_form')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.post_url_error').fadeOut();
+        }
+    });
+
+    $('.test_form').change(function() {
+        var str = $(this).value;
+        if (str != '') {
+            $('.test_form')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.post_text_error').fadeOut();
         }
     });
 });
@@ -314,7 +343,6 @@ $(document).on('click', '.t_btn', function() {
             t_flg: 1
         }
     }).done(function() {
-        console.log($('#testcase_' + $test_id).next());
         $('#testcase_' + $test_id).next().fadeIn(1000);
     });
 });
@@ -345,6 +373,17 @@ $('.skill_btn').on('click', function() {
     });
 });
 
+$('.myprofile_skill_btn').on('click', function() {
+    $('.skill_tag').fadeIn(1000);
+    $('.myprofile_skill_btn').off('click');
+    $('.myprofile_skill_btn').attr('class', 'fas fa-minus myprofile_skill_btn_close');
+    $('.myprofile_skill_btn_close').on('click', function() {
+        $('.skill_tag.extra').fadeOut(1000);
+        $('.myprofile_skill_btn_close').off('click');
+        $('.myprofile_skill_btn_close').attr('class', 'fas fa-plus myprofile_skill_btn');
+    });
+});
+
 $('.licence_btn').on('click', function() {
     $('.licence_tag').fadeIn(1000);
     $('.licence_btn').off('click');
@@ -353,6 +392,17 @@ $('.licence_btn').on('click', function() {
         $('.licence_tag.extra').fadeOut(1000);
         $('.licence_btn_close').off('click');
         $('.licence_btn_close').attr('class', 'fas fa-plus licence_btn');
+    });
+});
+
+$('.myprofile_licence_btn').on('click', function() {
+    $('.licence_tag').fadeIn(1000);
+    $('.myprofile_licence_btn').off('click');
+    $('.myprofile_licence_btn').attr('class', 'fas fa-minus myprofile_licence_btn_close');
+    $('.myprofile_licence_btn_close').on('click', function() {
+        $('.licence_tag.extra').fadeOut(1000);
+        $('.myprofile_licence_btn_close').off('click');
+        $('.myprofile_licence_btn_close').attr('class', 'fas fa-plus myprofile_licence_btn');
     });
 });
 
@@ -378,13 +428,195 @@ $(document).on('click', '.profile_edit_btn', function() {
     $('.tag').fadeOut();
     $('.col-3').css('margin-top', '-2rem');
     $('.edit_btns').fadeIn();
-
+    $('.edit_workhistory').change(function() {
+        var str = $('.edit_workhistory')[0].value.length;
+        if (str < 100) {
+            $('.edit_workhistory')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.error_workhistory').fadeOut();
+        }
+    });
 });
 
-// モーダル画面キャンセルボタン押下時の処理
-$(document).on('click', ".modal_close", function() {
+$(function() {
+    $("#skill_myprofile_input").autocomplete({
+        source: "../autocomplete_skill.php"
+    });
+});
+
+if (document.getElementById('skill_myprofile_input') != null) {
+    let skill_myprofile_input = document.getElementById('skill_myprofile_input'),
+        myprofile_skill = document.getElementById("myprofile_skill"),
+        myprofile_spans = skill.getElementsByTagName("span");
+
+    skill_myprofile_input.addEventListener('change', inputChange_skill);
+
+    // 初期状態のタグ数でmyprofile_skill_countの値を決める
+    if (document.getElementById('myprofile_skill_count').val) {
+        if (myprofile_spans.length > 3) {
+            myprofile_skill_count_val = myprofile_spans.length % 3;
+            switch (myprofile_skill_count_val) {
+                case 0:
+                    document.getElementById('myprofile_skill_count').val = 3;
+                    break;
+
+                case 1:
+                    document.getElementById('myprofile_skill_count').val = 1;
+                    break;
+
+                case 2:
+                    document.getElementById('myprofile_skill_count').val = 2;
+                    break;
+
+                default:
+            }
+        }
+    }
+}
+
+function inputChange_skill() {
+    var fome_x_name_myprofile = $(this).val(),
+        skill_myprofile = document.getElementById("myprofile_skill"),
+        skills_myprofile = new Array(),
+        spans_myprofile = skill_myprofile.getElementsByTagName("span");
+
+    for (i = 0; i < spans_myprofile.length; i++) {
+        skills_myprofile[i] = spans_myprofile[i].textContent;
+    }
+
+    skills_myprofile = skills_myprofile.join('');
+
+    // 既に入力済みのものはタグ追加しない
+    if (skills_myprofile.indexOf(fome_x_name_myprofile) != -1) {
+        return false;
+    }
+    // 入力した文字列がlistと合えばタグ追加
+    if (skill_list.indexOf(fome_x_name_myprofile) != -1) {
+        var span_element_myprofile = document.createElement("span"),
+            label_element_myprofile = document.createElement("label"),
+            i_element_myprofile = document.createElement("i"),
+            input_element_myprofile = document.createElement("input"),
+            newContent_myprofile = document.createTextNode(fome_x_name_myprofile),
+            div_element_myprofile = document.createElement("div"),
+            parentDiv_myprofile = document.getElementById("myprofile_skill"),
+            skill_count_myprofile = document.getElementById('myprofile_skill_count').val;
+
+        span_element_myprofile.appendChild(newContent_myprofile);
+        span_element_myprofile.setAttribute("id", "child-span_myprofile" + i + "");
+        span_element_myprofile.setAttribute("class", "skill_tag");
+        span_element_myprofile.setAttribute("style", "margin-right:4px;");
+        div_element_myprofile.setAttribute("id", "span" + i + "");
+        i_element_myprofile.setAttribute("class", "far fa-times-circle skill");
+        input_element_myprofile.setAttribute("type", "button");
+
+        // タグの改行があった場合
+        if (0 < document.getElementById('myprofile_skill_count').val) {
+            i--;
+            var skills_myprofile = new Array();
+
+            // 改行した列で再度文字数取得
+            for (k = 0; k < skill_count_myprofile; k++) {
+                skills_myprofile[k] = spans[i].textContent;
+                i--;
+            }
+            spans_myprofile = '';
+            skills_myprofile = skills.join('');
+
+            // skill_countの値で改行後のタグ数を決める
+            switch (skill_count_myprofile) {
+                case 2:
+                    i += 1;
+                    spans_myprofile = '@@';
+                    break;
+
+                case 3:
+                    i += 2;
+                    spans_myprofile = '@@@';
+                    break;
+                case 4:
+                    i += 3;
+                    spans_myprofile = '@@@@';
+                    break;
+
+                case 5:
+                    i += 4;
+                    spans_myprofile = '@@@@@';
+                    break;
+                default:
+            }
+
+            i++;
+            document.getElementById('myprofile_skill_count').val += 1;
+        }
+
+        // タグ数が３つ以上または、タグの文字数が９文字以上は改行
+        // if ((3 <= spans_myprofile.length || 22 <= skills_myprofile.length)) {
+        //     i--;
+        //     if (document.getElementById('child-span_myprofile' + i + '') !== null) {
+        //         parentDiv.insertBefore(div_element, document.getElementById('child-span_myprofile' + i + ''));
+        //         parentDiv_myprofile.insertBefore(div_element_myprofile, document.getElementById('child-span_myprofile' + i + ''));
+        //     }
+        //     i++;
+        //     document.getElementById('myprofile_skill_count').val = 1;
+        // }
+        i++;
+
+        parentDiv_myprofile.insertBefore(span_element_myprofile, parentDiv_myprofile.firstChild);
+        span_element_myprofile.appendChild(label_element_myprofile, span_element_myprofile.firstChild);
+        label_element_myprofile.insertBefore(i_element_myprofile, label_element_myprofile.firstChild);
+        label_element_myprofile.insertBefore(input_element_myprofile, label_element_myprofile.firstChild);
+        $(this).val('');
+    }
+}
+
+// タグのバツ印がクリックされた場合
+$(document).on('click', '.far.fa-times-circle.skill_myprofile', function() {
+    var k = 0,
+        skills_myprofile = new Array(),
+        skill_myprofile = document.getElementById("myprofile_skill"),
+        spans_myprofile = skill_myprofile.getElementsByTagName("myprofile_span"),
+        span_myprofile = $(this).parents(".skill_tag")[0].textContent;
+
+    // skill_countの値を元に最終行のタグ情報を取得
+    switch (document.getElementById('myprofile_skill_count').val) {
+        case 1:
+            var spans_count_myprofile = spans_myprofile.length - 1;
+            break;
+
+        case 2:
+            var spans_count_myprofile = spans_myprofile.length - 2;
+            break;
+
+        case 3:
+            var spans_count_myprofile = spans_myprofile.length - 3;
+            break;
+
+        default:
+    }
+    for (i = spans_count_myprofile; i < spans_myprofile.length; i++) {
+        skills_myprofile[k] = spans_myprofile[i].textContent;
+        k++;
+    }
+    $(this).parents(".skill_tag").remove();
+
+    skills_myprofile = skills_myprofile.join('');
+    if (skills_myprofile.indexOf(span_myprofile) != -1) {
+        document.getElementById('myprofile_skill_count').val -= 1;
+    }
+});
+
+// プロフィール編集のキャンセルボタン押下時
+$(document).on('click', ".profile_close", function() {
+    $('.edit_name').replaceWith('<h2 class="profile_name">' + user_name + '</h2>');
+    $('.edit_workhistory').replaceWith('<p class="workhistory">' + user_workhistory + '</p>');
+    $('.mypage').css('display', 'inline');
+    $('.edit_profile_img').css('display', 'none');
+    $('.btn_flex').css('display', 'none');
+    $('.profile').removeClass('editing');
     $('.profile_edit_btn').fadeIn();
     $('.follow_user').fadeIn();
     $('.edit_btns').fadeOut();
     $('.col-3').css('margin-top', '0rem');
+    $('.myprofile_btn').fadeIn();
+    $('.form').fadeOut();
+    $('.tag').css('display', 'inline-block');
 });

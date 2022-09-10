@@ -16,24 +16,18 @@ $page_type = $_GET['type'];
                 break;
             case ('followers'):
                 print '<h2 class="center">フォロワー一覧</h2>';
-                $u = $_SESSION['page_follow'];
+                $u = $_SESSION['page_follower'];
                 break;
             case ('follows'):
                 print '<h2 class="center margin_top_bottom">フォロー一覧</h2>';
-                $u = $_SESSION['page_follower'];
+                $u = $_SESSION['page_follow'];
                 break;
         }
     endif; ?>
     <div class="col-8 offset-2">
         <?php
-        if (basename($_SERVER['PHP_SELF']) === 'user_list.php') {
-            $user_class = new User($_SESSION['user_id']);
-            $current_user = $user_class->get_user();
-        } else {
-            $user_class = new User($_GET['page_id']);
-            $current_user = $user_class->get_user();
-        }
-
+        $user_class = new User($_GET['page_id']);
+        $current_user = $user_class->get_user();
         $users = $user_class->get_users($page_type, '');
         $block = pagination_block($users);
 

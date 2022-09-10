@@ -1,364 +1,311 @@
-||||||||Array
+Array
 (
-    [0] => AWS
+    [block_follower] => 2
 )
-||||||||AWS||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 1
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJava||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
+    [block_follower] => 2
 )
-||||||||AWSJavaBootStrap||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 1
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScript||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
+    [block_follower] => 2
 )
-||||||||AWSJavaBootStrapJavaScriptGo||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 1
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGit||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
+    [block_follower] => 1
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
-    [7] => Ruby
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++Ruby||||||||||||||||Array
+Array
 (
-    [0] => AWS
 )
-||||||||AWS||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJava||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
 )
-||||||||AWSJavaBootStrap||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScript||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
 )
-||||||||AWSJavaBootStrapJavaScriptGo||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGit||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
-    [7] => Ruby
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++Ruby||||||||||||||||Array
+Array
 (
-    [0] => AWS
+    [block_follower] => 2
 )
-||||||||AWS||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 1
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJava||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
+    [block_follower] => 1
 )
-||||||||AWSJavaBootStrap||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScript||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
 )
-||||||||AWSJavaBootStrapJavaScriptGo||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGit||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
-    [7] => Ruby
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++Ruby||||||||||||||||Array
+Array
 (
-    [0] => AWS
+    [block] => 1
 )
-||||||||AWS||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJava||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
 )
-||||||||AWSJavaBootStrap||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScript||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
 )
-||||||||AWSJavaBootStrapJavaScriptGo||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGit||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
-    [7] => Ruby
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++Ruby||||||||||||||||Array
+Array
 (
-    [0] => AWS
 )
-||||||||AWS||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJava||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
 )
-||||||||AWSJavaBootStrap||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScript||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
 )
-||||||||AWSJavaBootStrapJavaScriptGo||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGit||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++||||||||||||||||Array
+Array
 (
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
-    [7] => Ruby
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
-||||||||AWSJavaBootStrapJavaScriptGoGitC++Ruby||||||||||||||||Array
-(
-    [0] => AWS
-)
-||||||||AWS||||||||||||||||Array
-(
-    [0] => AWS
-    [1] => Java
-)
-||||||||AWSJava||||||||||||||||Array
-(
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-)
-||||||||AWSJavaBootStrap||||||||||||||||Array
-(
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-)
-||||||||AWSJavaBootStrapJavaScript||||||||||||||||Array
-(
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-)
-||||||||AWSJavaBootStrapJavaScriptGo||||||||||||||||Array
-(
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-)
-||||||||AWSJavaBootStrapJavaScriptGoGit||||||||||||||||Array
-(
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
-)
-||||||||AWSJavaBootStrapJavaScriptGoGitC++||||||||||||||||Array
-(
-    [0] => AWS
-    [1] => Java
-    [2] => BootStrap
-    [3] => JavaScript
-    [4] => Go
-    [5] => Git
-    [6] => C++
-    [7] => Ruby
-)
-||||||||AWSJavaBootStrapJavaScriptGoGitC++Ruby||||||||Array
+Array
 (
     [id] => 585
     [0] => 585
@@ -402,4 +349,3143 @@ Array
     [4] => 23
     [created_at] => 2022-08-18 19:26:21
     [5] => 2022-08-18 19:26:21
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_testcase] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => CakePHP AWS MySQL
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => ITパスポート 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => CakePHP AWS MySQL
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => ITパスポート 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_testcase] => 2
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 1
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_testcase] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [id] => 585
+    [0] => 585
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 24
+    [4] => 24
+    [created_at] => 2022-08-18 19:54:12
+    [5] => 2022-08-18 19:54:12
+)
+Array
+(
+    [id] => 575
+    [0] => 575
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 27
+    [4] => 27
+    [created_at] => 2022-08-17 20:03:06
+    [5] => 2022-08-17 20:03:06
+)
+Array
+(
+    [id] => 581
+    [0] => 581
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 29
+    [3] => 29
+    [destination_user_id] => 23
+    [4] => 23
+    [created_at] => 2022-08-18 19:26:21
+    [5] => 2022-08-18 19:26:21
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 2
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 3
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 3
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 2
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => CakePHP AWS MySQL
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => ITパスポート 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => CakePHP AWS MySQL
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => ITパスポート 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+ああああああああああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => CakePHP AWS MySQL
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => ITパスポート 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+ああああああああああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => CakePHP AWS MySQL
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => ITパスポート 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+ああああああああああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => CakePHP AWS MySQL
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => ITパスポート 基本情報技術者 応用情報技術者
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+ああああああああああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 2
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => 
+    [skill_count] => 
+    [myskills] => CakePHP AWS MySQL
+    [name] => 
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => ITパスポート 基本情報技術者 応用情報技術者
+    [user_workhistory] => 2018年～2022年　株式会社XXXXｑ
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+ああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => 
+    [skill_count] => 
+    [myskills] => 
+    [name] => 
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => 
+    [skill_count] => 
+    [myskills] => 
+    [name] => 
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+
+あああああああああああああああああああああああああああああああ
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => 
+    [skill_count] => 
+    [myskills] => 
+    [name] => 
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => 
+    [skill_count] => 
+    [myskills] => 
+    [name] => 
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [id] => 585
+    [0] => 585
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 24
+    [4] => 24
+    [created_at] => 2022-08-18 19:54:12
+    [5] => 2022-08-18 19:54:12
+)
+Array
+(
+    [id] => 575
+    [0] => 575
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 27
+    [4] => 27
+    [created_at] => 2022-08-17 20:03:06
+    [5] => 2022-08-17 20:03:06
+)
+Array
+(
+    [id] => 581
+    [0] => 581
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 29
+    [3] => 29
+    [destination_user_id] => 23
+    [4] => 23
+    [created_at] => 2022-08-18 19:26:21
+    [5] => 2022-08-18 19:26:21
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 2
+)
+Array
+(
+    [page] => 1
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 3
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_mypost] => 2
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 1
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_mypost] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [id] => 585
+    [0] => 585
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 24
+    [4] => 24
+    [created_at] => 2022-08-18 19:54:12
+    [5] => 2022-08-18 19:54:12
+)
+Array
+(
+    [id] => 575
+    [0] => 575
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 27
+    [4] => 27
+    [created_at] => 2022-08-17 20:03:06
+    [5] => 2022-08-17 20:03:06
+)
+Array
+(
+    [id] => 581
+    [0] => 581
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 29
+    [3] => 29
+    [destination_user_id] => 23
+    [4] => 23
+    [created_at] => 2022-08-18 19:26:21
+    [5] => 2022-08-18 19:26:21
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => HTTP CakePHP PostgreSQL JavaScript AWS
+    [skill_count] => 
+    [myskills] => 
+    [name] => 
+    [licences] => ITパスポート ITストラテジスト 基本情報技術者
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => 2018年～2022年　株式会社XXXX
+・SEとして自社サービスの運用保守を担当
+・チームリーダーの経験も有り
+    [user_comment] =>         
+            送信
+        
+    
+        
+            送信
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [id] => 585
+    [0] => 585
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 24
+    [4] => 24
+    [created_at] => 2022-08-18 19:54:12
+    [5] => 2022-08-18 19:54:12
+)
+Array
+(
+    [id] => 575
+    [0] => 575
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 23
+    [3] => 23
+    [destination_user_id] => 27
+    [4] => 27
+    [created_at] => 2022-08-17 20:03:06
+    [5] => 2022-08-17 20:03:06
+)
+Array
+(
+    [id] => 581
+    [0] => 581
+    [text] => test
+    [1] => test
+    [image] => 
+    [2] => 
+    [user_id] => 29
+    [3] => 29
+    [destination_user_id] => 23
+    [4] => 23
+    [created_at] => 2022-08-18 19:26:21
+    [5] => 2022-08-18 19:26:21
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 2
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )

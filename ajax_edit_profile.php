@@ -14,7 +14,7 @@ if (isset($_POST)) {
   $user_skill = $_POST['skills'];
   $user_licence = $_POST['licences'];
   $user_workhistory = $_POST['user_workhistory'];
-  $user_id = $_POST['id'];
+  $user_id = $_SESSION['user_id'];
 
   if ($name == '') {
     set_flash('danger', '名前が未記入です');
@@ -31,7 +31,7 @@ if (isset($_POST)) {
       }
     }
   }
-
+  _debug($_POST);
   try {
     $dbh = db_connect();
     $sql = "UPDATE user

@@ -41,7 +41,7 @@ if (!isset($_SESSION['page_follow'])) {
 if (!isset($_SESSION['page_follower'])) {
   $_SESSION['page_follower'] = 0;
 }
-
+_debug($_POST);
 if (isset($_POST['block'])) {
   switch ($_POST['block']) {
     case '«':
@@ -124,3 +124,4 @@ if (isset($_POST['block_mypost'])) {
       break;
   }
 }
+_debug($_SESSION);
