@@ -1,7 +1,7 @@
 <div class="modal_testcase"></div>
 <div class="testcase_process">
     <form method="post" action="../test/test_add_done.php" enctype="multipart/form-data">
-        <h6>優先度</h6>
+        <h5>優先度</h5>
         <div class="form-group" style="display: inline-block;width:28%;margin:0;">
             <select id="priority" name="priority" class="form-control">
                 <option value="">--優先度を選択--</option>
@@ -14,15 +14,12 @@
             <span class="priority_error"
                 style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">優先度を選択してください</span>
         </div>
-        <h6>テストケース</h6>
-        <textarea id="test_process_counter" class="textarea form-control" placeholder="優先度を選択してください"
+        <h5>テストケース</h5>
+        <textarea id="test_process_counter" class="textarea form-control" placeholder="テストケースを入力してください"
             name="text"></textarea>
         <div style="height: 27px;">
             <span class="testcase_error"
                 style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">テストケースを入力してください</span>
-        </div>
-        <div class="counter">
-            <span class="post_process_count">0</span><span>/300</span>
         </div>
         <?php if (basename($_SERVER['PHP_SELF']) === 'test_disp.php') : ?>
         <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
@@ -69,4 +66,14 @@
             <button class="btn btn-outline-secondary testcase_clear" type="button">閉じる</button>
         </div>
     </div>
+</div>
+<div class="testcase_delete">
+    <p>こちらのテストケースを削除しますか</p>
+    <span class="testcase_text"></span>
+    <div style="justify-content: space-evenly;display: flex;margin-top:1rem;">
+        <button class="btn btn-outline-secondary delete_btn">削除</button>
+        <button class="btn btn-outline-secondary testcase_clear" type="button">閉じる</button>
+    </div>
+    <input class="current_user_id" value="<?= $_SESSION['user_id']; ?>" type="hidden">
+    <input class="testcase_id" type="hidden">
 </div>

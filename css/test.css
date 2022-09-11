@@ -45,7 +45,7 @@
 
 .help {
     text-align: right;
-    margin: 0.5rem 0;
+    margin-top: 1rem;
     display: inline-block;
 }
 
@@ -188,7 +188,8 @@ img.edit_preview {
 
 .testcase_process,
 .help_disp,
-.testcase_disp {
+.testcase_disp,
+.testcase_delete {
     background-color: #f0f7ff;
     color: #000;
     border: 0.1rem solid #212529;
@@ -223,7 +224,8 @@ img.edit_preview {
 }
 
 .help_disp {
-    width: 472px;
+    width: 503px;
+    top: 22%;
 }
 
 .help_disp .testcase_add {

@@ -252,8 +252,8 @@ nav.navbar.navbar-dark {
 }
 
 .far.fa-times-circle.help_clear {
-    top: -10%;
-    right: -7%;
+    top: -8%;
+    right: -6%;
     font-size: 4rem;
 }
 
@@ -1597,6 +1597,7 @@ img.my_preview {
 .post_process,
 .testcase_process,
 .testcase_disp,
+.testcase_delete,
 .match_process,
 .help_disp {
     display: none;

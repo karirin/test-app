@@ -9,4 +9,6 @@
     <p style="margin-top: -8px;">優先度は色別で分かれています</ｐ>
     <div><span class="progress">未実施</span><span class="progress">作業中</span><span class="progress">実施完了</span></div>
     <p>進捗度によってステータスが変わります</p>
+    <i class="fab fa-tumblr" style="margin-left: 0.5rem;"></i>
+    <div>評価したいテストケースにはｔマークを送れます</div>
 </div>

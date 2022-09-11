@@ -95,4 +95,19 @@ if (isset($_POST)) {
             _debug('メモ更新失敗');
         }
     }
+    if ($_POST["delete_flg"]) {
+        $test_id = $_POST["test_id"];
+        try {
+            $dbh = db_connect();
+            $sql = "DELETE FROM test
+                WHERE id = :test_id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+                ':test_id' => $test_id
+            ));
+        } catch (\Exception $e) {
+            error_log($e, 3, "../../php/error.log");
+            _debug('メモ更新失敗');
+        }
+    }
 }

@@ -68,13 +68,8 @@ var timerId;
 /// 長押し・ロングタップを検知する
 $(document).on("mousedown touchstart", '.priority', function() {
     var $target_modal = $(this).data("target");
+    console.log($target_modal);
     timerId = setTimeout(function() {
-        var test_id = $($target_modal)[0].id.slice(9),
-            delete_group_flg = 1;
-        // $($target_modal)[0].setAttribute("style", "display:inline-block;width: 81%;");
-        // $($target_modal).prev().animate({ width: 'toggle' }, 'slow');
-        // $($target_modal).prev().css('display', 'inline-block');
-        // $($target_modal + ' .testcase_text').css('width', '79%');
         if ($($target_modal).prev().prev().css('display') == 'none') {
             $($target_modal).animate({ width: '587px' }, 'slow');
             $($target_modal + ' .testcase_text').animate({ width: '76%' }, 'slow');
@@ -87,31 +82,42 @@ $(document).on("mousedown touchstart", '.priority', function() {
             $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
             $($target_modal).prev().prev().css('display', 'inline-block');
         }
-        // if ($($target_modal).prev()[0].style.display == 'inline-block') {
-        //     $($target_modal + ' .testcase_text').css('width', '83%');
-        //     console.log("test");
-        // }
-        /// 長押し時（Longpress）のコード
-        // $.ajax({
-        //     type: 'POST',
-        //     url: '../ajax_edit_memo.php',
-        //     dataType: 'text',
-        //     data: {
-        //         group_id: group_id,
-        //         group_max_id: group_max_id,
-        //         delete_group_flg: delete_group_flg
-        //     }
-        // }).done(function() {
-        //     $($target_modal)[0].style.display = 'none';
-        // }).fail(function() {});
     }, LONGPRESS);
-}).on("mouseup mouseleave touchend", function() {
-    clearTimeout(timerId);
+    // テストケースの削除ボタン押下時
+    $(document).on('click', '.delete_btn', function() {
+        $('.modal_testcase').fadeIn();
+        $('.testcase_delete').fadeIn();
+        $('.testcase_delete .testcase_text').replaceWith('<span class="testcase_text" style="text-align: center;width: 100%;">' + $($target_modal + ' > span')[0].textContent + '</span>');
+        $(document).on('click', '.testcase_clear', function() {
+            $('.modal_testcase').fadeOut();
+            $('.testcase_delete').fadeOut();
+        });
+        $(document).on('click', '.delete_btn', function() {
+            var test_id = $target_modal.slice(10);
+            console.log($target_modal);
+            $.ajax({
+                type: 'POST',
+                url: '../ajax_edit_test.php',
+                dataType: 'text',
+                data: {
+                    test_id: test_id,
+                    delete_flg: 1
+                }
+            }).done(function() {
+                $('.modal_testcase').fadeOut();
+                $('.testcase_delete').fadeOut();
+                $($target_modal).parent().fadeOut(1000);
+            }).fail(function() {});
+        });
+    }).on("mouseup mouseleave touchend", function() {
+        clearTimeout(timerId);
+    });
+
+    $(document).on('click', '.comment_btn', function() {
+        $('.comment').fadeIn().css('display', 'flex');
+    });
 });
 
-$(document).on('click', '.comment_btn', function() {
-    $('.comment').fadeIn().css('display', 'flex');
-});
 
 // テストケースの詳細画面表示
 $(document).on('dblclick', '.priority', function() {

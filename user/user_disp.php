@@ -16,12 +16,10 @@ $follower_count = $user->get_user_count('follower');
 ?>
 
 <body>
-
     <form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
         <div class="row wide_disp">
             <div class="myprofile col-6">
                 <div class="profile">
-
                     <div class="detail_profile">
                         <div class="edit_profile_img">
                             <label>

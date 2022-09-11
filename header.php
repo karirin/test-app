@@ -20,7 +20,9 @@
         <ul class="main_ul">
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user&page_type=all">Test
                     App</a></li>
-            <li class="header_menu_wide"><a href="../user/user_list.php?type=all">ユーザー一覧</a>
+            <li class="header_menu_wide"><a href="../user/user_list.php?type=all&page_id=current_user"><i
+                        class="fas fa-users"
+                        style="margin-right: 0.5rem;font-size: 1.5rem;vertical-align: bottom;"></i>ユーザー一覧</a>
             </li>
             <li class="header_menu"><a href="../message/message_top.php">
                     <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>メッセージ<?php

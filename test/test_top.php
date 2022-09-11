@@ -35,16 +35,17 @@ $followers_count = 0;
                         </label>
                     </div>
                     <img src="data:image/jpeg;base64,<?= $current_user['image']; ?>" class="mypage">
-                    <h3 class="profile_name"><?= $current_user['name']; ?></h3>
+                    <h3 class="profile_name" style="width: 10rem;"><?= $current_user['name']; ?></h3>
                     <input type="hidden" class="current_user_id" value="<?= $_SESSION['user_id'] ?>">
                     <input type="hidden" value="<?= $current_user['id'] ?>">
                     <?php if ($current_user['id'] != $_SESSION['user_id']) : ?>
                     <?php if ($user->check_follow($_SESSION['user_id'], $current_user['id'])) : ?>
-                    <button class="follow_btn border_white btn following" type="button" name="follow"><i
-                            class="fas fa-user-plus"></i><span id="follow_label">フォロー解除</span></button>
+                    <button class="follow_btn border_white btn following" style="width: 10rem;margin-left: -0.8rem;"
+                        type="button" name="follow"><i class="fas fa-user-plus"></i><span
+                            id="follow_label">フォロー解除</span></button>
                     <?php else : ?>
-                    <button class="follow_btn border_white btn" type="button" name="follow"><i
-                            class="fas fa-user-plus"></i>
+                    <button class="follow_btn border_white btn" style="width: 10rem;margin-left: -0.8rem;" type="button"
+                        name="follow"><i class="fas fa-user-plus"></i>
                         <span id="follow_label">フォローする</span></button>
                     <?php endif; ?>
                     <?php endif; ?>
