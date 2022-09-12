@@ -7,6 +7,7 @@ require('function.php');
 require('class.php');
 require('head.php');
 require('withdraw.php');
+//require('profile.php');
 require('post_process.php');
 require('help_disp.php');
 

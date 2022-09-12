@@ -1,5 +1,1530 @@
 Array
 (
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [current_user_id] => 23
+    [user_id] => 23
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+----------------------------------------test2Array
+(
+    [current_user_id] => 23
+    [user_id] => 23
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+--------------------Array
+(
+    [follow_id] => 23
+    [0] => 23
+    [follower_id] => 23
+    [1] => 23
+)
+--------------------test1Array
+(
+    [current_user_id] => 23
+    [user_id] => 23
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+----------------------------------------test2Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 2
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+)
+Array
+(
+    [name] => test_user
+    [pass] => pass
+    [pass2] => pass
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [image] => Array
+        (
+            [data] => ‰PNG
+
+   IHDR     ž   ó,õs   sBIT|dˆ   sRGB ®Îé   gAMA  ±üa   	pHYs  Ã  ÃÇo¨d   _zTXtRaw profile type APP1  ™ãJOÍK-ÊLV((ÊOËÌIåR c.KK£D04006’F@¶9T(Ñ ˜˜›¥¡¹Y²™)ˆÏ Oºh-ØŒ   !tEXtCreation Time 2020:09:28 20:49:14}êÂ7  '\IDATx^í	|e–¯+!!IXH@V‘E€àÒ­Š¨ÐˆÊï¶-ˆl1 ¢×¾ÞëõÎô8ÝãE!´‚¶¸õàB«=èµµmAeß]D• „–9ÏùêMg¼==õ-óü(ª¾ª·–T½ç_çœ÷­*Ï0Ã0Ã0Ã0Ã0Ã0Ã0Ã0Ã0Ã0b‰8lœ…üüç?¿´¼¼<%--m@JJJj½zõÒev|BBB7/Ž‹‹»üèÑ£e2?+99¹³üÞrâÄ‰íÕÕÕCdz©”™üøñîUUUÌ;÷æO>ù$­k×®ålÛ8;1A9K¸ñÆ½øâ‹oOš4éÿˆHìi!ÂñžˆEŽgff&0-á‰ˆx"ºLDCÇñññž¬£cïØ±c2—yGŽY"ëœuJÊÊÊ>÷Üs¸ýöÛÍŸ?ÿm= ã¬ÀåG<aÚ´i÷ˆ Ü!"Ÿ˜˜ØÁ@ŒÊÊJDB–é1A@XÎ´ˆ†
+	c~3ÍòÚ$%%±Ýc²ýDÙæ
+™ÕP¶ÑBÆ^«…Œ3”3”üüü7Ä˜/ã_/Ã`1t®u‚pèÐ!¦™}øðaOBO¼'P–rüvÂÃr7˜F€Ü4å ¦e¨”rd½ÿñè£*g(&(gwÜqÇý2j FÛDÆƒd8ÏÃ7è#¯ý#$†òòrp˜‡à$''kùÚ
+û`>ë0°(‡À0P¤ü	™/ÅâËe›ŸËð—¹sçÞ«3”:Ì°aÃÚ7oÞ¼½x=Åï–¡1F13F(œQóÃÇk ç=  x,™™™^NNŽŠÄÚµk½Ûo¿Ýk×®·yófOöámÙ²ÅÛ°aƒwî¹çªØ´nÝZ—±Þwß}§¡ûÁ{Áóa;üfûæ³O'\GÝ&eþ¸gÏž-Z´Au”:Ì=÷Üó–ŒÚ‰¶ƒ>!†1c¨.†Ì£ÆK@Dš5k¦ƒ²×¡C“ë®»Î+..V%++ËÛ¹s§×¦M›ÐNjá<@,öîÝ«ûZ½zµþÞ¿¿Š‚QVV¦âÂàŽÇ‰Líß åË¾¿–ã}¼°°pºÎ4ê$&(u”I“&ý£kAjjj&†Ž 3F‹ÀÀo<Š=zx—_~¹·}ûvFd7nìoíÔAŽá£>Ò}§§§{K–,ñ¾úê+¯Q£FÞÖ­[½úõëëñ°_çÅ j¬+¿eQUœl+N¼¨¦OŸþ¿y£Ža‚Rwˆ/((˜-†yµm#1Ìt’©&Šp` -FJrå•Wzyyyº\„Gó t¤ÀCbßŸ|ò‰÷Áx%%%*h4Ðð‹cä˜8^ŽQ’¿ã;™_&ëþþw¿ûÝ?ø›2ê&(u„É“'?š‘‘q§_\ÈàßáuåàÁƒ^nn®wÕUWymÛ¶õÒÒÒÔ;ˆ6ˆ	¢†·2oÞ<=^D0ÄÑy1òwí•¿ç•Ç|’0êõü±ã\|ñÅ¯ˆ$R àZeðLkHžþú×¿Ö„i·nÝÔÀhcw,äo:wî¬á¿÷íÛW#*´*ñ·ñ[D¥Pï>}ú4•­ñºuë6i!#¦1%ÆÉÏÏÿ½×`1¾lñ îðLã…³Àk;v¬z$u…Ý»w{/¼ð‚÷å—_ªˆ vÞ”ËÉü*ùûéû+Ë­Ä>&(1ÊÔ©Sÿ·ÕX1ª\	i´õ†»7á Bâîæ÷ÝwŸ×¥Kê"ÇÒ¥K½wÞyÇëÚµ«·|ùrÇß‰h2ös,‡e˜+¡Ñâgžyf‰¿ºc˜ Ä&Lè’’ò/rG¾R)£Âûpwl™×\swÙe—©Á	ÀÅcA Éµ´uyrDüý" 2ª>,ÃŒßþö·ø«1„åPb‰§ÄÛ¸^„"™;3¸»tii©×»woïþûï×<‰[~&€p4lØÐ4h×¢EoÛ¶m*$x^‚"$Êïôµk×>á¯jÄ&(1„„9ŠÂp‰ðáÀ°zöìé>\ïàgŠgòCðLè±»gÏÍ­¸Ö¼4àïñi.çâ|•Wt¦3XÈ#L›6m«NGîÄc1¡)¸S§NÎ+$‹O?ýTÃ x5Þ
+	\	‘ªe¼^Æ¯Ï;÷Wþ*F”1%¸çž{
+ÄXF‹±Ä‘#AD¸#3C†ñn¹å–³JL iÓ¦ú -W<GDXäÄVÎO¶¡ÍÊ•+gù«QÆ%Êˆ˜¼)†2E&éz®F
+ÝÖo¾ùf¯oß¾zw>[áœà©Ñ¬Ì¹ ¿‚¸ˆ dôë×ï&	Š$Úâ¯bD	”(rÇw¼"Ær-â‘8Ï„.õ0zôhí v6‹	¬¥3ˆ7¢çñeì'j›Èï}kÖ¬yÓ_Åˆ&(QBÄ¤SJJÊ?Ëd}ß…×¾%ˆ	ý1nºé&¯cÇŽg½˜ žMå„>x&7nÔ<
+çdYŸþýû÷[¾|ù:Ãˆ
+gN»c¢  à1ˆ÷d’W$j®„Ä+-:¼ƒäê«¯öÎ;ï<5ã?BøGï`ZhBl]„Xæ]|çw.÷‹QÀnQàÒK/ÍcèÛŽˆ8/äŠ+®ðn¸á}ÞÅøÛ "ýúõÓ¼
+ž
+Ïqþ8—"À<ë”“———¹jÕ*{9v0%ÂLœ8±«ÜUGÞ &x!¸ïw]ÄøûpÎßV­Zéã~.E§eàIÃÁ¡’F¤1%‚Ü{ï½/§¤¤ÌALHÀb	wW^v4räH}ÐÏø¯á¼qÎ>þøcí¶œO?jzÑEµéØ±ãÆM›6•êB#"˜‡!^zé¥$’Ky¢¯ÄÅþ´b7iÒ„÷K?Šä-t¼nÒõßAhüV³_ddd<ì5"„	J„xíµ×ÆJH“N¥w‰Dî¨Àó+Ý»w×iãäàERÔp8·œcF<¿Í:ÓˆòDˆÞ½{?ŸœœÜŒøŸ
+Ï¡y»<}MŒSçÂ/ÔP‘wÚº÷© ØÂÅýû÷?ºråÊu¦vÌC	3?ýéOs
+
+
+ž”
+•Ý¹äÄý$aù,…qzƒ"l¤g1ç•ßx,"Ü¨ÊP)#˜ „ñ>š‹ˆÜFÇ,ÜqÂî „:þÔ8qx›ÏÐræ7!ëyOð’üü|ûj„0A	3R¡¯¤„ä+ÜoÚÔK.¹Ä/e
+½iBJçÓ¯ë#ì˜ „ñ@
+Ä;iÄ´«èÄü-[¶ÔåFpÐƒö¶Ûn«ñR\«B>nÜ¸ÛýbF1A	#‹dÔ”œ	.8!y“è×Œà!OuàÀîÔŒÓÓÓgŒ?þr¿˜&LPÂÄ”)S.áò&Tjîš¼Þ‡þŒðÀûS~ùË_jr–sŽ‡‚˜'%%I4”6Ò/f„	”0!"2Td?"¸ßx*æ™„:¼Ñ‹–ÐÇõOñ½ë†fLPÂ„TàcrwÌBHðPu¨ä×^káÇtž! .2=|âÄ‰ê#,˜ „	w~%.ögšJMÓ0.8âÊÎÎÖ2Fø BžÊ%e¨Èü)))íô‡LPÂ€T`¾Ë«ÙåPxNÇ‰‹~x¯Ìˆ#jÞ~ç’âÂù:Ã&(aàøñã¿pB‚€ ,&&‘Aÿý÷]B¶fžÐ}òäÉwè#pLPfüøñ³Å­îÉ‹€p·	u¨Ô<KtäeL4#ã©[QO”ë3RÞ^‡LPFî†IR™à‘P©iÙás¼È<”È˜Ó™„œwò*\®K|||Â´iÓòü¢F€˜ ŒTØ–2$Sq	u¨Ä™™™Ö÷$
+à%ò•E®ÂÂõ¡¡L¥_Ì” 3fL[ñJ\«.6wJ^ëˆ·bDÎ;ÂâÄÝÏgu*..¶·Y…” WºTàË©´Tdr'ô?1¢C¯^½ôüÓÈ‰ºD¥	â¡Ü ?Œ@1A	©¨‹[5-;$é¹iD‡ÒÒRíì:â­ÐÚ#žãˆ‰'öó‹a‚ rlNÅEPô?±'‹£ù+ÞOèÉ;iÀ¾‰ÔKga‚ RaG§î5MÆ?ùÉOô·=Š‹‹õzà™×bà:‰GyŽ_Ä”€5jTw©¤åx'ÜÊËËõFt¡ÙžŠKÊºþA2¯·_Ä”€×º£„;i	pdÚ¾}ðPrssUHðT¸6$Ë+**~í1Â% æÍ›÷2cî|®ÂBQQ‘ŽèAeÛ¶mò¸k”ššz«_Ä”€˜4iÒd©¨»iEÀµFX:uêd-<1 ï™%ôDDðP¸>ˆŠx”9~# LPB*g–¸Ôq´ò¸aÿþýúU;#ú¸¾Aˆ
+y.<Ho÷a‚" ‡d¤/£v—˜ý³Ï>c–Eøf‚â~Ë5µ#a‚‡:¿ºººž»cû^qôá:Œ=ZÃPDž‡åzuò‹a‚ÉÉÉéˆ	ñ9á-<|'†ßFôázß"ÔIJJÒßÌÖ…F`˜ „Üñ†q'¤¢""Äé%%%ö©Ñ‘Ç3q	s’²2ý¿Ø”€Øü1‘tïæébî„TZk6Ž¼HDñ—kÔqüøñ7ú‹ 0A	©¬Gd8Î]ÐUXzgòp }èØF¨ã·î¨°ûæÍ›÷¢0Á% DDè%›@+ŸmHOO÷ºvíê—0¢ÂþðÃ«È;ÁG\DXü"F@˜ „„7ïKL^IŒNÅ¥¡¢¢Â[µj•_Âˆ\^Á‰¸ëCø#ÞJª_Ä”€(,,\,w¼D*­ÿà™z*»víÒJlD:ÒÉ¯„kÂõ`,×êm¿ˆ&(âw–ª©¸¼Ï”'Ž¿þúk¿„rrr¼}ûöÕ´î0ÀžÐ	#0LPbâÄ‰ÓäÎWBe%Ô¤,2¢×—\!öôE!)+Bÿ­,j*a…	J@<þøãH…}VT\š¿üòK¿„->úè#oýúõÚÂÃuAXâââêË`ÛÆ%@>¬Ÿ Åµ&äal¯Œ>$Çé„–úÂ’]YYÙÔ/b„	J€ý«TØc¸Ô$þ¨¼´.ØÇÑƒ$ùÞ½{]ÏXzr\âüÛ³Ï>û¯~1# LP¤}ûöWÑ·;¡ßŠàmÚ´I[zŒè€ ì®ÿ	ˆgrâèÑ£ÐF ˜ Haaát”-.Â@ë‚Ü	U`ŒÈóé§Ÿzk×®Õ—,ù¹„e¿LÛ—Ã€	JÀHe­qGhíAHp¹ÍK‰¼…PÇ…;Œ…ò9sæè+;`1A	©°…âfkO7—Û%:üùÏÖœ	Þ	c¼FñR¬Ë}˜0A		{^9‚ˆ ˜ÞfD–?þX›í°»|Š\‹7ü"FÀ˜ „q­×ú“zg$ôùË_þb=f#ŸÏ@D\È#MMMµGÀÃ„	JÊ;!Á;¡û=
+¢òÚk¯ù%ŒpsèÐ!pzÉâ•ŒÅS©_¿þ®¢¢¢~1#`LPÂ@rròr(Ü¹;R™©à_}õ•K
+a†¤/[¶Ló&\?Ÿuâå—_þÞ/fŒ	J8räÈ["&_!$Td@HxP¯Å?‹-ÒWH (	£ŒË÷ìÙ3Ò/b„”00þü¹â|Š‹Th¿uAïšFx!wB‡BAç¼3ˆÈ/~î¹ç6øÅŒ0`‚&
+¯O¥”ø°x0mùòå:m„>øÀËÈÈðéÄušÝÖ‡æáÂ%Œˆ›½„,wH*ö–-[¼Ý»wû%Œ áÆ[·nÕóÍÃ™@¸#¿¿™5kÖÿÕFØøFXÈÍÍ]Ù Aƒ1R¡“\î/åÛo¿Õ—&×¾‹§-iï¾û®v·‡Z¡NµŒtèÐA"¡MåºÐ&(adóæÍ%ýúõk#‚Ò‹<
+ ,ßÿ½~Œoöp÷4‚Ïçvh*þAîdçŒ3†˜˜„«Ía¦ªªêYDƒVD…1¡]ÂíÁòúë¯kÈÃùFP8×"&U3gÎlå1ÂŒ	J˜™3gÎTpÄ„ä,cZè—b¹”`!”$¤dÀ3¡ÉXå]9çÖV!LP"@YYÙ¿H¥.v¬hù!Qû›ßüÆÛ¸q£¾!ß8uxNê…^ÐWE8/±ïfˆ¸XoÂa‚æÎûËÙ³g·»e‘ZÙ=ùä“öŒÏiÀ¹¤™˜g¥xÌDZ„û3”ÿ¥3ˆ`‚!¸K
++\>/?ýôÓÞÂ…õ·qrð8Ã{ï½§âì¼?BÊ„„„ïgÌ˜ÑyÞ¼yïúE`‚Y6Éõ•žqaà%ÊÆÉC¯ã‡z¨æüá•Ð÷„ó+¢½IgÅš#ÈêÕ«ßïÕ«WºÜAòÛ…?x,$™nÖ¬™Þi¿ÏŠ+¼·Þz«æ‘Æœ?Î©Ê^	3»ûEb57Â¬Y³æÝvé,C<â—Â§2wîÜ©FaûÏáüæ<óÌ35ÉW:´q}Ïo·ˆIŽ_Üˆ0òDéÓ§ÿ7íàC`þ;:tL2‘‡Úão#‚ìýñ¬y_/Bâ{wU"ÎÇeú¿¨ÌC‰yyy=Ä²Å2qÙ¹Ó‚û|)}VDÇAß¾øÝwßÕ4µsÞaoRRÒ4ëÒFTˆóÇF”¸ë®»ŠEPs·%üq.|‹-¼¡C‡z\p_òì†óóàƒêË¾ù$†Æˆ®Ì»¥¥¥“,X°Í_Åˆæ¡D™‹.º¨RŒ¥‹„<É	 FÂó>Œ{÷î­óÎV86lðÖ­[§¢‹0Æ‹c,çíÏ³fÍºrãÆûüÕŒ(a‚eV¬X±ºoß¾UUUÄ0R˜‡ÁÐ“¶¨¨H<DHž ã9ÛøÓŸþä-^¼Ø{çw´+=ü Ù}{IIÉÿ”PÈ¾J˜ Ä yyy;ÅK¹¼~ýú¹ˆM .Ú³g÷á‡jÇ-„ålâ³Ï>ÓNäKD„ÁïÏä\“ØÁ%XµjÕ¡nÝº}+FÒVî¸­0‡1­?Ü‰—.]êuéÒEóÌ;Ó!Äyå•W4Ÿx%„…œa‹ü^¶fÍšWµ€XR6Æ˜0aÂ­â<!¢‘Äèý‰¸Ð#”ÐgòäÉúr¦œœ3¯»¹£7ß|S”wÆ ˆbÂùïí„ˆízñLúø«1„y(1Æºuë6öéÓ'IŒæ‹êêêDHâIJbXÎ¸È«ÐtJD®åL ±àK,Ð×âñw»|	a üý»ez™”}wõêÕKýUÂ<”æ®»îz())é>1 z	¡! ­äh>ÍÏÏ÷:tèà¯Q·@Dè[ÂÀÃo¿ývMHç{#* xg žÚ³gÏ¾F1‰y(1ÌàÁƒwŠ]-C6Þ	Fær„>LÓ”Ê÷{I`¶iÓF;ÃÕk8v<Zs¼…1âé'c?]8gÎz1Œ	J#WÒ¹sç½âú¯“Ðf ‰¾yÃ«MII‰÷Í7ßh·ý¬¬,Í­`±=yðvz¼’;vÔ$ 	sðÀ8~ÄDDs¹Ì»vÖ¬Yö~‡:€…<u„)S¦L{°ªªªiíÜ^ 2ÌcLtÅWxmÛ¶­	¢	Ç…èÑË•7Òófz ±Ìññ÷¸¿‰1È|z¿1sæÌ1:Ã¨˜ Ô1î¾ûî?Èh ^w'ÂÂ ~c˜ä%h%éÙ³'½qõnÏ«"ßæÓ«xL¼ê’}#&‰dÆ„nü3â"Ç_!¡Îg²‰»çÎû~hkF]ÁBž:F^^Þ—"­$<8o„£Ä@7öÃïóÏ?×WL®_¿^:$/Á<W6ˆœÍÚ$‰ÙöÞ½{Õyä‘G¼íÛ·ÓÇFóyPŽ‰ãeß.'Tû¸…z".Å".¶oß¾,;;;NŽ¯îÈˆyÌC©CÌƒ-†×Cä®î¼g˜àZH0p–cðü¦yŠV­Z©Ó¸qcïüóÏWO¢eË–š× d¢œ[ï‡a“Û¹r7”á1^z„÷ñÅ_Ô|ÄA,x5ƒ;@ÙÛæïà˜™æ˜]ç{,oÎš5k¨Î0b”çÆoÌø…LþÊÆŒ‘:Ñ ¦ñœab°,cše-ó€2¬Ï2Æ®ÃÍÐ¼è©I“&ú”3ëàÝ L“a6ÔmÑhêe¬ïöp &ìƒý±>Þ{]#ƒ;æ#R,c=Ž–•••m’}|+Â2L1‹	J3aÂ„+Å¨Î£œ)†× cE0>ª`¾zò»]‡ŽÞQ1ÊmÛ>×2,Ã˜¨`À€Acì¬ï~³œuœxÂÀ|F¹å|ím2f?ŒYîÊ@È3©öZæ¶ö233E¨vxõâëy‰I‰^‰„Ix0UU¼M‹ë6ÜvÙ†ÿw|+óæ<õÔSë#æ0A‰Q$¼Y ÆÙT&¯CJÄ81VŒšigpx!ÌOIiàuïÑÃ» {ï¸ˆÏÂïñJÅãØ»·¸F€< „ÄmQ@\0Zv`È,göÁ¼Úë0Ÿuœ°±mÄ2nôzM’ù?9J—ÇË¾½d¼ƒ½ß_*e	£<ïëÛ½ã²m„‹¿Ø–;9Ž½sæÌi¢Œ˜Ã%™:uê2	3.ráŒû¥ÆvDB¼‘¼~ýÔ¨sršÉýßóªd™"óêù±gÏnoÅ²e:&·AŒCe¹D…iæ³/Œ˜}1ÍòêjÂ©°ÐŠÄ˜ùn}Ž-++Û;!åŽääú^	—ÎïÜÅ++/óº#vR–õ	²OÖå8vˆ˜ÄÅÅ{oý¿7TÙÇÚwH@	¿ä8åÏ<>GB ;ýÍ1‚	JŒ1qâÄÅb0ýÅ˜²1$À¨1ZD iÓ¯MÛv^v£l/·Uk/	ÃCCH0JDE…Â_WçÉLÄàÀR}øn·_lÛæµ8ç®Û¯©²ûE\3  ˆc¶Ép ´Ô;&ë"f‡¼ž½.”p&Kæóº]ÐÝ;v” Åëq«(ÈæOø‚Â4ÇÈ±Ö†ca[_|þ¹·xñ¿i>Ç‰ŸÛ·L»DhÇþÉ_ÕˆLPbˆ	&,o`ÆƒÑ`H.l8GŒŸ×p×¿ {O¯ôà5zÔ“äBblURV/êŒµšùˆË	¼’8¯¼üW/A<1`š“I¨>\áíØ¾Cö›¨M½{‹‹½{÷ñví*òÚ´iëå4kæ}óõo¿I²[zz†—*ëqœ„4õåØNœ¨Ò&QC$Ù¿ûæx8^¦ù{X†Ø b‰(ò‡ð7´oÛZË|òÉ'Ú=óæÍúU@þç-±O)ó}eeå;=öØ-º!#ê˜ ÄoŠÏ$cr^ ¡EëÖ­½=zx—]v™¶¨?^å=vÔ+Úõ½¿¶À•Ä&U`BÆ	®Ø_è§,#¤ÐßLËöñ0Pf:bšc çéèo™FªY—p…íž¨"¯
+æ³=ær1‘SG·ÄfþÚÂ9YW¦¡Ö¹-E4C¹}Yx7
+åÕ›’õØ2-ã­³gÏîä7¢ˆ»ÆF”3fLw‰‡Äà†º¼Æ‡±;éØ±£ötíÛ·¯¿Æ_)ÙWª†Œ·qDÊª˜ˆ%«ç!BáU—7 ‚
+Ñ6"àÏTÑIñbæ)lXÀû`ZÅ@–!ú›e~Y·mÊ@¨,û­Çþ8.dLkOËsšËü8/Íÿ>ñyþùçõÍu~EÏnGöÏ¾<xïÓO?ýˆL‡vjD”(’ŸŸ?K<’	bdÚñAHF2¦wéO<¡­$ÿh•xÅ%û´	—»±yeÌ¶(4ËA¤è4Ëôÿ‡æ#¬Ëæð((¦õxuYÈ{‘èvÝ´†1‚üÒ²¡E!±LÑcÿ©R¼ì¬¬ÿÏ+ù!4;/Y²Dß-K—~Z­j»l¿BöýâÌ™3Çê#*p­(pë­·Þœœ<FŒê*~×2:ry÷ß¿öhÕfV™÷c¨8\©Oó–—‡:‘Eœ\˜À>Ø–ÚÆÏ4"¦ËÕPuÂ_…Áy<”a}w\º'6nuÖÑòâ¡à%±íì¬L/³aCýíÖý±lÛ¶MÃ’ËÀù		TcÔr‰ìãùÇ{ìi-`D{–'
+ÜrË-£ä;O­ÆŽÛŽAÀ¨IÀ2D‘'cp‰‰	rçN–° ¾Ž=¦Ì¶€}©(¸íúQöI9ü¦Ù†ÎWa@0BƒÌ‘ñ_Ë‡„Ã_Î´¿û…Íš‰dxéi§$&Àã´üpnxsÛ@PØ‡„Œl°œÃ~Í›7rëÖ­¡¯ãä¯¨qZLž<y”Œ~/†PÏ! &ˆK^^žwñÅ«wr: 
+y‰øøz^ié‹‰$˜£b„Ìw¢á*‚¶Éoù‡ásœà„ÅsMY¹ü¨YÆö˜n”%Æß@´ôa‘"@ØSPP ¡¹'öåZ€ä8«%DšWYYùìüùó—û«À<”2jÔ¨î)))OËÝ4 ò;C Ìá¡¼	&hç3–¬ïòˆ
+^KãFY2d{Ùbää]tÿbúÇ«ÄKÏˆ%^B“PÿZv$„ñh1B„Tiø_E'4 &ˆ`$©—Tßk{Ž†6¤hkPèïÕ¢ÀþØ?½ryÐ±vO`_ør¤Lç•+W>¯Œˆà%6þ+òóó_Ã$C
+a¯—ýæ›oÖ¦á¿—€m ¡s,‡**¼C‡d¨8,›¨^E™üÆ£¡|ZZªWu¼J§³2Š1WzõE¨RSRÔ Iœ"\‘„W1ðÊ„…º°§öy­.))¹Z–½å7ÂŒ	J„1é-ÞÉ«RÙ[’'qŸ~&Ã†óPóÈ´Ñü‰êÂ2¤¹–+ùšX·å¿úê«Ú*†‡âÂG¦eüºx1¯>õÔSÏøÅ0ò³qFØc|TF-©è€WÂ« €~&±"&€€ &n\bc%1nÝºiÞ		±F˜–ã½N¼§ñS¦L±¯ÎG Ë¡D ©Ìd-[È ç1¡òc?ûÙÏN;kxúÆ:ÿÑÇ%jñRdh&‚xýŠ+føÅ0a‚fÆ7S*w?¹ãójC½sRÑ•¡C‡z½zõòK§Ï#! ¼EÁæ\û-T´¨U‹à4^½zõÛZØ&(aD<“‡ELFËd!á•œ$â5×\ã4(TÐž{"±ýÞ{ïi7}ÄoE<”ú2ÝGD¥ÑªU«,I&LPÂÄ½÷Þ»@FãÅ+Ép•Aá.:räH}Ð|„<t|£Õ‰Žoœwàˆ¨à([¶l™õ¢–”âb—Š7’€NevÞ	¯èÔ©“
+‹h
+ç¡JÞQëZ¬h¢EMÆ=ï¼óÎÙ~Q#`ÌC	}úôyJ*r:y*59\ñx@ß4Èáƒió×’æ®ƒ€[ØU®Ï‰Õ«WÈ#8¬VÌ¸qã.œ2eJ‘FšZðN_uÕU*&Lá…prøðá5Þ	 â¾¨4¿NgbJÀ\rÉ%K%n?qž	º]»vÞõ×__Óá‡o^òùBMãnQo!^Ê~ñRVûÅ 0%@Ä3ùç¸¸¸Öˆˆ‹ÝÉ¡à‘ÜtÓMú¶5#²äææjî¤6\ñ`âåÚè«#Œà0% ø†ŽÇp¹ûu"^wBBš‡IÒŒiDžîÝ»ë˜œ
+­?~ØÃøP¿~ýŠW­ZÅ·” 0% äŽw	w<Â!áIX>óI¨“í—4"£'-b‚Ðƒ/ú=âãã;v²Î4N”€ŠÙ–¤µ¶¨8°æ¹#zôìÙÓkß¾½6%’‚K6lx¥Î0N«épë­·ŽHKK{PD¤"‚€PYy¿	ØÜ]Ñˆ\<ºå“Gð°T®Wb^^^êÊ•+­ù41% ²²²þI$Ñ5Or×ã?š‰ñZŒØ€k2zôhmqCð~_ìÛÉµËÔBÆiaµ= ¤26£•”Ä+•”W´lÙÒ/aÄ¼"‚°‡ç}\ØÃM ¯2))éŠüüün:Ó8eLPN©„_‰€dáF»§]©¸TRzk±¢O!®bÂ˜A<É.÷Ýwßr#à5Æ)b‚r¼ôÒKI"$m\¥¤¢’ôkÛ¶­¾š€øÜˆ-A]×Œð”ë$ó“§OŸþõòåËwùESÀ’²§ANNÎ&©ˆM™vÖðTx8ÇˆMè„÷È«#¹Vˆ
+7¹–ñƒ~néÒ¥ü¢ÆIbÊéqÿÜgZx×	½bØÏ¤ÿþšKášñä:¦ˆ‡iou;LPN‘‰'ÒLÜwÙ¹Î@¨Ã‡ºŒØ†Zé ï„Â!á-`œ&(§ˆ¸ÊÍÒÒÒ!&$ú¨ŒÜí¸ó¹;ž»ÐwÛm·i>Å5û^fõÔ©SûÅŒ“ÄåÔiâZÆtœâõFÝà¼óÎÓ>).\eëØT~7n\¿˜q˜ œôŒ1ˆ *TDÆ×]w=Q\‡àíøÜ ¸vôKq×Q<–aO>ùä§~1ã$0A9ÒÓÓKÄE.Ã3Á]\gÞ½aÔx_
+_ç&Àuä¥Lþ´µ~ž"&(§@uuõð„„ý2¢âB*§Qw Dåy+—GaÀCaÉ™4iÒoübÆI`‚r
+$&&q­;TFÜe:´ñV0£nA…kI+¸ž".öò¥SÀåJ—à•PßpÃæ¡ÔAðRx_
+‰Y'(¾×zØÇ8)LPN’iÓ¦-”ÊÖ„i\dÄq¡÷¥Q÷àòIX<L®%‰YEnÝ%ìùG¿˜ñ#1A9I¤Ò¡¡w
+ô’¥w³fÍü9F]ƒ®¥¦¦ÖäÃÈ£ˆ§’PYYYî1~ž÷ï²¬\cy±ì    IEND®B`‚
+            [type] => 3
+        )
+
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 32
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_userlist] => 2
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 1
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_userlist] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_userlist] => 2
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 1
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [block_userlist] => 1
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+    [user_name] => test_user
+    [skills] => JavaScript PHP
+    [skill_count] => 
+    [myskills] => 
+    [name] => 
+    [licences] => 
+    [licence_count] => 
+    [mylicences] => 
+    [user_workhistory] => 
+    [user_comment] =>         
+            é€ä¿¡
+        
+    
+        
+            é€ä¿¡
+        
+    
+    [priority] => A
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
     [block] => 2
 )
 Array
@@ -7,282 +1532,19 @@ Array
     [page] => 1
     [page_mypost] => 0
     [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-    [block] => 3
-)
-Array
-(
-    [page] => 2
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-    [block] => Â«
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-    [id] => 585
-    [0] => 585
-    [text] => test
-    [1] => test
-    [image] => 
-    [2] => 
-    [user_id] => 23
-    [3] => 23
-    [destination_user_id] => 24
-    [4] => 24
-    [created_at] => 2022-08-18 19:54:12
-    [5] => 2022-08-18 19:54:12
-)
-Array
-(
-    [id] => 575
-    [0] => 575
-    [text] => test
-    [1] => test
-    [image] => 
-    [2] => 
-    [user_id] => 23
-    [3] => 23
-    [destination_user_id] => 27
-    [4] => 27
-    [created_at] => 2022-08-17 20:03:06
-    [5] => 2022-08-17 20:03:06
-)
-Array
-(
-    [id] => 581
-    [0] => 581
-    [text] => test
-    [1] => test
-    [image] => 
-    [2] => 
-    [user_id] => 29
-    [3] => 29
-    [destination_user_id] => 23
-    [4] => 23
-    [created_at] => 2022-08-18 19:26:21
-    [5] => 2022-08-18 19:26:21
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 1
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 2
-    [page_follow] => 0
-    [page_follower] => 0
-    [login] => 1
-    [user_id] => 23
-    [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 0
-    [page_mypost] => 0
-    [page_testcase] => 0
     [page_userlist] => 0
     [page_follow] => 0
     [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
 )
 Array
 (
 )
 Array
 (
-    [page] => 0
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 0
-    [page_follow] => 0
-    [page_follower] => 0
-)
-Array
-(
-)
-Array
-(
-    [page] => 0
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 0
-    [page_follow] => 0
-    [page_follower] => 0
-)
-Array
-(
-)
-Array
-(
-    [page] => 0
+    [page] => 1
     [page_mypost] => 0
     [page_testcase] => 0
     [page_userlist] => 0
@@ -297,7 +1559,7 @@ Array
 )
 Array
 (
-    [page] => 0
+    [page] => 1
     [page_mypost] => 0
     [page_testcase] => 0
     [page_userlist] => 0
@@ -312,7 +1574,7 @@ Array
 )
 Array
 (
-    [page] => 0
+    [page] => 1
     [page_mypost] => 0
     [page_testcase] => 0
     [page_userlist] => 0
@@ -327,7 +1589,7 @@ Array
 )
 Array
 (
-    [page] => 0
+    [page] => 1
     [page_mypost] => 0
     [page_testcase] => 0
     [page_userlist] => 0
@@ -336,28 +1598,4 @@ Array
     [login] => 1
     [user_id] => 23
     [user_name] => test_user
-)
-Array
-(
-)
-Array
-(
-    [page] => 0
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 0
-    [page_follow] => 0
-    [page_follower] => 0
-)
-Array
-(
-)
-Array
-(
-    [page] => 0
-    [page_mypost] => 0
-    [page_testcase] => 0
-    [page_userlist] => 0
-    [page_follow] => 0
-    [page_follower] => 0
 )

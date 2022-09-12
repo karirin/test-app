@@ -1691,6 +1691,11 @@ img.my_preview {
     width: 118%;
 }
 
+.profile .edit_name {
+    margin-top: -1.3rem;
+    width: 10rem;
+}
+
 img.preview {
     display: none;
     width: 7rem;
@@ -1786,7 +1791,7 @@ img.preview {
     .profile .edit_profile_img,
     .profile .editing_profile_img {
         width: 15rem;
-        height: 15rem;
+        height: 11rem;
     }
     .profile_detail .btn_flex .modal_close {
         width: 110px;
@@ -1832,8 +1837,8 @@ img.preview {
         right: -20%;
     }
     .edit_profile_img .fa-image_range {
-        right: 36%;
-        top: 27%;
+        right: 47%;
+        top: 18%;
     }
     .comment_confirmation {
         width: 400px;

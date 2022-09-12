@@ -160,35 +160,36 @@ $followers_count = 0;
                 <?php endif; ?>
             </div>
             <div class="form">
-                <p class="tag_tittle">スキル</p>
-                <div id="myprofile_skill">
-                    <?php
-                    $skills = explode(" ", $current_user['skill']);
-                    $skills_len = "";
-                    $skill_tag = array();
-                    foreach ($skills as $skill) :
-                        if ($current_user['skill'] != '' && $skill != '') :
+                <div id="skill">
+                    <p class="tag_tittle">スキル</p>
+                    <div id="myprofile_skill">
+                        <?php
+                        $skills = explode(" ", $current_user['skill']);
+                        $skills_len = "";
+                        $skill_tag = array();
+                        foreach ($skills as $skill) :
+                            if ($current_user['skill'] != '' && $skill != '') :
 
-                            array_push($skill_tag, $skill);
-                            $skills_len .= $skill;
-                            if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
-                                print '<span id="child-span_myprofile" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
+                                array_push($skill_tag, $skill);
+                                $skills_len .= $skill;
+                                if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
+                                    print '<span id="child-span_myprofile" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
                                 class="far  fa-times-circle skill"></i></label></span> ';
-                            } else {
-                                print '<span id="child-span_myprofile" class="skill_tag">' . $skill . '<label><input type="button"><i
+                                } else {
+                                    print '<span id="child-span_myprofile" class="skill_tag">' . $skill . '<label><input type="button"><i
                                 class="far  fa-times-circle skill"></i></label></span> ';
-                            }
-                        endif;
+                                }
+                            endif;
 
-                    endforeach;
-                    ?>
-                    <i class="fas fa-plus myprofile_skill_btn"></i>
+                        endforeach;
+                        ?>
+                        <i class="fas fa-plus myprofile_skill_btn"></i>
+                    </div>
+                    <input placeholder="skill Stack" name="skills" id="skill_myprofile_input" />
+                    <input type="hidden" name="skills" id="myprofile_skills">
+                    <input type="hidden" name="skill_count" id="myprofile_skill_count">
+                    <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
                 </div>
-
-                <input placeholder="skill Stack" name="skills" id="skill_myprofile_input" />
-                <input type="hidden" name="skills" id="myprofile_skills">
-                <input type="hidden" name="skill_count" id="myprofile_skill_count">
-                <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
                 <div id="licence">
                     <p class="tag_tittle">取得資格</p>
                     <?php

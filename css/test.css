@@ -365,3 +365,49 @@ select.priority {
     margin-right: 0.5rem;
     opacity: 0.6;
 }
+
+
+/* ///////////////////////// */
+
+
+/*       メディアクエリ       */
+
+
+/* ///////////////////////// */
+
+@media screen and (max-width: 1100px) {
+    .user_top_postlist ul li {
+        padding: 0 1.5rem;
+    }
+    .post_tab {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .user_top_postlist ul li {
+        padding: 0 0.6rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .user_top_postlist ul li {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .col-3 {
+        display: none;
+    }
+    .col-9 {
+        flex: unset;
+        max-width: unset;
+    }
+    .edit_profile_img {
+        text-align: center;
+    }
+    .edit_name {
+        margin-left: 2rem;
+    }
+}

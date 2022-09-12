@@ -434,6 +434,7 @@ $(document).on('click', '.profile_edit_btn', function() {
     $('.tag').fadeOut();
     $('.col-3').css('margin-top', '-2rem');
     $('.edit_btns').fadeIn();
+    $('.profile_count').fadeOut();
     $('.edit_workhistory').change(function() {
         var str = $('.edit_workhistory')[0].value.length;
         if (str < 100) {
