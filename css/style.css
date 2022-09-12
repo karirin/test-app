@@ -24,7 +24,7 @@ body.top {
     height: 100vh;
     background-image: url("../image/background.png");
     background-repeat: no-repeat;
-    background-size: 800px;
+    background-size: 850px;
 }
 
 body.fixed {

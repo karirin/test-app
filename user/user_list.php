@@ -37,7 +37,6 @@ $page_type = $_GET['type'];
 
         if (isset($block[0])) :
             foreach ($block[$u] as $user) :
-                _debug($current_user);
         ?>
         <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main&page_type=my_post"
             class="user_link">
