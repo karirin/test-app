@@ -1,7 +1,8 @@
 <?php
-require('testcase_process.php');
 if (isset($_SESSION['login']) == true) {
     require('profile.php');
+    require('post_process.php');
+    require('testcase_process.php');
 }
 ?>
 <script src=" https://code.jquery.com/jquery-3.4.1.min.js "></script>

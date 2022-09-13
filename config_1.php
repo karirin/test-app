@@ -7,7 +7,6 @@ require('function.php');
 require('class.php');
 require('head.php');
 require('withdraw.php');
-require('post_process.php');
 require('help_disp.php');
 
 if (isset($_SESSION['flash'])) {
