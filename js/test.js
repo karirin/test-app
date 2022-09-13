@@ -625,5 +625,6 @@ $(document).on('click', ".profile_close", function() {
     $('.col-3').css('margin-top', '0rem');
     $('.myprofile_btn').fadeIn();
     $('.form').fadeOut();
-    $('.tag').css('display', 'inline-block');
+    $('.tag').fadeIn();
+    $('.profile_count').fadeIn();
 });

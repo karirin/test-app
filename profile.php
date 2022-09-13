@@ -189,7 +189,7 @@ if (isset($_SESSION['login']) == true) {
         </div>
         <div class="btn_flex">
             <input type="submit" class="btn btn-outline-dark" value="編集完了">
-            <button class="btn btn-outline-info modal_close" type="button">キャンセル</button>
+            <button class="btn btn-outline-info profile_close" type="button">キャンセル</button>
         </div>
     </div>
     </form>
