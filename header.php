@@ -21,7 +21,7 @@
             <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user&page_type=all">Test
                     App</a></li>
             <li class="top_link prof_page"><a class="prof_modal" href="#"><img
-                        src="/user/image/<?= $current_user['image'] ?>" class="user_image"></a></li>
+                        src="data:image/jpeg;base64,<?= $current_user['image'] ?>" class="user_image"></a></li>
             <li class="header_menu_wide"><a href="../user/user_list.php?type=all&page_id=current_user"><i
                         class="fas fa-users"
                         style="margin-right: 0.5rem;font-size: 1.5rem;vertical-align: bottom;"></i>ユーザー一覧</a>

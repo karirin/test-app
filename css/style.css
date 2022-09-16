@@ -1536,7 +1536,8 @@ img.my_preview {
 .modal_withdraw,
 .modal_match,
 .modal_testcase,
-.modal_help {
+.modal_help,
+.modal_post {
     display: none;
     position: fixed;
     top: 0;
@@ -1595,6 +1596,7 @@ img.my_preview {
 
 .withdraw_process,
 .post_process,
+.post_delete,
 .testcase_process,
 .testcase_disp,
 .testcase_delete,

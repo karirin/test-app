@@ -26,7 +26,8 @@ if (isset($block[0])) :
 
                     ?>
     </a>
-    <p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
+    <p class="post_created_at"><i
+            class="fas fa-trash"></i><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
 </div>
 </div>
 

@@ -366,6 +366,15 @@ select.priority {
     opacity: 0.6;
 }
 
+.fas.fa-trash {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.fas.fa-trash:hover {
+    color: hsl(0, 100%, 30%);
+}
+
 
 /* ///////////////////////// */
 

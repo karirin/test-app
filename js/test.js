@@ -53,10 +53,12 @@ window.onload = function() {
     if ($('.skill_tag.extra')[0] == undefined) {
         $('.skill_btn')[0].setAttribute('style', 'display:none;');
         $('.myprofile_skill_btn')[0].setAttribute('style', 'display:none;');
+        $('.skill_btn_narrow')[0].setAttribute('style', 'display:none;');
     }
     if ($('.licence_tag.extra')[0] == undefined) {
         $('.licence_btn')[0].setAttribute('style', 'display:none;');
         $('.myprofile_licence_btn')[0].setAttribute('style', 'display:none;');
+        $('.licence_btn_narrow')[0].setAttribute('style', 'display:none;');
     }
 }
 
@@ -627,4 +629,29 @@ $(document).on('click', ".profile_close", function() {
     $('.form').fadeOut();
     $('.tag').fadeIn();
     $('.profile_count').fadeIn();
+});
+
+// 投稿の削除ボタン押下時
+$(document).on('click', '.fa-trash', function() {
+    var post_id = $(this).parents('.post_list').attr('id');
+    $('.modal_post').fadeIn();
+    $('.post_delete').fadeIn();
+    $('.post_delete .post_process_text').replaceWith('<span class="post_process_text" style="text-align: center;width: 100%;">' + $('#' + post_id + ' .post_text')[0].textContent + '</span>');
+    $(document).on('click', '.post_clear', function() {
+        $('.modal_post').fadeOut();
+        $('.post_delete').fadeOut();
+    });
+    $(document).on('click', '.delete_post_btn', function() {
+        $.ajax({
+            type: 'POST',
+            url: '../ajax_edit_test.php',
+            dataType: 'text',
+            data: {
+                post_id: post_id,
+                delete_post_flg: 1
+            }
+        }).done(function() {
+            $(this).parents('.post_list').parent().fadeOut(1000);
+        }).fail(function() {});
+    });
 });

@@ -31,7 +31,8 @@ require_once('../config_1.php');
                 }
                 ?>
                 <?php require('post_info.php'); ?>
-                　<p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
+                　<p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?>
+                </p>
                 <?php
                 $comment_class = new Comment($post['id']);
                 $comments = $comment_class->get_comments($post['id']);

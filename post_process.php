@@ -56,3 +56,12 @@
         </div>
     </form>
 </div>
+<div class="post_delete">
+    <p>こちらの投稿を削除しますか</p>
+    <span class="post_process_text"></span>
+    <div style="justify-content: space-evenly;display: flex;margin-top:1rem;">
+        <button class="btn btn-outline-danger delete_post_btn">削除</button>
+        <button class="btn btn-outline-secondary post_clear" type="button">閉じる</button>
+    </div>
+    <input class="post_id" type="hidden">
+</div>
