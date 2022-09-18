@@ -111,7 +111,7 @@ if (isset($_POST)) {
         }
     }
     if ($_POST["delete_post_flg"]) {
-        $test_id = $_POST["post_id"];
+        $post_id = $_POST["post_id"];
         try {
             $dbh = db_connect();
             $sql = "DELETE FROM post

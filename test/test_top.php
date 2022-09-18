@@ -250,25 +250,26 @@ $followers_count = 0;
 <?php else : ?>
 <h3 style="text-align:left;margin-left: 2.5rem;"><?= $current_user['name']  ?>さんの投稿</h3>
 <?php endif; ?>
-<?php
-$post = new Post(0);
-$posts = $post->get_posts($current_user['id'], $_GET['page_type'], 0);
-switch ($_GET['page_type']) {
-    case ('all'):
-        require('../test/test_list.php');
-        break;
-    case ('my_post'):
-        require('../test/test_list_mypost.php');
-        break;
-    case ('testcase'):
-        require('../test/test_list_testcase.php');
-        break;
-}
-?>
-
+<div>
+    <?php
+    $post = new Post(0);
+    $posts = $post->get_posts($current_user['id'], $_GET['page_type'], 0);
+    switch ($_GET['page_type']) {
+        case ('all'):
+            require('../test/test_list.php');
+            break;
+        case ('my_post'):
+            require('../test/test_list_mypost.php');
+            break;
+        case ('testcase'):
+            require('../test/test_list_testcase.php');
+            break;
+    }
+    ?>
 </div>
 </div>
+</div>
 
 <?php
-require('../footer.php');
+//require('../footer.php');
 ?>

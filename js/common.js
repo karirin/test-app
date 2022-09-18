@@ -959,11 +959,9 @@ $(document).on('click', '.post_process_btn', function() {
         skills[i] = spans[i].textContent;
     }
     skills = skills.join(' ');
-    console.log(skills);
     skill_div.value = skills;
     skill_div_narrow.value = skills;
     // skill_div_narrower.value = skills;
-
 });
 
 //================================
@@ -1118,7 +1116,7 @@ function inputChange_licence() {
     //     return false;
     // }
     // 入力した文字列がlistと合えばタグ追加
-    if (licence_list.indexOf(fome_x_name) != -1) { // || licence_list.indexOf(fome_x_name_narrow) != -1 || licence_list.indexOf(fome_x_name_narrower) != -1) {
+    if (licences_list.indexOf(fome_x_name) != -1) { // || licence_lists.indexOf(fome_x_name_narrow) != -1 || licences_list.indexOf(fome_x_name_narrower) != -1) {
 
         var span_element = document.createElement("span"),
             span_element_narrow = document.createElement("span"),
@@ -1421,39 +1419,53 @@ $(document).on('click', '.far.fa-times-circle.licence_narrow', function() {
 // });
 
 $(document).on('click', '.edit_done', function() {
-    var licence = document.getElementById("licence"),
+    var skill_narrow = document.getElementById("skill_narrow"),
         myprofile_skill = document.getElementById("myprofile_skill"),
+        licence = document.getElementById("licence"),
         licence_narrow = document.getElementById("licence_narrow"),
         // licence_narrower = document.getElementById("licence_narrower"),
-        licence_div = document.getElementById("licences"),
+        skill_div_narrow = document.getElementById("skills_narrow"),
         myprofile_skill_div = document.getElementById("myprofile_skills"),
+        licence_div = document.getElementById("licences"),
         licence_div_narrow = document.getElementById("licences_narrow"),
         // licence_div_narrower = document.getElementById("licences_narrower"),
-        spans = licence.getElementsByTagName("span"),
+        spans_narrow = skill_narrow.getElementsByTagName("span"),
         myprofile_spans = myprofile_skill.getElementsByTagName("span"),
+        spans = licence.getElementsByTagName("span"),
         spans_narrow = licence_narrow.getElementsByTagName("span"),
         // spans_narrower = licence_narrower.getElementsByTagName("span"),
-        licences = new Array(),
+        skills_narrow = new Array(),
         myprofile_skills = new Array(),
+        licences = new Array(),
         licences_narrow = new Array(),
-        // licences_narrower = new Array(),
+        // licences_narrower = new Array(),s
         workhistory_count = $('.edit_workhistory').val().length;
+    console.log($('.edit_name').val());
+    // skills = skills.join(' ');
+    // skill_div.value = skills;
+    // skill_div_narrow.value = skills;
+    // skill_div_narrower.value = skills;
+
     if (100 < workhistory_count) {
         $('.edit_workhistory')[0].setAttribute("style", "border-color: #dc3545;");
         $('.error_workhistory').fadeIn();
         return false;
     }
 
-    document.getElementById('licence_count').val = 4;
+    document.getElementById('skill_count_narrow').val = 4;
     document.getElementById('myprofile_skill_count').val = 4;
+    document.getElementById('licence_count').val = 4;
     document.getElementById('licence_count_narrow').val = 4;
     // document.getElementById('licence_count_narrower').val = 4;
 
-    for (i = 0; i < spans.length; i++) {
-        licences[i] = spans[i].textContent;
+    for (i = 0; i < spans_narrow.length; i++) {
+        skills_narrow[i] = spans_narrow[i].textContent;
     }
     for (i = 0; i < myprofile_spans.length; i++) {
         myprofile_skills[i] = myprofile_spans[i].textContent;
+    }
+    for (i = 0; i < spans.length; i++) {
+        licences[i] = spans[i].textContent;
     }
     for (i = 0; i < spans_narrow.length; i++) {
         licences_narrow[i] = spans_narrow[i].textContent;
@@ -1461,12 +1473,14 @@ $(document).on('click', '.edit_done', function() {
     // for (i = 0; i < spans_narrower.length; i++) {
     //     licences_narrower[i] = spans_narrower[i].textContent;
     // }
-    licences = licences.join(' ');
+    skills_narrow = skills_narrow.join(' ');
     myprofile_skills = myprofile_skills.join(' ');
+    licences = licences.join(' ');
     licences_narrow = licences_narrow.join(' ');
     // licences_narrower = licences_narrower.join(' ');
-    licence_div.value = licences;
+    skill_div_narrow.value = skills_narrow;
     myprofile_skill_div.value = myprofile_skills;
+    licence_div.value = licences;
     licence_div_narrow.value = licences_narrow;
     // licence_div_narrower.value = licences_narrower;
 

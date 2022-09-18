@@ -216,7 +216,10 @@ $(document).ready(function() {
 
 // テスト投稿の必須チェック
 $(document).on('click', '.post_process_btn', function() {
-    if ($('.url_form').val() == '' && $('.test_form')[0].value == '') {
+    console.log($('.url_form')[0]);
+    console.log($('.url_form')[0].value);
+    console.log($('.test_form')[0].value);
+    if ($('.url_form')[0].value == '' && $('.test_form')[0].value == '') {
         $('.url_form')[0].setAttribute("style", "border-color: #dc3545;");
         $('.test_form')[0].setAttribute("style", "border-color: #dc3545;");
         $('.post_url_error').fadeIn();
@@ -634,6 +637,7 @@ $(document).on('click', ".profile_close", function() {
 // 投稿の削除ボタン押下時
 $(document).on('click', '.fa-trash', function() {
     var post_id = $(this).parents('.post_list').attr('id');
+    console.log(post_id);
     $('.modal_post').fadeIn();
     $('.post_delete').fadeIn();
     $('.post_delete .post_process_text').replaceWith('<span class="post_process_text" style="text-align: center;width: 100%;">' + $('#' + post_id + ' .post_text')[0].textContent + '</span>');
@@ -651,7 +655,10 @@ $(document).on('click', '.fa-trash', function() {
                 delete_post_flg: 1
             }
         }).done(function() {
-            $(this).parents('.post_list').parent().fadeOut(1000);
+            console.log($("#" + post_id));
+            $("#" + post_id).fadeOut(1000);
+            $('.modal_post').fadeOut();
+            $('.post_delete').fadeOut();
         }).fail(function() {});
     });
 });

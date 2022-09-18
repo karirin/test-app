@@ -13,14 +13,14 @@
         <div class="row">
             <div class="col-6">
                 <h5 class="left">URL</h5>
-                <input type="text" name="url" class="form-control url_form" placeholder="URLを入力してください">
+                <textarea class="form-control url_form" placeholder="URLを入力してください" name="url"></textarea>
                 <div style="height: 27px;text-align:left;">
                     <span class="post_url_error"
                         style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">URLが入力されていません</span>
                 </div>
                 <h5 class="left">説明</h5>
                 <div class="form-group left" style="margin-bottom:0;">
-                    <textarea id="textarea1" class="form-control test_form" name="text"
+                    <textarea id="textarea1" class="form-control test_form" name="text" value="aa"
                         placeholder="説明を入力してください"></textarea>
                 </div>
                 <div style="height: 27px;text-align:left;">
