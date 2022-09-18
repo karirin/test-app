@@ -150,7 +150,7 @@ class User
       $stmt->execute(array(':date' => $date->format('Y-m-d H:i:s'), ':id' => $this->id));
       $dbh->commit();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      //      error_log($e, 3, "../../php/error.log");
       _debug('ログイン時刻更新失敗');
       $dbh->rollback();
       reload();
