@@ -153,7 +153,6 @@ class User
       //      error_log($e, 3, "../../php/error.log");
       _debug('ログイン時刻更新失敗');
       $dbh->rollback();
-      reload();
     }
   }
 
@@ -616,7 +615,6 @@ class Message
       error_log($e, 3, "../../php/error.log");
       _debug('メッセージ数リセット失敗');
       $dbh->rollback();
-      reload();
     }
   }
 }

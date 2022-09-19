@@ -14,7 +14,6 @@ foreach ($message_relations as $message_relation) :
         $destination_user = $user->get_user();
     }
     $new_message = $message->get_new_message($current_user['id'], $destination_user['id']);
-    _debug($new_message);
     $new_message_count = $message->new_message_count($current_user['id'], $destination_user['id']);
 
 ?>
@@ -36,6 +35,7 @@ foreach ($message_relations as $message_relation) :
                                 <?php endif; ?>
                                 <span id="message_count">
                                     <?php
+                                        _debug($new_message_count);
                                         if ($new_message_count['message_count'] != 0) {
                                             print '' . $new_message_count['message_count'] . '';
                                         } ?>
