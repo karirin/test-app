@@ -21,11 +21,12 @@ try {
     $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');
 
     $dbh = db_connect();
-    $sql = 'INSERT INTO test(text,priority,progress,post_id,user_id,created_at) VALUES (?,?,?,?,?,?)';
+    $sql = 'INSERT INTO test(text,priority,progress,rated,post_id,user_id,created_at) VALUES (?,?,?,?,?,?,?)';
     $stmt = $dbh->prepare($sql);
     $data[] = $test_text;
     $data[] = $test_priority;
     $data[] = '未実施';
+    $data[] = '';
     $data[] = $post_id;
     $data[] = $user_id;
     $data[] = $date->format('Y-m-d H:i:s');
