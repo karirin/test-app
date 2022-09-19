@@ -14,7 +14,7 @@ try {
 
     if ($test_text == '') {
         set_flash('danger', '投稿内容が未記入です');
-        reload();
+        //reload();
     }
 
     $test_text = htmlspecialchars($test_text, ENT_QUOTES, 'UTF-8');
