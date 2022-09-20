@@ -36,22 +36,22 @@
                                                                                             }
                                                                                             ?>
                 </a></li>
-            <li class="header_menu_wide post_modal"><a href="#"><i class="fas fa-edit"
+            <li class="header_menu post_modal"><a href="#"><i class="fas fa-edit"
                         style="margin-right: 0.5rem;"></i>投稿</a></li>
             <li class="header_menu_wide"><a href="../user_login/user_logout.php"><i class="fas fa-sign-out-alt"
                         style="margin-right: 0.5rem;"></i>ログアウト</a></li>
-            <li class="show_menu">menu
+            <li class="show_menu">メニュー
                 <div class="slide_menu">
                     <a class="modal_close" href="#">
                         <p><i class="fas fa-angle-left"></i></p>
                     </a>
                     <ul>
                         <a href="../user/user_list.php?type=all">
-                            <li>userlist</li>
+                            <li>ユーザー一覧</li>
                         </a>
                         <a href="../message/message_top.php">
                             <li class="slide_menu_message">
-                                message<?php
+                                メッセージ<?php
                                             $message = new Message();
                                             if ($user->get_user_count('message_relation')[0] != 0) {
                                                 if ($message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] != 0) {
@@ -61,8 +61,11 @@
                                             ?>
                             </li>
                         </a>
+                        <a href="#" class="slide_menu_message post_modal">
+                            <li>投稿</li>
+                        </a>
                         <a href="../user_login/user_logout.php">
-                            <li>logout</li>
+                            <li>ログアウト</li>
                         </a>
                     </ul>
                 </div>

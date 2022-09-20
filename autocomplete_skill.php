@@ -13,6 +13,7 @@ $skill_list = array(
     'Go',
     'Git',
     'HTTP',
+    'HTML',
     'iOS',
     'Java',
     'JavaScript',

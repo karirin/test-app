@@ -492,6 +492,7 @@ const skill_list = new Array(
     'Go',
     'Git',
     'HTTP',
+    'HTML',
     'iOS',
     'Java',
     'JavaScript',

@@ -391,17 +391,44 @@ select.priority {
     .post_tab {
         font-size: 1rem;
     }
+    .myprofile_btn {
+        margin-left: 70px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .myprofile_count {
+        display: flex;
+    }
+    .follow_user {
+        display: none;
+    }
+    .profile_close {
+        display: none;
+    }
+    .profile_narrow_close {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 900px) {
     .user_top_postlist ul li {
         padding: 0 0.6rem;
     }
+    .myprofile_btn {
+        margin-left: 40px;
+    }
+    .myprofile_count {
+        margin-left: 3rem;
+    }
 }
 
 @media screen and (max-width: 800px) {
     .user_top_postlist ul li {
         padding: 0;
+    }
+    .myprofile_btn {
+        margin-left: 20px;
     }
 }
 
@@ -418,5 +445,8 @@ select.priority {
     }
     .edit_name {
         margin-left: 2rem;
+    }
+    .myprofile_btn {
+        margin-left: 0px;
     }
 }

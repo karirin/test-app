@@ -119,36 +119,34 @@ if (isset($_SESSION['login']) == true) {
             <?php endif; ?>
     </div>
     <div class="form" style="margin:0;">
-        <div id="skill">
-            <p class="tag_tittle">スキル</p>
-            <div id="skill_narrow">
-                <?php
-                $skills = explode(" ", $current_user['skill']);
-                $skills_len = "";
-                $skill_tag = array();
-                foreach ($skills as $skill) :
-                    if ($current_user['skill'] != '' && $skill != '') :
+        <p class="tag_tittle" style="text-align:left;">スキル</p>
+        <div id="skill_narrow">
+            <?php
+            $skills = explode(" ", $current_user['skill']);
+            $skills_len = "";
+            $skill_tag = array();
+            foreach ($skills as $skill) :
+                if ($current_user['skill'] != '' && $skill != '') :
 
-                        array_push($skill_tag, $skill);
-                        $skills_len .= $skill;
-                        if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
-                            print '<span id="child-span_narrow" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
+                    array_push($skill_tag, $skill);
+                    $skills_len .= $skill;
+                    if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
+                        print '<span id="child-span_narrow" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
                                 class="far  fa-times-circle skill"></i></label></span> ';
-                        } else {
-                            print '<span id="child-span_narrow" class="skill_tag">' . $skill . '<label><input type="button"><i
+                    } else {
+                        print '<span id="child-span_narrow" class="skill_tag">' . $skill . '<label><input type="button"><i
                                 class="far  fa-times-circle skill"></i></label></span> ';
-                        }
-                    endif;
+                    }
+                endif;
 
-                endforeach;
-                ?>
-                <i class="fas fa-plus skill_btn_narrow"></i>
-            </div>
-            <input placeholder="skill Stack" name="skills" id="skill_input_narrow" />
-            <input type="hidden" name="skills" id="skills_narrow">
-            <input type="hidden" name="skill_count" id="skill_count_narrow">
-            <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
+            endforeach;
+            ?>
+            <i class="fas fa-plus skill_btn_narrow"></i>
         </div>
+        <input placeholder="skill Stack" name="skills" id="skill_input_narrow" />
+        <input type="hidden" name="skills" id="skills_narrow">
+        <input type="hidden" name="skill_count" id="skill_count_narrow">
+        <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
         <div id="licence">
             <p class="tag_tittle">取得資格</p>
             <div id="licence_narrow">
@@ -193,6 +191,7 @@ if (isset($_SESSION['login']) == true) {
         <div class="btn_flex">
             <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
             <button class="btn btn-outline-info profile_close" type="button">キャンセル</button>
+            <button class="btn btn-outline-dark profile_narrow_close" type="button" style="width: 100%;">キャンセル</button>
         </div>
     </div>
     </form>

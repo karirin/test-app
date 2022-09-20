@@ -375,22 +375,31 @@ $(document).on('click', '.t_btn', function() {
 
 $('.skill_btn').on('click', function() {
     $('.skill_tag').fadeIn(1000);
-    $('.skill_btn').off('click');
+    //$('.skill_btn').off('click');
     $('.skill_btn').attr('class', 'fas fa-minus skill_btn_close');
     $('.skill_btn_close').on('click', function() {
         $('.skill_tag.extra').fadeOut(1000);
-        $('.skill_btn_close').off('click');
+        //$('.skill_btn_close').off('click');
         $('.skill_btn_close').attr('class', 'fas fa-plus skill_btn');
+    });
+});
+
+$('.skill_btn_narrow').on('click', function() {
+    $('.skill_tag').fadeIn(1000);
+    $('.skill_btn_narrow').off('click');
+    $('.skill_btn_narrow').attr('class', 'fas fa-minus skill_btn_narrow_close');
+    $('.skill_btn_narrow_close').on('click', function() {
+        $('.skill_tag.extra').fadeOut(1000);
+        $('.skill_btn_narrow_close').off('click');
+        $('.skill_btn_narrow_close').attr('class', 'fas fa-plus skill_btn_narrow');
     });
 });
 
 $('.myprofile_skill_btn').on('click', function() {
     $('.skill_tag').fadeIn(1000);
-    $('.myprofile_skill_btn').off('click');
     $('.myprofile_skill_btn').attr('class', 'fas fa-minus myprofile_skill_btn_close');
     $('.myprofile_skill_btn_close').on('click', function() {
         $('.skill_tag.extra').fadeOut(1000);
-        $('.myprofile_skill_btn_close').off('click');
         $('.myprofile_skill_btn_close').attr('class', 'fas fa-plus myprofile_skill_btn');
     });
 });
@@ -421,6 +430,7 @@ $('.myprofile_licence_btn').on('click', function() {
 $(document).on('click', '.profile_edit_btn', function() {
     scroll_position = $(window).scrollTop();
     $('.profile_edit_btn').fadeOut();
+    $('.myprofile_count').fadeOut();
     $('.follow_user').fadeOut();
     $('.comment').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment);
     $('.profile_name').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name + '">');
@@ -632,6 +642,23 @@ $(document).on('click', ".profile_close", function() {
     $('.form').fadeOut();
     $('.tag').fadeIn();
     $('.profile_count').fadeIn();
+});
+
+$(document).on('click', ".profile_narrow_close", function() {
+    $('.edit_name').replaceWith('<h2 class="profile_name">' + user_name + '</h2>');
+    $('.edit_workhistory').replaceWith('<p class="workhistory">' + user_workhistory + '</p>');
+    $('.mypage').css('display', 'inline');
+    $('.edit_profile_img').css('display', 'none');
+    $('.btn_flex').css('display', 'none');
+    $('.profile').removeClass('editing');
+    $('.profile_edit_btn').fadeIn();
+    $('.edit_btns').fadeOut();
+    $('.col-3').css('margin-top', '0rem');
+    $('.myprofile_btn').fadeIn();
+    $('.form').fadeOut();
+    $('.tag').fadeIn();
+    $('.profile_count').fadeIn();
+    $('.myprofile_count').fadeIn();
 });
 
 // 投稿の削除ボタン押下時

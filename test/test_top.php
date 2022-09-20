@@ -97,6 +97,20 @@ $followers_count = 0;
                     <input type="submit" class="btn btn-outline-dark edit_done" style="width: 100%;margin-bottom:1rem;"
                         value="編集完了">
                     <button class="btn btn-outline-dark profile_close" type="button" style="width: 100%;">キャンセル</button>
+                    <button class="btn btn-outline-dark profile_narrow_close" type="button"
+                        style="width: 100%;">キャンセル</button>
+                </div>
+            </div>
+            <div class="row myprofile_count">
+                <div>
+                    <a href="user_top.php?page_id=23&type=follow" style="color:#000;margin-right: 6.5rem;">フォロー数<p
+                            style="text-align:center;">
+                            <?= current($user->get_user_count('follow', $current_user['id'])) ?></p></a>
+                </div>
+                <div>
+                    <a href="user_top.php?page_id=23&type=follower" style="color:#000;">フォロワー数<p
+                            style="text-align:center;">
+                            <?= current($user->get_user_count('follower', $current_user['id'])) ?></p></a>
                 </div>
             </div>
             <?php
@@ -160,36 +174,34 @@ $followers_count = 0;
                 <?php endif; ?>
             </div>
             <div class="form">
-                <div id="skill">
-                    <p class="tag_tittle">スキル</p>
-                    <div id="myprofile_skill">
-                        <?php
-                        $skills = explode(" ", $current_user['skill']);
-                        $skills_len = "";
-                        $skill_tag = array();
-                        foreach ($skills as $skill) :
-                            if ($current_user['skill'] != '' && $skill != '') :
+                <p class="tag_tittle">スキル</p>
+                <div id="myprofile_skill">
+                    <?php
+                    $skills = explode(" ", $current_user['skill']);
+                    $skills_len = "";
+                    $skill_tag = array();
+                    foreach ($skills as $skill) :
+                        if ($current_user['skill'] != '' && $skill != '') :
 
-                                array_push($skill_tag, $skill);
-                                $skills_len .= $skill;
-                                if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
-                                    print '<span id="child-span_myprofile" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
+                            array_push($skill_tag, $skill);
+                            $skills_len .= $skill;
+                            if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
+                                print '<span id="child-span_myprofile" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
                                 class="far  fa-times-circle skill"></i></label></span> ';
-                                } else {
-                                    print '<span id="child-span_myprofile" class="skill_tag">' . $skill . '<label><input type="button"><i
+                            } else {
+                                print '<span id="child-span_myprofile" class="skill_tag">' . $skill . '<label><input type="button"><i
                                 class="far  fa-times-circle skill"></i></label></span> ';
-                                }
-                            endif;
+                            }
+                        endif;
 
-                        endforeach;
-                        ?>
-                        <i class="fas fa-plus myprofile_skill_btn"></i>
-                    </div>
-                    <input placeholder="skill Stack" name="skills" id="skill_myprofile_input" />
-                    <input type="hidden" name="skills" id="myprofile_skills">
-                    <input type="hidden" name="skill_count" id="myprofile_skill_count">
-                    <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
+                    endforeach;
+                    ?>
+                    <i class="fas fa-plus myprofile_skill_btn"></i>
                 </div>
+                <input placeholder="skill Stack" name="skills" id="skill_myprofile_input" />
+                <input type="hidden" name="skills" id="myprofile_skills">
+                <input type="hidden" name="skill_count" id="myprofile_skill_count">
+                <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
                 <div id="licence">
                     <p class="tag_tittle">取得資格</p>
                     <?php

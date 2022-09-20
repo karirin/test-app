@@ -609,6 +609,14 @@ img.mypage {
     height: 10rem;
 }
 
+.myprofile_count {
+    display: none;
+}
+
+.profile_narrow_close {
+    display: none;
+}
+
 
 /* ///////////////////////// */
 
