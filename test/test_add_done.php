@@ -36,7 +36,7 @@ try {
     set_flash('sucsess', '投稿しました');
     header('Location:../test/test_disp.php?post_id=' . $post_id . '&user_id=' . $user_id);
 } catch (Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "../error.log");
     _debug('投稿失敗しました');
     exit();
 }
