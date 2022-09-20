@@ -26,7 +26,7 @@ try {
     $data[] = $test_text;
     $data[] = $test_priority;
     $data[] = '未実施';
-    $data[] = '';
+    $data[] = 0;
     $data[] = $post_id;
     $data[] = $user_id;
     $data[] = $date->format('Y-m-d H:i:s');

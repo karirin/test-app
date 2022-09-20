@@ -2136,3 +2136,48 @@ Array
     [user_id] => 23
     [user_name] => test_user
 )
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
+Array
+(
+)
+Array
+(
+    [page] => 0
+    [page_mypost] => 0
+    [page_testcase] => 0
+    [page_userlist] => 0
+    [page_follow] => 0
+    [page_follower] => 0
+    [login] => 1
+    [user_id] => 23
+    [user_name] => test_user
+)
