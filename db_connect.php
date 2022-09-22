@@ -9,9 +9,9 @@ function db_connect()
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
   } else {
-    $dsn = 'mysql:dbname=heroku_585a8f1fe5ed8fb;host=us-cdbr-east-06.cleardb.net;charset=utf8';
-    $user = 'b18b6d1cf35115';
-    $password = 'da9e1fca';
+    $dsn = 'mysql:dbname=heroku_ac4c0431a893f79;host=us-cdbr-east-06.cleardb.net;charset=utf8';
+    $user = 'bbd6112b286a22';
+    $password = 'd468d50c';
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
