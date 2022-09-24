@@ -33,7 +33,6 @@ $page_type = $_GET['type'];
         }
         $current_user = $user->get_user();
         $users = $user->get_users($page_type, '');
-        _debug($users);
         $block = pagination_block($users);
 
         if (isset($block[0])) :
@@ -58,7 +57,7 @@ $page_type = $_GET['type'];
                                 </a></object>
                         </div>
                     </div>
-                    <?php if (!empty($user['profile'])) : ?>
+                    <?php if (!empty($user['workhistory'])) : ?>
                     <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>
                     <span class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;">
                         <?= $user['workhistory'] ?></span>

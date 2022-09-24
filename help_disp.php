@@ -8,7 +8,9 @@
     <div class="testcase_c"></div>
     <p style="margin-top: -8px;">優先度は色別で分かれています</ｐ>
     <div><span class="progress">未実施</span><span class="progress">作業中</span><span class="progress">実施完了</span></div>
-    <p>進捗度によってステータスが変わります</p>
+    <div style="margin-bottom:0.5rem;">進捗度によってステータスが変わります</div>
     <i class="fab fa-tumblr" style="margin-left: 0.5rem;"></i>
     <div>評価したいテストケースにはｔマークを送れます</div>
+    <i class="far fa-trash-alt" style="vertical-align: sub;margin-left: 0.3rem;"></i>
+    <div>テストケースを長押しすると削除ボタンが表示されます</div>
 </div>
