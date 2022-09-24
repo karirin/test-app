@@ -189,7 +189,8 @@ img.edit_preview {
 .testcase_process,
 .help_disp,
 .testcase_disp,
-.testcase_delete {
+.testcase_delete,
+.post_delete {
     background-color: #f0f7ff;
     color: #000;
     border: 0.1rem solid #212529;
