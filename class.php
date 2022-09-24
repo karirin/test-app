@@ -32,8 +32,10 @@ class User
         case 'all':
           $sql = "SELECT *
               FROM user
+              WHERE id != :id
               ORDER BY id DESC";
           $stmt = $dbh->prepare($sql);
+          $stmt->bindValue(':id', $this->id);
           break;
 
         case 'match':
@@ -63,7 +65,7 @@ class User
       $stmt->execute();
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('複数ユーザー取得失敗');
     }
   }

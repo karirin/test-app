@@ -1,0 +1,16 @@
+PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id != '34'
+              ORDER BY id DESC' at line 3 in D:\xampp\htdocs\class.php:65
+Stack trace:
+#0 D:\xampp\htdocs\class.php(65): PDOStatement->execute()
+#1 D:\xampp\htdocs\user\user_list.php(35): User->get_users('all', '')
+#2 {main}PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id != '34'
+              ORDER BY id DESC' at line 3 in D:\xampp\htdocs\class.php:65
+Stack trace:
+#0 D:\xampp\htdocs\class.php(65): PDOStatement->execute()
+#1 D:\xampp\htdocs\user\user_list.php(35): User->get_users('all', '')
+#2 {main}PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id != '34'
+              ORDER BY id DESC' at line 3 in D:\xampp\htdocs\class.php:65
+Stack trace:
+#0 D:\xampp\htdocs\class.php(65): PDOStatement->execute()
+#1 D:\xampp\htdocs\user\user_list.php(35): User->get_users('all', '')
+#2 {main}

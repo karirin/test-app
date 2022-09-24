@@ -33,11 +33,11 @@ $page_type = $_GET['type'];
         }
         $current_user = $user->get_user();
         $users = $user->get_users($page_type, '');
+        _debug($users);
         $block = pagination_block($users);
 
         if (isset($block[0])) :
             foreach ($block[$u] as $user) :
-                if ($current_user != $user) :
         ?>
         <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main&page_type=my_post"
             class="user_link">
@@ -68,7 +68,6 @@ $page_type = $_GET['type'];
                     <?php endif; ?>
                 </div>
         </a>
-        <?php endif; ?>
         <?php endforeach ?>
         <?php endif ?>
     </div>
