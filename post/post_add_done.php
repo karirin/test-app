@@ -9,9 +9,6 @@ try {
     $post_text = $_POST['text'];
     $post_url = $_POST['url'];
     $skills = $_POST['skills'];
-    _debug("-----------------");
-    _debug($skills);
-    _debug("-----------------");
     $user_id = $_SESSION['user_id'];
     if (!empty($_FILES['image_name']['tmp_name'])) {
         $post_image = base64_encode(file_get_contents($_FILES['image_name']['tmp_name']));

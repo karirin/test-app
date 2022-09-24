@@ -330,8 +330,8 @@ $(document).on('click', '.edit_btn', function() {
     $('.comment_narrower').replaceWith('<textarea class="edit_comment form-control" type="text" name="user_comment" >' + user_comment_narrower);
     $('.profile_name_narrower').replaceWith('<input class="edit_name form-control" type="text" name="user_name" value="' + user_name_narrower + '">');
     $('.workhistory').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory);
-    $('.workhistory_narrow').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory_narrow);
-    $('.workhistory_narrower').replaceWith('<textarea class="edit_workhistory form-control" type="text" name="user_workhistory" >' + user_workhistory_narrower);
+    $('.workhistory_narrow').replaceWith('<textarea class="edit_workhistory_narrow form-control" type="text" name="user_workhistory" >' + user_workhistory_narrow);
+    $('.workhistory_narrower').replaceWith('<textarea class="edit_workhistory_narrower form-control" type="text" name="user_workhistory" >' + user_workhistory_narrower);
     $('.mypage').css('display', 'none');
     $('.edit_profile_img').css('display', 'inline-block');
     $('.btn_flex').css('display', 'flex');
@@ -352,7 +352,9 @@ $(document).on('click', '.modal_btn', function() {
 // 投稿モーダル画面出力処理
 $(document).on('click', '.post_modal', function() {
     scroll_position = $(window).scrollTop();
+    console.log($(this));
     $('body').addClass('fixed').css({ 'top': -scroll_position });
+    //   $('#myskills').replaceWith('');
     $('.post_process').fadeIn();
     $('.modal_post').fadeIn();
 });
@@ -619,8 +621,8 @@ if (document.getElementById('skill_input') != null || document.getElementById('s
 }
 
 function inputChange_skill() {
-    var fome_x_name = $(this).val(),
-        fome_x_name_narrow = $(this).val(),
+    var fome_x_name = $('#skill_input').val(),
+        fome_x_name_narrow = $('#skill_input_narrow').val(),
         // fome_x_name_narrower = $(this).val(),
         skill = document.getElementById("skill"),
         skill_narrow = document.getElementById("skill_narrow"),
@@ -631,7 +633,6 @@ function inputChange_skill() {
         spans = skill.getElementsByTagName("span"),
         spans_narrow = skill_narrow.getElementsByTagName("span");
     // spans_narrower = skill_narrower.getElementsByTagName("span");
-
     for (i = 0; i < spans.length; i++) {
         skills[i] = spans[i].textContent;
     }
@@ -649,7 +650,10 @@ function inputChange_skill() {
     // skills_narrower = skills_narrower.join('');
 
     // 既に入力済みのものはタグ追加しない
-    if (skills.indexOf(fome_x_name) != -1 || skills_narrow.indexOf(fome_x_name_narrow) != -1) { //|| skills_narrower.indexOf(fome_x_name_narrower) != -1) {
+    if (fome_x_name != '' && skills.indexOf(fome_x_name) != -1) { //|| skills_narrower.indexOf(fome_x_name_narrower) != -1) {
+        return false;
+    }
+    if (fome_x_name_narrow != '' && skills_narrow.indexOf(fome_x_name_narrow) != -1) { //|| skills_narrower.indexOf(fome_x_name_narrower) != -1) {
         return false;
     }
     // 入力した文字列がlistと合えばタグ追加
@@ -822,7 +826,7 @@ function inputChange_skill() {
         i++;
 
         parentDiv.insertBefore(span_element, parentDiv.firstChild);
-        parentDiv_narrow.appendChild(span_element_narrow, parentDiv_narrow.firstChild);
+        parentDiv_narrow.insertBefore(span_element_narrow, parentDiv_narrow.firstChild);
         // parentDiv_narrower.appendChild(span_element_narrower, parentDiv_narrower.firstChild);
         span_element.appendChild(label_element, span_element.firstChild);
         span_element_narrow.appendChild(label_element_narrow, span_element_narrow.firstChild);
@@ -947,7 +951,7 @@ $(document).on('click', '.far.fa-times-circle.skill_narrow', function() {
 
 $(document).on('click', '.post_process_btn', function() {
     var skill = document.getElementById("skill"),
-        skill = document.getElementById("skill_narrow"),
+        skill_narrow = document.getElementById("skill_narrow"),
         // skill = document.getElementById("skill_narrower"),
         skill_div = document.getElementById("skills"),
         skill_div_narrow = document.getElementById("skills_narrow"),
@@ -1117,7 +1121,7 @@ function inputChange_licence() {
     //     return false;
     // }
     // 入力した文字列がlistと合えばタグ追加
-    if (licences_list.indexOf(fome_x_name) != -1) { // || licence_lists.indexOf(fome_x_name_narrow) != -1 || licences_list.indexOf(fome_x_name_narrower) != -1) {
+    if (licence_list.indexOf(fome_x_name) != -1) { // || licence_lists.indexOf(fome_x_name_narrow) != -1 || licences_list.indexOf(fome_x_name_narrower) != -1) {
 
         var span_element = document.createElement("span"),
             span_element_narrow = document.createElement("span"),
@@ -1430,10 +1434,10 @@ $(document).on('click', '.edit_done', function() {
         licence_div = document.getElementById("licences"),
         licence_div_narrow = document.getElementById("licences_narrow"),
         // licence_div_narrower = document.getElementById("licences_narrower"),
-        spans_narrow = skill_narrow.getElementsByTagName("span"),
+        spans_skill_narrow = skill_narrow.getElementsByTagName("span"),
         myprofile_spans = myprofile_skill.getElementsByTagName("span"),
         spans = licence.getElementsByTagName("span"),
-        spans_narrow = licence_narrow.getElementsByTagName("span"),
+        spans_licence_narrow = licence_narrow.getElementsByTagName("span"),
         // spans_narrower = licence_narrower.getElementsByTagName("span"),
         skills_narrow = new Array(),
         myprofile_skills = new Array(),
@@ -1441,7 +1445,8 @@ $(document).on('click', '.edit_done', function() {
         licences_narrow = new Array(),
         // licences_narrower = new Array(),s
         workhistory_count = $('.edit_workhistory').val().length;
-    console.log($('.edit_name').val());
+    console.log(myprofile_skill);
+    console.log($('.edit_workhistory').val());
     // skills = skills.join(' ');
     // skill_div.value = skills;
     // skill_div_narrow.value = skills;
@@ -1459,8 +1464,8 @@ $(document).on('click', '.edit_done', function() {
     document.getElementById('licence_count_narrow').val = 4;
     // document.getElementById('licence_count_narrower').val = 4;
 
-    for (i = 0; i < spans_narrow.length; i++) {
-        skills_narrow[i] = spans_narrow[i].textContent;
+    for (i = 0; i < spans_skill_narrow.length; i++) {
+        skills_narrow[i] = spans_skill_narrow[i].textContent;
     }
     for (i = 0; i < myprofile_spans.length; i++) {
         myprofile_skills[i] = myprofile_spans[i].textContent;
@@ -1468,8 +1473,8 @@ $(document).on('click', '.edit_done', function() {
     for (i = 0; i < spans.length; i++) {
         licences[i] = spans[i].textContent;
     }
-    for (i = 0; i < spans_narrow.length; i++) {
-        licences_narrow[i] = spans_narrow[i].textContent;
+    for (i = 0; i < spans_licence_narrow.length; i++) {
+        licences_narrow[i] = spans_licence_narrow[i].textContent;
     }
     // for (i = 0; i < spans_narrower.length; i++) {
     //     licences_narrower[i] = spans_narrower[i].textContent;
@@ -1485,7 +1490,7 @@ $(document).on('click', '.edit_done', function() {
     licence_div_narrow.value = licences_narrow;
     // licence_div_narrower.value = licences_narrower;
 
-    $('.workhistory').val() = $('.edit_workhistory').val;
+    //$('.workhistory').val() = $('.edit_workhistory').val;
 });
 
 //================================

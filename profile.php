@@ -14,8 +14,9 @@ if (isset($_SESSION['login']) == true) {
     <a class="prof_close" href="#">
         <p><i class="fas fa-angle-right"></i></p>
     </a>
-    <div class="profile">
-        <form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
+
+    <form method="post" action="../ajax_edit_profile.php" enctype="multipart/form-data">
+        <div class="profile">
             <div class="edit_profile_img">
                 <label>
                     <div class="fa-image_range">
@@ -117,83 +118,85 @@ if (isset($_SESSION['login']) == true) {
                 <span id="follow_label">フォローする</span></button>
             <?php endif; ?>
             <?php endif; ?>
-    </div>
-    <div class="form" style="margin:0;">
-        <p class="tag_tittle" style="text-align:left;">スキル</p>
-        <div id="skill_narrow">
-            <?php
-            $skills = explode(" ", $current_user['skill']);
-            $skills_len = "";
-            $skill_tag = array();
-            foreach ($skills as $skill) :
-                if ($current_user['skill'] != '' && $skill != '') :
-
-                    array_push($skill_tag, $skill);
-                    $skills_len .= $skill;
-                    if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
-                        print '<span id="child-span_narrow" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
-                                class="far  fa-times-circle skill"></i></label></span> ';
-                    } else {
-                        print '<span id="child-span_narrow" class="skill_tag">' . $skill . '<label><input type="button"><i
-                                class="far  fa-times-circle skill"></i></label></span> ';
-                    }
-                endif;
-
-            endforeach;
-            ?>
-            <i class="fas fa-plus skill_btn_narrow"></i>
         </div>
-        <input placeholder="skill Stack" name="skills" id="skill_input_narrow" />
-        <input type="hidden" name="skills" id="skills_narrow">
-        <input type="hidden" name="skill_count" id="skill_count_narrow">
-        <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
-        <div id="licence">
-            <p class="tag_tittle">取得資格</p>
-            <div id="licence_narrow">
+        <div class="form" style="margin:0;">
+            <p class="tag_tittle" style="text-align:left;">スキル</p>
+            <div id="skill_narrow">
                 <?php
-                $licences_len = "";
-                $licencs_delspace = str_replace("     ", "", $current_user['licence']);
-                $licence_tag = array();
-                foreach ($licences as $licence) :
-                    if ($current_user['licence'] != '' && $licence != '') :
+                $skills = explode(" ", $current_user['skill']);
+                $skills_len = "";
+                $skill_tag = array();
+                foreach ($skills as $skill) :
+                    if ($current_user['skill'] != '' && $skill != '') :
 
-                        if (!isset($licence_tag)) {
-                            $licence_tag = array();
-                        }
-                        array_push($licence_tag, $licence);
-                        $licences_len .= $licence;
-
-                        if (2 <= count($licence_tag) || 9 <= mb_strlen($licences_len)) {
-                            print '<span id="child-span_narrow" class="licence_tag extra" style="display: none;">' . $licence . '<label><input type="button"><i
-                                class="far fa-times-circle licence"></i></label></span> ';
+                        array_push($skill_tag, $skill);
+                        $skills_len .= $skill;
+                        if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
+                            print '<span id="child-span_narrow" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
+                                class="far  fa-times-circle skill"></i></label></span> ';
                         } else {
-                            print '<span id="child-span_narrow" class="licence_tag">' . $licence . '<label><input type="button"><i
-                                class="far fa-times-circle licence"></i></label></span> ';
+                            print '<span id="child-span_narrow" class="skill_tag">' . $skill . '<label><input type="button"><i
+                                class="far  fa-times-circle skill"></i></label></span> ';
                         }
                     endif;
 
                 endforeach;
                 ?>
+                <i class="fas fa-plus skill_btn_narrow"></i>
             </div>
-            <i class="fas fa-plus licence_btn_narrow"></i>
-        </div>
-        <input placeholder="licence Stack" name="name" id="licence_input_narrow" />
-        <input type="hidden" name="licences" id="licences_narrow">
-        <input type="hidden" name="licence_count" id="licence_count_narrow">
-        <input type="hidden" name="mylicences" value="<?= $current_user['licence'] ?>">
-        <div class="background">
-            <p class="tag_tittle">職歴</p>
-            <p class="workhistory"><?= $current_user['workhistory'] ?></p>
-            <div class="error_workhistory" style="display: none;">
-                <span style="color:rgb(220, 53, 69);">100文字以内で入力してください</span>
+            <input placeholder="skill Stack" name="skills" id="skill_input_narrow" />
+            <input type="hidden" name="skills" id="skills_narrow">
+            <input type="hidden" name="skill_count" id="skill_count_narrow">
+            <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
+            <div id="licence">
+                <p class="tag_tittle">取得資格</p>
+                <div id="licence_narrow">
+                    <?php
+                    $licences_len = "";
+                    $licencs_delspace = str_replace("     ", "", $current_user['licence']);
+                    $licence_tag = array();
+                    foreach ($licences as $licence) :
+                        if ($current_user['licence'] != '' && $licence != '') :
+
+                            if (!isset($licence_tag)) {
+                                $licence_tag = array();
+                            }
+                            array_push($licence_tag, $licence);
+                            $licences_len .= $licence;
+
+                            if (2 <= count($licence_tag) || 9 <= mb_strlen($licences_len)) {
+                                print '<span id="child-span_narrow" class="licence_tag extra" style="display: none;">' . $licence . '<label><input type="button"><i
+                                class="far fa-times-circle licence"></i></label></span> ';
+                            } else {
+                                print '<span id="child-span_narrow" class="licence_tag">' . $licence . '<label><input type="button"><i
+                                class="far fa-times-circle licence"></i></label></span> ';
+                            }
+                        endif;
+
+                    endforeach;
+                    ?>
+                </div>
+                <i class="fas fa-plus licence_btn_narrow"></i>
+            </div>
+            <input placeholder="licence Stack" name="name" id="licence_input_narrow" />
+            <input type="hidden" name="licences" id="licences_narrow">
+            <input type="hidden" name="licence_count" id="licence_count_narrow">
+            <input type="hidden" name="mylicences" value="<?= $current_user['licence'] ?>">
+            <div class="background">
+                <p class="tag_tittle">職歴</p>
+                <p class="workhistory_narrow"><?= $current_user['workhistory'] ?></p>
+                <div class="error_workhistory" style="display: none;">
+                    <span style="color:rgb(220, 53, 69);">100文字以内で入力してください</span>
+                </div>
+            </div>
+            <div class="btn_flex">
+                <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
+                <button class="btn btn-outline-info profile_close" type="button">キャンセル</button>
+                <button class="btn btn-outline-dark profile_narrow_close" type="button"
+                    style="width: 100%;">キャンセル</button>
             </div>
         </div>
-        <div class="btn_flex">
-            <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
-            <button class="btn btn-outline-info profile_close" type="button">キャンセル</button>
-            <button class="btn btn-outline-dark profile_narrow_close" type="button" style="width: 100%;">キャンセル</button>
-        </div>
-    </div>
-    </form>
+
 </div>
+</form>
 </div>

@@ -133,7 +133,7 @@ $followers_count = 0;
 
                                 array_push($skill_tag, $skill);
                                 $skills_len .= $skill;
-                                if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
+                                if (3 <= count($skill_tag) || 15 <= mb_strlen($skills_len)) {
                                     print '<span id="child-span_myprofile" class="skill_tag extra" style="display: none;">' . $skill . '</span> ';
                                 } else {
                                     print '<span id="child-span_myprofile" class="skill_tag">' . $skill . '</span> ';
@@ -185,7 +185,7 @@ $followers_count = 0;
 
                             array_push($skill_tag, $skill);
                             $skills_len .= $skill;
-                            if (3 <= count($skill_tag) || 9 <= mb_strlen($skills_len)) {
+                            if (3 <= count($skill_tag) || 15 <= mb_strlen($skills_len)) {
                                 print '<span id="child-span_myprofile" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
                                 class="far  fa-times-circle skill"></i></label></span> ';
                             } else {

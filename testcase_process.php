@@ -71,7 +71,7 @@
     <p>こちらのテストケースを削除しますか</p>
     <span class="testcase_text"></span>
     <div style="justify-content: space-evenly;display: flex;margin-top:1rem;">
-        <button class="btn btn-outline-secondary delete_btn">削除</button>
+        <button class="btn btn-outline-secondary testcase_delete_btn">削除</button>
         <button class="btn btn-outline-secondary testcase_clear" type="button">閉じる</button>
     </div>
     <input class="current_user_id" value="<?= $_SESSION['user_id']; ?>" type="hidden">

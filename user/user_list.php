@@ -37,6 +37,7 @@ $page_type = $_GET['type'];
 
         if (isset($block[0])) :
             foreach ($block[$u] as $user) :
+                if ($current_user != $user) :
         ?>
         <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main&page_type=my_post"
             class="user_link">
@@ -52,11 +53,9 @@ $page_type = $_GET['type'];
                         <?php endif; ?>
                         <div class="user_name">
                             <?= $user['name'] ?>
-                            <?php if ($current_user != $user) : ?>
                             <object><a href="../message/message.php?user_id=<?= $user['id'] ?>">
                                     <i class="fas fa-envelope-square"></i>
                                 </a></object>
-                            <?php endif; ?>
                         </div>
                     </div>
                     <?php if (!empty($user['profile'])) : ?>
@@ -69,6 +68,7 @@ $page_type = $_GET['type'];
                     <?php endif; ?>
                 </div>
         </a>
+        <?php endif; ?>
         <?php endforeach ?>
         <?php endif ?>
     </div>

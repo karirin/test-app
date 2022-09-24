@@ -448,5 +448,6 @@ select.priority {
     }
     .myprofile_btn {
         margin-left: 0px;
+        text-align: center;
     }
 }

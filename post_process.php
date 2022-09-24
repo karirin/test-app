@@ -36,7 +36,7 @@
                 </div>
                 <input type="hidden" name="skills" id="skills">
                 <input type="hidden" name="skill_count" id="skill_count">
-                <input type="hidden" name="myskills" value="<?= $current_user['skill'] ?>">
+                <input type="hidden" name="myskills">
                 <div class="post_image" style="margin: 0;">
                     <h5 class="left" style="margin-top: 1rem;">画像</h5>
                     <label style="margin:0;">
