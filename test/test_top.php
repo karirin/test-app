@@ -1,5 +1,5 @@
 <?php
-require_once('../config_1.php');
+require_once('config_1.php');
 $user = new User($_SESSION['user_id']);
 if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
     $user = new User($_GET['page_id']);
@@ -103,12 +103,12 @@ $followers_count = 0;
             </div>
             <div class="row myprofile_count">
                 <div>
-                    <a href="user_top.php?page_id=23&type=follow" style="color:#000;margin-right: 6.5rem;">フォロー数<p
+                    <a href="../index.php?page_id=23&type=follow" style="color:#000;margin-right: 6.5rem;">フォロー数<p
                             style="text-align:center;">
                             <?= current($user->get_user_count('follow', $current_user['id'])) ?></p></a>
                 </div>
                 <div>
-                    <a href="user_top.php?page_id=23&type=follower" style="color:#000;">フォロワー数<p
+                    <a href="../index.php?page_id=23&type=follower" style="color:#000;">フォロワー数<p
                             style="text-align:center;">
                             <?= current($user->get_user_count('follower', $current_user['id'])) ?></p></a>
                 </div>
@@ -250,11 +250,11 @@ $followers_count = 0;
             <div class="user_top_postlist">
                 <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a href="../user_login/user_top.php?page_type=my_post"
+                    <li class="nav-item"><a href="../index.php?page_type=my_post"
                             class="nav-link post_tab my_post">自分の投稿</a></li>
-                    <li class="nav-item"><a href="../user_login/user_top.php?page_type=testcase"
+                    <li class="nav-item"><a href="../index.php?page_type=testcase"
                             class="nav-link post_tab testcase">テストケースを記載した投稿</a></li>
-                    <li class="nav-item"><a href="../user_login/user_top.php?page_type=all"
+                    <li class="nav-item"><a href="../index.php?page_type=all"
                             class="nav-link post_tab all active">すべての投稿</a></li>
 
                 </ul>
@@ -268,13 +268,13 @@ $followers_count = 0;
     $posts = $post->get_posts($current_user['id'], $_GET['page_type'], 0);
     switch ($_GET['page_type']) {
         case ('all'):
-            require('../test/test_list.php');
+            require('test_list.php');
             break;
         case ('my_post'):
-            require('../test/test_list_mypost.php');
+            require('test_list_mypost.php');
             break;
         case ('testcase'):
-            require('../test/test_list_testcase.php');
+            require('test_list_testcase.php');
             break;
     }
     ?>

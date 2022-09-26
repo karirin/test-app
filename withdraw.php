@@ -52,7 +52,7 @@ if (!empty($_POST['withdraw'])) {
     // セッション削除
     session_destroy();
     $_SESSION = array();
-    header("Location:/user_login/user_top.php");
+    header("Location:index.php");
     exit();
 }
 ?>

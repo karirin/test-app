@@ -38,10 +38,10 @@ $page_type = $_GET['type'];
         if (isset($block[0])) :
             foreach ($block[$u] as $user) :
         ?>
-        <a href="../user_login/user_top.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main&page_type=my_post"
+        <a href="../index.php?user_id=<?= $current_user['id'] ?>&page_id=<?= $user['id'] ?>&type=main&page_type=my_post"
             class="user_link">
             <div class="user">
-                <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>
+                <?php if (basename($_SERVER['PHP_SELF']) === 'index.php') : ?>
                 <div class="user_info top">
                     <?php else : ?>
                     <div class="user_info" style="width: 25%;">
@@ -58,7 +58,7 @@ $page_type = $_GET['type'];
                         </div>
                     </div>
                     <?php if (!empty($user['workhistory'])) : ?>
-                    <?php if (basename($_SERVER['PHP_SELF']) === 'user_top.php') : ?>
+                    <?php if (basename($_SERVER['PHP_SELF']) === 'index.php') : ?>
                     <span class="user_profile" style="font-size: 1rem;margin-top:1rem;width: 100%;">
                         <?= $user['workhistory'] ?></span>
                     <?php else : ?>

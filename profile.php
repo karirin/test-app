@@ -37,11 +37,11 @@ if (isset($_SESSION['login']) == true) {
             <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>" style="display:none;">
             <div class="row profile_count">
                 <div class="col-4 offset-1">
-                    <a href="user_top.php?page_id=23&type=follow">フォロー数<p>
+                    <a href="../index.php?page_id=23&type=follow">フォロー数<p>
                             <?= current($user->get_user_count('follow', $current_user['id'])) ?></p></a>
                 </div>
                 <div class="col-4 offset-1">
-                    <a href="user_top.php?page_id=23&type=follower">フォロワー数<p>
+                    <a href="../index.php?page_id=23&type=follower">フォロワー数<p>
                             <?= current($user->get_user_count('follower', $current_user['id'])) ?></p></a>
                 </div>
             </div>

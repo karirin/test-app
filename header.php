@@ -4,7 +4,7 @@
     <div class="modal"></div>
     <?php if (isset($_SESSION['login']) == false) : ?>
     <ul class="main_ul">
-        <li class="top_link"><a href="../user_login/user_top.php">Test App</a></li>
+        <li class="top_link"><a href="../index.php">Test App</a></li>
         <li><a href="../user_login/user_login.php">login</a></li>
         <li><a href="../user/user_add.php">sign up</a></li>
         <?php
@@ -18,7 +18,7 @@
         }
         ?>
         <ul class="main_ul">
-            <li class="top_link"><a href="../user_login/user_top.php?type=main&page_id=current_user&page_type=all">Test
+            <li class="top_link"><a href="../index.php?type=main&page_id=current_user&page_type=all">Test
                     App</a></li>
             <li class="top_link prof_page"><a class="prof_modal" href="#"><img
                         src="data:image/jpeg;base64,<?= $current_user['image'] ?>" class="user_image"></a></li>
