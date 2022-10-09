@@ -5,7 +5,8 @@
     <?php if (isset($_SESSION['login']) == false) : ?>
     <ul class="main_ul">
         <li class="top_link">
-            <a sytle="margin: -0.5rem 0 0 -1.2rem;" href="../index.php"><img src="../Untitled.svg" width="40%" /></a>
+            <a sytle="margin: -0.5rem 0 0 -1.2rem;" href="../index.php" class="top_link_header"><img
+                    src="../Untitled.svg"></a>
         </li>
         <li class="header"><a href="../user_login/user_login.php" style="vertical-align: middle;"><i
                     class="fas fa-sign-in-alt" style="margin-right: 0.5rem;"></i>ログイン</a></li>
