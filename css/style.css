@@ -65,6 +65,7 @@ ul.main_ul li:hover {
 
 ul li.top_link {
     margin-right: auto;
+    margin-top: -0.5rem;
 }
 
 ul li a {
@@ -272,20 +273,16 @@ nav.navbar.navbar-dark {
 }
 
 .description {
-    font-size: 1.5rem;
     font-weight: bold;
     line-height: 3rem;
-    margin-left: 3rem;
-    padding-left: 5rem;
-    padding-top: 3rem;
-    width: 530px;
+    margin-left: 58%;
+    margin-top: 6%;
+    width: 550px;
     font-size: 18px;
-    margin: 35px 90px 0 auto;
 }
 
 .test_login {
-    position: absolute;
-    bottom: 20%;
+    bottom: 30%;
     right: 20%;
     width: 13rem;
     height: 3rem;
@@ -337,6 +334,12 @@ nav.navbar.navbar-dark {
     margin-left: 2rem;
 }
 
+.test_btn {
+    text-align: right;
+    margin-right: 20%;
+    margin-top: 6%;
+}
+
 
 /* ///////////////////////// */
 
@@ -355,8 +358,9 @@ nav.navbar.navbar-dark {
 }
 
 .image_select {
-    margin-top: 1rem;
     font-size: 1rem;
+    display: inline-block;
+    text-align: left;
 }
 
 .user_newimage {
@@ -364,6 +368,7 @@ nav.navbar.navbar-dark {
     border: solid 0.3rem;
     width: 12rem;
     height: 12rem;
+    border: solid 0.3rem #838383;
 }
 
 .user_newname {
@@ -490,7 +495,7 @@ nav.navbar.navbar-dark {
 
 img.mypage {
     border-radius: 10rem;
-    border: solid 0.3rem;
+    border: solid 0.3rem #010645;
     width: 8rem;
     height: 8rem;
 }
@@ -538,10 +543,9 @@ img.mypage {
 }
 
 .tag_tittle {
-    text-decoration: underline;
     text-decoration-color: #000;
     margin-bottom: 5px;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
 }
 
@@ -627,11 +631,12 @@ img.mypage {
 /* ///////////////////////// */
 
 .user {
-    border-radius: 8rem;
+    border-radius: 2rem;
     border: solid 0.1rem;
     margin: 2rem 0;
     color: rgb(0, 0, 0);
     height: 100px;
+    background-color: #fff;
 }
 
 .user:hover {
@@ -653,7 +658,7 @@ img.mypage {
 
 .user .user_info img {
     border-radius: 10rem;
-    border: solid 0.2rem;
+    border: solid 0.2rem #838383;
     width: 4rem;
     height: 4rem;
 }
@@ -731,6 +736,7 @@ img.mypage {
     display: inline-block;
     text-align: left;
     width: 30%;
+    background-color: #fff;
 }
 
 .post .post_list {
@@ -869,7 +875,7 @@ img.mypage {
 
 .post .post_user img {
     border-radius: 10rem;
-    border: solid 0.1rem;
+    border: solid 0.1rem #838383;
     margin-right: 0.5rem;
 }
 
@@ -1067,7 +1073,7 @@ img.mypage {
 
 .post .post_list .reply_comment .user_info img {
     border-radius: 10rem;
-    border: solid 0.1rem;
+    border: solid 0.1rem #838383;
     margin-right: 0.5rem;
 }
 
@@ -1492,6 +1498,7 @@ img.my_preview {
 }
 
 .far.fa-times-circle.skill,
+.far.fa-times-circle.skill_myprofile,
 .far.fa-times-circle.skill_narrow,
 .far.fa-times-circle.skill_narrower {
     display: inline;
@@ -1610,7 +1617,8 @@ img.my_preview {
 .testcase_disp,
 .testcase_delete,
 .match_process,
-.help_disp {
+.help_disp,
+.help_test_disp {
     display: none;
     position: fixed;
     z-index: 15;
@@ -1631,7 +1639,7 @@ img.my_preview {
     background-color: #f0f7ff;
     color: #000;
     border: 0.1rem solid #212529;
-    top: 20%;
+    top: 15%;
     width: 800px;
 }
 
@@ -1905,5 +1913,48 @@ img.preview {
     }
     .myprofile .profile.editing .profile_detail {
         margin-top: 40px;
+    }
+}
+
+
+/* ///////////////////////// */
+
+
+/*       メディアクエリ       */
+
+
+/*       　スマホ対応　       */
+
+
+/* ///////////////////////// */
+
+@media screen and (max-width: 530px) {
+    ul li {
+        padding: 0 1rem;
+    }
+    body.top {
+        background-size: 275px;
+        background-position: 0% 10%;
+    }
+    .description {
+        margin: 0;
+        width: auto;
+        font-size: 0.3rem;
+        line-height: unset;
+        width: 50%;
+        margin-left: 50%;
+    }
+    .header {
+        font-size: 0.5rem;
+        width: 64%;
+    }
+    .test_login {
+        width: 8rem;
+        height: 2rem;
+        font-size: 0.8rem;
+    }
+    .test_btn {
+        margin-right: 6%;
+        margin-top: 5%;
     }
 }

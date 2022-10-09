@@ -8,25 +8,25 @@ try {
 
     $test_text = $_POST['text'];
     $test_priority = $_POST['priority'];
+    $procedure = $_POST['procedure'];
     $post_id = $_POST['post_id'];
     $user_id = $_SESSION['user_id'];
 
-
     if ($test_text == '') {
         set_flash('danger', '投稿内容が未記入です');
-        //reload();
     }
 
     $test_text = htmlspecialchars($test_text, ENT_QUOTES, 'UTF-8');
     $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');
 
     $dbh = db_connect();
-    $sql = 'INSERT INTO test(text,priority,progress,rated,post_id,user_id,created_at) VALUES (?,?,?,?,?,?,?)';
+    $sql = 'INSERT INTO test(text,priority,progress,rated,`procedure`,post_id,user_id,created_at) VALUES (?,?,?,?,?,?,?,?)';
     $stmt = $dbh->prepare($sql);
     $data[] = $test_text;
     $data[] = $test_priority;
     $data[] = '未実施';
     $data[] = 0;
+    $data[] = $procedure;
     $data[] = $post_id;
     $data[] = $user_id;
     $data[] = $date->format('Y-m-d H:i:s');

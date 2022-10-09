@@ -47,13 +47,14 @@ $page_type = $_GET['type'];
                     <div class="user_info" style="width: 25%;">
                         <?php endif; ?>
                         <?php if (!empty($user['image'])) : ?>
-                        <img style="vertical-align: text-top;margin-left: 1rem;"
+                        <img style="vertical-align: text-top;margin-left: 1rem;background-color: #fdff8b0a;"
                             src="data:image/jpeg;base64,<?= $user['image']; ?>">
                         <?php endif; ?>
                         <div class="user_name">
                             <?= $user['name'] ?>
                             <object><a href="../message/message.php?user_id=<?= $user['id'] ?>">
-                                    <i class="fas fa-envelope-square"></i>
+                                    <i class="fas fa-comments"
+                                        style="color: #000;vertical-align: sub;margin-right:1rem;"></i>
                                 </a></object>
                         </div>
                     </div>

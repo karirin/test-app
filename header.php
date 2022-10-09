@@ -4,9 +4,13 @@
     <div class="modal"></div>
     <?php if (isset($_SESSION['login']) == false) : ?>
     <ul class="main_ul">
-        <li class="top_link"><a href="../index.php">Test App</a></li>
-        <li><a href="../user_login/user_login.php">login</a></li>
-        <li><a href="../user/user_add.php">sign up</a></li>
+        <li class="top_link">
+            <a sytle="margin: -0.5rem 0 0 -1.2rem;" href="../index.php"><img src="../Untitled.svg" width="40%" /></a>
+        </li>
+        <li class="header"><a href="../user_login/user_login.php" style="vertical-align: middle;"><i
+                    class="fas fa-sign-in-alt" style="margin-right: 0.5rem;"></i>ログイン</a></li>
+        <li class="header"><a href="../user/user_add.php" style="vertical-align: middle;"><i class="fas fa-user-plus"
+                    style="margin-right: 0.5rem;"></i>新規登録</a></li>
         <?php
     else :
         if (isset($_GET['page_id']) && $_GET['page_id'] != 'current_user') {
@@ -18,16 +22,18 @@
         }
         ?>
         <ul class="main_ul">
-            <li class="top_link"><a href="../index.php?type=main&page_id=current_user&page_type=all">Test
-                    App</a></li>
+            <li class="top_link">
+                <a sytle="margin: -0.5rem 0 0 -1.2rem;" href="../index.php?page_type=my_post"><img src="../Untitled.svg"
+                        width="128" /></a>
+            </li>
             <li class="top_link prof_page"><a class="prof_modal" href="#"><img
                         src="data:image/jpeg;base64,<?= $current_user['image'] ?>" class="user_image"></a></li>
-            <li class="header_menu_wide"><a href="../user/user_list.php?type=all&page_id=current_user"><i
-                        class="fas fa-users"
-                        style="margin-right: 0.5rem;font-size: 1.5rem;vertical-align: bottom;"></i>ユーザー一覧</a>
+            <li class="header_menu_wide"><a href="../user/user_list.php?type=all&page_id=current_user"
+                    style="vertical-align: middle;"><i class="fas fa-users"
+                        style="margin-right: 0.5rem;font-size: 1.5rem;"></i>ユーザー一覧</a>
             </li>
-            <li class="header_menu"><a href="../message/message_top.php">
-                    <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>メッセージ<?php
+            <li class="header_menu"><a href="../message/message_top.php" style="vertical-align: middle;">
+                    <i class="fas fa-comment" style="margin-right: 0.5rem;"></i>メッセージ<?php
                                                                                             $message = new Message();
                                                                                             if ($user->get_user_count('message_relation')[0] != 0) {
                                                                                                 if ($message->message_count($_SESSION['user_id'])[0]['SUM(message_count)'] != 0) {
@@ -36,10 +42,12 @@
                                                                                             }
                                                                                             ?>
                 </a></li>
-            <li class="header_menu post_modal"><a href="#"><i class="fas fa-edit"
-                        style="margin-right: 0.5rem;"></i>投稿</a></li>
-            <li class="header_menu_wide"><a href="../user_login/user_logout.php"><i class="fas fa-sign-out-alt"
-                        style="margin-right: 0.5rem;"></i>ログアウト</a></li>
+            <li class="header_menu post_modal"><a href="#" style="vertical-align: middle;"><i class="fas fa-edit"
+                        style="margin-right: 0.5rem;margin-bottom: 0;"></i>投稿</a></li>
+            <li class="header_menu_wide" style="vertical-align: middle;"><a href="../user_login/user_logout.php"
+                    style="vertical-align: middle;"><i class="fas fa-sign-out-alt"
+                        style="margin-right: 0.5rem;"></i>ログアウト</a>
+            </li>
             <li class="show_menu">メニュー
                 <div class="slide_menu">
                     <a class="modal_close" href="#">

@@ -23,7 +23,7 @@ try {
         unlink('./image/' . $post_image_name);
     }
 } catch (Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "../error.log");
     _debug('投稿削除失敗');
     exit();
 }

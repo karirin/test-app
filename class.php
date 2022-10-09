@@ -18,7 +18,7 @@ class User
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       set_flash('error', ERR_MSG1);
     }
   }
@@ -152,7 +152,7 @@ class User
       $stmt->execute(array(':date' => $date->format('Y-m-d H:i:s'), ':id' => $this->id));
       $dbh->commit();
     } catch (\Exception $e) {
-      //      error_log($e, 3, "../../php/error.log");
+      //      error_log($e, 3, "error.log");
       _debug('ログイン時刻更新失敗');
       $dbh->rollback();
     }
@@ -173,7 +173,7 @@ class User
       ));
       return  $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('フォロー確認失敗');
     }
   }
@@ -189,7 +189,7 @@ class User
       $stmt->execute(array(':name' => $user_name));
       return  $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('ユーザー確認失敗');
     }
   }
@@ -213,7 +213,7 @@ class Post
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('投稿取得失敗');
     }
   }
@@ -229,7 +229,7 @@ class Post
       $stmt->execute(array(':post_id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('お気に入り投稿数取得失敗');
     }
   }
@@ -246,7 +246,7 @@ class Post
       $stmt->execute(array(':post_id' => $this->id));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('投稿からコメント取得失敗');
     }
   }
@@ -313,7 +313,7 @@ class Post
       $stmt->execute();
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('複数の投稿取得失敗');
     }
   }
@@ -335,7 +335,7 @@ class Comment
       $stmt->execute();
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('投稿取得失敗');
     }
   }
@@ -361,7 +361,7 @@ class Test
       $stmt->execute(array(':id' => $this->id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('投稿取得失敗');
     }
   }
@@ -376,7 +376,7 @@ class Test
       $stmt->execute(array(':user_id' => $user_id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('投稿取得失敗');
     }
   }
@@ -417,7 +417,7 @@ class Message
       ));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('複数メッセージ取得失敗');
     }
   }
@@ -439,7 +439,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('最新メッセージ取得失敗');
     }
   }
@@ -459,7 +459,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('複数の最新メッセージ取得失敗');
     }
   }
@@ -478,7 +478,7 @@ class Message
         ':destination_user_id' => $destination_user_id
       ));
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('メッセージリスト追加失敗');
     }
   }
@@ -498,7 +498,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('ログインユーザーのメッセージリスト新規登録失敗');
     }
   }
@@ -517,7 +517,7 @@ class Message
         ':destination_user_id' => $destination_user_id
       ));
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('メッセージ数更新失敗');
     }
   }
@@ -534,7 +534,7 @@ class Message
       $stmt->execute(array(':user_id' => $user_id));
       return $stmt->fetchAll();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('メッセージリスト取得失敗');
     }
   }
@@ -555,7 +555,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('メッセージリスト確認失敗');
     }
   }
@@ -575,7 +575,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('ログインユーザーのメッセージリスト確認失敗');
     }
   }
@@ -595,7 +595,7 @@ class Message
       ));
       return $stmt->fetch();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('メッセージリスト削除確認失敗');
     }
   }
@@ -614,7 +614,7 @@ class Message
       ));
       $dbh->commit();
     } catch (\Exception $e) {
-      error_log($e, 3, "../../php/error.log");
+      error_log($e, 3, "error.log");
       _debug('メッセージ数リセット失敗');
       $dbh->rollback();
     }

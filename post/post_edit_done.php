@@ -31,7 +31,7 @@ try {
         unlink('./image/' . $post_image_name_old);
     }
 } catch (Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "../error.log");
     _debug('投稿更新失敗');
     exit();
 }

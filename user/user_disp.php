@@ -45,8 +45,8 @@ $follower_count = $user->get_user_count('follower');
                             <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>"
                                 style="display:none;">
                             <div class="btn_flex">
+                                <button class="btn btn-outline-info modal_close" type="button">閉じる</button>
                                 <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
-                                <button class="btn btn-outline-info modal_close" type="button">キャンセル</button>
                             </div>
                         </div>
                         <div class="myprofile_btn">
@@ -222,8 +222,8 @@ $follower_count = $user->get_user_count('follower');
                             <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>"
                                 style="display:none;">
                             <div class="btn_flex">
+                                <button class="btn btn-outline-info modal_close" type="button">閉じる</button>
                                 <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
-                                <button class="btn btn-outline-info modal_close" type="button">キャンセル</button>
                             </div>
                             <div class="myprofile_btn">
                                 <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
@@ -387,8 +387,8 @@ $follower_count = $user->get_user_count('follower');
                             <input type="file" name="image" class="image" value="<?= $current_user['image'] ?>"
                                 style="display:none;">
                             <div class="btn_flex">
+                                <button class="btn btn-outline-info modal_close" type="button">閉じる</button>
                                 <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
-                                <button class="btn btn-outline-info modal_close" type="button">キャンセル</button>
                             </div>
                         </div>
                         <div class="myprofile_btn">

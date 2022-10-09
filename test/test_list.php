@@ -24,7 +24,7 @@ if (isset($block[0])) :
                         print '<img src="../post/image/noimage.jpg" class="post_img" >';
                     }
                     ?>
-            <div class="post_text ellipsis" id="post_text"><?php print '' . $post['text'] . ''; ?></div>
+            <div class="post_text ellipsis" id="post_text"><?php print '' . $post['service'] . ''; ?></div>
     </a>
     <?php if ($_SESSION['user_id'] == $post['user_id']) : ?>
     <p class="post_created_at" style="display: flex;justify-content: space-between;"><i

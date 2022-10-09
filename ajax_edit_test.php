@@ -15,7 +15,25 @@ if (isset($_POST)) {
                 ':test_text' => $edit_test_text
             ));
         } catch (\Exception $e) {
-            error_log($e, 3, "../../php/error.log");
+            error_log($e, 3, "error.log");
+            _debug('メモ更新失敗');
+        }
+    }
+    if ($_POST["disp_procedure_flg"]) {
+        $test_id = $_POST["test_id"];
+        $edit_test_procedure_text = $_POST["testcase_procedure_text"];
+        try {
+            $dbh = db_connect();
+            $sql = "UPDATE test
+            SET `procedure` = :testcase_procedure_text
+            WHERE id = :test_id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+                ':test_id' => $test_id,
+                ':testcase_procedure_text' => $edit_test_procedure_text
+            ));
+        } catch (\Exception $e) {
+            error_log($e, 3, "error.log");
             _debug('メモ更新失敗');
         }
     }
@@ -33,13 +51,13 @@ if (isset($_POST)) {
                 ':test_val' => $test_val
             ));
         } catch (\Exception $e) {
-            error_log($e, 3, "../../php/error.log");
+            error_log($e, 3, "error.log");
             _debug('メモ更新失敗');
         }
     }
     if ($_POST["progress_flg"]) {
         $test_id = $_POST["test_id"];
-        $test_val = $_POST["test_val"];
+        $test_val = $_POST["test_progress"];
         try {
             $dbh = db_connect();
             $sql = "UPDATE test
@@ -51,7 +69,7 @@ if (isset($_POST)) {
                 ':test_val' => $test_val
             ));
         } catch (\Exception $e) {
-            error_log($e, 3, "../../php/error.log");
+            error_log($e, 3, "error.log");
             _debug('メモ更新失敗');
         }
     }
@@ -91,7 +109,7 @@ if (isset($_POST)) {
                 ':test_id' => $test_id
             ));
         } catch (\Exception $e) {
-            error_log($e, 3, "../../php/error.log");
+            error_log($e, 3, "error.log");
             _debug('メモ更新失敗');
         }
     }
@@ -106,7 +124,7 @@ if (isset($_POST)) {
                 ':test_id' => $test_id
             ));
         } catch (\Exception $e) {
-            error_log($e, 3, "../../php/error.log");
+            error_log($e, 3, "error.log");
             _debug('メモ更新失敗');
         }
     }
@@ -121,7 +139,23 @@ if (isset($_POST)) {
                 ':post_id' => $post_id
             ));
         } catch (\Exception $e) {
-            error_log($e, 3, "../../php/error.log");
+            error_log($e, 3, "error.log");
+            _debug('メモ更新失敗');
+        }
+    }
+    if ($_POST['help_flg']) {
+        $user_id = $_POST['user_id'];
+        try {
+            $dbh = db_connect();
+            $sql = "UPDATE user
+                            SET help_flg = 1
+                WHERE id = :user_id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute(array(
+                ':user_id' => $user_id
+            ));
+        } catch (\Exception $e) {
+            error_log($e, 3, "error.log");
             _debug('メモ更新失敗');
         }
     }

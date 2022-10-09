@@ -51,7 +51,7 @@ if (isset($_POST)) {
     set_flash('sucsess', 'プロフィールを更新しました');
     reload();
   } catch (\Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "error.log");
     _debug('プロフィール更新失敗');
   }
 }

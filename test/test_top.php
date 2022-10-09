@@ -59,14 +59,17 @@ $followers_count = 0;
                                 フォロー<span class="follow_count"
                                     style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follow', $current_user['id'])) . ''; ?></span>
                             </div>
-                            <?php foreach ($follow_users as $follow_user) :
-                                $follows_count++;
-                                if ($follows_count == 4) {
-                                    break;
-                                }
-                            ?>
-                            <img src="data:image/jpeg;base64,<?= $follow_user['image']; ?>" class="users_img">
-                            <?php endforeach; ?>
+                            <div style="text-align:left;margin-left: 1rem;">
+                                <?php foreach ($follow_users as $follow_user) :
+                                    $follows_count++;
+                                    if ($follows_count == 4) {
+                                        print '…';
+                                        break;
+                                    }
+                                ?>
+                                <img src="data:image/jpeg;base64,<?= $follow_user['image']; ?>" class="users_img">
+                                <?php endforeach; ?>
+                            </div>
                     </div>
                     </a>
                     <div style='display:inline-block;margin: 1rem 1rem 1rem 0rem;width: 8rem;'>
@@ -76,29 +79,32 @@ $followers_count = 0;
                                 フォロワー<span class="follower_count"
                                     style="margin-left: 0.5rem;"><?php print '' . current($user->get_user_count('follower', $current_user['id'])) . ''; ?></span>
                             </div>
-                            <?php foreach ($follower_users as $follower_user) :
-                                $followers_count++;
-                                if ($followers_count == 4) {
-                                    break;
-                                }
-                            ?>
-                            <img src="data:image/jpeg;base64,<?= $follower_user['image']; ?>" class="users_img">
-                            <?php endforeach; ?>
+                            <div style="text-align:left;margin-left: 1rem;">
+                                <?php foreach ($follower_users as $follower_user) :
+                                    $followers_count++;
+                                    if ($followers_count == 4) {
+                                        break;
+                                    }
+                                ?>
+                                <img src="data:image/jpeg;base64,<?= $follower_user['image']; ?>" class="users_img">
+                                <?php endforeach; ?>
+                            </div>
                     </div>
                     </a>
-                    <div style="text-align:center;width:100%;"><i class="fab fa-tumblr"
-                            style="margin-right:1rem;font-size:1.5rem;"></i><i class="fas fa-times"
+                    <div style="text-align:center;width:100%;"><i class="fas fa-thumbs-up"
+                            style="font-size:1.8rem;margin-right:1rem;"></i><i class="fas fa-times"
                             style="margin-right: 1rem;font-size: 1.3rem;"></i><span
                             style="font-size: 1.5rem;"><?= $get_goodtest_count[0]['count(*)']; ?></span>
                     </div>
                 </div>
                 <div class="col-6 edit_btns"
                     style="display:none;padding-top: 4rem;padding-right:0;padding-left: 0.5rem;padding-left: 2rem;">
+                    <button class="btn btn-outline-dark profile_close" type="button"
+                        style="width: 100%;margin-bottom: 1rem;">閉じる</button>
+                    <button class="btn btn-outline-dark profile_narrow_close" type="button"
+                        style="width: 100%;">閉じる</button>
                     <input type="submit" class="btn btn-outline-dark edit_done" style="width: 100%;margin-bottom:1rem;"
                         value="編集完了">
-                    <button class="btn btn-outline-dark profile_close" type="button" style="width: 100%;">キャンセル</button>
-                    <button class="btn btn-outline-dark profile_narrow_close" type="button"
-                        style="width: 100%;">キャンセル</button>
                 </div>
             </div>
             <div class="row myprofile_count">
@@ -187,10 +193,10 @@ $followers_count = 0;
                             $skills_len .= $skill;
                             if (3 <= count($skill_tag) || 15 <= mb_strlen($skills_len)) {
                                 print '<span id="child-span_myprofile" class="skill_tag extra" style="display: none;">' . $skill . '<label><input type="button"><i
-                                class="far  fa-times-circle skill"></i></label></span> ';
+                                class="far  fa-times-circle skill_myprofile"></i></label></span> ';
                             } else {
                                 print '<span id="child-span_myprofile" class="skill_tag">' . $skill . '<label><input type="button"><i
-                                class="far  fa-times-circle skill"></i></label></span> ';
+                                class="far  fa-times-circle skill_myprofile"></i></label></span> ';
                             }
                         endif;
 
@@ -246,7 +252,7 @@ $followers_count = 0;
 
 
         <div class="col-9" style="text-align: center;">
-
+            <div class="test_help"><i class="fas fa-question-circle test_helpbtn"></i></div>
             <div class="user_top_postlist">
                 <?php if ($current_user['id'] == $_SESSION['user_id']) : ?>
                 <ul class="nav nav-tabs">
@@ -281,7 +287,7 @@ $followers_count = 0;
 </div>
 </div>
 </div>
-
+<input type="hidden" class="user_helpdisp" value="<?= $current_user['help_flg'] ?>">
 <?php
 //require('../footer.php');
 ?>

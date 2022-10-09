@@ -24,7 +24,7 @@ if (isset($block[0])) :
                         print '<img src="../post/image/noimage.jpg" class="post_img" >';
                     }
                     ?>
-            <div class="post_text ellipsis" id="post_text"><?php print '' . $post['text'] . ''; ?></div>
+            <div class="post_text ellipsis" id="post_text"><?php print '' . $post['service'] . ''; ?></div>
     </a>
     <p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
 </div>

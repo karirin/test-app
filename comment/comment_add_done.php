@@ -43,7 +43,7 @@ try {
     set_flash('sucsess', 'コメントを追加しました');
     reload();
 } catch (Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "../error.log");
     _debug('コメント送信失敗');
     exit();
 }

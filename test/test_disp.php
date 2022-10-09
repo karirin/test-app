@@ -4,24 +4,24 @@ $post_class = new Post($_GET['post_id']);
 $post = $post_class->get_post();
 $test_class = new Test($_GET['post_id']);
 $test = $test_class->get_test();
-$skills = explode(" ", $post['skill']);
-$skills_len = "";
-$skills_delspace = str_replace("     ", "", $post['skill']);
 ?>
 <div class="col-4 tested_app">
     <?php
     if (!empty($post['image'])) {
-        print '<img src="data:image/jpeg;base64,' . $post['image'] . '" class="tast_case_img" >';
+        print '<img src="data:image/jpeg;base64,' . $post['image'] . '" class="tast_case_img" style="margin-bottom: 1rem;">';
     } else {
-        print '<img src="../post/image/noimage.jpg" class="tast_case_img" style="width: 70%;" >';
+        print '<img src="../post/image/noimage.jpg" class="tast_case_img" style="width: 70%;margin-bottom: 1rem;" >';
     }
     ?>
 
     <div>
-        <h6 style="font-weight:bold;">説明</h6>
-        <span class="tast_case_text ellipsis" id="post_text"
-            style="margin-bottom: 1rem;"><?php print '' . $post['text'] . ''; ?></span>
-        <h6 style="font-weight:bold;">URL</h6>
+        <h6 style="font-weight:bold;margin-bottom: 0;">サービス内容</h6>
+        <span class="tast_case_text" id="post_text"
+            style="margin-bottom: 1rem;"><?php print '' . $post['service'] . ''; ?></span>
+        <h6 style="font-weight:bold;margin-bottom: 0;margin-top:1rem;">テスト方針</h6>
+        <span class="tast_case_text" id="post_text"
+            style="margin-bottom: 1rem;"><?php print '' . $post['test_request'] . ''; ?></span>
+        <h6 style="font-weight:bold;margin-top:1rem;">URL</h6>
         <div class="input-group test_url" style="width: 100%;margin-left:0">
             <div class="input-group mb-2">
                 <input type="text" id="test_url" class="form-control" aria-label="Username" aria-describedby="text1a"
@@ -32,32 +32,9 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
                 </div>
             </div>
         </div>
-        <div class="tag" style="margin:0;">
-            <div class="tags">
-                <div class="tag_skill">
-                    <h6 style="font-weight:bold;">使用技術</h6>
-                    <?php
-                    foreach ($skills as $skill) :
-                        if ($post['skill'] != '' && $skill != '') : ?>
-                    <span id="child-span" class="skill_tag"><?= $skill ?></span>
-                    <?php
-                            if (!isset($skill_tag)) {
-                                $skill_tag = array();
-                            }
-                            array_push($skill_tag, $skill);
-                            $skills_len .= $skill;
-
-                            if (10 <= count($skill_tag) || 16 <= strlen($skills_len)) {
-                                print '<div></div>';
-                                $skill_tag = array();
-                                $skills_len = "";
-                            }
-                        endif;
-
-                    endforeach;
-                    ?>
-                </div>
-            </div>
+        <div>
+            <h6 style="font-weight:bold;margin-top:1rem;">アプリケーション形式</h6>
+            <?php print '' . $post['app_format'] . ''; ?>
         </div>
     </div>
 </div>
@@ -71,6 +48,7 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
             <div class="delete_btn"><i class="far fa-trash-alt" style="vertical-align: sub;"></i></div>
             <span class="progress"><?= $test_case['progress'] ?></span>
             <div id="testcase_<?= $test_case['id'] ?>">
+                <input type="hidden" class="procedure" value="<?= $test_case['procedure'] ?>">
                 <input type="hidden" class="priority_input" value="<?= $test_case['priority'] ?>">
                 <input type="hidden" class="progress_input" value="<?= $test_case['progress'] ?>">
                 <input type="hidden" class="priority_user_id" value="<?= $test_case['user_id'] ?>">
@@ -85,9 +63,9 @@ $skills_delspace = str_replace("     ", "", $post['skill']);
                         class="created_at"><?= convert_to_fuzzy_time($test_case['created_at']) ?></span></span>
             </div>
             <?php if ($test_case['rated'] == 1) : ?>
-            <i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;"></i>
+            <i class="fas fa-thumbs-up" style="vertical-align: super;margin-left: 0.5rem;"></i>
             <?php else : ?>
-            <i class="fab fa-tumblr" style="vertical-align: super;margin-left: 0.9rem;display: none;"></i>
+            <i class="fas fa-thumbs-up" style="vertical-align: super;margin-left: 0.5rem;display:none;"></i>
             <?php endif; ?>
         </li>
         <?php endforeach ?>

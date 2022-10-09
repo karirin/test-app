@@ -61,8 +61,8 @@ foreach ($message_relations as $message_relation) :
                 <form action="message_list_delete.php" method="post">
                     <input type="hidden" name="user_id" value="<?= $current_user['id'] ?>">
                     <input type="hidden" name="destination_user_id" value="<?= $destination_user['id'] ?>">
+                    <button class="btn btn-outline-primary modal_close" type="button">閉じる</button>
                     <button class="btn btn-outline-danger" type="submit" name="delete" value="delete">削除</button>
-                    <button class="btn btn-outline-primary modal_close" type="button">キャンセル</button>
                 </form>
             </div>
         </div>

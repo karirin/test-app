@@ -11,7 +11,6 @@ try {
     $message_image = "";
     if ($_FILES['image']['tmp_name'] != "") {
         $message_image = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
-        image_check($_FILES['image']);
     }
     $user_id = $_SESSION['user_id'];
     $destination_user_id = $_POST['destination_user_id'];
@@ -46,7 +45,7 @@ try {
     set_flash('sucsess', 'メッセージを送信しました');
     reload();
 } catch (Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "../error.log");
     _debug("メッセージ送信失敗");
     exit();
 }

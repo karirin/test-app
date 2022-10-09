@@ -34,7 +34,7 @@ if (isset($_POST)) {
     );
     echo json_encode($return);
   } catch (\Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "error.log");
     _debug('フォロー失敗');
     echo json_encode("error");
   }

@@ -6,9 +6,10 @@ try {
     $date = new DateTime();
     $date->setTimeZone(new DateTimeZone('Asia/Tokyo'));
 
-    $post_text = $_POST['text'];
     $post_url = $_POST['url'];
-    $skills = $_POST['skills'];
+    $app_format = $_POST['app_format'];
+    $service = $_POST['service'];
+    $test_request = $_POST['test_request'];
     $user_id = $_SESSION['user_id'];
     if (!empty($_FILES['image_name']['tmp_name'])) {
         $post_image = base64_encode(file_get_contents($_FILES['image_name']['tmp_name']));
@@ -16,22 +17,17 @@ try {
         $post_image = '';
     }
 
-
-    if ($post_text == '') {
-        set_flash('danger', '投稿内容が未記入です');
-        reload();
-    };
-
     $post_text = htmlspecialchars($post_text, ENT_QUOTES, 'UTF-8');
     $user_id = htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8');
 
     $dbh = db_connect();
-    $sql = 'INSERT INTO post(text,url,image,skill,user_id,created_at) VALUES (?,?,?,?,?,?)';
+    $sql = 'INSERT INTO post(url,image,app_format,service,test_request,user_id,created_at) VALUES (?,?,?,?,?,?,?)';
     $stmt = $dbh->prepare($sql);
-    $data[] = $post_text;
     $data[] = $post_url;
     $data[] = $post_image;
-    $data[] = $skills;
+    $data[] = $app_format;
+    $data[] = $service;
+    $data[] = $test_request;
     $data[] = $user_id;
     $data[] = $date->format('Y-m-d H:i:s');
     $stmt->execute($data);

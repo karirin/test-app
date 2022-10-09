@@ -71,6 +71,32 @@ window.onload = function() {
         $('.myprofile_licence_btn')[0].setAttribute('style', 'display:none;');
         $('.licence_btn_narrow')[0].setAttribute('style', 'display:none;');
     }
+    for (i = 0; i < $('.priority').length; i++) {
+        if ($('.priority .progress_input')[i].value == '作業中') {
+            $('.priority .progress')[i].setAttribute("style", 'border: 0.13rem solid;');
+        }
+    }
+    console.log($('.user_helpdisp')[0].value);
+    if ($('.user_helpdisp')[0].value == 0) {
+        var user_id = $('.current_user_id')[0].value;
+        $('.help_test_disp').fadeIn();
+        $('.modal_help').fadeIn();
+        $('.far.fa-times-circle.help_clear').fadeIn();
+        $.ajax({
+            type: 'POST',
+            url: '../ajax_edit_test.php',
+            dataType: 'text',
+            data: {
+                user_id: user_id,
+                help_flg: 1
+            }
+        }).done(function() {}).fail(function() {});
+        $(document).on('click', '.far.fa-times-circle.help_clear', function() {
+            $('.help_test_disp').fadeOut();
+            $('.modal_help').fadeOut();
+            $('.far.fa-times-circle.help_clear').fadeOut();
+        });
+    }
 }
 
 /// 長押しを検知する閾値
@@ -142,16 +168,22 @@ $(document).on('dblclick', '.priority', function() {
     $('.testcase_disp').fadeIn();
     $('.modal_testcase').fadeIn();
     $('.testcase_clear').fadeIn();
+    console.log($current_user_id);
+    console.log($user_id); //テストケースを追加したユーザー
+    console.log($post_user_id); //投稿者
     if ($current_user_id == $user_id) {
         $('.testcase_disp .testcase_text').replaceWith('<span class="testcase_text">' + $($target_modal + ' > span')[0].textContent + '</span>');
-        $('.t_btn').fadeOut();
+        $('.testcase_disp .testcase_procedure').replaceWith('<span class="testcase_procedure">' + $($target_modal + ' > .procedure')[0].value + '</span>');
+        $('.testcase_disp .add_edit').fadeIn();
     } else {
         $('.testcase_disp .testcase_text').replaceWith('<span class="testcase_text" style="pointer-events: none">' + $($target_modal + ' > span')[0].textContent + '</span>');
-        $('.t_btn').fadeIn();
+        $('.testcase_disp .testcase_procedure').replaceWith('<span class="testcase_procedure" style="pointer-events: none">' + $($target_modal + ' > .procedure')[0].value + '</span>');
+        $('.testcase_disp .add_edit').fadeOut();
     }
-    if ($current_user_id == $post_user_id) {
-        $('.testcase_disp #priority').fadeIn();
-        $('.testcase_disp #progress').fadeIn();
+    if ($current_user_id == $post_user_id && $current_user_id != $user_id) {
+        $('.good_btn').fadeIn();
+    } else {
+        $('.good_btn').fadeOut();
     }
     $('.testcase_disp .test_user_img')[0].setAttribute('src', $($target_modal + ' > .test_user_info > a > span >.test_user_img')[0].getAttribute('src'));
     $('.testcase_disp .testcase_created_at').replaceWith('<span class="testcase_created_at">' + $($target_modal + ' > .test_user_info > .created_at')[0].textContent + '</span>');
@@ -160,13 +192,18 @@ $(document).on('dblclick', '.priority', function() {
     // セレクトボックスの初期値を指定
     $("#priority option[value='" + $test_priority + "']").prop('selected', true);
     $("#progress option[value='" + $test_progress + "']").prop('selected', true);
+    // セレクトボックス選択時の状態に変更
+    $('.testcase_disp #progress').change(function() {
+        $('#testcase_' + $test_id + ' .priority_input')[0].value = $('.testcase_disp #progress')[0].value;
+    });
+    $('.testcase_disp #priority').change(function() {
+        $('#testcase_' + $test_id + ' .priority_input')[0].value = $('.testcase_disp #priority')[0].value;
+    });
     $(document).on('click', '.testcase_clear', function() {
         $('.testcase_disp').fadeOut();
         $('.modal_testcase').fadeOut();
         $('.testcase_clear').fadeOut();
     });
-    // $('.testcase_disp .if_comment').replaceWith('<?php if($comments==0) ?>');
-    // $('.testcase_disp .end_comment').replaceWith('<?php endif; ?>');
 });
 
 // テストケースの必須チェック
@@ -175,7 +212,7 @@ $(document).on('click', '.testcase_btn', function() {
         $('#priority')[0].setAttribute("style", "border-color: #dc3545;");
         $('#test_process_counter')[0].setAttribute("style", "border-color: #dc3545;");
         $('.priority_error').fadeIn();
-        $('.testcase_error').fadeIn();
+        $('.testcase_process .testcase_error').fadeIn();
         return false;
     } else if ($('#priority').val() == '') {
         $('#priority')[0].setAttribute("style", "border-color: #dc3545;");
@@ -183,7 +220,7 @@ $(document).on('click', '.testcase_btn', function() {
         return false;
     } else if ($('#test_process_counter')[0].value == '') {
         $('#test_process_counter')[0].setAttribute("style", "border-color: #dc3545;");
-        $('.testcase_error').fadeIn();
+        $('.testcase_process .testcase_error').fadeIn();
         return false;
     }
 });
@@ -202,7 +239,7 @@ $(document).ready(function() {
         var str = $(this).value;
         if (str != '') {
             $('#test_process_counter')[0].setAttribute("style", "border-color: #ced4da;");
-            $('.testcase_error').fadeOut();
+            $('.testcase_process .testcase_error').fadeOut();
         }
     });
 
@@ -214,33 +251,46 @@ $(document).ready(function() {
         }
     });
 
-    $('.test_form').change(function() {
+    $('.service').change(function() {
         var str = $(this).value;
         if (str != '') {
-            $('.test_form')[0].setAttribute("style", "border-color: #ced4da;");
-            $('.post_text_error').fadeOut();
+            $('.service')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.post_service_error').fadeOut();
+        }
+    });
+
+    $('.test_request').change(function() {
+        var str = $(this).value;
+        if (str != '') {
+            $('.test_request')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.post_request_error').fadeOut();
+        }
+    });
+
+    $('.app_format').change(function() {
+        var str = $(this).value;
+        if (str != '') {
+            $('.app_format')[0].setAttribute("style", "border-color: #ced4da;");
+            $('.post_app_error').fadeOut();
         }
     });
 });
 
 // テスト投稿の必須チェック
 $(document).on('click', '.post_process_btn', function() {
-    console.log($('.url_form')[0]);
-    console.log($('.url_form')[0].value);
-    console.log($('.test_form')[0].value);
-    if ($('.url_form')[0].value == '' && $('.test_form')[0].value == '') {
+    if ($('.url_form')[0].value == '' && $('.service')[0].value == '') {
         $('.url_form')[0].setAttribute("style", "border-color: #dc3545;");
-        $('.test_form')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.service')[0].setAttribute("style", "border-color: #dc3545;");
         $('.post_url_error').fadeIn();
-        $('.post_text_error').fadeIn();
+        $('.post_service_error').fadeIn();
         return false;
     } else if ($('.url_form').val() == '') {
         $('.url_form')[0].setAttribute("style", "border-color: #dc3545;");
         $('.post_url_error').fadeIn();
         return false;
-    } else if ($('.test_form')[0].value == '') {
-        $('.test_form')[0].setAttribute("style", "border-color: #dc3545;");
-        $('.post_text_error').fadeIn();
+    } else if ($('.service')[0].value == '') {
+        $('.service')[0].setAttribute("style", "border-color: #dc3545;");
+        $('.post_service_error').fadeIn();
         return false;
     }
 });
@@ -272,7 +322,39 @@ $(document).on('click', '.testcase_disp .testcase_text', function() {
             $('#edit_testcase_' + $test_id).replaceWith('<span class="testcase_text">' + edit_test_text + '</span>');
             $('#testcase_' + $test_id + ' .testcase_text').replaceWith('<span class="testcase_text">' + edit_test_text + '</span>');
             $('.testcase_disp .testcase_clear')[0].disabled = false;
-            $('.testcase_error').fadeOut();
+            $('.testcase_disp .testcase_error').fadeOut();
+        }).fail(function() {});
+    });
+});
+
+// テスト手順入力処理
+$(document).on('click', '.testcase_disp .testcase_procedure', function() {
+    var $test_id = $('.testcase_disp .testcase_id')[0].value,
+        $test_text = $('.testcase_disp .testcase_procedure')[0].textContent;
+    $(this).replaceWith('<textarea type="text" name="text" id="edit_testcase_procedure_' + $test_id + '" class="edit_testcase_procedure" style="width: 100%;">' + $test_text);
+    $('#edit_testcase_procedure_' + $test_id).on('mouseout', function(e) {
+        e.stopPropagation();
+        var edit_testcase_procedure_text = $('#edit_testcase_procedure_' + $test_id).val();
+        if (edit_testcase_procedure_text == '') {
+            $('#edit_testcase_procedure_' + $test_id)[0].setAttribute("style", "border-color: #dc3545;border-style: solid;width: 100%;");
+            $('.testcase_disp .testcase_error').fadeIn();
+            $('.testcase_disp .testcase_clear')[0].disabled = true;
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '../ajax_edit_test.php',
+            dataType: 'text',
+            data: {
+                test_id: $test_id,
+                testcase_procedure_text: edit_testcase_procedure_text,
+                disp_procedure_flg: 1
+            }
+        }).done(function() {
+            $('#edit_testcase_procedure_' + $test_id).replaceWith('<span class="testcase_procedure">' + edit_testcase_procedure_text + '</span>');
+            $('#testcase_' + $test_id + ' > .procedure')[0].value = edit_testcase_procedure_text;
+            $('.testcase_disp .testcase_clear')[0].disabled = false;
+            $('.testcase_disp .testcase_error').fadeOut();
         }).fail(function() {});
     });
 });
@@ -292,7 +374,11 @@ $(document).on('change', '.testcase_disp #priority', function() {
             select_flg: 1
         }
     }).done(function() {
-        $test_progress.replaceWith('<span class="progress">' + $test_val + '</span>');
+        if ($test_val == '作業中') {
+            $test_progress.replaceWith('<span class="progress" style="border:0.13rem solid;">' + $test_val + '</span>');
+        } else {
+            $test_progress.replaceWith('<span class="progress">' + $test_val + '</span>');
+        }
         // 選択した進捗度によってテストケースの色を変更
         if ($test_val == '完了') {
             $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #a49e9e;');
@@ -318,7 +404,7 @@ $(document).on('change', '.testcase_disp #priority', function() {
 
 // 選択した優先度によってテストケースの色を変更
 $(document).on('change', '.testcase_disp #progress', function() {
-    var $test_progres = $('.testcase_disp #progress')[0].value,
+    var $test_progress = $('.testcase_disp #progress')[0].value,
         $test_id = $('.testcase_disp .testcase_id')[0].value,
         $test_priority = $('.testcase_disp #priority')[0].value;
     $.ajax({
@@ -327,14 +413,14 @@ $(document).on('change', '.testcase_disp #progress', function() {
         dataType: 'text',
         data: {
             test_id: $test_id,
-            test_progress: $test_progres,
+            test_progress: $test_progress,
             progress_flg: 1
         }
     }).done(function() {
         if ($test_priority == '完了') {
             $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #a49e9e;');
         } else {
-            switch ($test_progres) {
+            switch ($test_progress) {
                 case "A":
                     $('#testcase_' + $test_id).parent()[0].setAttribute("style", 'background-color: #b2cdff;');
                     break;
@@ -485,7 +571,7 @@ $(function() {
 if (document.getElementById('skill_myprofile_input') != null) {
     let skill_myprofile_input = document.getElementById('skill_myprofile_input'),
         myprofile_skill = document.getElementById("myprofile_skill"),
-        myprofile_spans = skill.getElementsByTagName("span");
+        myprofile_spans = myprofile_skill.getElementsByTagName("span");
 
     skill_myprofile_input.addEventListener('change', inputChange_skill);
 
@@ -544,7 +630,7 @@ function inputChange_skill() {
         span_element_myprofile.setAttribute("class", "skill_tag");
         span_element_myprofile.setAttribute("style", "margin-right:4px;");
         div_element_myprofile.setAttribute("id", "span" + i + "");
-        i_element_myprofile.setAttribute("class", "far fa-times-circle skill");
+        i_element_myprofile.setAttribute("class", "far fa-times-circle skill_myprofile");
         input_element_myprofile.setAttribute("type", "button");
 
         // タグの改行があった場合
@@ -681,7 +767,6 @@ $(document).on('click', ".profile_narrow_close", function() {
 // 投稿の削除ボタン押下時
 $(document).on('click', '.fa-trash', function() {
     var post_id = $(this).parents('.post_list').attr('id');
-    console.log(post_id);
     $('.modal_post').fadeIn();
     $('.post_delete').fadeIn();
     $('.post_delete .post_process_text').replaceWith('<span class="post_process_text" style="text-align: center;width: 100%;">' + $('#' + post_id + ' .post_text')[0].textContent + '</span>');
@@ -699,7 +784,6 @@ $(document).on('click', '.fa-trash', function() {
                 delete_post_flg: 1
             }
         }).done(function() {
-            console.log($("#" + post_id));
             $("#" + post_id).fadeOut(1000);
             $('.modal_post').fadeOut();
             $('.post_delete').fadeOut();

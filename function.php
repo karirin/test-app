@@ -24,7 +24,7 @@ function get_users($query)
     $stmt->execute();
     return $stmt->fetchAll();
   } catch (\Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "error.log");
     _debug('複数ユーザー取得失敗');
   }
 }
@@ -167,7 +167,7 @@ function check_match($user_id, $current_user_id)
     ));
     return  $stmt->fetch();
   } catch (\Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "error.log");
     _debug('フォロー確認失敗');
   }
 }
@@ -186,7 +186,7 @@ function check_unmatch($user_id, $current_user_id)
     ));
     return  $stmt->fetch();
   } catch (\Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "error.log");
     _debug('アンマッチ確認失敗');
   }
 }
@@ -205,7 +205,7 @@ function check_matchs($user_id, $current_user_id)
     ));
     return $stmt->fetchAll();
   } catch (\Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "error.log");
     _debug('フォロー確認失敗');
   }
 }
@@ -220,7 +220,7 @@ function get_matchs()
     $stmt->execute();
     return $stmt->fetchAll();
   } catch (\Exception $e) {
-    error_log($e, 3, "../../php/error.log");
+    error_log($e, 3, "error.log");
     _debug('フォロー確認失敗');
   }
 }

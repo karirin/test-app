@@ -14,3 +14,9 @@
     <i class="far fa-trash-alt" style="vertical-align: sub;margin-left: 0.3rem;"></i>
     <div>テストケースを長押しすると削除ボタンが表示されます</div>
 </div>
+<div class="help_test_disp" style="width: auto;">
+    <i class="far fa-times-circle help_clear"></i>
+    <h4 style="font-weight:bold;text-align: center;"><i class="far fa-question-circle"
+            style="margin-right: 0.5rem;"></i>Test Appの利用方法</h6>
+        <img src="../test/gif/testappの流れ.gif" style="width: 35rem;height: 23rem;">
+</div>

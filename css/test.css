@@ -1,3 +1,11 @@
+body {
+    background-color: #fdff8b0a;
+}
+
+.mypage {
+    background-color: #fff;
+}
+
 .tested_app {
     display: inline-block;
     vertical-align: top;
@@ -30,7 +38,6 @@
 }
 
 .test_explanation {
-    margin-bottom: 1rem;
     font-size: 1rem;
 }
 
@@ -45,7 +52,7 @@
 
 .help {
     text-align: right;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: inline-block;
 }
 
@@ -188,12 +195,15 @@ img.edit_preview {
 
 .testcase_process,
 .help_disp,
+.help_test_disp,
 .testcase_disp,
 .testcase_delete,
 .post_delete {
     background-color: #f0f7ff;
     color: #000;
     border: 0.1rem solid #212529;
+    width: 500px;
+    top: 15%;
 }
 
 .testcase_disp .test_user_img {
@@ -289,22 +299,32 @@ select.priority {
 
 .testcase_disp .testcase_text {
     width: 100%;
+    height: auto;
     overflow-wrap: break-word;
-    white-space: unset;
+    white-space: pre-wrap;
+}
+
+.testcase_disp .testcase_procedure {
+    width: 100%;
+    height: auto;
+    overflow-wrap: break-word;
+    text-align: left;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre-wrap;
 }
 
 .testcase_disp #priority {
     width: 16%;
     margin-bottom: 1rem;
     background-color: unset;
-    display: none;
 }
 
 .testcase_disp #progress {
-    width: 6%;
+    width: 8%;
     margin-bottom: 1rem;
     background-color: unset;
-    display: none;
 }
 
 .test_case {
@@ -351,7 +371,6 @@ select.priority {
     height: 1.5rem;
     border-radius: 10rem;
     border: solid 0.1rem;
-    margin-right: 0.5rem;
 }
 
 .skill_space {
@@ -374,6 +393,32 @@ select.priority {
 
 .fas.fa-trash:hover {
     color: hsl(0, 100%, 30%);
+}
+
+.request_label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 4px;
+    margin: 0 4px;
+    height: auto;
+    border: 1px solid #c34928;
+    color: #c34928;
+    border-radius: 4px;
+    vertical-align: text-bottom;
+    margin-bottom: 0.1rem;
+}
+
+.test_help {
+    margin-top: -1rem;
+    font-size: 1.5rem;
+    text-align: right;
+    margin-right: 2rem;
+    margin-bottom: -1.6rem;
+}
+
+.test_helpbtn:hover {
+    opacity: 0.5;
 }
 
 

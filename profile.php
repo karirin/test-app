@@ -190,10 +190,10 @@ if (isset($_SESSION['login']) == true) {
                 </div>
             </div>
             <div class="btn_flex">
-                <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
-                <button class="btn btn-outline-info profile_close" type="button">キャンセル</button>
+                <button class="btn btn-outline-info profile_close" type="button">閉じる</button>
                 <button class="btn btn-outline-dark profile_narrow_close" type="button"
-                    style="width: 100%;">キャンセル</button>
+                    style="width: 100%;">閉じる</button>
+                <input type="submit" class="btn btn-outline-dark edit_done" value="編集完了">
             </div>
         </div>
 

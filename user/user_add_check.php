@@ -6,8 +6,9 @@
     $user_name = $_POST['name'];
     $user_pass = $_POST['pass'];
     $user_pass2 = $_POST['pass2'];
-    $user_image = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
-
+    if (!empty($_FILES['image']['tmp_name'])) {
+        $user_image = base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+    }
     $user_name = htmlspecialchars($user_name, ENT_QUOTES, 'UTF-8');
     $user_pass = htmlspecialchars($user_pass, ENT_QUOTES, 'UTF-8');
     $user_pass2 = htmlspecialchars($user_pass2, ENT_QUOTES, 'UTF-8');
@@ -40,7 +41,7 @@
     ?>
     <div class="row center">
         <div class="col-8 offset-2">
-            <h2 class="margin_top_bottom">こちらのユーザーを追加しますか</h2>
+            <h2 class="margin_top_bottom">こちらのユーザーを登録しますか</h2>
             <img src="user_add_check_image.php" class="user_newimage">
             <h3 class="margin_top_bottom"><?= $user_name ?></h3>
             <form method="post" action="user_add_done.php">
