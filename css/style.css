@@ -1934,10 +1934,10 @@ img.preview {
     }
     body.top {
         background-size: 400px;
-        background-position: 10% 20%;
+        background-position: 40% 20%;
     }
     .description {
-        font-size: 0.3rem;
+        font-size: 0.8rem;
         line-height: 1.5rem;
         margin-top: 75%;
         width: 90%;
