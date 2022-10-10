@@ -1957,6 +1957,19 @@ img.preview {
         margin-top: 5%;
     }
     .top_link_header img {
-        width: 70%;
+        width: 70% !important;
+    }
+    .top_link_header_login img {
+        width: 40% !important;
+    }
+    .prof_page img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .fas.fa-bars {
+        vertical-align: top;
+    }
+    .test_help {
+        display: none;
     }
 }

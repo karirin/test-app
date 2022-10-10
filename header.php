@@ -24,8 +24,8 @@
         ?>
         <ul class="main_ul">
             <li class="top_link">
-                <a sytle="margin: -0.5rem 0 0 -1.2rem;" href="../index.php?page_type=my_post"><img src="../Untitled.svg"
-                        width="128" /></a>
+                <a sytle="margin: -0.5rem 0 0 -1.2rem;" href="../index.php?page_type=my_post"
+                    class="top_link_header_login"><img src="../Untitled.svg"></a>
             </li>
             <li class="top_link prof_page"><a class="prof_modal" href="#"><img
                         src="data:image/jpeg;base64,<?= $current_user['image'] ?>" class="user_image"></a></li>
@@ -49,7 +49,7 @@
                     style="vertical-align: middle;"><i class="fas fa-sign-out-alt"
                         style="margin-right: 0.5rem;"></i>ログアウト</a>
             </li>
-            <li class="show_menu">メニュー
+            <li class="show_menu"><i class="fas fa-bars"></i>
                 <div class="slide_menu">
                     <a class="modal_close" href="#">
                         <p><i class="fas fa-angle-left"></i></p>
@@ -72,6 +72,9 @@
                         </a>
                         <a href="#" class="slide_menu_message post_modal">
                             <li>投稿</li>
+                        </a>
+                        <a href="#" class="test_helpbtn">
+                            <li>ヘルプ</li>
                         </a>
                         <a href="../user_login/user_logout.php">
                             <li>ログアウト</li>

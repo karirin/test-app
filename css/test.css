@@ -2,6 +2,11 @@ body {
     background-color: #fdff8b0a;
 }
 
+.top_link_header img,
+.top_link_header_login img {
+    width: 128px;
+}
+
 .mypage {
     background-color: #fff;
 }

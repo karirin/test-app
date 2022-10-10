@@ -400,20 +400,6 @@ $(document).on('click', '.help_btn', function() {
     });
 });
 
-// ヘルプモーダル画面出力処理
-$(document).on('click', '.test_helpbtn', function() {
-    scroll_position = $(window).scrollTop();
-    $('body').addClass('fixed').css({ 'top': -scroll_position });
-    $('.help_test_disp').fadeIn();
-    $('.modal_help').fadeIn();
-    $('.far.fa-times-circle.help_clear').fadeIn();
-    $(document).on('click', '.far.fa-times-circle.help_clear', function() {
-        $('.help_test_disp').fadeOut();
-        $('.modal_help').fadeOut();
-        $('.far.fa-times-circle.help_clear').fadeOut();
-    });
-});
-
 $(document).on('click', '.withdraw', function() {
     scroll_position = $(window).scrollTop();
     $('body').addClass('fixed').css({ 'top': -scroll_position });
