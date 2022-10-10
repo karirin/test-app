@@ -1933,13 +1933,13 @@ img.preview {
         padding: 0 1rem;
     }
     body.top {
-        background-size: 330px;
-        background-position: 40% 10%;
+        background-size: 400px;
+        background-position: 10% 20%;
     }
     .description {
         font-size: 0.3rem;
         line-height: 1.5rem;
-        margin-top: 50%;
+        margin-top: 75%;
         width: 75%;
         margin-left: 10%;
     }
