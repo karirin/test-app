@@ -1972,4 +1972,12 @@ img.preview {
     .test_help {
         display: none;
     }
+    .nav-link.post_tab {
+        font-size: 0.6rem;
+    }
+    .post {
+        margin-right: 20%;
+        margin-left: 20%;
+        width: 60%;
+    }
 }
