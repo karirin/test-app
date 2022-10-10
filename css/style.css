@@ -1933,16 +1933,15 @@ img.preview {
         padding: 0 1rem;
     }
     body.top {
-        background-size: 275px;
-        background-position: 0% 10%;
+        background-size: 330px;
+        background-position: 40% 10%;
     }
     .description {
-        margin: 0;
-        width: auto;
         font-size: 0.3rem;
-        line-height: unset;
-        width: 50%;
-        margin-left: 50%;
+        line-height: 1.5rem;
+        margin-top: 50%;
+        width: 75%;
+        margin-left: 10%;
     }
     .header {
         font-size: 0.7rem;
