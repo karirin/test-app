@@ -1980,4 +1980,40 @@ img.preview {
         margin-left: 20%;
         width: 60%;
     }
+    .help {
+        display: none !important;
+    }
+    .tested_app {
+        font-size: 0.8rem;
+    }
+    .progress {
+        font-size: 10px;
+        padding: 10px;
+    }
+    .textcase_text {
+        font-size: 0.5rem;
+    }
+    .test_case .priority {
+        padding: 0 0.3rem;
+    }
+    .test_case .testcase_text {
+        font-size: 0.5rem;
+    }
+    .test_case .progress {
+        padding: 5px !important;
+        font-size: 5px !important;
+    }
+    .test_case .test_user_info {
+        font-size: 0.3rem;
+    }
+    .test_case .test_user_info .test_user_img {
+        width: 1rem;
+        height: 1rem;
+    }
+    .test_case .priority div {
+        width: 180px;
+    }
+    .test_case .test_user_info {
+        display: none !important;
+    }
 }
