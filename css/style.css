@@ -2028,7 +2028,7 @@ img.preview {
         height: 1rem;
     }
     .test_case .priority div {
-        width: 180px;
+        width: 156px;
     }
     .test_case .test_user_info {
         display: none !important;
@@ -2048,5 +2048,8 @@ img.preview {
     .far.fa-times-circle.help_clear {
         top: -9%;
         right: -9%;
+    }
+    ul.test_case li .testcase_text {
+        width: 100% !important;
     }
 }

@@ -16,7 +16,7 @@ if (!empty($_POST)) {
                 <div class="user_title">ユーザー名</div>
                 <input type="text" name="name" class="user_name_input form-control">
                 <div class="user_title">パスワード</div>
-                <input type=" password" name="pass" class="user_pass_input form-control">
+                <input type="password" name="pass" class="user_pass_input form-control">
                 <div class="flex_btn margin_top">
                     <input class="btn btn-outline-info" type="button" onclick="history.back()" value="戻る">
                     <input class="btn btn-outline-dark" type="submit" value="ログイン">

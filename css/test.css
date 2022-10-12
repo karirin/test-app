@@ -1,5 +1,11 @@
 body {
     background-color: #fdff8b0a;
+    width: 97% !important;
+}
+
+.profile_name {
+    margin-left: -1rem;
+    text-align: center;
 }
 
 .top_link_header img,
