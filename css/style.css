@@ -1936,6 +1936,23 @@ img.preview {
         background-size: 400px;
         background-position: 40% 20%;
     }
+    .user .user_info {
+        vertical-align: text-top;
+        margin-top: 3%;
+    }
+    .user .user_info img {
+        width: 3rem;
+        height: 3rem;
+    }
+    .user .user_info .user_name {
+        font-size: 0.8rem;
+    }
+    .user .user_info .user_name i {
+        font-size: 15px !important;
+        margin-left: 0.3rem;
+        margin-right: 0 !important;
+        right: unset !important;
+    }
     .description {
         font-size: 0.8rem;
         line-height: 1.5rem;
@@ -2015,5 +2032,21 @@ img.preview {
     }
     .test_case .test_user_info {
         display: none !important;
+    }
+    .test_case .testcase_add {
+        font-size: 0.8rem;
+    }
+    .col-8.offset-2.message_list {
+        margin: 0;
+        flex: unset;
+        max-width: unset;
+    }
+    .help_test_disp img {
+        width: 19rem !important;
+        height: 16rem !important;
+    }
+    .far.fa-times-circle.help_clear {
+        top: -9%;
+        right: -9%;
     }
 }

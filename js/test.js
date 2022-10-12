@@ -798,9 +798,11 @@ $(document).on('click', '.test_helpbtn', function() {
     $('.help_test_disp').fadeIn();
     $('.modal_help').fadeIn();
     $('.far.fa-times-circle.help_clear').fadeIn();
+    $('.slide_menu').removeClass('open');
     $(document).on('click', '.far.fa-times-circle.help_clear', function() {
         $('.help_test_disp').fadeOut();
         $('.modal_help').fadeOut();
+        $('.modal').fadeOut();
         $('.far.fa-times-circle.help_clear').fadeOut();
     });
 });

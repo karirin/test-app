@@ -426,6 +426,17 @@ select.priority {
     opacity: 0.5;
 }
 
+.slide_menu {
+    background-color: #f0f7ff;
+    color: #000;
+    border: 0.1rem solid #212529;
+}
+
+.slide_menu ul li,
+.slide_menu .modal_close {
+    color: #000;
+}
+
 
 /* ///////////////////////// */
 

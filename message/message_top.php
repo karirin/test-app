@@ -20,7 +20,7 @@ foreach ($message_relations as $message_relation) :
 
 <body>
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-8 offset-2 message_list">
             <a href='message.php?user_id= <?= $destination_user['id'] ?>' id="message_link">
                 <div class="destination_user_list">
                     <div class='col-11 destination_user_info'>
