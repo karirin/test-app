@@ -2055,4 +2055,18 @@ img.preview {
     ul.test_case li .testcase_text {
         width: 100% !important;
     }
+    .post_process {
+        width: 360px;
+        height: 475px;
+    }
+    .post_process .left {
+        font-size: 1rem;
+    }
+    .post_process input,
+    .post_process textarea {
+        font-size: 0.5rem;
+    }
+    .post_process .test_explanation {
+        font-size: 0.8rem;
+    }
 }

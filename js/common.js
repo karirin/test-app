@@ -366,6 +366,7 @@ $(document).on('click', '.post_modal', function() {
     console.log($(this));
     $('body').addClass('fixed').css({ 'top': -scroll_position });
     //   $('#myskills').replaceWith('');
+    $('.slide_menu').removeClass('open');
     $('.post_process').fadeIn();
     $('.modal_post').fadeIn();
 });
