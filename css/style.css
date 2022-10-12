@@ -2069,4 +2069,16 @@ img.preview {
     .post_process .test_explanation {
         font-size: 0.8rem;
     }
+    .testcase_process {
+        width: 360px !important;
+    }
+    .testcase_process h5 {
+        font-size: 1rem !important;
+    }
+    .testcase_process textarea {
+        font-size: 0.5rem;
+    }
+    #priority {
+        font-size: 0.5rem;
+    }
 }
