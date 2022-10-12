@@ -2010,6 +2010,9 @@ img.preview {
     .textcase_text {
         font-size: 0.5rem;
     }
+    .test_case {
+        margin-top: 2rem;
+    }
     .test_case .priority {
         padding: 0 0.3rem;
     }
