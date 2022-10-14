@@ -58,13 +58,15 @@
         <span class="testcase_procedure_error"
             style="display:none;color: #dc3545;font-size: 1rem;vertical-align: top;">テストケースを入力してください</span>
     </div>
-    <span class="add_edit">
+    <span class="add_edit_priority">
         <span>進捗度</span>
         <select id="priority" name="priority" class="form-control" style="margin-right: 1rem;display:inline-block;">
             <option value="未実施">未実施</option>
             <option value="作業中">作業中</option>
             <option value="完了">完了</option>
         </select>
+    </span>
+    <span class="add_edit_progress">
         <span>優先度</span>
         <select id="progress" name="priority" class="form-control" style="margin-right: 1rem;display:inline-block;">
             <option value="A">A</option>

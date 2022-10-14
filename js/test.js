@@ -76,7 +76,7 @@ window.onload = function() {
             $('.priority .progress')[i].setAttribute("style", 'border: 0.13rem solid;');
         }
     }
-    console.log($('.user_helpdisp')[0].value);
+
     if ($('.user_helpdisp')[0].value == 0) {
         var user_id = $('.current_user_id')[0].value;
         $('.help_test_disp').fadeIn();
@@ -174,16 +174,23 @@ $(document).on('dblclick', '.priority', function() {
     if ($current_user_id == $user_id) {
         $('.testcase_disp .testcase_text').replaceWith('<span class="testcase_text">' + $($target_modal + ' > span')[0].textContent + '</span>');
         $('.testcase_disp .testcase_procedure').replaceWith('<span class="testcase_procedure">' + $($target_modal + ' > .procedure')[0].value + '</span>');
-        $('.testcase_disp .add_edit').fadeIn();
     } else {
         $('.testcase_disp .testcase_text').replaceWith('<span class="testcase_text" style="pointer-events: none">' + $($target_modal + ' > span')[0].textContent + '</span>');
         $('.testcase_disp .testcase_procedure').replaceWith('<span class="testcase_procedure" style="pointer-events: none">' + $($target_modal + ' > .procedure')[0].value + '</span>');
-        $('.testcase_disp .add_edit').fadeOut();
     }
-    if ($current_user_id == $post_user_id && $current_user_id != $user_id) {
+    // 投稿者はログインユーザーである
+    if ($current_user_id == $post_user_id) {
         $('.good_btn').fadeIn();
+        $('.add_edit_progress').fadeIn();
+        $('.add_edit_priority').fadeIn();
+    } else if ($current_user_id == $user_id) {
+        $('.good_btn').fadeOut();
+        $('.add_edit_progress').fadeIn();
+        $('.add_edit_priority').fadeOut();
     } else {
         $('.good_btn').fadeOut();
+        $('.add_edit_progress').fadeOut();
+        $('.add_edit_priority').fadeOut();
     }
     $('.testcase_disp .test_user_img')[0].setAttribute('src', $($target_modal + ' > .test_user_info > a > span >.test_user_img')[0].getAttribute('src'));
     $('.testcase_disp .testcase_created_at').replaceWith('<span class="testcase_created_at">' + $($target_modal + ' > .test_user_info > .created_at')[0].textContent + '</span>');
