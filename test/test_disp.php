@@ -45,7 +45,11 @@ $test = $test_class->get_test();
             $test_user = new User($test_case['user_id']);
             $test_user = $test_user->get_user(); ?>
         <li class="priority" data-target="#testcase_<?= $test_case['id'] ?>" data-toggle="testcase">
-            <div class="delete_btn"><i class="far fa-trash-alt" style="vertical-align: sub;"></i></div>
+            <form method="post" action="test_delete_done.php" style="display: inline;">
+                <button type="submit" class="delete_btn"><i class="far fa-trash-alt"
+                        style="vertical-align: sub;"></i></button>
+                <input type="hidden" name="testcase_id" value="<?= $test_case['id'] ?>">
+            </form>
             <span class="progress"><?= $test_case['progress'] ?></span>
             <div id="testcase_<?= $test_case['id'] ?>">
                 <input type="hidden" class="procedure" value="<?= $test_case['procedure'] ?>">

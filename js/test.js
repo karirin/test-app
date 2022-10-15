@@ -77,25 +77,27 @@ window.onload = function() {
         }
     }
 
-    if ($('.user_helpdisp')[0].value == 0) {
-        var user_id = $('.current_user_id')[0].value;
-        $('.help_test_disp').fadeIn();
-        $('.modal_help').fadeIn();
-        $('.far.fa-times-circle.help_clear').fadeIn();
-        $.ajax({
-            type: 'POST',
-            url: '../ajax_edit_test.php',
-            dataType: 'text',
-            data: {
-                user_id: user_id,
-                help_flg: 1
-            }
-        }).done(function() {}).fail(function() {});
-        $(document).on('click', '.far.fa-times-circle.help_clear', function() {
-            $('.help_test_disp').fadeOut();
-            $('.modal_help').fadeOut();
-            $('.far.fa-times-circle.help_clear').fadeOut();
-        });
+    if (!($('.user_helpdisp'))) {
+        if ($('.user_helpdisp')[0].value == 0) {
+            var user_id = $('.current_user_id')[0].value;
+            $('.help_test_disp').fadeIn();
+            $('.modal_help').fadeIn();
+            $('.far.fa-times-circle.help_clear').fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: '../ajax_edit_test.php',
+                dataType: 'text',
+                data: {
+                    user_id: user_id,
+                    help_flg: 1
+                }
+            }).done(function() {}).fail(function() {});
+            $(document).on('click', '.far.fa-times-circle.help_clear', function() {
+                $('.help_test_disp').fadeOut();
+                $('.modal_help').fadeOut();
+                $('.far.fa-times-circle.help_clear').fadeOut();
+            });
+        }
     }
 }
 
@@ -107,18 +109,20 @@ var timerId;
 /// 長押し・ロングタップを検知する
 $(document).on("mousedown touchstart", '.priority', function() {
     var $target_modal = $(this).data("target");
+    console.log($target_modal); //#testcase_133
+    console.log($($target_modal).prev().prev().children()); //delete_btn
     timerId = setTimeout(function() {
-        if ($($target_modal).prev().prev().css('display') == 'none') {
+        if ($($target_modal).prev().prev().children().css('display') == 'none') {
             $($target_modal).animate({ width: '587px' }, 'slow');
             $($target_modal + ' .testcase_text').animate({ width: '76%' }, 'slow');
             $($target_modal).animate({ height: '45px' }, 'slow');
-            $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
-            $($target_modal).prev().prev().css('display', 'inline-block');
+            $($target_modal).prev().prev().children().animate({ width: 'toggle' }, 'slow');
+            $($target_modal).prev().prev().children().css('display', 'inline-block');
         } else {
             $($target_modal).animate({ width: '630px' }, 'slow');
             $($target_modal + ' .testcase_text').animate({ width: '77%' }, 'slow');
-            $($target_modal).prev().prev().animate({ width: 'toggle' }, 'slow');
-            $($target_modal).prev().prev().css('display', 'inline-block');
+            $($target_modal).prev().prev().children().animate({ width: 'toggle' }, 'slow');
+            $($target_modal).prev().prev().children().css('display', 'inline-block');
         }
     }, LONGPRESS);
     // テストケースの削除ボタン押下時
@@ -144,6 +148,7 @@ $(document).on("mousedown touchstart", '.priority', function() {
                 $('.modal_testcase').fadeOut();
                 $('.testcase_delete').fadeOut();
                 $($target_modal).parent().fadeOut(1000);
+                reload();
             }).fail(function() {});
         });
     }).on("mouseup mouseleave touchend", function() {

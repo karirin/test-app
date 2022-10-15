@@ -1019,17 +1019,17 @@ $(function() {
 // });
 
 if (document.getElementById('licence_input') != null || document.getElementById('licence_input_narrow') != null || document.getElementById('licence_input_narrower') != null) {
-    let licence_input = document.getElementById('licence_input');
-    licence_input_narrow = document.getElementById('licence_input_narrow'),
-        // licence_input_narrower = document.getElementById('licence_input_narrower');
-        licence_input.addEventListener('change', inputChange_licence);
+    let licence_input = document.getElementById('licence_input'),
+        licence_input_narrow = document.getElementById('licence_input_narrow');
+    // licence_input_narrower = document.getElementById('licence_input_narrower');
+    licence_input.addEventListener('change', inputChange_licence);
     licence_input_narrow.addEventListener('change', inputChange_licence);
     // licence_input_narrower.addEventListener('change', inputChange_licence);
 
-    var licence = document.getElementById("licence");
-    licence_narrow = document.getElementById("licence_narrow"),
-        // licence_narrower = document.getElementById("licence_narrower"),
-        spans = licence.getElementsByTagName("span");
+    var licence = document.getElementById("licence"),
+        licence_narrow = document.getElementById("licence_narrow");
+    // licence_narrower = document.getElementById("licence_narrower"),
+    spans = licence.getElementsByTagName("span");
     spans_narrow = licence_narrow.getElementsByTagName("span");
     // spans_narrower = licence_narrower.getElementsByTagName("span");
 

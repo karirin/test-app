@@ -26,7 +26,12 @@ if (isset($block[0])) :
                     ?>
             <div class="post_text ellipsis" id="post_text"><?php print '' . $post['service'] . ''; ?></div>
     </a>
+    <?php if ($_SESSION['user_id'] == $post['user_id']) : ?>
+    <p class="post_created_at" style="display: flex;justify-content: space-between;"><i
+            class="fas fa-trash"></i><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
+    <?php else : ?>
     <p class="post_created_at"><?php print '' . convert_to_fuzzy_time($post['created_at']) . ''; ?></p>
+    <?php endif; ?>
 </div>
 </div>
 
