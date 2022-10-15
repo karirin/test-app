@@ -25,4 +25,5 @@
 
     gtag('config', 'UA-245692646-1');
     </script>
+    <meta name="google-site-verification" content="2fpX0FuBWXUTGwj9sdAFRQCorg2hhE9KGWUS3EXMzVM" />
 </head>
