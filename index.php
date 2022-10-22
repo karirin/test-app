@@ -26,8 +26,7 @@ if (isset($_SESSION['login']) == false) :
     <body>
         <?php require("test/test_top.php"); ?>
         <?php endif; ?>
-
+        <?php require('footer.php'); ?>
     </body>
-    <?php require('footer.php'); ?>
 
     </html>
